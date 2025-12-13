@@ -1,0 +1,76 @@
+{
+    "mouthUp": {
+        "mouthUp": 2
+    },
+    "mouthLipsTogether": {
+        "jawOpen_mouthLipsTogetherUL_mouthLipsTogetherUR": 1,
+        "jawOpen_mouthLipsTogetherDL_mouthLipsTogetherDR": 1,
+        "jawOpen": -2
+    },
+    "jawOpenExtreme": {
+        "jawOpen_jawOpenExtreme": 1,
+        "jawOpen": -1
+    },
+    "mouthStretchLipsCloseR": [
+        "mouthStretchR_mouthStretchLipsCloseR"
+    ],
+    "mouthStretchLipsCloseL": [
+        "mouthStretchL_mouthStretchLipsCloseL"
+    ],
+    "mouthFunnel": [
+        "mouthFunnelDL",
+        "mouthFunnelDR",
+        "mouthFunnelUL",
+        "mouthFunnelUR"
+    ],
+    "mouthLipsPurse": [
+        "mouthLipsPurseDL",
+        "mouthLipsPurseDR",
+        "mouthLipsPurseUL",
+        "mouthLipsPurseUR",
+        "mouthLipsTowardsDL",
+        "mouthLipsTowardsDR",
+        "mouthLipsTowardsUL",
+        "mouthLipsTowardsUR"
+    ],
+    "mouthLowerLipBite": [
+        "mouthLowerLipBiteR",
+        "mouthLowerLipBiteL"
+    ],
+    "mouthUpperLipBite": [
+        "mouthUpperLipBiteL",
+        "mouthUpperLipBiteR"
+    ],
+    "mouthPress": [
+        "mouthPressDL",
+        "mouthPressUL",
+        "mouthPressDR",
+        "mouthPressUR"
+    ],
+    "browRaiseIn": [
+        "browRaiseInL",
+        "browRaiseInR"
+    ],
+    "mouthCheekBlow": [
+        "mouthCheekBlowL",
+        "mouthCheekBlowR",
+        "mouthLipsBlowL",
+        "mouthLipsBlowR"
+    ],
+    "mouthLowerLipDepress": [
+        "mouthLowerLipDepressL",
+        "mouthLowerLipDepressR"
+    ],
+    "mouthUpperLipRaise": [
+        "mouthUpperLipRaiseR",
+        "mouthUpperLipRaiseL"
+    ],
+    "jawChinRaiseD": [
+        "jawChinRaiseDR",
+        "jawChinRaiseDL"
+    ],
+    "jawChinRaiseU": [
+        "jawChinRaiseUR",
+        "jawChinRaiseUL"
+    ]
+}

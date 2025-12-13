@@ -1,0 +1,48 @@
+{
+    "anim_json": "D:/work/x3_ai_face/x3_face_anim/MySlate_7.json", 
+    "task": "fit_part", 
+    "vert_mask": "L:/scripts/aiMetaTool2/aiMetaExe/config/data/lip_mask.json", 
+    "bs_name": "L:/scripts/aiMetaTool2/aiMetaExe/config/data/low/bs_name.json", 
+    "anim_obj": "D:/work/x3_ai_face/x3_face_anim/MySlate_7.npy", 
+    "fix": {
+        "learning_rate": 0.01, 
+        "max_iter": 10000
+    }, 
+    "out_bs_path": "D:/work/x3_ai_face/x3_face_anim/MySlate_7_ai_result.json", 
+    "vert_mask_w": [
+        1.5, 
+        1.5, 
+        3
+    ], 
+    "anim_is_np": true, 
+    "choose": {
+        "del_name": "script/delete_facs_02.txt"
+    }, 
+    "mutex_bs_eps": 0.005, 
+    "save_debug_info": false, 
+    "bs_mutex": "L:/scripts/aiMetaTool2/aiMetaExe/config/data/low/bs_mutex.json", 
+    "bs_path": "L:/scripts/aiMetaTool2/aiMetaExe/config/data/low/targets", 
+    "vary_range": {
+        "mouthUpperLipBite": [
+            2.0, 
+            0.001
+        ], 
+        "mouthRight": [
+            2.0, 
+            0.001
+        ], 
+        "mouthLowerLipBite": [
+            2.0, 
+            0.001
+        ], 
+        "mouthLeft": [
+            2.0, 
+            0.001
+        ]
+    }, 
+    "finetune_mh": {
+        "learning_rate": 0.001, 
+        "max_iter": 500, 
+        "norm_w": 0.0001
+    }
+}

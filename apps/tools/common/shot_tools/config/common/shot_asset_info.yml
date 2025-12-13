@@ -1,0 +1,42 @@
+#Example:
+#asset:asset类型
+#  Crd:资产类型的分类
+#    Rig_hig:任务名称
+#      asset_link_up: { 'Oat': [ 'Ani_customize' ] }
+#shot:shot类型
+#  cts_rough:任务名称
+#    relation_asset_type: [ "Cam" ]需要追加的链接资产的类型【读取该类型下的资产并追加】
+#    role资产类型的分类
+#      asset_up: [ 'drama_rig','rbf','ue_rig' ]链接的资产任务名称列表【出现在下拉列表中】
+
+asset:
+  role:
+    drama_rig:
+      asset_link_up: { 'body': [ 'rbf','drama_rig' ] }
+    rbf:
+      asset_link_up: { 'body': [ 'rbf','drama_rig' ] }
+
+shot:
+  cts_rough:
+    camera:
+      asset_up: [ 'cam','cam_drama' ]
+    role:
+      asset_up: [ 'rbf','drama_rig']
+    rolaccesory:
+      asset_up: [ 'drama_rig' ]
+    item:
+      asset_up: [ 'drama_rig' ]
+    weapon:
+      asset_up: ['drama_rig' ]
+    enemy:
+      asset_up: [ 'drama_rig']
+    hair:
+      asset_up: [ 'rbf','drama_rig' ]
+    body:
+      asset_up: [ 'rbf','drama_rig' ]
+    npc:
+      asset_up: [ 'rbf','drama_rig' ]
+    environment:
+      asset_up: [ 'whitebox' ]
+
+

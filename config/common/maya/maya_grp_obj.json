@@ -1,0 +1,202 @@
+{
+  "Asset.body.mod": [
+    {
+      "grp": "{ad}001H_HD",
+      "objs": "{ad}001H_HD_*"
+    },
+    {
+      "grp": "{ad}001F_HD",
+      "objs": "{ad}001F_HD_*"
+    },
+    {
+      "grp": "{ad}001B_HD",
+      "objs": "{ad}001B_HD_*"
+    },
+    {
+      "grp": "{ad}001H_LD",
+      "objs": "{ad}001H_LD_*"
+    },
+    {
+      "grp": "{ad}001F_LD",
+      "objs": "{ad}001F_LD_*"
+    },
+    {
+      "grp": "{ad}001B_LD",
+      "objs": "{ad}001B_LD_*"
+    }
+  ],
+  "Asset.cartoon_body.mod": [
+    {
+      "grp": "{ad}001H_HD",
+      "objs": "{ad}001H_HD_*"
+    },
+    {
+      "grp": "{ad}001F_HD",
+      "objs": "{ad}001F_HD_*"
+    },
+    {
+      "grp": "{ad}001B_HD",
+      "objs": "{ad}001B_HD_*"
+    },
+    {
+      "grp": "{ad}001H_LD",
+      "objs": "{ad}001H_LD_*"
+    },
+    {
+      "grp": "{ad}001F_LD",
+      "objs": "{ad}001F_LD_*"
+    },
+    {
+      "grp": "{ad}001B_LD",
+      "objs": "{ad}001B_LD_*"
+    }
+  ],
+  "Asset.cartoon_body.fight": [
+    {
+      "grp": "{ad}001H_HD",
+      "objs": "{ad}001H_HD_*"
+    },
+    {
+      "grp": "{ad}001F_HD",
+      "objs": "{ad}001F_HD_*"
+    },
+    {
+      "grp": "{ad}001B_HD",
+      "objs": "{ad}001B_HD_*"
+    },
+    {
+      "grp": "{ad}001H_LD",
+      "objs": "{ad}001H_LD_*"
+    },
+    {
+      "grp": "{ad}001F_LD",
+      "objs": "{ad}001F_LD_*"
+    },
+    {
+      "grp": "{ad}001B_LD",
+      "objs": "{ad}001B_LD_*"
+    }
+  ],
+  "Asset.role.fight": [
+    {
+      "grp": "{entity_name}_LD",
+      "objs": "{entity_name}_LD_*"
+    }
+  ],
+  "Asset.role.mod": [
+    {
+      "grp": "{entity_name}_HD",
+      "objs": "{entity_name}_HD_*"
+    }
+  ],
+  "Asset.cartoon_role.fight": [
+    {
+      "grp": "{entity_name}_LD",
+      "objs": "{entity_name}_LD_*"
+    }
+  ],
+  "Asset.cartoon_role.mod": [
+    {
+      "grp": "{entity_name}_HD",
+      "objs": "{entity_name}_HD_*"
+    }
+  ],
+  "Asset.item.fight": [
+    {
+      "grp": "{entity_name}_LD",
+      "objs": "{entity_name}_LD_*"
+    }
+  ],
+  "Asset.item.mod": [
+    {
+      "grp": "{entity_name}_HD",
+      "objs": "{entity_name}_HD_*"
+    }
+  ],
+  "Asset.rolaccesory.fight": [
+    {
+      "grp": "{entity_name}_HD",
+      "objs": "{entity_name}_HD_*"
+    }
+  ],
+  "Asset.rolaccesory.mod": [
+    {
+      "grp": "{entity_name}_HD",
+      "objs": "{entity_name}_HD_*"
+    }
+  ],
+  "Asset.cartoon_rolaccesory.fight": [
+    {
+      "grp": "{entity_name}_HD",
+      "objs": "{entity_name}_HD_*"
+    }
+  ],
+  "Asset.cartoon_rolaccesory.mod": [
+    {
+      "grp": "{entity_name}_HD",
+      "objs": "{entity_name}_HD_*"
+    }
+  ],
+
+
+
+  "Asset.weapon.fight": [
+    {
+      "grp": "{entity_name}_LD",
+      "objs": "{entity_name}_LD_*"
+    }
+  ],
+  "Asset.weapon.mod": [
+    {
+      "grp": "{entity_name}_LD",
+      "objs": "{entity_name}_LD_*"
+    }
+  ],
+  "Asset.npc.fight": [
+    {
+      "grp": "{entity_name}",
+      "objs": "{entity_name}_*"
+    }
+  ],
+  "Asset.npc.mod": [
+    {
+      "grp": "{entity_name}",
+      "objs": "{entity_name}_*"
+    }
+  ],
+
+  "Asset.enemy.fight": [
+    {
+      "grp": "{entity_name}",
+      "objs": "{entity_name}_*"
+    }
+  ],
+  "Asset.enemy.mod": [
+    {
+      "grp": "{entity_name}",
+      "objs": "{entity_name}_*"
+    }
+  ],
+  "Asset.hair.mod": [
+    {
+      "grp": "{ad}001H_HD",
+      "objs": "{ad}001H_HD_*"
+    },
+
+    {
+      "grp": "{ad}001H_LD",
+      "objs": "{ad}001H_LD_*"
+    }
+
+  ],
+  "Asset.hair.fight": [
+    {
+      "grp": "{ad}001H_HD",
+      "objs": "{ad}001H_HD_*"
+    },
+    {
+      "grp": "{ad}001H_LD",
+      "objs": "{ad}001H_LD_*"
+    }
+  ]
+}

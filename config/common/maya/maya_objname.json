@@ -1,0 +1,166 @@
+{
+  "Asset.body.mod": {
+    "mesh": {
+      "{ad}001H_HD": [
+        "{ad}_Hair"
+      ],
+      "{ad}001F_HD": [
+        "{ad}_Head",
+        "{ad}_Teeth",
+        "{ad}_Eyes_R",
+        "{ad}_Eyes_L",
+        "{ad}_Eyeshell",
+        "{ad}_Eyelashes"
+      ],
+      "{ad}001B_HD": [
+        "{ad}_Body",
+        "{ad}_Arm"
+      ],
+      "{ad}001H_LD": [
+        "{ad}_Hair_LD"
+      ],
+      "{ad}001F_LD": [
+        "{ad}_Head_lod",
+        "{ad}_Teeth_lod",
+        "{ad}_Eyes_R_lod",
+        "{ad}_Eyes_L_lod",
+        "{ad}_Eyelashes_lod"
+      ],
+      "{ad}001B_LD": [
+        "{ad}_Body_lod"
+      ]
+    }
+  },
+  "Asset.body.wbx": {
+    "mesh": {
+      "{ad}001H_HD": [
+        "{ad}_Hair"
+      ],
+      "{ad}001F_HD": [
+        "{ad}_Head",
+        "{ad}_Teeth",
+        "{ad}_Eyes_R",
+        "{ad}_Eyes_L",
+        "{ad}_Eyeshell",
+        "{ad}_Eyelashes"
+      ],
+      "{ad}001B_HD": [
+        "{ad}_Body",
+        "{ad}_Arm"
+      ],
+      "{ad}001H_LD": [
+        "{ad}_Hair_LD"
+      ],
+      "{ad}001F_LD": [
+        "{ad}_Head_lod",
+        "{ad}_Teeth_lod",
+        "{ad}_Eyes_R_lod",
+        "{ad}_Eyes_L_lod",
+        "{ad}_Eyelashes_lod"
+      ],
+      "{ad}001B_LD": [
+        "{ad}_Body_lod"
+      ]
+    }
+  },
+  "Asset.body.fight": {
+    "mesh": {
+      "{ad}001H_HD": [
+        "{ad}_Hair"
+      ],
+      "{ad}001F_HD": [
+        "{ad}_Head",
+        "{ad}_Teeth",
+        "{ad}_Eyes_R",
+        "{ad}_Eyes_L",
+        "{ad}_Eyeshell",
+        "{ad}_Eyelashes"
+      ],
+      "{ad}001B_HD": [
+        "{ad}_Body",
+        "{ad}_Arm"
+      ],
+      "{ad}001H_LD": [
+        "{ad}_Hair_LD"
+      ],
+      "{ad}001F_LD": [
+        "{ad}_Head_lod",
+        "{ad}_Teeth_lod",
+        "{ad}_Eyes_R_lod",
+        "{ad}_Eyes_L_lod",
+        "{ad}_Eyelashes_lod"
+      ],
+      "{ad}001B_LD": [
+        "{ad}_Body_lod"
+      ]
+    }
+  },
+  "Asset.body.rig": {
+    "mesh": {
+      "{ad}001H_HD": [
+        "{ad}_Hair"
+      ],
+      "{ad}001F_HD": [
+        "{ad}_Head",
+        "{ad}_Teeth",
+        "{ad}_Eyes_R",
+        "{ad}_Eyes_L",
+        "{ad}_Eyeshell",
+        "{ad}_Eyelashes"
+      ],
+      "{ad}001B_HD": [
+        "{ad}_Body",
+        "{ad}_Arm"
+      ],
+      "{ad}001H_LD": [
+        "{ad}_Hair_LD"
+      ],
+      "{ad}001F_LD": [
+        "{ad}_Head_lod",
+        "{ad}_Teeth_lod",
+        "{ad}_Eyes_R_lod",
+        "{ad}_Eyes_L_lod",
+        "{ad}_Eyelashes_lod"
+      ],
+      "{ad}001B_LD": [
+        "{ad}_Body_lod"
+      ]
+    }
+  },
+  "Asset.body.rbf": {
+    "mesh": {
+      "{ad}001H_HD": [
+        "{ad}_Hair"
+      ],
+      "{ad}001F_HD": [
+        "{ad}_Head",
+        "{ad}_Teeth",
+        "{ad}_Eyes_R",
+        "{ad}_Eyes_L",
+        "{ad}_Eyeshell",
+        "{ad}_Eyelashes"
+      ],
+      "{ad}001B_HD": [
+        "{ad}_Body",
+        "{ad}_Arm"
+      ],
+      "{ad}001H_LD": [
+        "{ad}_Hair_LD"
+      ],
+      "{ad}001F_LD": [
+        "{ad}_Head_lod",
+        "{ad}_Teeth_lod",
+        "{ad}_Eyes_R_lod",
+        "{ad}_Eyes_L_lod",
+        "{ad}_Eyelashes_lod"
+      ],
+      "{ad}001B_LD": [
+        "{ad}_Body_lod"
+      ]
+    }
+  }
+}
+
+
+
+

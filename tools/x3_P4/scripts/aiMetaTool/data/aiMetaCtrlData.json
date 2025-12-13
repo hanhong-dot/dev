@@ -1,0 +1,204 @@
+{
+    "eyeLookDownR": {
+        "CTRL_R_eye.translateY": -1
+    }, 
+    "browRaiseInL": {
+        "CTRL_L_brow_raiseIn.translateY": 1.0
+    }, 
+    "eyeSquintInnerR": {
+        "CTRL_R_eye_squintInner.translateY": 1.0
+    }, 
+    "eyeLookUpR": {
+        "CTRL_R_eye.translateY": 1
+    }, 
+    "noseWrinkleL": {
+        "CTRL_L_nose.translateY": 1.0
+    }, 
+    "eyeLookLeftR": {
+        "CTRL_R_eye.translateX": 1
+    }, 
+    "mouthLipsPurse": {
+        "CTRL_R_mouth_purseU.translateY": 1.0, 
+        "CTRL_L_mouth_purseD.translateY": 1.0, 
+        "CTRL_L_mouth_purseU.translateY": 1.0, 
+        "CTRL_R_mouth_purseD.translateY": 1.0
+    }, 
+    "browLateralR": {
+        "CTRL_R_brow_lateral.translateY": 1.0
+    }, 
+    "browLateralL": {
+        "CTRL_L_brow_lateral.translateY": 1.0
+    }, 
+    "eyeLookLeftL": {
+        "CTRL_L_eye.translateX": 1
+    }, 
+    "noseNostrilCompress": {
+        "CTRL_R_nose.translateX": -1.0, 
+        "CTRL_L_nose.translateX": -1.0
+    }, 
+    "mouthFunnel": {
+        "CTRL_R_mouth_funnelD.translateY": 1.0, 
+        "CTRL_L_mouth_funnelU.translateY": 1.0, 
+        "CTRL_R_mouth_funnelU.translateY": 1.0, 
+        "CTRL_L_mouth_funnelD.translateY": 1.0
+    }, 
+    "noseWrinkleR": {
+        "CTRL_R_nose.translateY": 1.0
+    }, 
+    "eyeSquintInnerL": {
+        "CTRL_L_eye_squintInner.translateY": 1.0
+    }, 
+    "eyeLookUpL": {
+        "CTRL_L_eye.translateY": 1
+    }, 
+    "eyeLookDownL": {
+        "CTRL_L_eye.translateY": -1
+    }, 
+    "browRaiseInR": {
+        "CTRL_R_brow_raiseIn.translateY": 1.0
+    }, 
+    "mouthLipsTowardsD": {
+        "CTRL_R_mouth_towardsD.translateY": 1.0, 
+        "CTRL_L_mouth_towardsD.translateY": 1.0
+    }, 
+    "eyeLookRightR": {
+        "CTRL_R_eye.translateX": -1
+    }, 
+    "jawRight": {
+        "CTRL_C_jaw.translateX": 1.0
+    }, 
+    "mouthCornerDepressR": {
+        "CTRL_R_mouth_cornerDepress.translateY": 1.0
+    }, 
+    "mouthDimpleL": {
+        "CTRL_L_mouth_dimple.translateY": 1.0
+    }, 
+    "mouthLipsTogetherU": {
+        "CTRL_L_mouth_lipsTogetherU.translateY": 1.0, 
+        "CTRL_R_mouth_lipsTogetherU.translateY": 1.0
+    }, 
+    "mouthStretch": {
+        "CTRL_R_mouth_stretch.translateY": 1.0, 
+        "CTRL_L_mouth_stretch.translateY": 1.0
+    }, 
+    "mouthCheekBlow": {
+        "CTRL_L_mouth_lipsBlow.translateY": 1.0, 
+        "CTRL_R_mouth_suckBlow.translateY": 1.0, 
+        "CTRL_L_mouth_suckBlow.translateY": 1.0, 
+        "CTRL_R_mouth_lipsBlow.translateY": 1.0
+    }, 
+    "mouthLipsTowardsU": {
+        "CTRL_R_mouth_towardsU.translateY": 1.0, 
+        "CTRL_L_mouth_towardsU.translateY": 1.0
+    }, 
+    "noseNostrilDilate": {
+        "CTRL_R_nose.translateX": 1.0, 
+        "CTRL_L_nose.translateX": 1.0
+    }, 
+    "mouthLeft": {
+        "CTRL_C_mouth.translateX": 1.0
+    }, 
+    "mouthDimpleR": {
+        "CTRL_R_mouth_dimple.translateY": 1.0
+    }, 
+    "mouthLipsTogetherD": {
+        "CTRL_L_mouth_lipsTogetherD.translateY": 1.0, 
+        "CTRL_R_mouth_lipsTogetherD.translateY": 1.0
+    }, 
+    "mouthCornerDepressL": {
+        "CTRL_L_mouth_cornerDepress.translateY": 1.0
+    }, 
+    "eyeLookRightL": {
+        "CTRL_L_eye.translateX": -1
+    }, 
+    "jawFwd": {
+        "CTRL_C_jaw_fwdBack.translateY": -1.0
+    }, 
+    "jawChinRaise": {
+        "CTRL_L_jaw_ChinRaiseU.translateY": 1.0, 
+        "CTRL_R_jaw_ChinRaiseU.translateY": 1.0, 
+        "CTRL_L_jaw_ChinRaiseD.translateY": 1.0, 
+        "CTRL_L_jaw_chinCompress.translateY": 1.0, 
+        "CTRL_R_jaw_chinCompress.translateY": 1.0, 
+        "CTRL_R_jaw_ChinRaiseD.translateY": 1.0
+    }, 
+    "mouthStickyC": {
+        "CTRL_L_mouth_stickyInnerD.translateY": 0.5, 
+        "CTRL_R_mouth_stickyInnerU.translateY": 0.5, 
+        "CTRL_C_mouth_stickyU.translateY": 1.0, 
+        "CTRL_L_mouth_stickyInnerU.translateY": 0.5, 
+        "CTRL_R_mouth_stickyInnerD.translateY": 0.5, 
+        "CTRL_C_mouth_stickyD.translateY": 1.0
+    }, 
+    "mouthRight": {
+        "CTRL_C_mouth.translateX": -1.0
+    }, 
+    "eyeBlinkL": {
+        "CTRL_L_eye_blink.translateY": 1.0
+    }, 
+    "jawLeft": {
+        "CTRL_C_jaw.translateX": -1.0
+    }, 
+    "jawOpen": {
+        "CTRL_C_jaw.translateY": 1.0
+    }, 
+    "eyeBlinkR": {
+        "CTRL_R_eye_blink.translateY": 1.0
+    }, 
+    "mouthUpperLipBite": {
+        "CTRL_L_mouth_lipBiteU.translateY": 1.0, 
+        "CTRL_R_mouth_lipBiteU.translateY": 1.0
+    }, 
+    "mouthSticky": {
+        "CTRL_L_mouth_stickyOuterD.translateY": 1.0, 
+        "CTRL_L_mouth_stickyOuterU.translateY": 1.0, 
+        "CTRL_L_mouth_stickyInnerD.translateY": 0.5, 
+        "CTRL_R_mouth_stickyInnerU.translateY": 0.5, 
+        "CTRL_R_mouth_stickyOuterD.translateY": 1.0, 
+        "CTRL_R_mouth_stickyInnerD.translateY": 0.5, 
+        "CTRL_L_mouth_stickyInnerU.translateY": 0.5, 
+        "CTRL_R_mouth_stickyOuterU.translateY": 1.0
+    }, 
+    "mouthUpperLipRaise": {
+        "CTRL_R_mouth_upperLipRaise.translateY": 1.0, 
+        "CTRL_L_mouth_upperLipRaise.translateY": 1.0
+    }, 
+    "browRaiseOuterL": {
+        "CTRL_L_brow_raiseOut.translateY": 1.0
+    }, 
+    "eyeWidenR": {
+        "CTRL_R_eye_blink.translateY": -1.0
+    }, 
+    "browDownR": {
+        "CTRL_R_brow_down.translateY": 1.0
+    }, 
+    "mouthCornerPullR": {
+        "CTRL_R_mouth_cornerPull.translateY": 1.0
+    }, 
+    "eyeCheekRaiseR": {
+        "CTRL_R_eye_cheekRaise.translateY": 1.0
+    }, 
+    "eyeCheekRaiseL": {
+        "CTRL_L_eye_cheekRaise.translateY": 1.0
+    }, 
+    "mouthLowerLipDepress": {
+        "CTRL_R_mouth_lowerLipDepress.translateY": 1.0, 
+        "CTRL_L_mouth_lowerLipDepress.translateY": 1.0
+    }, 
+    "mouthLowerLipBite": {
+        "CTRL_R_mouth_lipBiteD.translateY": 1.0, 
+        "CTRL_L_mouth_lipBiteD.translateY": 1.0
+    }, 
+    "mouthCornerPullL": {
+        "CTRL_L_mouth_cornerPull.translateY": 1.0
+    }, 
+    "browDownL": {
+        "CTRL_L_brow_down.translateY": 1.0
+    }, 
+    "browRaiseOuterR": {
+        "CTRL_R_brow_raiseOut.translateY": 1.0
+    }, 
+    "eyeWidenL": {
+        "CTRL_L_eye_blink.translateY": -1.0
+    }
+}

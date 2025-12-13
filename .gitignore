@@ -1,0 +1,15 @@
+
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+/.git
+/.idea
+/dev.iml
+/venv
+/apps/tools/motionbuilder/x3_animation_exporter/.idea/.gitignore
+
+**/__pycache__/

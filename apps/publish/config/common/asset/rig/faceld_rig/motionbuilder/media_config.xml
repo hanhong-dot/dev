@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<check name="check_version" project="">
+    <!-- check_page 属性说明 name    检查分页的名称
+                           project  继承的项目
+
+    属性说明
+                  order_id       表示检查的顺序
+                  projectType    表示这个item是这类项目的类型才显示  类型有：TV,FILM,AD,all
+                  item_name      表示该item的名字
+                  toolTip        表示提示文字
+                  check_command  表示调用的检测命令
+                  process_command 表示处理命令
+                  except_project 表示排除的项目名
+                  except_projectType 表示排除的项目类型  建议当projectType为all时候进行排除
+
+
+
+    -->
+    <check_tab tab_name="媒体">
+        <checkItem order_id="1" projectType="all"
+                   item_name="检测文件大小"
+                   toolTip="检测文件大小"
+                   check_command=""
+                   process_command=""
+                   except_project=""
+                   except_projectType=""
+        />
+
+    </check_tab>
+</check>

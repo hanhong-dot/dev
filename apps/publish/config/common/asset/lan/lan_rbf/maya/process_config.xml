@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--process name="process" project = "common"-->
+<process name="process" project="">
+    <!-- 属性说明  name    检查页的名称
+                 project  继承的项目
+
+    属性说明
+                  order_id       表示检查的顺序
+                  projectType    表示这个item是这类项目的类型才显示  类型有：TV,FILM,AD,all
+                  item_name      表示该item的名字
+                  toolTip        表示提示文字
+                  process_command 表示调用的处理命令，需传个固定的参数TaskData_Class给方法或类，这样无需重新初始化task_data，这样速度会快很多
+                  except_project 表示排除的项目名   建议当projectType为all时候进行排除
+                  except_projectType 表示排除的项目类型  建议当projectType为all时候进行排除
+    -->
+    <process_tab tab_name="文件处理">
+        <processItem order_id="1" projectType="all"
+                     item_name="生成备份publish文件"
+                     toolTip="备份publish文件"
+                     process_command="import apps.publish.process.maya.process_sgfile as process_sgfile;reload(process_sgfile);process_sgfile.back_publish(TaskData_Class)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="2" projectType="all"
+                     item_name="保存work文件"
+                     toolTip="保存work文件"
+                     process_command="import apps.publish.process.maya.process_sgfile as process_sgfile;reload(process_sgfile);process_sgfile.save_work(TaskData_Class)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="3" projectType="all"
+                     item_name="生成publish文件"
+                     toolTip="保存文件到本地"
+                     process_command="import apps.publish.process.maya.process_sgfile as process_sgfile;reload(process_sgfile);process_sgfile.processPublish(TaskData_Class)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="4" projectType="all"
+                     item_name="将贴图收集到work文件夹"
+                     toolTip="将贴图收集到work文件夹"
+                     process_command="import apps.tools.maya.work_collect.collect_tools as collect_tools;reload(collect_tools);collect_tools.collect_work(_project='x3',ui=False)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="5" projectType="all"
+                     item_name="收集节点文件(贴图，abc,ass等等)"
+                     toolTip="收集节点文件"
+                     process_command="import apps.publish.process.maya.process_nodefile as process_nodefile;reload(process_nodefile);process_nodefile.ProcessNodeFile(TaskData_Class).collect_work_nodefile()"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="6" projectType="all"
+                     item_name="清理无用节点和插件"
+                     toolTip="清理无用节点和插件"
+                     process_command="import lib.maya.unknow_clean as unknowclean;reload(unknowclean);unknowclean.unknowdelete(1,1,0,0)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="7" projectType="all"
+                     item_name="导入参考"
+                     toolTip="导入参考"
+                     process_command="import method.maya.common.reference as refcommon ;reload(refcommon);refcommon.import_all_reference()"
+                     except_project=""
+                     except_projectType=""
+        />
+
+        <processItem order_id="8" projectType="all"
+                     item_name="删除Billboard显示节点"
+                     toolTip="删除Billboard显示节点"
+                     process_command="import apps.publish.process.maya.process_billboard_face as process_billboard_face;reload(process_billboard_face);process_billboard_face.ProcessBillboardFace().delete_copy_meshs()"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="9" projectType="all"
+                     item_name="关闭顶点色显示"
+                     toolTip="关闭顶点色显示"
+                     process_command="import apps.publish.process.maya.process_mesh_display as process_mesh_display;reload(process_mesh_display);process_mesh_display.MeshDisSet().set_mesh_discolors(0)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+        <processItem order_id="10" projectType="all"
+                     item_name="修复skin未含有Root_M骨骼问题"
+                     toolTip="关闭顶点色显示"
+                     process_command="import apps.publish.process.maya.process_repair_skin as process_repair_skin;reload(process_repair_skin);process_repair_skin.ProcessRepairSkin(TaskData_Class).repair_skin()"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="11" projectType="all"
+                     item_name="保存当前文件"
+                     toolTip="保存当前文件"
+                     process_command="import method.maya.common.file as filecommon;reload(filecommon);filecommon.BaseFile().save_current_file()"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="12" projectType="all"
+                     item_name="导出bs json文件"
+                     toolTip="导出bs json文件"
+                     process_command="import apps.publish.process.maya.process_bs_export as process_bs_export;reload(process_bs_export);process_bs_export.PorcessBsExport(TaskData_Class).export_bs_json()"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="13" projectType="all"
+                     item_name="导出face json文件"
+                     toolTip="导出face json文件"
+                     process_command="import apps.publish.process.maya.process_join_json_export as process_join_json_export;reload(process_join_json_export);process_join_json_export.ProcessJsonExport(TaskData_Class).export_faceMorph_json()"
+                     except_project=""
+                     except_projectType=""
+        />
+
+
+        <processItem order_id="14" projectType="all"
+                     item_name="导出fbx文件"
+                     toolTip="导出fbx文件"
+                     process_command="import apps.publish.process.maya.process_rig_export_fbx as process_rig_export_fbx;reload(process_rig_export_fbx);process_rig_export_fbx.Porcess_RigFbx_Export(TaskData_Class).export_rig_fbx_by_grp_list(export_fbx_grp_list)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="15" projectType="all"
+                     item_name="打开work文件"
+                     toolTip="打开work文件"
+                     process_command="import apps.publish.process.maya.process_sgfile as process_sgfile;reload(process_sgfile);process_sgfile.open_work(TaskData_Class)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <!--        <processItem order_id="8" projectType="all"-->
+        <!--                     item_name="创建新文件"-->
+        <!--                     toolTip="创建新文件"-->
+        <!--                     process_command="import method.maya.common.file as filecommon;reload(filecommon);filecommon.BaseFile().new_file()"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=""-->
+        <!--        />-->
+        <!--        <processItem order_id="2" projectType="all"-->
+        <!--                     item_name="publish文件.xgen文件处理"-->
+        <!--                     toolTip=".xgen文件处理(publish文件)"-->
+        <!--                     process_command="import publish.process.maya.process_nodefile as process_nodefile;reload(process_nodefile);process_nodefile.Xgen_Pross(TaskData_Class).proxcess_xgen_publish('publish')"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=""-->
+        <!--        />-->
+
+        <!--        <processItem order_id="3" projectType="all"-->
+        <!--                     item_name="节点(贴图、abc、ass、毛发等)文件处理"-->
+        <!--                     toolTip="节点(贴图、abc、ass、毛发等)文件处理"-->
+        <!--                     process_command="import publish.process.maya.process_nodefile as process_nodefile;reload(process_nodefile);process_nodefile.Nodefile_Pross(TaskData_Class, addsufix=['.tx'], exclude='', save=True).process_nodefiles()"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=""-->
+        <!--        />-->
+
+        <!--        <processItem order_id="4" projectType="all"-->
+        <!--                     item_name="所有节点添加uniqueid属性处理"-->
+        <!--                     toolTip="所有节点添加uniqueid属性(maya defaultNodes 节点除外)"-->
+        <!--                     process_command="import publish.process.maya.process_uniqueid as process_uniqueid;reload(process_uniqueid);process_uniqueid.process_uniqueid(TaskData_Class)"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=""-->
+        <!--        />-->
+
+        <!--        <processItem order_id="5" projectType="all"-->
+        <!--                     item_name="场景描述（publish）处理"-->
+        <!--                     toolTip="生成场景描述文件"-->
+        <!--                     process_command="import publish.process.maya.process_descripfile as process_descripfile;reload(process_descripfile);process_descripfile.process_description(TaskData_Class,'publish')"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=""-->
+        <!--        />-->
+
+        <!--        <processItem order_id="6" projectType="all"-->
+        <!--                     item_name="保存当前文件"-->
+        <!--                     toolTip="保存当前文件"-->
+        <!--                     process_command="import engines.maya.code_libs.file as file_common; reload(file_common);file_common.BaseFile().save_current_file()"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=""-->
+        <!--        />-->
+
+        <!--        <processItem order_id="7" projectType="all"-->
+        <!--                     item_name="生成master文件"-->
+        <!--                     toolTip="生成master文件"-->
+        <!--                     process_command="import publish.process.maya.process_sgfile as process_sgfile;reload(process_sgfile);process_sgfile.processMaster(TaskData_Class)"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=""-->
+        <!--        />-->
+
+        <!--        <processItem order_id="8" projectType="all"-->
+        <!--                     item_name="master文件.xgen文件处理"-->
+        <!--                     toolTip=".xgen文件处理(master文件)"-->
+        <!--                     process_command="import publish.process.maya.process_nodefile as process_nodefile;reload(process_nodefile);process_nodefile.Xgen_Pross(TaskData_Class).proxcess_xgen_publish('master')"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=""-->
+        <!--        />-->
+
+        <!--        <processItem order_id="9" projectType="all"-->
+        <!--                     item_name="场景描述（master）处理"-->
+        <!--                     toolTip="生成场景描述文件"-->
+        <!--                     process_command="import publish.process.maya.process_descripfile as process_descripfile;reload(process_descripfile);process_descripfile.process_description(TaskData_Class,'master')"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=""-->
+        <!--        />-->
+
+    </process_tab>
+</process>

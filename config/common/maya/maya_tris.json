@@ -1,0 +1,251 @@
+{
+  "Asset.body.mod":
+  {
+    "{ad}001H_HD":
+    {
+      "level_0": 16000
+    },
+
+    "{ad}001F_HD":
+    {
+      "level_0": 15000
+    },
+    "{ad}001B_HD":
+    {
+      "level_0": null
+    },
+    "{ad}001H_LD":
+    {
+      "level_0": 10000
+    },
+    "{ad}001F_LD":
+    {
+      "level_0": 5000
+    },
+    "{ad}001B_LD":
+    {
+      "level_0": null
+    }
+  },
+  "Asset.body.fight":
+  {
+    "{ad}001H_HD":
+    {
+      "level_0": 16000
+    },
+    "{ad}001F_HD":
+    {
+      "level_0": 15000
+    },
+    "{ad}001B_HD":
+    {
+      "level_0": null
+    },
+    "{ad}001H_LD":
+    {
+      "level_0": 10000
+    },
+    "{ad}001F_LD":
+    {
+      "level_0": 5000
+    },
+    "{ad}001B_LD":
+    {
+      "level_0": null
+    }
+  },
+  "Asset.role.mod": {
+    "{all}":
+    {
+      "level_0": 25000,
+      "level_1": 68000,
+      "level_2": 68000,
+      "level_3": 68000
+    }
+  },
+  "Asset.role.fight": {
+    "{all}":
+    {
+      "level_0": 15000,
+      "level_1": 35000,
+      "level_2": 35000,
+      "level_3": 35000
+    }
+  },
+
+  "Asset.cartoon_body.mod":
+  {
+    "{ad}001H_HD":
+    {
+      "level_0": 16000
+    },
+
+    "{ad}001F_HD":
+    {
+      "level_0": 15000
+    },
+    "{ad}001B_HD":
+    {
+      "level_0": null
+    },
+    "{ad}001H_LD":
+    {
+      "level_0": 10000
+    },
+    "{ad}001F_LD":
+    {
+      "level_0": 5000
+    },
+    "{ad}001B_LD":
+    {
+      "level_0": null
+    }
+  },
+  "Asset.cartoon_body.fight":
+  {
+    "{ad}001H_HD":
+    {
+      "level_0": 16000
+    },
+    "{ad}001F_HD":
+    {
+      "level_0": 15000
+    },
+    "{ad}001B_HD":
+    {
+      "level_0": null
+    },
+    "{ad}001H_LD":
+    {
+      "level_0": 10000
+    },
+    "{ad}001F_LD":
+    {
+      "level_0": 5000
+    },
+    "{ad}001B_LD":
+    {
+      "level_0": null
+    }
+  },
+  "Asset.cartoon_role.mod": {
+    "{all}":
+    {
+      "level_0": 25000,
+      "level_1": 68000,
+      "level_2": 68000,
+      "level_3": 68000
+    }
+  },
+  "Asset.cartoon_role.fight": {
+    "{all}":
+    {
+      "level_0": 15000,
+      "level_1": 35000,
+      "level_2": 35000,
+      "level_3": 35000
+    }
+  },
+  "Asset.cartoon_npc.fight": {
+    "{all}":
+    {
+      "level_0": 8000,
+      "level_1": 8000,
+      "level_2": 8000,
+      "level_3": 8000
+    }
+  },
+  "Asset.cartoon_npc.mod": {
+    "{all}":
+    {
+      "level_0": 8000,
+      "level_1": 8000,
+      "level_2": 8000,
+      "level_3": 8000
+    }
+  },
+
+
+  "Asset.npc.mod": {
+    "{all}":
+    {
+      "level_0": 25000,
+      "level_1": 40000,
+      "level_2": 40000,
+      "level_3": 50000
+    }
+  },
+  "Asset.npc.fight": {
+    "{all}":
+    {
+      "level_0": 25000,
+      "level_1": 40000,
+      "level_2": 40000
+    }
+  },
+  "Asset.rolaccesory.fight": {
+    "{all}":
+    {
+      "level_0": 1500
+    }
+  },
+  "Asset.rolaccesory.mod": {
+    "{all}":
+    {
+      "level_0": 1500
+    }
+  },
+  "Asset.cartoon_rolaccesory.fight": {
+    "{all}":
+    {
+      "level_0": 1500
+    }
+  },
+  "Asset.cartoon_rolaccesory.mod": {
+    "{all}":
+    {
+      "level_0": 1500
+    }
+  },
+
+  "Asset.weapon.fight": {
+    "{all}":
+    {
+      "level_0": 4500
+    }
+  },
+  "Asset.enemy.fight": {
+    "{all}":
+    {
+      "level_0": 8000,
+      "level_1": 15000,
+      "level_2": 15000,
+      "level_3": 15000
+    }
+  },
+  "Asset.enemy.mod": {
+    "{all}":
+    {
+      "level_0": 8000,
+      "level_1": 15000,
+      "level_2": 15000,
+      "level_3": 15000
+
+    }
+  },
+  "Asset.hair.fight": {
+    "{all}":
+    {
+      "level_0": 15000
+    }
+  },
+  "Asset.hair.mod": {
+    "{all}":
+    {
+      "level_0": 15000
+    }
+  }
+}
+
+
+

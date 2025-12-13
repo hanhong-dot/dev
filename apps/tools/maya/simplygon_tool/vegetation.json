@@ -1,0 +1,2780 @@
+{
+  "Settings": {
+    "GlobalSettings": {
+      "DefaultTangentCalculatorType": 3,
+      "DefaultTangentCalculatorTypeUI": {
+        "Visible": true
+      }
+    },
+    "PipelineSettings": {
+      "TextureOutputPath": "",
+      "TextureOutputPathUI": {
+        "Visible": true
+      },
+      "SimplygonBatchPath": null,
+      "SimplygonBatchPathUI": {
+        "Visible": true
+      },
+      "OutputMaterialName": "SimplygonCastMaterial",
+      "OutputMaterialNameUI": {
+        "Visible": true
+      },
+      "OutputUniqueMaterialNames": false,
+      "OutputUniqueMaterialNamesUI": {
+        "Visible": true
+      },
+      "ReferenceExportMode": 0,
+      "ReferenceExportModeUI": {
+        "Visible": true
+      },
+      "IntermediateStep": true,
+      "IntermediateStepUI": {
+        "Visible": true
+      },
+      "CascadedRunMode": 0,
+      "CascadedRunModeUI": {
+        "Visible": true
+      },
+      "MergeResultWithImportedFileOnExport": false,
+      "MergeResultWithImportedFileOnExportUI": {
+        "Visible": true
+      },
+      "FlattenCascadedScene": false,
+      "FlattenCascadedSceneUI": {
+        "Visible": true
+      },
+      "DeduplicateVerticesOnImport": false,
+      "DeduplicateVerticesOnImportUI": {
+        "Visible": true
+      }
+    },
+    "MaterialCaster": []
+  },
+  "Pipeline": "Passthrough",
+  "Version": "10.4",
+  "Build": "10.4.232.0",
+  "Commit": "7f6086c1e6c21aa8f4fabf461f72c305b37572ff",
+  "Cascaded": [
+    {
+      "Settings": {
+        "GlobalSettings": {
+          "DefaultTangentCalculatorType": 3,
+          "DefaultTangentCalculatorTypeUI": {
+            "Visible": true
+          }
+        },
+        "PipelineSettings": {
+          "TextureOutputPath": "",
+          "TextureOutputPathUI": {
+            "Visible": true
+          },
+          "SimplygonBatchPath": null,
+          "SimplygonBatchPathUI": {
+            "Visible": true
+          },
+          "OutputMaterialName": "SimplygonCastMaterial",
+          "OutputMaterialNameUI": {
+            "Visible": true
+          },
+          "OutputUniqueMaterialNames": false,
+          "OutputUniqueMaterialNamesUI": {
+            "Visible": true
+          },
+          "ReferenceExportMode": 0,
+          "ReferenceExportModeUI": {
+            "Visible": true
+          },
+          "IntermediateStep": false,
+          "IntermediateStepUI": {
+            "Visible": true
+          },
+          "CascadedRunMode": 0,
+          "CascadedRunModeUI": {
+            "Visible": true
+          },
+          "MergeResultWithImportedFileOnExport": false,
+          "MergeResultWithImportedFileOnExportUI": {
+            "Visible": true
+          },
+          "FlattenCascadedScene": false,
+          "FlattenCascadedSceneUI": {
+            "Visible": true
+          },
+          "DeduplicateVerticesOnImport": false,
+          "DeduplicateVerticesOnImportUI": {
+            "Visible": true
+          }
+        },
+        "ReductionProcessor": {
+          "ReductionSettings": {
+            "ReductionTargetTriangleRatioEnabled": true,
+            "ReductionTargetTriangleRatioEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetTriangleRatio": 0.5,
+            "ReductionTargetTriangleRatioUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 1.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ReductionTargetTriangleCountEnabled": false,
+            "ReductionTargetTriangleCountEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetTriangleCount": 10000,
+            "ReductionTargetTriangleCountUI": {
+              "Visible": true,
+              "MinValue": 0,
+              "MaxValue": 10000000,
+              "TicksFrequencyValue": 10000
+            },
+            "ReductionTargetMaxDeviationEnabled": false,
+            "ReductionTargetMaxDeviationEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetMaxDeviation": 1.0,
+            "ReductionTargetMaxDeviationUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ReductionTargetOnScreenSizeEnabled": false,
+            "ReductionTargetOnScreenSizeEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetOnScreenSize": 300,
+            "ReductionTargetOnScreenSizeUI": {
+              "Visible": true,
+              "MinValue": 20,
+              "MaxValue": 100000,
+              "TicksFrequencyValue": 10
+            },
+            "ReductionPerformanceMode": 0,
+            "ReductionPerformanceModeUI": {
+              "Visible": false
+            },
+            "ReductionTargetStopCondition": 1,
+            "ReductionTargetStopConditionUI": {
+              "Visible": false
+            },
+            "ReductionHeuristics": 0,
+            "ReductionHeuristicsUI": {
+              "Visible": false
+            },
+            "GeometryImportance": 1.0,
+            "GeometryImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "MaterialImportance": 1.0,
+            "MaterialImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "TextureImportance": 1.0,
+            "TextureImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "ShadingImportance": 1.0,
+            "ShadingImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "GroupImportance": 1.0,
+            "GroupImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "VertexColorImportance": 1.0,
+            "VertexColorImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "EdgeSetImportance": 1.0,
+            "EdgeSetImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "SkinningImportance": 1.0,
+            "SkinningImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "OutwardMoveMultiplier": 1.0,
+            "OutwardMoveMultiplierUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "InwardMoveMultiplier": 1.0,
+            "InwardMoveMultiplierUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "LimitMaxEdgeLength": false,
+            "LimitMaxEdgeLengthUI": {
+              "Visible": false
+            },
+            "MaxEdgeLength": 0.0,
+            "MaxEdgeLengthUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 1000.0,
+              "TicksFrequencyValue": 0.01
+            },
+            "KeepSymmetry": false,
+            "KeepSymmetryUI": {
+              "Visible": false
+            },
+            "UseSymmetryQuadRetriangulator": true,
+            "UseSymmetryQuadRetriangulatorUI": {
+              "Visible": false
+            },
+            "UseAutomaticSymmetryDetection": false,
+            "UseAutomaticSymmetryDetectionUI": {
+              "Visible": false
+            },
+            "SymmetryDetectionTolerance": 0.0001,
+            "SymmetryDetectionToleranceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 1.0,
+              "TicksFrequencyValue": 0.0001
+            },
+            "SymmetryAxis": 0,
+            "SymmetryAxisUI": {
+              "Visible": false
+            },
+            "SymmetryOffset": 0.0,
+            "SymmetryOffsetUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "CreateGeomorphGeometry": false,
+            "CreateGeomorphGeometryUI": {
+              "Visible": false
+            },
+            "DataCreationPreferences": 2,
+            "DataCreationPreferencesUI": {
+              "Visible": false
+            },
+            "UseHighQualityNormalCalculation": true,
+            "UseHighQualityNormalCalculationUI": {
+              "Visible": false
+            },
+            "LockGeometricBorder": false,
+            "LockGeometricBorderUI": {
+              "Visible": false
+            },
+            "MergeGeometries": false,
+            "MergeGeometriesUI": {
+              "Visible": false
+            },
+            "AllowDegenerateTexCoords": true,
+            "AllowDegenerateTexCoordsUI": {
+              "Visible": false
+            },
+            "KeepUnprocessedSceneMeshes": false,
+            "KeepUnprocessedSceneMeshesUI": {
+              "Visible": false
+            },
+            "PreserveQuadFlags": true,
+            "PreserveQuadFlagsUI": {
+              "Visible": false
+            }
+          },
+          "RepairSettings": {
+            "UseTJunctionRemover": true,
+            "UseTJunctionRemoverUI": {
+              "Visible": true
+            },
+            "TJuncDist": 0.0,
+            "TJuncDistUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "UseWelding": true,
+            "UseWeldingUI": {
+              "Visible": true
+            },
+            "WeldOnlyBorderVertices": false,
+            "WeldOnlyBorderVerticesUI": {
+              "Visible": true
+            },
+            "WeldOnlyWithinMaterial": false,
+            "WeldOnlyWithinMaterialUI": {
+              "Visible": true
+            },
+            "WeldOnlyWithinSceneNode": false,
+            "WeldOnlyWithinSceneNodeUI": {
+              "Visible": true
+            },
+            "WeldOnlyBetweenSceneNodes": false,
+            "WeldOnlyBetweenSceneNodesUI": {
+              "Visible": true
+            },
+            "WeldDist": 0.0,
+            "WeldDistUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ProgressivePasses": 3,
+            "ProgressivePassesUI": {
+              "Visible": true,
+              "MinValue": 1,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            }
+          },
+          "NormalCalculationSettings": {
+            "ReplaceNormals": false,
+            "ReplaceNormalsUI": {
+              "Visible": true
+            },
+            "RepairInvalidNormals": false,
+            "RepairInvalidNormalsUI": {
+              "Visible": true
+            },
+            "HardEdgeAngle": 75.0,
+            "HardEdgeAngleUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 180.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "ReplaceTangents": false,
+            "ReplaceTangentsUI": {
+              "Visible": true
+            },
+            "ReorthogonalizeTangentSpace": true,
+            "ReorthogonalizeTangentSpaceUI": {
+              "Visible": true
+            },
+            "ScaleByArea": true,
+            "ScaleByAreaUI": {
+              "Visible": true
+            },
+            "ScaleByAngle": true,
+            "ScaleByAngleUI": {
+              "Visible": true
+            },
+            "SnapNormalsToFlatSurfaces": false,
+            "SnapNormalsToFlatSurfacesUI": {
+              "Visible": true
+            }
+          },
+          "VisibilitySettings": {
+            "VisibilityCameraMode": 0,
+            "VisibilityCameraModeUI": {
+              "Visible": true
+            },
+            "HemisphereUpVector": 2,
+            "HemisphereUpVectorUI": {
+              "Visible": false
+            },
+            "HemisphereCoverageAngle": 170.0,
+            "HemisphereCoverageAngleUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 360.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "HemisphereFidelity": 4,
+            "HemisphereFidelityUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "SphereFidelity": 4,
+            "SphereFidelityUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "CameraSelectionSetName": "",
+            "CameraSelectionSetNameUI": {
+              "Visible": true
+            },
+            "OccluderSelectionSetName": "",
+            "OccluderSelectionSetNameUI": {
+              "Visible": true
+            },
+            "RemoveTrianglesNotOccludingOtherTriangles": false,
+            "RemoveTrianglesNotOccludingOtherTrianglesUI": {
+              "Visible": true
+            },
+            "FillNonVisibleAreaThreshold": 0.0,
+            "FillNonVisibleAreaThresholdUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 100.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "UseBackfaceCulling": true,
+            "UseBackfaceCullingUI": {
+              "Visible": true
+            },
+            "CullOccludedGeometry": false,
+            "CullOccludedGeometryUI": {
+              "Visible": true
+            },
+            "ConservativeMode": false,
+            "ConservativeModeUI": {
+              "Visible": true
+            },
+            "VisibilityWeightsPower": 1.0,
+            "VisibilityWeightsPowerUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "UseVisibilityWeightsInTexcoordGenerator": false,
+            "UseVisibilityWeightsInTexcoordGeneratorUI": {
+              "Visible": true
+            },
+            "UseVisibilityWeightsInReducer": false,
+            "UseVisibilityWeightsInReducerUI": {
+              "Visible": true
+            },
+            "ForceVisibilityCalculation": false,
+            "ForceVisibilityCalculationUI": {
+              "Visible": true
+            },
+            "ComputeVisibilityMode": 0,
+            "ComputeVisibilityModeUI": {
+              "Visible": true
+            }
+          },
+          "BoneSettings": {
+            "UseBoneReducer": false,
+            "UseBoneReducerUI": {
+              "Visible": true
+            },
+            "BoneReductionTargetBoneRatioEnabled": true,
+            "BoneReductionTargetBoneRatioEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetBoneRatio": 0.5,
+            "BoneReductionTargetBoneRatioUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 1.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "BoneReductionTargetBoneCountEnabled": false,
+            "BoneReductionTargetBoneCountEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetBoneCount": 100,
+            "BoneReductionTargetBoneCountUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 500,
+              "TicksFrequencyValue": 1
+            },
+            "BoneReductionTargetMaxDeviationEnabled": false,
+            "BoneReductionTargetMaxDeviationEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetMaxDeviation": 0.0,
+            "BoneReductionTargetMaxDeviationUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 100.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "BoneReductionTargetOnScreenSizeEnabled": false,
+            "BoneReductionTargetOnScreenSizeEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetOnScreenSize": 300,
+            "BoneReductionTargetOnScreenSizeUI": {
+              "Visible": false,
+              "MinValue": 20,
+              "MaxValue": 4000,
+              "TicksFrequencyValue": 10
+            },
+            "BoneReductionTargetStopCondition": 1,
+            "BoneReductionTargetStopConditionUI": {
+              "Visible": false
+            },
+            "RemoveUnusedBones": false,
+            "RemoveUnusedBonesUI": {
+              "Visible": false
+            },
+            "LockBoneSelectionSetName": "",
+            "LockBoneSelectionSetNameUI": {
+              "Visible": true
+            },
+            "RemoveBoneSelectionSetName": "",
+            "RemoveBoneSelectionSetNameUI": {
+              "Visible": true
+            },
+            "LimitBonesPerVertex": false,
+            "LimitBonesPerVertexUI": {
+              "Visible": true
+            },
+            "MaxBonePerVertex": 16,
+            "MaxBonePerVertexUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 16,
+              "TicksFrequencyValue": 1
+            }
+          },
+          "VertexWeightSettings": {
+            "UseVertexWeightsInReducer": false,
+            "UseVertexWeightsInReducerUI": {
+              "Visible": true
+            },
+            "UseVertexWeightsInTexcoordGenerator": false,
+            "UseVertexWeightsInTexcoordGeneratorUI": {
+              "Visible": true
+            },
+            "WeightsFromColorLevel": -1,
+            "WeightsFromColorLevelUI": {
+              "Visible": true,
+              "MinValue": -1,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "WeightsFromColorName": "",
+            "WeightsFromColorNameUI": {
+              "Visible": true
+            },
+            "WeightsFromColorComponent": 0,
+            "WeightsFromColorComponentUI": {
+              "Visible": true
+            },
+            "WeightsFromColorMultiplier": 4.0,
+            "WeightsFromColorMultiplierUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "WeightsFromColorMode": 0,
+            "WeightsFromColorModeUI": {
+              "Visible": true
+            }
+          },
+          "PartRemoverSettings": {
+            "PartRemoverThresholdType": 0,
+            "PartRemoverThresholdTypeUI": {
+              "Visible": true
+            },
+            "Threshold": 0.0,
+            "ThresholdUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 100000.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "UseSurfaceArea": false,
+            "UseSurfaceAreaUI": {
+              "Visible": true
+            },
+            "UseVertexLocks": true,
+            "UseVertexLocksUI": {
+              "Visible": true
+            }
+          },
+          "AttributeTessellationSettings": {},
+          "MappingImageSettings": {
+            "GenerateMappingImage": false,
+            "GenerateMappingImageUI": {
+              "Visible": true
+            },
+            "GenerateTexCoords": false,
+            "GenerateTexCoordsUI": {
+              "Visible": true
+            },
+            "GenerateTangents": false,
+            "GenerateTangentsUI": {
+              "Visible": true
+            },
+            "UseFullRetexturing": false,
+            "UseFullRetexturingUI": {
+              "Visible": true
+            },
+            "ApplyNewMaterialIds": true,
+            "ApplyNewMaterialIdsUI": {
+              "Visible": true
+            },
+            "UseAutomaticTextureSize": false,
+            "UseAutomaticTextureSizeUI": {
+              "Visible": true
+            },
+            "AutomaticTextureSizeMultiplier": 1.0,
+            "AutomaticTextureSizeMultiplierUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ForcePower2Texture": false,
+            "ForcePower2TextureUI": {
+              "Visible": true
+            },
+            "OnlyParameterizeInvalidUVs": false,
+            "OnlyParameterizeInvalidUVsUI": {
+              "Visible": true
+            },
+            "AllowTransparencyMapping": false,
+            "AllowTransparencyMappingUI": {
+              "Visible": true
+            },
+            "MaximumLayers": 3,
+            "MaximumLayersUI": {
+              "Visible": true,
+              "MinValue": 0,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "TexCoordLevel": 0,
+            "TexCoordLevelUI": {
+              "Visible": true,
+              "MinValue": -1,
+              "MaxValue": 255,
+              "TicksFrequencyValue": 1
+            },
+            "TexCoordName": "MaterialLOD",
+            "TexCoordNameUI": {
+              "Visible": true
+            },
+            "TexCoordGeneratorType": 1,
+            "TexCoordGeneratorTypeUI": {
+              "Visible": true
+            },
+            "ChartAggregatorSettings": {
+              "ChartAggregatorMode": 0,
+              "ChartAggregatorModeUI": {
+                "Visible": true
+              },
+              "SurfaceAreaScale": 0,
+              "SurfaceAreaScaleUI": {
+                "Visible": true
+              },
+              "OriginalTexCoordLevel": 0,
+              "OriginalTexCoordLevelUI": {
+                "Visible": true,
+                "MinValue": -1,
+                "MaxValue": 255,
+                "TicksFrequencyValue": 1
+              },
+              "OriginalTexCoordName": "",
+              "OriginalTexCoordNameUI": {
+                "Visible": true
+              },
+              "SeparateOverlappingCharts": false,
+              "SeparateOverlappingChartsUI": {
+                "Visible": true
+              },
+              "SplitMirroredCharts": false,
+              "SplitMirroredChartsUI": {
+                "Visible": false
+              },
+              "OriginalChartProportionsChannel": "color",
+              "OriginalChartProportionsChannelUI": {
+                "Visible": true
+              },
+              "LockUVRotation": false,
+              "LockUVRotationUI": {
+                "Visible": true
+              }
+            },
+            "ParameterizerSettings": {
+              "MaxStretch": 0.33,
+              "MaxStretchUI": {
+                "Visible": true,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              },
+              "LargeChartsImportance": 0.2,
+              "LargeChartsImportanceUI": {
+                "Visible": true,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              }
+            },
+            "InputMaterialSettings": [
+              {
+                "MaterialMapping": -1,
+                "MaterialMappingUI": {
+                  "Visible": true,
+                  "MinValue": -1,
+                  "MaxValue": 10,
+                  "TicksFrequencyValue": 1
+                }
+              }
+            ],
+            "OutputMaterialSettings": [
+              {
+                "TextureWidth": 1024,
+                "TextureWidthUI": {
+                  "Visible": true,
+                  "MinValue": 0,
+                  "MaxValue": 16384,
+                  "TicksFrequencyValue": 256
+                },
+                "TextureHeight": 1024,
+                "TextureHeightUI": {
+                  "Visible": true,
+                  "MinValue": 0,
+                  "MaxValue": 16384,
+                  "TicksFrequencyValue": 256
+                },
+                "MultisamplingLevel": 2,
+                "MultisamplingLevelUI": {
+                  "Visible": true,
+                  "MinValue": 1,
+                  "MaxValue": 8,
+                  "TicksFrequencyValue": 1
+                },
+                "GutterSpace": 4,
+                "GutterSpaceUI": {
+                  "Visible": true,
+                  "MinValue": 1,
+                  "MaxValue": 10,
+                  "TicksFrequencyValue": 1
+                }
+              }
+            ]
+          }
+        },
+        "MaterialCaster": []
+      },
+      "Pipeline": "Reduction",
+      "Version": "10.4",
+      "Build": "10.4.232.0",
+      "Commit": "7f6086c1e6c21aa8f4fabf461f72c305b37572ff",
+      "Cascaded": []
+    },
+    {
+      "Settings": {
+        "GlobalSettings": {
+          "DefaultTangentCalculatorType": 3,
+          "DefaultTangentCalculatorTypeUI": {
+            "Visible": true
+          }
+        },
+        "PipelineSettings": {
+          "TextureOutputPath": "",
+          "TextureOutputPathUI": {
+            "Visible": true
+          },
+          "SimplygonBatchPath": null,
+          "SimplygonBatchPathUI": {
+            "Visible": true
+          },
+          "OutputMaterialName": "SimplygonCastMaterial",
+          "OutputMaterialNameUI": {
+            "Visible": true
+          },
+          "OutputUniqueMaterialNames": false,
+          "OutputUniqueMaterialNamesUI": {
+            "Visible": true
+          },
+          "ReferenceExportMode": 0,
+          "ReferenceExportModeUI": {
+            "Visible": true
+          },
+          "IntermediateStep": false,
+          "IntermediateStepUI": {
+            "Visible": true
+          },
+          "CascadedRunMode": 0,
+          "CascadedRunModeUI": {
+            "Visible": true
+          },
+          "MergeResultWithImportedFileOnExport": false,
+          "MergeResultWithImportedFileOnExportUI": {
+            "Visible": true
+          },
+          "FlattenCascadedScene": false,
+          "FlattenCascadedSceneUI": {
+            "Visible": true
+          },
+          "DeduplicateVerticesOnImport": false,
+          "DeduplicateVerticesOnImportUI": {
+            "Visible": true
+          }
+        },
+        "ReductionProcessor": {
+          "ReductionSettings": {
+            "ReductionTargetTriangleRatioEnabled": true,
+            "ReductionTargetTriangleRatioEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetTriangleRatio": 0.3,
+            "ReductionTargetTriangleRatioUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 1.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ReductionTargetTriangleCountEnabled": false,
+            "ReductionTargetTriangleCountEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetTriangleCount": 10000,
+            "ReductionTargetTriangleCountUI": {
+              "Visible": true,
+              "MinValue": 0,
+              "MaxValue": 10000000,
+              "TicksFrequencyValue": 10000
+            },
+            "ReductionTargetMaxDeviationEnabled": false,
+            "ReductionTargetMaxDeviationEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetMaxDeviation": 1.0,
+            "ReductionTargetMaxDeviationUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ReductionTargetOnScreenSizeEnabled": false,
+            "ReductionTargetOnScreenSizeEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetOnScreenSize": 300,
+            "ReductionTargetOnScreenSizeUI": {
+              "Visible": true,
+              "MinValue": 20,
+              "MaxValue": 100000,
+              "TicksFrequencyValue": 10
+            },
+            "ReductionPerformanceMode": 0,
+            "ReductionPerformanceModeUI": {
+              "Visible": false
+            },
+            "ReductionTargetStopCondition": 1,
+            "ReductionTargetStopConditionUI": {
+              "Visible": false
+            },
+            "ReductionHeuristics": 0,
+            "ReductionHeuristicsUI": {
+              "Visible": false
+            },
+            "GeometryImportance": 1.0,
+            "GeometryImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "MaterialImportance": 1.0,
+            "MaterialImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "TextureImportance": 1.0,
+            "TextureImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "ShadingImportance": 1.0,
+            "ShadingImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "GroupImportance": 1.0,
+            "GroupImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "VertexColorImportance": 1.0,
+            "VertexColorImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "EdgeSetImportance": 1.0,
+            "EdgeSetImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "SkinningImportance": 1.0,
+            "SkinningImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "OutwardMoveMultiplier": 1.0,
+            "OutwardMoveMultiplierUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "InwardMoveMultiplier": 1.0,
+            "InwardMoveMultiplierUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "LimitMaxEdgeLength": false,
+            "LimitMaxEdgeLengthUI": {
+              "Visible": false
+            },
+            "MaxEdgeLength": 0.0,
+            "MaxEdgeLengthUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 1000.0,
+              "TicksFrequencyValue": 0.01
+            },
+            "KeepSymmetry": false,
+            "KeepSymmetryUI": {
+              "Visible": false
+            },
+            "UseSymmetryQuadRetriangulator": true,
+            "UseSymmetryQuadRetriangulatorUI": {
+              "Visible": false
+            },
+            "UseAutomaticSymmetryDetection": false,
+            "UseAutomaticSymmetryDetectionUI": {
+              "Visible": false
+            },
+            "SymmetryDetectionTolerance": 0.0001,
+            "SymmetryDetectionToleranceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 1.0,
+              "TicksFrequencyValue": 0.0001
+            },
+            "SymmetryAxis": 0,
+            "SymmetryAxisUI": {
+              "Visible": false
+            },
+            "SymmetryOffset": 0.0,
+            "SymmetryOffsetUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "CreateGeomorphGeometry": false,
+            "CreateGeomorphGeometryUI": {
+              "Visible": false
+            },
+            "DataCreationPreferences": 2,
+            "DataCreationPreferencesUI": {
+              "Visible": false
+            },
+            "UseHighQualityNormalCalculation": true,
+            "UseHighQualityNormalCalculationUI": {
+              "Visible": false
+            },
+            "LockGeometricBorder": false,
+            "LockGeometricBorderUI": {
+              "Visible": false
+            },
+            "MergeGeometries": false,
+            "MergeGeometriesUI": {
+              "Visible": false
+            },
+            "AllowDegenerateTexCoords": true,
+            "AllowDegenerateTexCoordsUI": {
+              "Visible": false
+            },
+            "KeepUnprocessedSceneMeshes": false,
+            "KeepUnprocessedSceneMeshesUI": {
+              "Visible": false
+            },
+            "PreserveQuadFlags": true,
+            "PreserveQuadFlagsUI": {
+              "Visible": false
+            }
+          },
+          "RepairSettings": {
+            "UseTJunctionRemover": true,
+            "UseTJunctionRemoverUI": {
+              "Visible": true
+            },
+            "TJuncDist": 0.0,
+            "TJuncDistUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "UseWelding": true,
+            "UseWeldingUI": {
+              "Visible": true
+            },
+            "WeldOnlyBorderVertices": false,
+            "WeldOnlyBorderVerticesUI": {
+              "Visible": true
+            },
+            "WeldOnlyWithinMaterial": false,
+            "WeldOnlyWithinMaterialUI": {
+              "Visible": true
+            },
+            "WeldOnlyWithinSceneNode": false,
+            "WeldOnlyWithinSceneNodeUI": {
+              "Visible": true
+            },
+            "WeldOnlyBetweenSceneNodes": false,
+            "WeldOnlyBetweenSceneNodesUI": {
+              "Visible": true
+            },
+            "WeldDist": 0.0,
+            "WeldDistUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ProgressivePasses": 3,
+            "ProgressivePassesUI": {
+              "Visible": true,
+              "MinValue": 1,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            }
+          },
+          "NormalCalculationSettings": {
+            "ReplaceNormals": false,
+            "ReplaceNormalsUI": {
+              "Visible": true
+            },
+            "RepairInvalidNormals": false,
+            "RepairInvalidNormalsUI": {
+              "Visible": true
+            },
+            "HardEdgeAngle": 75.0,
+            "HardEdgeAngleUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 180.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "ReplaceTangents": false,
+            "ReplaceTangentsUI": {
+              "Visible": true
+            },
+            "ReorthogonalizeTangentSpace": true,
+            "ReorthogonalizeTangentSpaceUI": {
+              "Visible": true
+            },
+            "ScaleByArea": true,
+            "ScaleByAreaUI": {
+              "Visible": true
+            },
+            "ScaleByAngle": true,
+            "ScaleByAngleUI": {
+              "Visible": true
+            },
+            "SnapNormalsToFlatSurfaces": false,
+            "SnapNormalsToFlatSurfacesUI": {
+              "Visible": true
+            }
+          },
+          "VisibilitySettings": {
+            "VisibilityCameraMode": 0,
+            "VisibilityCameraModeUI": {
+              "Visible": true
+            },
+            "HemisphereUpVector": 2,
+            "HemisphereUpVectorUI": {
+              "Visible": false
+            },
+            "HemisphereCoverageAngle": 170.0,
+            "HemisphereCoverageAngleUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 360.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "HemisphereFidelity": 4,
+            "HemisphereFidelityUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "SphereFidelity": 4,
+            "SphereFidelityUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "CameraSelectionSetName": "",
+            "CameraSelectionSetNameUI": {
+              "Visible": true
+            },
+            "OccluderSelectionSetName": "",
+            "OccluderSelectionSetNameUI": {
+              "Visible": true
+            },
+            "RemoveTrianglesNotOccludingOtherTriangles": false,
+            "RemoveTrianglesNotOccludingOtherTrianglesUI": {
+              "Visible": true
+            },
+            "FillNonVisibleAreaThreshold": 0.0,
+            "FillNonVisibleAreaThresholdUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 100.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "UseBackfaceCulling": true,
+            "UseBackfaceCullingUI": {
+              "Visible": true
+            },
+            "CullOccludedGeometry": false,
+            "CullOccludedGeometryUI": {
+              "Visible": true
+            },
+            "ConservativeMode": false,
+            "ConservativeModeUI": {
+              "Visible": true
+            },
+            "VisibilityWeightsPower": 1.0,
+            "VisibilityWeightsPowerUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "UseVisibilityWeightsInTexcoordGenerator": false,
+            "UseVisibilityWeightsInTexcoordGeneratorUI": {
+              "Visible": true
+            },
+            "UseVisibilityWeightsInReducer": false,
+            "UseVisibilityWeightsInReducerUI": {
+              "Visible": true
+            },
+            "ForceVisibilityCalculation": false,
+            "ForceVisibilityCalculationUI": {
+              "Visible": true
+            },
+            "ComputeVisibilityMode": 0,
+            "ComputeVisibilityModeUI": {
+              "Visible": true
+            }
+          },
+          "BoneSettings": {
+            "UseBoneReducer": false,
+            "UseBoneReducerUI": {
+              "Visible": true
+            },
+            "BoneReductionTargetBoneRatioEnabled": true,
+            "BoneReductionTargetBoneRatioEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetBoneRatio": 0.5,
+            "BoneReductionTargetBoneRatioUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 1.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "BoneReductionTargetBoneCountEnabled": false,
+            "BoneReductionTargetBoneCountEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetBoneCount": 100,
+            "BoneReductionTargetBoneCountUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 500,
+              "TicksFrequencyValue": 1
+            },
+            "BoneReductionTargetMaxDeviationEnabled": false,
+            "BoneReductionTargetMaxDeviationEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetMaxDeviation": 0.0,
+            "BoneReductionTargetMaxDeviationUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 100.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "BoneReductionTargetOnScreenSizeEnabled": false,
+            "BoneReductionTargetOnScreenSizeEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetOnScreenSize": 300,
+            "BoneReductionTargetOnScreenSizeUI": {
+              "Visible": false,
+              "MinValue": 20,
+              "MaxValue": 4000,
+              "TicksFrequencyValue": 10
+            },
+            "BoneReductionTargetStopCondition": 1,
+            "BoneReductionTargetStopConditionUI": {
+              "Visible": false
+            },
+            "RemoveUnusedBones": false,
+            "RemoveUnusedBonesUI": {
+              "Visible": false
+            },
+            "LockBoneSelectionSetName": "",
+            "LockBoneSelectionSetNameUI": {
+              "Visible": true
+            },
+            "RemoveBoneSelectionSetName": "",
+            "RemoveBoneSelectionSetNameUI": {
+              "Visible": true
+            },
+            "LimitBonesPerVertex": false,
+            "LimitBonesPerVertexUI": {
+              "Visible": true
+            },
+            "MaxBonePerVertex": 16,
+            "MaxBonePerVertexUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 16,
+              "TicksFrequencyValue": 1
+            }
+          },
+          "VertexWeightSettings": {
+            "UseVertexWeightsInReducer": false,
+            "UseVertexWeightsInReducerUI": {
+              "Visible": true
+            },
+            "UseVertexWeightsInTexcoordGenerator": false,
+            "UseVertexWeightsInTexcoordGeneratorUI": {
+              "Visible": true
+            },
+            "WeightsFromColorLevel": -1,
+            "WeightsFromColorLevelUI": {
+              "Visible": true,
+              "MinValue": -1,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "WeightsFromColorName": "",
+            "WeightsFromColorNameUI": {
+              "Visible": true
+            },
+            "WeightsFromColorComponent": 0,
+            "WeightsFromColorComponentUI": {
+              "Visible": true
+            },
+            "WeightsFromColorMultiplier": 4.0,
+            "WeightsFromColorMultiplierUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "WeightsFromColorMode": 0,
+            "WeightsFromColorModeUI": {
+              "Visible": true
+            }
+          },
+          "PartRemoverSettings": {
+            "PartRemoverThresholdType": 0,
+            "PartRemoverThresholdTypeUI": {
+              "Visible": true
+            },
+            "Threshold": 0.0,
+            "ThresholdUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 100000.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "UseSurfaceArea": false,
+            "UseSurfaceAreaUI": {
+              "Visible": true
+            },
+            "UseVertexLocks": true,
+            "UseVertexLocksUI": {
+              "Visible": true
+            }
+          },
+          "AttributeTessellationSettings": {},
+          "MappingImageSettings": {
+            "GenerateMappingImage": false,
+            "GenerateMappingImageUI": {
+              "Visible": true
+            },
+            "GenerateTexCoords": false,
+            "GenerateTexCoordsUI": {
+              "Visible": true
+            },
+            "GenerateTangents": false,
+            "GenerateTangentsUI": {
+              "Visible": true
+            },
+            "UseFullRetexturing": false,
+            "UseFullRetexturingUI": {
+              "Visible": true
+            },
+            "ApplyNewMaterialIds": true,
+            "ApplyNewMaterialIdsUI": {
+              "Visible": true
+            },
+            "UseAutomaticTextureSize": false,
+            "UseAutomaticTextureSizeUI": {
+              "Visible": true
+            },
+            "AutomaticTextureSizeMultiplier": 1.0,
+            "AutomaticTextureSizeMultiplierUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ForcePower2Texture": false,
+            "ForcePower2TextureUI": {
+              "Visible": true
+            },
+            "OnlyParameterizeInvalidUVs": false,
+            "OnlyParameterizeInvalidUVsUI": {
+              "Visible": true
+            },
+            "AllowTransparencyMapping": false,
+            "AllowTransparencyMappingUI": {
+              "Visible": true
+            },
+            "MaximumLayers": 3,
+            "MaximumLayersUI": {
+              "Visible": true,
+              "MinValue": 0,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "TexCoordLevel": 0,
+            "TexCoordLevelUI": {
+              "Visible": true,
+              "MinValue": -1,
+              "MaxValue": 255,
+              "TicksFrequencyValue": 1
+            },
+            "TexCoordName": "MaterialLOD",
+            "TexCoordNameUI": {
+              "Visible": true
+            },
+            "TexCoordGeneratorType": 1,
+            "TexCoordGeneratorTypeUI": {
+              "Visible": true
+            },
+            "ChartAggregatorSettings": {
+              "ChartAggregatorMode": 0,
+              "ChartAggregatorModeUI": {
+                "Visible": true
+              },
+              "SurfaceAreaScale": 0,
+              "SurfaceAreaScaleUI": {
+                "Visible": true
+              },
+              "OriginalTexCoordLevel": 0,
+              "OriginalTexCoordLevelUI": {
+                "Visible": true,
+                "MinValue": -1,
+                "MaxValue": 255,
+                "TicksFrequencyValue": 1
+              },
+              "OriginalTexCoordName": "",
+              "OriginalTexCoordNameUI": {
+                "Visible": true
+              },
+              "SeparateOverlappingCharts": false,
+              "SeparateOverlappingChartsUI": {
+                "Visible": true
+              },
+              "SplitMirroredCharts": false,
+              "SplitMirroredChartsUI": {
+                "Visible": false
+              },
+              "OriginalChartProportionsChannel": "color",
+              "OriginalChartProportionsChannelUI": {
+                "Visible": true
+              },
+              "LockUVRotation": false,
+              "LockUVRotationUI": {
+                "Visible": true
+              }
+            },
+            "ParameterizerSettings": {
+              "MaxStretch": 0.33,
+              "MaxStretchUI": {
+                "Visible": true,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              },
+              "LargeChartsImportance": 0.2,
+              "LargeChartsImportanceUI": {
+                "Visible": true,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              }
+            },
+            "InputMaterialSettings": [
+              {
+                "MaterialMapping": -1,
+                "MaterialMappingUI": {
+                  "Visible": true,
+                  "MinValue": -1,
+                  "MaxValue": 10,
+                  "TicksFrequencyValue": 1
+                }
+              }
+            ],
+            "OutputMaterialSettings": [
+              {
+                "TextureWidth": 1024,
+                "TextureWidthUI": {
+                  "Visible": true,
+                  "MinValue": 0,
+                  "MaxValue": 16384,
+                  "TicksFrequencyValue": 256
+                },
+                "TextureHeight": 1024,
+                "TextureHeightUI": {
+                  "Visible": true,
+                  "MinValue": 0,
+                  "MaxValue": 16384,
+                  "TicksFrequencyValue": 256
+                },
+                "MultisamplingLevel": 2,
+                "MultisamplingLevelUI": {
+                  "Visible": true,
+                  "MinValue": 1,
+                  "MaxValue": 8,
+                  "TicksFrequencyValue": 1
+                },
+                "GutterSpace": 4,
+                "GutterSpaceUI": {
+                  "Visible": true,
+                  "MinValue": 1,
+                  "MaxValue": 10,
+                  "TicksFrequencyValue": 1
+                }
+              }
+            ]
+          }
+        },
+        "MaterialCaster": []
+      },
+      "Pipeline": "Reduction",
+      "Version": "10.4",
+      "Build": "10.4.232.0",
+      "Commit": "7f6086c1e6c21aa8f4fabf461f72c305b37572ff",
+      "Cascaded": []
+    },
+    {
+      "Settings": {
+        "GlobalSettings": {
+          "DefaultTangentCalculatorType": 3,
+          "DefaultTangentCalculatorTypeUI": {
+            "Visible": true
+          }
+        },
+        "PipelineSettings": {
+          "TextureOutputPath": "",
+          "TextureOutputPathUI": {
+            "Visible": true
+          },
+          "SimplygonBatchPath": null,
+          "SimplygonBatchPathUI": {
+            "Visible": true
+          },
+          "OutputMaterialName": "SimplygonCastMaterial",
+          "OutputMaterialNameUI": {
+            "Visible": true
+          },
+          "OutputUniqueMaterialNames": false,
+          "OutputUniqueMaterialNamesUI": {
+            "Visible": true
+          },
+          "ReferenceExportMode": 0,
+          "ReferenceExportModeUI": {
+            "Visible": true
+          },
+          "IntermediateStep": false,
+          "IntermediateStepUI": {
+            "Visible": true
+          },
+          "CascadedRunMode": 0,
+          "CascadedRunModeUI": {
+            "Visible": true
+          },
+          "MergeResultWithImportedFileOnExport": false,
+          "MergeResultWithImportedFileOnExportUI": {
+            "Visible": true
+          },
+          "FlattenCascadedScene": false,
+          "FlattenCascadedSceneUI": {
+            "Visible": true
+          },
+          "DeduplicateVerticesOnImport": false,
+          "DeduplicateVerticesOnImportUI": {
+            "Visible": true
+          }
+        },
+        "ReductionProcessor": {
+          "ReductionSettings": {
+            "ReductionTargetTriangleRatioEnabled": true,
+            "ReductionTargetTriangleRatioEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetTriangleRatio": 0.2,
+            "ReductionTargetTriangleRatioUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 1.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ReductionTargetTriangleCountEnabled": false,
+            "ReductionTargetTriangleCountEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetTriangleCount": 10000,
+            "ReductionTargetTriangleCountUI": {
+              "Visible": true,
+              "MinValue": 0,
+              "MaxValue": 10000000,
+              "TicksFrequencyValue": 10000
+            },
+            "ReductionTargetMaxDeviationEnabled": false,
+            "ReductionTargetMaxDeviationEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetMaxDeviation": 1.0,
+            "ReductionTargetMaxDeviationUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ReductionTargetOnScreenSizeEnabled": false,
+            "ReductionTargetOnScreenSizeEnabledUI": {
+              "Visible": false
+            },
+            "ReductionTargetOnScreenSize": 300,
+            "ReductionTargetOnScreenSizeUI": {
+              "Visible": true,
+              "MinValue": 20,
+              "MaxValue": 100000,
+              "TicksFrequencyValue": 10
+            },
+            "ReductionPerformanceMode": 0,
+            "ReductionPerformanceModeUI": {
+              "Visible": false
+            },
+            "ReductionTargetStopCondition": 1,
+            "ReductionTargetStopConditionUI": {
+              "Visible": false
+            },
+            "ReductionHeuristics": 0,
+            "ReductionHeuristicsUI": {
+              "Visible": false
+            },
+            "GeometryImportance": 1.0,
+            "GeometryImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "MaterialImportance": 1.0,
+            "MaterialImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "TextureImportance": 1.0,
+            "TextureImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "ShadingImportance": 1.0,
+            "ShadingImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "GroupImportance": 1.0,
+            "GroupImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "VertexColorImportance": 1.0,
+            "VertexColorImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "EdgeSetImportance": 1.0,
+            "EdgeSetImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "SkinningImportance": 1.0,
+            "SkinningImportanceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "OutwardMoveMultiplier": 1.0,
+            "OutwardMoveMultiplierUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "InwardMoveMultiplier": 1.0,
+            "InwardMoveMultiplierUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "LimitMaxEdgeLength": false,
+            "LimitMaxEdgeLengthUI": {
+              "Visible": false
+            },
+            "MaxEdgeLength": 0.0,
+            "MaxEdgeLengthUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 1000.0,
+              "TicksFrequencyValue": 0.01
+            },
+            "KeepSymmetry": false,
+            "KeepSymmetryUI": {
+              "Visible": false
+            },
+            "UseSymmetryQuadRetriangulator": true,
+            "UseSymmetryQuadRetriangulatorUI": {
+              "Visible": false
+            },
+            "UseAutomaticSymmetryDetection": false,
+            "UseAutomaticSymmetryDetectionUI": {
+              "Visible": false
+            },
+            "SymmetryDetectionTolerance": 0.0001,
+            "SymmetryDetectionToleranceUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 1.0,
+              "TicksFrequencyValue": 0.0001
+            },
+            "SymmetryAxis": 0,
+            "SymmetryAxisUI": {
+              "Visible": false
+            },
+            "SymmetryOffset": 0.0,
+            "SymmetryOffsetUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "CreateGeomorphGeometry": false,
+            "CreateGeomorphGeometryUI": {
+              "Visible": false
+            },
+            "DataCreationPreferences": 2,
+            "DataCreationPreferencesUI": {
+              "Visible": false
+            },
+            "UseHighQualityNormalCalculation": true,
+            "UseHighQualityNormalCalculationUI": {
+              "Visible": false
+            },
+            "LockGeometricBorder": false,
+            "LockGeometricBorderUI": {
+              "Visible": false
+            },
+            "MergeGeometries": false,
+            "MergeGeometriesUI": {
+              "Visible": false
+            },
+            "AllowDegenerateTexCoords": true,
+            "AllowDegenerateTexCoordsUI": {
+              "Visible": false
+            },
+            "KeepUnprocessedSceneMeshes": false,
+            "KeepUnprocessedSceneMeshesUI": {
+              "Visible": false
+            },
+            "PreserveQuadFlags": true,
+            "PreserveQuadFlagsUI": {
+              "Visible": false
+            }
+          },
+          "RepairSettings": {
+            "UseTJunctionRemover": true,
+            "UseTJunctionRemoverUI": {
+              "Visible": true
+            },
+            "TJuncDist": 0.0,
+            "TJuncDistUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "UseWelding": true,
+            "UseWeldingUI": {
+              "Visible": true
+            },
+            "WeldOnlyBorderVertices": false,
+            "WeldOnlyBorderVerticesUI": {
+              "Visible": true
+            },
+            "WeldOnlyWithinMaterial": false,
+            "WeldOnlyWithinMaterialUI": {
+              "Visible": true
+            },
+            "WeldOnlyWithinSceneNode": false,
+            "WeldOnlyWithinSceneNodeUI": {
+              "Visible": true
+            },
+            "WeldOnlyBetweenSceneNodes": false,
+            "WeldOnlyBetweenSceneNodesUI": {
+              "Visible": true
+            },
+            "WeldDist": 0.0,
+            "WeldDistUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ProgressivePasses": 3,
+            "ProgressivePassesUI": {
+              "Visible": true,
+              "MinValue": 1,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            }
+          },
+          "NormalCalculationSettings": {
+            "ReplaceNormals": false,
+            "ReplaceNormalsUI": {
+              "Visible": true
+            },
+            "RepairInvalidNormals": false,
+            "RepairInvalidNormalsUI": {
+              "Visible": true
+            },
+            "HardEdgeAngle": 75.0,
+            "HardEdgeAngleUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 180.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "ReplaceTangents": false,
+            "ReplaceTangentsUI": {
+              "Visible": true
+            },
+            "ReorthogonalizeTangentSpace": true,
+            "ReorthogonalizeTangentSpaceUI": {
+              "Visible": true
+            },
+            "ScaleByArea": true,
+            "ScaleByAreaUI": {
+              "Visible": true
+            },
+            "ScaleByAngle": true,
+            "ScaleByAngleUI": {
+              "Visible": true
+            },
+            "SnapNormalsToFlatSurfaces": false,
+            "SnapNormalsToFlatSurfacesUI": {
+              "Visible": true
+            }
+          },
+          "VisibilitySettings": {
+            "VisibilityCameraMode": 0,
+            "VisibilityCameraModeUI": {
+              "Visible": true
+            },
+            "HemisphereUpVector": 2,
+            "HemisphereUpVectorUI": {
+              "Visible": false
+            },
+            "HemisphereCoverageAngle": 170.0,
+            "HemisphereCoverageAngleUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 360.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "HemisphereFidelity": 4,
+            "HemisphereFidelityUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "SphereFidelity": 4,
+            "SphereFidelityUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "CameraSelectionSetName": "",
+            "CameraSelectionSetNameUI": {
+              "Visible": true
+            },
+            "OccluderSelectionSetName": "",
+            "OccluderSelectionSetNameUI": {
+              "Visible": true
+            },
+            "RemoveTrianglesNotOccludingOtherTriangles": false,
+            "RemoveTrianglesNotOccludingOtherTrianglesUI": {
+              "Visible": true
+            },
+            "FillNonVisibleAreaThreshold": 0.0,
+            "FillNonVisibleAreaThresholdUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 100.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "UseBackfaceCulling": true,
+            "UseBackfaceCullingUI": {
+              "Visible": true
+            },
+            "CullOccludedGeometry": false,
+            "CullOccludedGeometryUI": {
+              "Visible": true
+            },
+            "ConservativeMode": false,
+            "ConservativeModeUI": {
+              "Visible": true
+            },
+            "VisibilityWeightsPower": 1.0,
+            "VisibilityWeightsPowerUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "UseVisibilityWeightsInTexcoordGenerator": false,
+            "UseVisibilityWeightsInTexcoordGeneratorUI": {
+              "Visible": true
+            },
+            "UseVisibilityWeightsInReducer": false,
+            "UseVisibilityWeightsInReducerUI": {
+              "Visible": true
+            },
+            "ForceVisibilityCalculation": false,
+            "ForceVisibilityCalculationUI": {
+              "Visible": true
+            },
+            "ComputeVisibilityMode": 0,
+            "ComputeVisibilityModeUI": {
+              "Visible": true
+            }
+          },
+          "BoneSettings": {
+            "UseBoneReducer": false,
+            "UseBoneReducerUI": {
+              "Visible": true
+            },
+            "BoneReductionTargetBoneRatioEnabled": true,
+            "BoneReductionTargetBoneRatioEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetBoneRatio": 0.5,
+            "BoneReductionTargetBoneRatioUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 1.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "BoneReductionTargetBoneCountEnabled": false,
+            "BoneReductionTargetBoneCountEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetBoneCount": 100,
+            "BoneReductionTargetBoneCountUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 500,
+              "TicksFrequencyValue": 1
+            },
+            "BoneReductionTargetMaxDeviationEnabled": false,
+            "BoneReductionTargetMaxDeviationEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetMaxDeviation": 0.0,
+            "BoneReductionTargetMaxDeviationUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 100.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "BoneReductionTargetOnScreenSizeEnabled": false,
+            "BoneReductionTargetOnScreenSizeEnabledUI": {
+              "Visible": false
+            },
+            "BoneReductionTargetOnScreenSize": 300,
+            "BoneReductionTargetOnScreenSizeUI": {
+              "Visible": false,
+              "MinValue": 20,
+              "MaxValue": 4000,
+              "TicksFrequencyValue": 10
+            },
+            "BoneReductionTargetStopCondition": 1,
+            "BoneReductionTargetStopConditionUI": {
+              "Visible": false
+            },
+            "RemoveUnusedBones": false,
+            "RemoveUnusedBonesUI": {
+              "Visible": false
+            },
+            "LockBoneSelectionSetName": "",
+            "LockBoneSelectionSetNameUI": {
+              "Visible": true
+            },
+            "RemoveBoneSelectionSetName": "",
+            "RemoveBoneSelectionSetNameUI": {
+              "Visible": true
+            },
+            "LimitBonesPerVertex": false,
+            "LimitBonesPerVertexUI": {
+              "Visible": true
+            },
+            "MaxBonePerVertex": 16,
+            "MaxBonePerVertexUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 16,
+              "TicksFrequencyValue": 1
+            }
+          },
+          "VertexWeightSettings": {
+            "UseVertexWeightsInReducer": false,
+            "UseVertexWeightsInReducerUI": {
+              "Visible": true
+            },
+            "UseVertexWeightsInTexcoordGenerator": false,
+            "UseVertexWeightsInTexcoordGeneratorUI": {
+              "Visible": true
+            },
+            "WeightsFromColorLevel": -1,
+            "WeightsFromColorLevelUI": {
+              "Visible": true,
+              "MinValue": -1,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "WeightsFromColorName": "",
+            "WeightsFromColorNameUI": {
+              "Visible": true
+            },
+            "WeightsFromColorComponent": 0,
+            "WeightsFromColorComponentUI": {
+              "Visible": true
+            },
+            "WeightsFromColorMultiplier": 4.0,
+            "WeightsFromColorMultiplierUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 1.0
+            },
+            "WeightsFromColorMode": 0,
+            "WeightsFromColorModeUI": {
+              "Visible": true
+            }
+          },
+          "PartRemoverSettings": {
+            "PartRemoverThresholdType": 0,
+            "PartRemoverThresholdTypeUI": {
+              "Visible": true
+            },
+            "Threshold": 0.0,
+            "ThresholdUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 100000.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "UseSurfaceArea": false,
+            "UseSurfaceAreaUI": {
+              "Visible": true
+            },
+            "UseVertexLocks": true,
+            "UseVertexLocksUI": {
+              "Visible": true
+            }
+          },
+          "AttributeTessellationSettings": {},
+          "MappingImageSettings": {
+            "GenerateMappingImage": false,
+            "GenerateMappingImageUI": {
+              "Visible": true
+            },
+            "GenerateTexCoords": false,
+            "GenerateTexCoordsUI": {
+              "Visible": true
+            },
+            "GenerateTangents": false,
+            "GenerateTangentsUI": {
+              "Visible": true
+            },
+            "UseFullRetexturing": false,
+            "UseFullRetexturingUI": {
+              "Visible": true
+            },
+            "ApplyNewMaterialIds": true,
+            "ApplyNewMaterialIdsUI": {
+              "Visible": true
+            },
+            "UseAutomaticTextureSize": false,
+            "UseAutomaticTextureSizeUI": {
+              "Visible": true
+            },
+            "AutomaticTextureSizeMultiplier": 1.0,
+            "AutomaticTextureSizeMultiplierUI": {
+              "Visible": true,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ForcePower2Texture": false,
+            "ForcePower2TextureUI": {
+              "Visible": true
+            },
+            "OnlyParameterizeInvalidUVs": false,
+            "OnlyParameterizeInvalidUVsUI": {
+              "Visible": true
+            },
+            "AllowTransparencyMapping": false,
+            "AllowTransparencyMappingUI": {
+              "Visible": true
+            },
+            "MaximumLayers": 3,
+            "MaximumLayersUI": {
+              "Visible": true,
+              "MinValue": 0,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "TexCoordLevel": 0,
+            "TexCoordLevelUI": {
+              "Visible": true,
+              "MinValue": -1,
+              "MaxValue": 255,
+              "TicksFrequencyValue": 1
+            },
+            "TexCoordName": "MaterialLOD",
+            "TexCoordNameUI": {
+              "Visible": true
+            },
+            "TexCoordGeneratorType": 1,
+            "TexCoordGeneratorTypeUI": {
+              "Visible": true
+            },
+            "ChartAggregatorSettings": {
+              "ChartAggregatorMode": 0,
+              "ChartAggregatorModeUI": {
+                "Visible": true
+              },
+              "SurfaceAreaScale": 0,
+              "SurfaceAreaScaleUI": {
+                "Visible": true
+              },
+              "OriginalTexCoordLevel": 0,
+              "OriginalTexCoordLevelUI": {
+                "Visible": true,
+                "MinValue": -1,
+                "MaxValue": 255,
+                "TicksFrequencyValue": 1
+              },
+              "OriginalTexCoordName": "",
+              "OriginalTexCoordNameUI": {
+                "Visible": true
+              },
+              "SeparateOverlappingCharts": false,
+              "SeparateOverlappingChartsUI": {
+                "Visible": true
+              },
+              "SplitMirroredCharts": false,
+              "SplitMirroredChartsUI": {
+                "Visible": false
+              },
+              "OriginalChartProportionsChannel": "color",
+              "OriginalChartProportionsChannelUI": {
+                "Visible": true
+              },
+              "LockUVRotation": false,
+              "LockUVRotationUI": {
+                "Visible": true
+              }
+            },
+            "ParameterizerSettings": {
+              "MaxStretch": 0.33,
+              "MaxStretchUI": {
+                "Visible": true,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              },
+              "LargeChartsImportance": 0.2,
+              "LargeChartsImportanceUI": {
+                "Visible": true,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              }
+            },
+            "InputMaterialSettings": [
+              {
+                "MaterialMapping": -1,
+                "MaterialMappingUI": {
+                  "Visible": true,
+                  "MinValue": -1,
+                  "MaxValue": 10,
+                  "TicksFrequencyValue": 1
+                }
+              }
+            ],
+            "OutputMaterialSettings": [
+              {
+                "TextureWidth": 1024,
+                "TextureWidthUI": {
+                  "Visible": true,
+                  "MinValue": 0,
+                  "MaxValue": 16384,
+                  "TicksFrequencyValue": 256
+                },
+                "TextureHeight": 1024,
+                "TextureHeightUI": {
+                  "Visible": true,
+                  "MinValue": 0,
+                  "MaxValue": 16384,
+                  "TicksFrequencyValue": 256
+                },
+                "MultisamplingLevel": 2,
+                "MultisamplingLevelUI": {
+                  "Visible": true,
+                  "MinValue": 1,
+                  "MaxValue": 8,
+                  "TicksFrequencyValue": 1
+                },
+                "GutterSpace": 4,
+                "GutterSpaceUI": {
+                  "Visible": true,
+                  "MinValue": 1,
+                  "MaxValue": 10,
+                  "TicksFrequencyValue": 1
+                }
+              }
+            ]
+          }
+        },
+        "MaterialCaster": []
+      },
+      "Pipeline": "Reduction",
+      "Version": "10.4",
+      "Build": "10.4.232.0",
+      "Commit": "7f6086c1e6c21aa8f4fabf461f72c305b37572ff",
+      "Cascaded": []
+    },
+    {
+      "Settings": {
+        "GlobalSettings": {
+          "DefaultTangentCalculatorType": 3,
+          "DefaultTangentCalculatorTypeUI": {
+            "Visible": true
+          }
+        },
+        "PipelineSettings": {
+          "TextureOutputPath": "",
+          "TextureOutputPathUI": {
+            "Visible": true
+          },
+          "SimplygonBatchPath": null,
+          "SimplygonBatchPathUI": {
+            "Visible": true
+          },
+          "OutputMaterialName": "SimplygonCastMaterial",
+          "OutputMaterialNameUI": {
+            "Visible": true
+          },
+          "OutputUniqueMaterialNames": false,
+          "OutputUniqueMaterialNamesUI": {
+            "Visible": true
+          },
+          "ReferenceExportMode": 0,
+          "ReferenceExportModeUI": {
+            "Visible": true
+          },
+          "IntermediateStep": false,
+          "IntermediateStepUI": {
+            "Visible": true
+          },
+          "CascadedRunMode": 0,
+          "CascadedRunModeUI": {
+            "Visible": true
+          },
+          "MergeResultWithImportedFileOnExport": false,
+          "MergeResultWithImportedFileOnExportUI": {
+            "Visible": true
+          },
+          "FlattenCascadedScene": false,
+          "FlattenCascadedSceneUI": {
+            "Visible": true
+          },
+          "DeduplicateVerticesOnImport": false,
+          "DeduplicateVerticesOnImportUI": {
+            "Visible": true
+          }
+        },
+        "ImpostorProcessor": {
+          "ImpostorSettings": {
+            "BillboardCloudSettings": {
+              "BillboardMode": 1,
+              "BillboardModeUI": {
+                "Visible": false
+              },
+              "BillboardDensity": 0.2,
+              "BillboardDensityUI": {
+                "Visible": true,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              },
+              "MaxPlaneCount": 10,
+              "MaxPlaneCountUI": {
+                "Visible": true,
+                "MinValue": 0,
+                "MaxValue": 64,
+                "TicksFrequencyValue": 1
+              },
+              "GeometricComplexity": 0.5,
+              "GeometricComplexityUI": {
+                "Visible": false,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              },
+              "FavorVerticalPlanes": true,
+              "FavorVerticalPlanesUI": {
+                "Visible": true
+              },
+              "OpacityCutoff": 0.5,
+              "OpacityCutoffUI": {
+                "Visible": false,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              },
+              "OpacityChannel": "transparency",
+              "OpacityChannelUI": {
+                "Visible": false
+              },
+              "OpacityChannelComponent": 0,
+              "OpacityChannelComponentUI": {
+                "Visible": false
+              },
+              "TwoSided": true,
+              "TwoSidedUI": {
+                "Visible": true
+              },
+              "UseVisibilityWeights": true,
+              "UseVisibilityWeightsUI": {
+                "Visible": false
+              },
+              "UpVectorX": 0.0,
+              "UpVectorXUI": {
+                "Visible": false,
+                "MinValue": -1.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              },
+              "UpVectorY": 1.0,
+              "UpVectorYUI": {
+                "Visible": false,
+                "MinValue": -1.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              },
+              "UpVectorZ": 0.0,
+              "UpVectorZUI": {
+                "Visible": false,
+                "MinValue": -1.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              },
+              "FoliageSettings": {
+                "MaintainLeafConnections": false,
+                "MaintainLeafConnectionsUI": {
+                  "Visible": false
+                },
+                "SeparateTrunkAndFoliage": false,
+                "SeparateTrunkAndFoliageUI": {
+                  "Visible": true
+                },
+                "SeparateFoliageMaterials": "",
+                "SeparateFoliageMaterialsUI": {
+                  "Visible": false
+                },
+                "SeparateFoliageTriangleRatio": 0.01,
+                "SeparateFoliageTriangleRatioUI": {
+                  "Visible": false,
+                  "MinValue": 0.0,
+                  "MaxValue": 1.0,
+                  "TicksFrequencyValue": 0.1
+                },
+                "SeparateFoliageTriangleThreshold": 10,
+                "SeparateFoliageTriangleThresholdUI": {
+                  "Visible": false,
+                  "MinValue": 0,
+                  "MaxValue": 10000,
+                  "TicksFrequencyValue": 10
+                },
+                "SeparateFoliageAreaThreshold": 0.1,
+                "SeparateFoliageAreaThresholdUI": {
+                  "Visible": false,
+                  "MinValue": 0.0,
+                  "MaxValue": 10000.0,
+                  "TicksFrequencyValue": 1.0
+                },
+                "SeparateFoliageSizeThreshold": 0.1,
+                "SeparateFoliageSizeThresholdUI": {
+                  "Visible": false,
+                  "MinValue": 0.0,
+                  "MaxValue": 10000.0,
+                  "TicksFrequencyValue": 1.0
+                },
+                "TrunkReductionRatio": 0.5,
+                "TrunkReductionRatioUI": {
+                  "Visible": false,
+                  "MinValue": 0.0,
+                  "MaxValue": 1.0,
+                  "TicksFrequencyValue": 0.1
+                }
+              }
+            },
+            "ImpostorType": 0
+          },
+          "AttributeTessellationSettings": {},
+          "MappingImageSettings": {
+            "GenerateMappingImage": true,
+            "GenerateMappingImageUI": {
+              "Visible": false
+            },
+            "GenerateTexCoords": true,
+            "GenerateTexCoordsUI": {
+              "Visible": false
+            },
+            "GenerateTangents": true,
+            "GenerateTangentsUI": {
+              "Visible": false
+            },
+            "UseFullRetexturing": true,
+            "UseFullRetexturingUI": {
+              "Visible": false
+            },
+            "ApplyNewMaterialIds": true,
+            "ApplyNewMaterialIdsUI": {
+              "Visible": false
+            },
+            "UseAutomaticTextureSize": false,
+            "UseAutomaticTextureSizeUI": {
+              "Visible": false
+            },
+            "AutomaticTextureSizeMultiplier": 1.0,
+            "AutomaticTextureSizeMultiplierUI": {
+              "Visible": false,
+              "MinValue": 0.0,
+              "MaxValue": 10.0,
+              "TicksFrequencyValue": 0.1
+            },
+            "ForcePower2Texture": false,
+            "ForcePower2TextureUI": {
+              "Visible": false
+            },
+            "OnlyParameterizeInvalidUVs": false,
+            "OnlyParameterizeInvalidUVsUI": {
+              "Visible": false
+            },
+            "AllowTransparencyMapping": false,
+            "AllowTransparencyMappingUI": {
+              "Visible": false
+            },
+            "MaximumLayers": 3,
+            "MaximumLayersUI": {
+              "Visible": false,
+              "MinValue": 0,
+              "MaxValue": 10,
+              "TicksFrequencyValue": 1
+            },
+            "TexCoordLevel": 0,
+            "TexCoordLevelUI": {
+              "Visible": false,
+              "MinValue": -1,
+              "MaxValue": 255,
+              "TicksFrequencyValue": 1
+            },
+            "TexCoordName": "MaterialLOD",
+            "TexCoordNameUI": {
+              "Visible": false
+            },
+            "TexCoordGeneratorType": 0,
+            "TexCoordGeneratorTypeUI": {
+              "Visible": false
+            },
+            "ChartAggregatorSettings": {
+              "ChartAggregatorMode": 0,
+              "ChartAggregatorModeUI": {
+                "Visible": true
+              },
+              "SurfaceAreaScale": 0,
+              "SurfaceAreaScaleUI": {
+                "Visible": true
+              },
+              "OriginalTexCoordLevel": 0,
+              "OriginalTexCoordLevelUI": {
+                "Visible": true,
+                "MinValue": -1,
+                "MaxValue": 255,
+                "TicksFrequencyValue": 1
+              },
+              "OriginalTexCoordName": "",
+              "OriginalTexCoordNameUI": {
+                "Visible": true
+              },
+              "SeparateOverlappingCharts": false,
+              "SeparateOverlappingChartsUI": {
+                "Visible": true
+              },
+              "SplitMirroredCharts": false,
+              "SplitMirroredChartsUI": {
+                "Visible": false
+              },
+              "OriginalChartProportionsChannel": "color",
+              "OriginalChartProportionsChannelUI": {
+                "Visible": true
+              },
+              "LockUVRotation": false,
+              "LockUVRotationUI": {
+                "Visible": true
+              }
+            },
+            "ParameterizerSettings": {
+              "MaxStretch": 0.33,
+              "MaxStretchUI": {
+                "Visible": true,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              },
+              "LargeChartsImportance": 0.2,
+              "LargeChartsImportanceUI": {
+                "Visible": true,
+                "MinValue": 0.0,
+                "MaxValue": 1.0,
+                "TicksFrequencyValue": 0.1
+              }
+            },
+            "InputMaterialSettings": [
+              {
+                "MaterialMapping": -1,
+                "MaterialMappingUI": {
+                  "Visible": true,
+                  "MinValue": -1,
+                  "MaxValue": 10,
+                  "TicksFrequencyValue": 1
+                }
+              }
+            ],
+            "OutputMaterialSettings": [
+              {
+                "TextureWidth": 1024,
+                "TextureWidthUI": {
+                  "Visible": true,
+                  "MinValue": 0,
+                  "MaxValue": 16384,
+                  "TicksFrequencyValue": 256
+                },
+                "TextureHeight": 1024,
+                "TextureHeightUI": {
+                  "Visible": true,
+                  "MinValue": 0,
+                  "MaxValue": 16384,
+                  "TicksFrequencyValue": 256
+                },
+                "MultisamplingLevel": 2,
+                "MultisamplingLevelUI": {
+                  "Visible": false,
+                  "MinValue": 1,
+                  "MaxValue": 8,
+                  "TicksFrequencyValue": 1
+                },
+                "GutterSpace": 4,
+                "GutterSpaceUI": {
+                  "Visible": false,
+                  "MinValue": 1,
+                  "MaxValue": 10,
+                  "TicksFrequencyValue": 1
+                }
+              }
+            ]
+          }
+        },
+        "MaterialCaster": [
+          {
+            "ColorCasterSettings": {
+              "MaterialChannel": "color",
+              "MaterialChannelUI": {
+                "Visible": true
+              },
+              "OpacityChannel": "transparency",
+              "OpacityChannelUI": {
+                "Visible": true
+              },
+              "OpacityChannelComponent": 0,
+              "OpacityChannelComponentUI": {
+                "Visible": true
+              },
+              "DitherType": 1,
+              "DitherTypeUI": {
+                "Visible": true
+              },
+              "FillMode": 0,
+              "FillModeUI": {
+                "Visible": true
+              },
+              "Dilation": 10,
+              "DilationUI": {
+                "Visible": true,
+                "MinValue": 0,
+                "MaxValue": 1000,
+                "TicksFrequencyValue": 1
+              },
+              "UseMultisampling": true,
+              "UseMultisamplingUI": {
+                "Visible": true
+              },
+              "OutputPixelFormat": 0,
+              "OutputPixelFormatUI": {
+                "Visible": true
+              },
+              "OutputImageFileFormat": 4,
+              "OutputImageFileFormatUI": {
+                "Visible": true
+              },
+              "OutputDDSCompressionType": -1,
+              "OutputDDSCompressionTypeUI": {
+                "Visible": false
+              },
+              "OutputSRGB": true,
+              "OutputSRGBUI": {
+                "Visible": true
+              },
+              "BakeOpacityInAlpha": true,
+              "BakeOpacityInAlphaUI": {
+                "Visible": true
+              },
+              "SkipCastingIfNoInputChannel": false,
+              "SkipCastingIfNoInputChannelUI": {
+                "Visible": true
+              },
+              "OutputOpacityType": 0,
+              "OutputOpacityTypeUI": {
+                "Visible": true
+              }
+            }
+          },
+          {
+            "OpacityCasterSettings": {
+              "MaterialChannel": "transparency",
+              "MaterialChannelUI": {
+                "Visible": false
+              },
+              "OpacityChannel": "transparency",
+              "OpacityChannelUI": {
+                "Visible": true
+              },
+              "OpacityChannelComponent": 0,
+              "OpacityChannelComponentUI": {
+                "Visible": true
+              },
+              "DitherType": 1,
+              "DitherTypeUI": {
+                "Visible": true
+              },
+              "FillMode": 0,
+              "FillModeUI": {
+                "Visible": true
+              },
+              "Dilation": 10,
+              "DilationUI": {
+                "Visible": true,
+                "MinValue": 0,
+                "MaxValue": 1000,
+                "TicksFrequencyValue": 1
+              },
+              "UseMultisampling": true,
+              "UseMultisamplingUI": {
+                "Visible": true
+              },
+              "OutputPixelFormat": 0,
+              "OutputPixelFormatUI": {
+                "Visible": true
+              },
+              "OutputImageFileFormat": 3,
+              "OutputImageFileFormatUI": {
+                "Visible": true
+              },
+              "OutputDDSCompressionType": -1,
+              "OutputDDSCompressionTypeUI": {
+                "Visible": false
+              },
+              "OutputSRGB": false,
+              "OutputSRGBUI": {
+                "Visible": true
+              },
+              "OutputToTessellatedAttributes": false,
+              "OutputToTessellatedAttributesUI": {
+                "Visible": true
+              },
+              "OutputOpacityType": 0,
+              "OutputOpacityTypeUI": {
+                "Visible": true
+              }
+            }
+          },
+          {
+            "ColorCasterSettings": {
+              "MaterialChannel": "ambientColor",
+              "MaterialChannelUI": {
+                "Visible": false
+              },
+              "OpacityChannel": "transparency",
+              "OpacityChannelUI": {
+                "Visible": true
+              },
+              "OpacityChannelComponent": 0,
+              "OpacityChannelComponentUI": {
+                "Visible": true
+              },
+              "DitherType": 1,
+              "DitherTypeUI": {
+                "Visible": true
+              },
+              "FillMode": 0,
+              "FillModeUI": {
+                "Visible": true
+              },
+              "Dilation": 10,
+              "DilationUI": {
+                "Visible": true,
+                "MinValue": 0,
+                "MaxValue": 1000,
+                "TicksFrequencyValue": 1
+              },
+              "UseMultisampling": true,
+              "UseMultisamplingUI": {
+                "Visible": true
+              },
+              "OutputPixelFormat": 1,
+              "OutputPixelFormatUI": {
+                "Visible": true
+              },
+              "OutputImageFileFormat": 5,
+              "OutputImageFileFormatUI": {
+                "Visible": true
+              },
+              "OutputDDSCompressionType": -1,
+              "OutputDDSCompressionTypeUI": {
+                "Visible": false
+              },
+              "OutputSRGB": true,
+              "OutputSRGBUI": {
+                "Visible": true
+              },
+              "BakeOpacityInAlpha": false,
+              "BakeOpacityInAlphaUI": {
+                "Visible": true
+              },
+              "SkipCastingIfNoInputChannel": false,
+              "SkipCastingIfNoInputChannelUI": {
+                "Visible": true
+              },
+              "OutputOpacityType": 0,
+              "OutputOpacityTypeUI": {
+                "Visible": true
+              }
+            }
+          }
+        ]
+      },
+      "Pipeline": "BillboardCloudVegetation",
+      "Version": "10.4",
+      "Build": "10.4.232.0",
+      "Commit": "7f6086c1e6c21aa8f4fabf461f72c305b37572ff",
+      "Cascaded": []
+    }
+  ]
+}

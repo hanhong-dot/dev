@@ -1,0 +1,215 @@
+{
+    "mouthUp": {
+        "mouthUp": 2
+    },
+    "mouthLipsTogetherD": {
+        "jawOpen_mouthLipsTogetherDL_mouthLipsTogetherDR": 1,
+        "jawOpen": -1
+    },
+    "mouthLipsTogetherU": {
+        "jawOpen_mouthLipsTogetherUL_mouthLipsTogetherUR": 1,
+        "jawOpen": -1
+    },
+    "jawOpenExtreme": {
+        "jawOpen_jawOpenExtreme": 1,
+        "jawOpen": -1
+    },
+    "mouthStretchLipsCloseR": [
+        "mouthStretchR_mouthStretchLipsCloseR"
+    ],
+    "mouthStretchLipsCloseL": [
+        "mouthStretchL_mouthStretchLipsCloseL"
+    ],
+    "mouthStretch": [
+        "mouthStretchR",
+        "mouthStretchL"
+    ],
+    "noseNostrilDilate": [
+        "noseNostrilDilateR",
+        "noseNostrilDilateL"
+    ],
+    "noseNostrilCompress": [
+        "noseNostrilCompressR",
+        "noseNostrilCompressL"
+    ],
+    "OOO": [
+        "mouthFunnelDL",
+        "mouthFunnelDR",
+        "mouthFunnelUL",
+        "mouthFunnelUR",
+        "mouthLipsPurseDL",
+        "mouthLipsPurseDR",
+        "mouthLipsPurseUL",
+        "mouthLipsPurseUR"
+    ],
+    "mouthFunnel": [
+        "mouthFunnelDL",
+        "mouthFunnelDR",
+        "mouthFunnelUL",
+        "mouthFunnelUR"
+    ],
+    "mouthLipsPurse": [
+        "mouthLipsPurseDL",
+        "mouthLipsPurseDR",
+        "mouthLipsPurseUL",
+        "mouthLipsPurseUR"
+    ],
+    "mouthLipsTowardsD": [
+        "mouthLipsTowardsDL",
+        "mouthLipsTowardsDR"
+    ],
+    "mouthLipsTowardsU": [
+        "mouthLipsTowardsUL",
+        "mouthLipsTowardsUR"
+    ],
+    "mouthLowerLipBite": [
+        "mouthLowerLipBiteR",
+        "mouthLowerLipBiteL"
+    ],
+    "mouthUpperLipBite": [
+        "mouthUpperLipBiteL",
+        "mouthUpperLipBiteR"
+    ],
+    "mouthLipsThickD": [
+        "mouthLipsThickDL",
+        "mouthLipsThickDR"
+    ],
+    "mouthLipsThickU": [
+        "mouthLipsThickUL",
+        "mouthLipsThickUR"
+    ],
+    "mouthPress": [
+        "mouthPressDL",
+        "mouthPressUL",
+        "mouthPressDR",
+        "mouthPressUR"
+    ],
+    "browRaiseIn": [
+        "browRaiseInL",
+        "browRaiseInR"
+    ],
+    "mouthCheekBlow": [
+        "mouthCheekBlowL",
+        "mouthCheekBlowR",
+        "mouthLipsBlowL",
+        "mouthLipsBlowR"
+    ],
+    "mouthLowerLipDepress": [
+        "mouthLowerLipDepressL",
+        "mouthLowerLipDepressR"
+    ],
+    "mouthUpperLipRaise": [
+        "mouthUpperLipRaiseR",
+        "mouthUpperLipRaiseL"
+    ],
+    "mouthLowerLipRollOut": [
+        "mouthLowerLipRollOutL",
+        "mouthLowerLipRollOutR"
+    ],
+    "mouthUpperLipRollOut": [
+        "mouthUpperLipRollOutL",
+        "mouthUpperLipRollOutR"
+    ],
+    "jawChinRaise": [
+        "jawChinRaiseUR",
+        "jawChinRaiseUL",
+        "jawChinRaiseDR",
+        "jawChinRaiseDL",
+        "jawChinCompressL",
+        "jawChinCompressR"
+    ],
+    "mouthLipsThinD": [
+        "mouthLipsThinDL",
+        "mouthLipsThinDR"
+    ],
+    "mouthLipsThinU": [
+        "mouthLipsThinUL",
+        "mouthLipsThinUR"
+    ],
+    "mouthLipsPush": [
+        "mouthLipsPushDL",
+        "mouthLipsPushUL",
+        "mouthLipsPushDR",
+        "mouthLipsPushUR"
+    ],
+    "mouthLipsPull": [
+        "mouthLipsPullDL",
+        "mouthLipsPullUL",
+        "mouthLipsPullDR",
+        "mouthLipsPullUR"
+    ],
+    "mouthLowerLipRollIn": [
+        "mouthLowerLipRollInL",
+        "mouthLowerLipRollInR"
+    ],
+    "mouthUpperLipRollIn": [
+        "mouthUpperLipRollInL",
+        "mouthUpperLipRollInR"
+    ],
+    "mouthSticky": {
+        "mouthStickyDOUTL": 1.0,
+        "mouthStickyDOUTR": 1.0,
+        "mouthStickyUOUTL": 1.0,
+        "mouthStickyUOUTR": 1.0,
+        "mouthStickyDINL": 0.5,
+        "mouthStickyDINR": 0.5,
+        "mouthStickyUINL": 0.5,
+        "mouthStickyUINR": 0.5
+    },
+    "mouthStickyC": {
+        "mouthStickyUC": 1,
+        "mouthStickyDC": 1,
+        "mouthStickyDINL": 0.5,
+        "mouthStickyDINR": 0.5,
+        "mouthStickyUINL": 0.5,
+        "mouthStickyUINR": 0.5
+    },
+    "eyeLookRightL_eyeLookUpL": [
+        "eyeLookRightL",
+        "eyeLookUpL"
+    ],
+    "browDownR_browRaiseInR": [
+        "browDownR",
+        "browRaiseInR"
+    ],
+    "browDownL_browRaiseInL": [
+        "browDownL",
+        "browRaiseInL"
+    ],
+    "browDownR_browRaiseOuterR": [
+        "browDownR",
+        "browRaiseOuterR"
+    ],
+    "eyeLookLeftL_eyeLookUpL": [
+        "eyeLookLeftL",
+        "eyeLookUpL"
+    ],
+    "eyeLookDownR_eyeLookRightR": [
+        "eyeLookDownR",
+        "eyeLookRightR"
+    ],
+    "eyeLookLeftR_eyeLookUpR": [
+        "eyeLookLeftR",
+        "eyeLookUpR"
+    ],
+    "browDownL_browRaiseOuterL": [
+        "browDownL",
+        "browRaiseOuterL"
+    ],
+    "eyeLookDownL_eyeLookLeftL": [
+        "eyeLookDownL",
+        "eyeLookLeftL"
+    ],
+    "eyeLookDownR_eyeLookLeftR": [
+        "eyeLookDownR",
+        "eyeLookLeftR"
+    ],
+    "eyeLookRightR_eyeLookUpR": [
+        "eyeLookRightR",
+        "eyeLookUpR"
+    ],
+    "eyeLookDownL_eyeLookRightL": [
+        "eyeLookDownL",
+        "eyeLookRightL"
+    ]
+}

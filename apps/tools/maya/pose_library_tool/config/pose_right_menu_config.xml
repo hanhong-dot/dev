@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<process name="process">
+
+    <process_tab tab_name="Pose库">
+        <processItem order_id="1" projectType="all"
+                     item_name="导入Pose"
+                     toolTip="导入Pose(当前文件需要为绑定文件)"
+                     process_command="from apps.tools.maya.pose_library_tool import import_pose;reload(import_pose);import_pose.import_pose(FbxPath)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="2" projectType="all"
+                     item_name="更新Pose库资产数据"
+                     toolTip="更新当前当前选择的Pose资产数据"
+                     process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.replace_pose_library_ui(PoseName,CharacterName,FbxPath,ThumbnailPath,description,0)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+        <processItem order_id="3" projectType="all"
+                     item_name="移除Pose库资产"
+                     toolTip="移除当前当前选择的Pose资产"
+                     process_command="from apps.tools.maya.pose_library_tool import remove_pose;reload(remove_pose);remove_pose.remove_pose(PoseName,FbxPath,0)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+
+    </process_tab>
+    <process_tab tab_name="相机库">
+        <processItem order_id="1" projectType="all"
+                     item_name="导入相机"
+                     toolTip="导入当前选择的相机资产文件"
+                     process_command="from apps.tools.maya.pose_library_tool import import_camera;reload(import_camera);import_camera.import_camera(FbxPath)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="2" projectType="all"
+                     item_name="更新相机库资产数据"
+                     toolTip="更新当前当前选择的相机资产数据"
+                     process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.replace_camera_library_ui(CameraName,CharacterName,FbxPath,ThumbnailPath,description,0)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+
+        <processItem order_id="3" projectType="all"
+                     item_name="移除相机库资产"
+                     toolTip="移除当前当前选择的相机资产"
+                     process_command="from apps.tools.maya.pose_library_tool import remove_camera;reload(remove_camera);remove_camera.remove_camera(CameraName,FbxPath,0)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+    </process_tab>
+    <process_tab tab_name="DB Pose库">
+        <processItem order_id="1" projectType="all"
+                     item_name="导入DBPose"
+                     toolTip="导入DBPose(当前文件需要为绑定文件)"
+                     process_command="from apps.tools.maya.pose_library_tool import import_pose;reload(import_pose);import_pose.import_db_pose(FbxPath)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="2" projectType="all"
+                     item_name="移除DBPose库资产"
+                     toolTip="移除当前当前选择的DBPose资产"
+                     process_command="from apps.tools.maya.pose_library_tool import remove_db_pose;reload(remove_db_pose);remove_db_pose.remove_db_pose(PoseName)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+        <!--        <processItem order_id="2" projectType="all"-->
+        <!--                     item_name="更新DBPose库资产数据"-->
+        <!--                     toolTip="更新当前当前选择的DBPose库资产数据"-->
+        <!--                     process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.replace_dbpose_library_ui(PoseName,CharacterName,FbxPath,ThumbnailPath,description)"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=""-->
+        <!--        />-->
+        <!--        <processItem order_id="3" projectType="all"-->
+        <!--                     item_name="移除DBPose库资产"-->
+        <!--                     toolTip="移除当前当前选择的DBPose资产"-->
+        <!--                     process_command="from apps.tools.maya.pose_library_tool import remove_dbpose;reload(remove_dbpose);remove_dbpose.remove_dbpose(PoseName,FbxPath)"-->
+        <!--                     except_project=""-->
+        <!--                     except_projectType=" "-->
+        <!--        />-->
+    </process_tab>
+
+
+    <process_tab tab_name="本地Pose库">
+        <processItem order_id="1" projectType="all"
+                     item_name="导入Pose"
+                     toolTip="导入Pose(当前文件需要为绑定文件)"
+                     process_command="from apps.tools.maya.pose_library_tool import import_pose;reload(import_pose);import_pose.import_pose(FbxPath)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+        <processItem order_id="2" projectType="all"
+                     item_name="更新本地Pose库资产数据"
+                     toolTip="更新当前当前选择的本地Pose库资产数据"
+                     process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.replace_pose_library_ui(PoseName,CharacterName,FbxPath,ThumbnailPath,description,1)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+
+        <processItem order_id="3" projectType="all"
+                     item_name="移除本地Pose库资产"
+                     toolTip="移除当前当前选择的Pose资产"
+                     process_command="from apps.tools.maya.pose_library_tool import remove_pose;reload(remove_pose);remove_pose.remove_pose(PoseName,FbxPath,1)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+
+    </process_tab>
+    <process_tab tab_name="本地相机库">
+        <processItem order_id="1" projectType="all"
+                     item_name="导入本地库相机"
+                     toolTip="导入当前选择的相机资产文件"
+                     process_command="from apps.tools.maya.pose_library_tool import import_camera;reload(import_camera);import_camera.import_camera(FbxPath)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="2" projectType="all"
+                     item_name="更新本地相机库资产数据"
+                     toolTip="更新当前当前选择的本地相机资产数据"
+                     process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.replace_camera_library_ui(CameraName,CharacterName,FbxPath,ThumbnailPath,description,1)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+
+        <processItem order_id="3" projectType="all"
+                     item_name="移除本地相机库资产"
+                     toolTip="移除当前当前选择的相机资产"
+                     process_command="from apps.tools.maya.pose_library_tool import remove_camera;reload(remove_camera);remove_camera.remove_camera(CameraName,FbxPath,1)"
+                     except_project=""
+                     except_projectType=""
+        />
+    </process_tab>
+
+
+    <process_tab tab_name="Character Action">
+        <processItem order_id="1" projectType="all"
+                     item_name="添加Pose库资产"
+                     toolTip="选择当前角色添加Pose库"
+                     process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.creat_pose_library_ui(CharacterName,0)"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="2" projectType="all"
+                     item_name="添加Camera库资产"
+                     toolTip="选择当前角色添加Camera库"
+                     process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.creat_camera_library_ui(CharacterName,0)"
+                     except_project=""
+                     except_projectType=""
+
+        />
+
+        <processItem order_id="3" projectType="all"
+                     item_name="添加DBPose库资产"
+                     toolTip="选择当前角色添加DBPose库"
+                     process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.creat_dbpose_library_ui(CharacterName)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+        <processItem order_id="3" projectType="all"
+                     item_name="添加本地Pose库资产"
+                     toolTip="选择当前角色添加本地Pose库"
+                     process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.creat_pose_library_ui(CharacterName,1)"
+                     except_project=""
+                     except_projectType=""
+
+        />
+        <processItem order_id="4" projectType="all"
+                     item_name="添加本地Camera库资产"
+                     toolTip="选择当前角色添加本地Camera库"
+                     process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.creat_camera_library_ui(CharacterName,1)"
+                     except_project=""
+                     except_projectType=""
+        />
+
+
+    </process_tab>
+</process>

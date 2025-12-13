@@ -1,0 +1,1154 @@
+{
+  "Asset.body.mod": [
+    "{ad}001H_HD",
+    "{ad}001F_HD",
+    "{ad}001B_HD",
+    "{ad}001H_LD",
+    "{ad}001F_LD",
+    "{ad}001B_LD"
+  ],
+  "Asset.body.outsource.out_mdl": [
+    "{ad}001H_HD",
+    "{ad}001F_HD",
+    "{ad}001B_HD",
+    "{ad}001H_LD",
+    "{ad}001F_LD",
+    "{ad}001B_LD"
+  ],
+  "Asset.body.wbx": [
+    "{ad}001H_HD",
+    "{ad}001F_HD",
+    "{ad}001B_HD",
+    "{ad}001H_LD",
+    "{ad}001F_LD",
+    "{ad}001B_LD"
+  ],
+  "Asset.body.fight": [
+    "{ad}001H_HD",
+    "{ad}001F_HD",
+    "{ad}001B_HD",
+    "{ad}001H_LD",
+    "{ad}001F_LD",
+    "{ad}001B_LD"
+  ],
+  "Asset.body.ue.ue_low": [
+    "{ad}001H_UE_Low",
+    "{ad}001F_UE_Low",
+    "{ad}001B_UE_Low"
+  ],
+  "Asset.body.ue.ue_mdl": [
+    "{ad}001H_UE",
+    "{ad}001F_UE",
+    "{ad}001B_UE"
+  ],
+  "Asset.body.ue.ue_final": [
+    "{ad}001H_UE",
+    "{ad}001F_UE",
+    "{ad}001B_UE"
+  ],
+  "Asset.body.rig": {
+    "{ad}_Rig": [
+      "{ad}001H_HD",
+      "{ad}001F_HD",
+      "{ad}001B_HD",
+      "{ad}001H_LD",
+      "{ad}001F_LD",
+      "{ad}001B_LD"
+    ]
+  },
+  "Asset.body.outsource.out_rig": {
+    "{ad}_Rig": [
+      "{ad}001H_HD",
+      "{ad}001F_HD",
+      "{ad}001B_HD",
+      "{ad}001H_LD",
+      "{ad}001F_LD",
+      "{ad}001B_LD"
+    ]
+  },
+  "Asset.body.lan": {
+    "{ad}_Rig": [
+      "{ad}001H_HD",
+      "{ad}001F_HD",
+      "{ad}001B_HD",
+      "{ad}001H_LD",
+      "{ad}001F_LD",
+      "{ad}001B_LD"
+    ]
+  },
+  "Asset.body.rbf": {
+    "{ad}_Rig": [
+      "{ad}001H_HD",
+      "{ad}001F_HD",
+      "{ad}001B_HD",
+      "{ad}001H_LD",
+      "{ad}001F_LD",
+      "{ad}001B_LD"
+    ]
+  },
+  "Asset.body.ue.ue_rig": {
+    "{ad}_Rig": [
+      "{ad}001H_UE",
+      "{ad}001F_UE",
+      "{ad}001B_UE"
+    ]
+  },
+  "Asset.body.ue.ue_rig_low": {
+    "{ad}_Rig": [
+      "{ad}001H_UE_Low",
+      "{ad}001F_UE_Low",
+      "{ad}001B_UE_Low"
+    ]
+  },
+  "Asset.cartoon_body.mod": [
+    "{ad}001H_HD",
+    "{ad}001F_HD",
+    "{ad}001B_HD",
+    "{ad}001H_LD",
+    "{ad}001F_LD",
+    "{ad}001B_LD"
+  ],
+  "Asset.cartoon_body.wbx": [
+    "{ad}001H_HD",
+    "{ad}001F_HD",
+    "{ad}001B_HD",
+    "{ad}001H_LD",
+    "{ad}001F_LD",
+    "{ad}001B_LD"
+  ],
+  "Asset.cartoon_body.fight": [
+    "{ad}001H_HD",
+    "{ad}001F_HD",
+    "{ad}001B_HD",
+    "{ad}001H_LD",
+    "{ad}001F_LD",
+    "{ad}001B_LD"
+  ],
+  "Asset.cartoon_body.ue.ue_mdl": [
+    "{ad}001H_UE",
+    "{ad}001F_UE",
+    "{ad}001B_UE"
+  ],
+  "Asset.cartoon_body.ue.ue_final": [
+    "{ad}001H_UE",
+    "{ad}001F_UE",
+    "{ad}001B_UE"
+  ],
+  "Asset.cartoon_body.rig": {
+    "{ad}_Rig": [
+      "{ad}001H_HD",
+      "{ad}001F_HD",
+      "{ad}001B_HD",
+      "{ad}001H_LD",
+      "{ad}001F_LD",
+      "{ad}001B_LD"
+    ]
+  },
+  "Asset.cartoon_body.lan": {
+    "{ad}_Rig": [
+      "{ad}001H_HD",
+      "{ad}001F_HD",
+      "{ad}001B_HD",
+      "{ad}001H_LD",
+      "{ad}001F_LD",
+      "{ad}001B_LD"
+    ]
+  },
+  "Asset.cartoon_body.rbf": {
+    "{ad}_Rig": [
+      "{ad}001H_HD",
+      "{ad}001F_HD",
+      "{ad}001B_HD",
+      "{ad}001H_LD",
+      "{ad}001F_LD",
+      "{ad}001B_LD"
+    ]
+  },
+  "Asset.cartoon_body.ue.ue_rig": {
+    "{ad}_Rig": [
+      "{ad}001H_UE",
+      "{ad}001F_UE",
+      "{ad}001B_UE"
+    ]
+  },
+  "Asset.cartoon_body.ue.ue_rig_low": {
+    "{ad}_Rig": [
+      "{ad}001H_UE_Low",
+      "{ad}001F_UE_Low",
+      "{ad}001B_UE_Low"
+    ]
+  },
+  "Asset.role.fight": {
+    "level_0": "{entity_name}_LD",
+    "level_1": [
+      "{entity_name}_LD"
+    ],
+    "level_2": [
+      "{entity_name}_LD"
+    ],
+    "level_3": [
+      "{entity_name}_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_Tails_LD",
+      "{entity_name}_HE_LD"
+    ],
+    "level_4": [
+      "{entity_name}_LD"
+    ],
+    "level_10": [
+      "{entity_name}_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_HE_LD"
+    ]
+  },
+  "Asset.role.mod": {
+    "level_0": "{entity_name}_HD",
+    "level_1": [
+      "{entity_name}_HD"
+    ],
+    "level_2": [
+      "{entity_name}_HD"
+    ],
+    "level_3": [
+      "{entity_name}_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_HE_HD"
+    ],
+    "level_4": [
+      "{entity_name}_HD"
+    ],
+    "level_10": [
+      "{entity_name}_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_HE_HD"
+    ]
+  },
+  "Asset.role.wbx": {
+    "level_0": "{entity_name}_HD",
+    "level_1": [
+      "{entity_name}_HD"
+    ],
+    "level_2": [
+      "{entity_name}_HD"
+    ],
+    "level_3": [
+      "{entity_name}_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_HE_HD"
+    ],
+    "level_4": [
+      "{entity_name}_HD"
+    ],
+    "level_10": [
+      "{entity_name}_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_HE_HD"
+    ]
+  },
+  "Asset.role.outsource.out_mdl": {
+    "level_0": "{entity_name}_HD",
+    "level_1": [
+      "{entity_name}_HD"
+    ],
+    "level_2": [
+      "{entity_name}_HD"
+    ],
+    "level_3": [
+      "{entity_name}_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_HE_HD"
+    ],
+    "level_4": [
+      "{entity_name}_HD"
+    ],
+    "level_10": [
+      "{entity_name}_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_HE_HD"
+    ]
+  },
+  "Asset.role.ue.ue_mdl": {
+    "level_0": "{entity_name}_UE",
+    "level_1": "{entity_name}_UE",
+    "level_2": "{entity_name}_UE",
+    "level_3": "{entity_name}_UE",
+    "level_4": "{entity_name}_UE"
+  },
+  "Asset.role.ue.ue_low": {
+    "level_0": "{entity_name}_UE_HD",
+    "level_1": "{entity_name}_UE_HD",
+    "level_2": "{entity_name}_UE_HD",
+    "level_3": "{entity_name}_UE_HD",
+    "level_4": "{entity_name}_UE_HD"
+  },
+  "Asset.role.ue.ue_final": {
+    "level_0": "{entity_name}_UE",
+    "level_1": "{entity_name}_UE",
+    "level_2": "{entity_name}_UE",
+    "level_3": "{entity_name}_UE",
+    "level_4": "{entity_name}_UE"
+  },
+  "Asset.role.rig": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_1": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_2": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_Tails_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_10": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_4": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    }
+  },
+  "Asset.role.rbf": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_1": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_2": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_10": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_4": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    }
+  },
+  "Asset.role.outsource.out_rig": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_1": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_2": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_Tails_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_10": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_4": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    }
+  },
+  "Asset.role.outsource.out_rig_rm": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_1": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_2": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_Tails_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_10": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_4": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    }
+  },
+  "Asset.role.ue.ue_rig": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    },
+    "level_1": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    },
+    "level_2": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    },
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    },
+    "level_10": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    },
+    "level_4": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    }
+  },
+  "Asset.role.ue.ue_rig_low": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_UE_Low",
+        "{entity_name}_UE_HD_Low"
+      ]
+    },
+    "level_1": {
+      "{ad}_Rig": [
+        "{entity_name}_UE_Low",
+        "{entity_name}_UE_HD_Low"
+      ]
+    },
+    "level_2": {
+      "{ad}_Rig": [
+        "{entity_name}_UE_Low",
+        "{entity_name}_UE_HD_Low"
+      ]
+    },
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_UE_Low",
+        "{entity_name}_UE_HD_Low"
+      ]
+    },
+    "level_10": {
+      "{ad}_Rig": [
+        "{entity_name}_UE_Low",
+        "{entity_name}_UE_HD_Low"
+      ]
+    },
+    "level_4": {
+      "{ad}_Rig": [
+        "{entity_name}_UE_Low",
+        "{entity_name}_UE_HD_Low"
+      ]
+    }
+  },
+  "Asset.cartoon_role.fight": {
+    "level_0": "{entity_name}_LD",
+    "level_1": [
+      "{entity_name}_UP_LD",
+      "{entity_name}_DN_LD"
+    ],
+    "level_2": [
+      "{entity_name}_LD"
+    ],
+    "level_3": [
+      "{entity_name}_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_EA_LD"
+    ],
+    "level_4": [
+      "{entity_name}_LD"
+    ],
+    "level_10": [
+      "{entity_name}_LD",
+      "{entity_name}_FA_LD"
+    ]
+  },
+  "Asset.cartoon_role.mod": {
+    "level_0": "{entity_name}_HD",
+    "level_1": [
+      "{entity_name}_UP_HD",
+      "{entity_name}_DN_HD"
+    ],
+    "level_2": [
+      "{entity_name}_HD"
+    ],
+    "level_3": [
+      "{entity_name}_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_HE_HD"
+    ],
+    "level_4": [
+      "{entity_name}_HD"
+    ],
+    "level_10": [
+      "{entity_name}_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_HE_HD"
+    ]
+  },
+  "Asset.cartoon_role.wbx": {
+    "level_0": "{entity_name}_HD",
+    "level_1": [
+      "{entity_name}_UP_HD",
+      "{entity_name}_DN_HD"
+    ],
+    "level_2": [
+      "{entity_name}_HD"
+    ],
+    "level_3": [
+      "{entity_name}_HD",
+      "{entity_name}_FA_HD"
+    ],
+    "level_4": [
+      "{entity_name}_HD"
+    ],
+    "level_10": [
+      "{entity_name}_HD",
+      "{entity_name}_FA_HD"
+    ]
+  },
+  "Asset.cartoon_role.ue.ue_mdl": {
+    "level_0": "{entity_name}_UE",
+    "level_1": "{entity_name}_UE",
+    "level_2": "{entity_name}_UE",
+    "level_3": "{entity_name}_UE",
+    "level_4": "{entity_name}_UE"
+  },
+  "Asset.cartoon_role.ue.ue_low": {
+    "level_0": "{entity_name}_UE_HD",
+    "level_1": "{entity_name}_UE_HD",
+    "level_2": "{entity_name}_UE_HD",
+    "level_3": "{entity_name}_UE_HD",
+    "level_4": "{entity_name}_UE_HD"
+  },
+  "Asset.cartoon_role.ue.ue_final": {
+    "level_0": "{entity_name}_UE",
+    "level_1": "{entity_name}_UE",
+    "level_2": "{entity_name}_UE",
+    "level_3": "{entity_name}_UE",
+    "level_4": "{entity_name}_UE"
+  },
+  "Asset.cartoon_role.rig": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_1": {
+      "{ad}_Rig": [
+        "{entity_name}_UP_HD",
+        "{entity_name}_DN_HD"
+      ]
+    },
+    "level_2": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_10": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_4": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    }
+  },
+  "Asset.cartoon_role.rbf": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_1": {
+      "{ad}_Rig": [
+        "{entity_name}_UP_HD",
+        "{entity_name}_DN_HD"
+      ]
+    },
+    "level_2": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    },
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_10": {
+      "{ad}_Rig": [
+        "{entity_name}_HD",
+        "{entity_name}_FA_HD",
+        "{entity_name}_EA_HD",
+        "{entity_name}_HE_HD"
+      ]
+    },
+    "level_4": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    }
+  },
+  "Asset.cartoon_role.ue.ue_rig": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    },
+    "level_1": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    },
+    "level_2": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    },
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    },
+    "level_10": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    },
+    "level_4": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    }
+  },
+  "Asset.fx.fight": {
+    "level_0": "{entity_name}_LD"
+  },
+  "Asset.fx.mod": {
+    "level_0": "{entity_name}_HD"
+  },
+  "Asset.fx.wbx": {
+    "level_0": "{entity_name}_HD"
+  },
+  "Asset.fx.ue.ue_mdl": {
+    "level_0": "{entity_name}_UE"
+  },
+  "Asset.fx.ue.ue_low": {
+    "level_0": "{entity_name}_UE_HD"
+  },
+  "Asset.fx.ue.ue_final": {
+    "level_0": "{entity_name}_UE"
+  },
+  "Asset.fx.rig": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    }
+  },
+  "Asset.fx.rbf": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    }
+  },
+  "Asset.fx.ue.ue_rig": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    }
+  },
+  "Asset.cartoon_fx.fight": {
+    "level_0": "{entity_name}_LD"
+  },
+  "Asset.cartoon_fx.mod": {
+    "level_0": "{entity_name}_HD"
+  },
+  "Asset.cartoon_fx.wbx": {
+    "level_0": "{entity_name}_HD"
+  },
+  "Asset.cartoon_fx.ue.ue_mdl": {
+    "level_0": "{entity_name}_UE"
+  },
+  "Asset.cartoon_fx.ue.ue_low": {
+    "level_0": "{entity_name}_UE_HD"
+  },
+  "Asset.cartoon_fx.ue.ue_final": {
+    "level_0": "{entity_name}_UE"
+  },
+  "Asset.cartoon_fx.rig": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    }
+  },
+  "Asset.cartoon_fx.rbf": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_HD"
+      ]
+    }
+  },
+  "Asset.cartoon_fx.ue.ue_rig": {
+    "level_0": {
+      "{ad}_Rig": [
+        "{entity_name}_UE",
+        "{entity_name}_UE_HD"
+      ]
+    }
+  },
+  "Asset.npc.mod": {
+    "level_0": [
+      "NPC_{ad}_BaseHead",
+      "NPC_{ad}_BaseBody",
+      "NPC_{ad}_BaseHair"
+    ],
+    "level_1": [
+      "NPC_{ad}_BaseHead",
+      "NPC_{ad}_BaseBody",
+      "NPC_{ad}_BaseHair"
+    ],
+    "level_2": [
+      "NPC_{ad}_BaseHead",
+      "NPC_{ad}_BaseBody",
+      "NPC_{ad}_BaseHair",
+      "NPC_{ad}_split"
+    ],
+    "level_3": [
+      "{entity_name}_BaseHead",
+      "{entity_name}_BaseBody",
+      "{entity_name}_BaseHair"
+    ]
+  },
+  "Asset.npc.outsource.out_mdl": {
+    "level_0": [
+      "NPC_{ad}_BaseHead",
+      "NPC_{ad}_BaseBody",
+      "NPC_{ad}_BaseHair"
+    ],
+    "level_1": [
+      "NPC_{ad}_BaseHead",
+      "NPC_{ad}_BaseBody",
+      "NPC_{ad}_BaseHair"
+    ],
+    "level_2": [
+      "NPC_{ad}_BaseHead",
+      "NPC_{ad}_BaseBody",
+      "NPC_{ad}_BaseHair",
+      "NPC_{ad}_split"
+    ],
+    "level_3": [
+      "{entity_name}_BaseHead",
+      "{entity_name}_BaseBody",
+      "{entity_name}_BaseHair"
+    ]
+  },
+
+  "Asset.npc.wbx": [
+    "NPC_{ad}_BaseHead",
+    "NPC_{ad}_BaseBody",
+    "NPC_{ad}_BaseHair"
+  ],
+  "Asset.npc.fight": [
+    "NPC_{ad}_BaseHead",
+    "NPC_{ad}_BaseBody",
+    "NPC_{ad}_BaseHair"
+  ],
+  "Asset.npc.ue.ue_mdl": [
+    "{entity_name}_UE"
+  ],
+  "Asset.npc.ue.ue_low": [
+    "{entity_name}_UE_HD"
+  ],
+  "Asset.npc.ue.ue_final": [
+    "{entity_name}_UE"
+  ],
+  "Asset.npc.rig": {
+    "level_0": "{ad}_Rig",
+    "level_1": "{ad}_Rig",
+    "level_2": "{ad}_Rig",
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_BaseHead",
+        "{entity_name}_BaseBody",
+        "{entity_name}_BaseHair"
+      ]
+    }
+  },
+
+  "Asset.npc.outsource.out_rig": {
+    "level_0": "{ad}_Rig",
+    "level_1": "{ad}_Rig",
+    "level_2": "{ad}_Rig",
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_BaseHead",
+        "{entity_name}_BaseBody",
+        "{entity_name}_BaseHair"
+      ]
+    }
+  },
+  "Asset.npc.rbf": {
+    "level_0": "{ad}_Rig",
+    "level_1": "{ad}_Rig",
+    "level_2": "{ad}_Rig",
+    "level_3": {
+      "{ad}_Rig": [
+        "{entity_name}_BaseHead",
+        "{entity_name}_BaseBody",
+        "{entity_name}_BaseHair"
+      ]
+    }
+  },
+  "Asset.npc.lan": "{ad}_Rig",
+  "Asset.npc.ue.ue_rig": "{ad}_Rig",
+  "Asset.cartoon_npc.fight": [
+    "{entity_name}_DN_LD",
+    "{entity_name}_UP_LD",
+    "{entity_name}_LD"
+  ],
+  "Asset.cartoon_npc.mod": [
+    "{entity_name}_DN_HD",
+    "{entity_name}_UP_HD",
+    "{entity_name}_HD"
+  ],
+  "Asset.cartoon_npc.wbx": [
+    "{entity_name}_DN_HD",
+    "{entity_name}_UP_HD",
+    "{entity_name}_HD"
+  ],
+  "Asset.cartoon_npc.outsource.out_mdl": [
+    "{entity_name}_DN_HD",
+    "{entity_name}_UP_HD",
+    "{entity_name}_HD"
+  ],
+  "Asset.cartoon_npc.ue.ue_mdl": [
+    "{entity_name}_UE",
+    "{entity_name}_DN_UE",
+    "{entity_name}_UP_UE"
+  ],
+  "Asset.cartoon_npc.ue.ue_low": [
+    "{entity_name}_UE_HD",
+    "{entity_name}_DN_UE_HD",
+    "{entity_name}_UP_UE_HD"
+  ],
+  "Asset.cartoon_npc.ue.ue_final": [
+    "{entity_name}_UE",
+    "{entity_name}_DN_UE",
+    "{entity_name}_UP_UE"
+  ],
+  "Asset.cartoon_npc.rig": {
+    "{ad}_Rig": [
+      "{entity_name}_DN_HD",
+      "{entity_name}_UP_HD",
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.cartoon_npc.rbf": {
+    "{ad}_Rig": [
+      "{entity_name}_DN_HD",
+      "{entity_name}_UP_HD",
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.cartoon_npc.outsource.out_rig": {
+    "{ad}_Rig": [
+      "{entity_name}_DN_HD",
+      "{entity_name}_UP_HD",
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.cartoon_npc.ue.ue_rig": {
+    "{ad}_Rig": [
+      "{entity_name}_UE",
+      "{entity_name}_DN_UE",
+      "{entity_name}_UP_UE"
+    ]
+  },
+  "Asset.item.fight": "{entity_name}_LD",
+  "Asset.item.mod": "{entity_name}_HD",
+  "Asset.item.wbx": "{entity_name}_HD",
+  "Asset.item.ue.ue_mdl": "{entity_name}_UE",
+  "Asset.item.ue.ue_low": "{entity_name}_UE_HD",
+  "Asset.item.ue.ue_final": "{entity_name}_UE",
+  "Asset.item.rig.drama_rig": {
+    "common_item_export_grp": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.item.rig.fight_rig": {
+    "common_item_export_grp": [
+      "{entity_name}_LD"
+    ]
+  },
+  "Asset.item.ue.ue_rig": {
+    "common_item_export_grp": [
+      "{entity_name}_UE",
+      "{entity_name}_UE_HD"
+    ]
+  },
+  "Asset.rolaccesory.fight": "{entity_name}_LD",
+  "Asset.rolaccesory.mod": "{entity_name}_HD",
+  "Asset.rolaccesory.wbx": "{entity_name}_HD",
+  "Asset.rolaccesory.ue.ue_mdl": "{entity_name}_UE",
+  "Asset.rolaccesory.ue.ue_low": "{entity_name}_UE_HD",
+  "Asset.rolaccesory.ue.ue_final": "{entity_name}_UE",
+  "Asset.rolaccesory.rig": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.rolaccesory.rbf": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.rolaccesory.ue.ue_rig": {
+    "{ad}_Rig": [
+      "{entity_name}_UE",
+      "{entity_name}_UE_HD"
+    ]
+  },
+  "Asset.cartoon_rolaccesory.fight": "{entity_name}_LD",
+  "Asset.cartoon_rolaccesory.mod": "{entity_name}_HD",
+  "Asset.cartoon_rolaccesory.wbx": "{entity_name}_HD",
+  "Asset.cartoon_rolaccesory.ue.ue_mdl": "{entity_name}_UE",
+  "Asset.cartoon_rolaccesory.ue.ue_low": "{entity_name}_UE_HD",
+  "Asset.cartoon_rolaccesory.ue.ue_final": "{entity_name}_UE",
+  "Asset.cartoon_rolaccesory.rig": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.cartoon_rolaccesory.rbf": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.cartoon_rolaccesory.ue.ue_rig": {
+    "{ad}_Rig": [
+      "{entity_name}_UE",
+      "{entity_name}_UE_HD"
+    ]
+  },
+  "Asset.weapon.fight": "{entity_name}_LD",
+  "Asset.weapon.mod": "{entity_name}_HD",
+  "Asset.weapon.wbx": "{entity_name}_LD",
+  "Asset.weapon.outsource.out_mdl": "{entity_name}_HD",
+  "Asset.weapon.ue.ue_mdl": "{entity_name}_UE",
+  "Asset.weapon.ue.ue_low": "{entity_name}_UE_HD",
+  "Asset.weapon.ue.ue_final": "{entity_name}_UE",
+  "Asset.weapon.rig": {
+    "{ad}_Rig": [
+      "{entity_name}_LD",
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.weapon.outsource.out_rig": {
+    "{ad}_Rig": [
+      "{entity_name}_LD",
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.weapon.rbf": {
+    "{ad}_Rig": [
+      "{entity_name}_LD",
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.weapon.ue.ue_rig": {
+    "{ad}_Rig": [
+      "{entity_name}_UE",
+      "{entity_name}_UE_HD"
+    ]
+  },
+  "Asset.enemy.fight": "{entity_name}_LD",
+  "Asset.enemy.mod": "{entity_name}_HD",
+  "Asset.enemy.outsource.out_mdl": "{entity_name}_HD",
+  "Asset.enemy.wbx": "{entity_name}_HD",
+  "Asset.enemy.ue.ue_mdl": "{entity_name}_UE",
+  "Asset.enemy.ue.ue_low": "{entity_name}_UE_HD",
+  "Asset.enemy.ue.ue_final": "{entity_name}_UE",
+  "Asset.enemy.rig": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.enemy.outsource.out_rig": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.enemy.rbf": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.enemy.ue.ue_rig": {
+    "{ad}_Rig": [
+      "{entity_name}_UE",
+      "{entity_name}_UE_HD"
+    ]
+  },
+  "Asset.hair.fight": "{entity_name}_LD",
+  "Asset.hair.mod": "{entity_name}_HD",
+  "Asset.hair.wbx": "{entity_name}_HD",
+  "Asset.hair.ue.ue_mdl": "{entity_name}_UE",
+  "Asset.hair.ue.ue_low": "{entity_name}_UE_HD",
+  "Asset.hair.ue.ue_final": "{entity_name}_UE",
+  "Asset.hair.rig": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.hair.rbf": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.hair.ue.ue_rig": {
+    "{ad}_Rig": [
+      "{entity_name}_UE",
+      "{entity_name}_UE_HD"
+    ]
+  },
+  "Asset.cartoon_hair.fight": "{entity_name}_LD",
+  "Asset.cartoon_hair.mod": "{entity_name}_HD",
+  "Asset.cartoon_hair.wbx": "{entity_name}_HD",
+  "Asset.cartoon_hair.ue.ue_mdl": "{entity_name}_UE",
+  "Asset.cartoon_hair.ue.ue_low": "{entity_name}_UE_HD",
+  "Asset.cartoon_hair.ue.ue_final": "{entity_name}_UE",
+  "Asset.cartoon_hair.rig": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.cartoon_hair.rbf": {
+    "{ad}_Rig": [
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.cartoon_hair.ue.ue_rig": {
+    "{ad}_Rig": [
+      "{entity_name}_UE",
+      "{entity_name}_UE_HD"
+    ]
+  }
+}
+
+
+

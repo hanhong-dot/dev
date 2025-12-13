@@ -1,0 +1,31 @@
+#created by he yingjie
+#time: 2020.11.12
+
+#-------------------------重要信息----------------
+#可用关键键：{asset_id}
+# asset_id 关键字传递的是shoutgun实体id。字符串形式： 'id_number,id_number,id_number.....'
+#动态菜单栏
+#动作数据结构样式：["动作名","动作菜单图标","可执行文件"]
+# tools_order 用来给菜单栏排序，因此必须将所有首菜单加入到tools_order指定的列表中。
+#-----------------------、重要信息------------------
+
+#tools_order: ['打开','标签',"publish", "shots"]
+
+tools_order: ['open','publish']
+
+# 取消项目层级
+open:
+ - ['打开work目录', 'Z:/dev/ico/sq32/ip.png', "import apps.tools.maya.sub_assets_republish.commont.base_data as base_data;reload(base_data);base_data.open_work_dir({task_data})"]
+ - ['打开最新work文件', 'Z:/dev/ico/sq32/ip.png', "import apps.tools.maya.sub_assets_republish.commont.base_data as base_data;reload(base_data);base_data.open_work_file({task_data})"]
+# - ['删除选中资源（测试中）', 'Y:/Development/Module/icons/animation/002.png', "print '测试删除'"]
+
+#publish:
+#  - ["打开(Open)","Y:/Development/Module/icons/animation/002.png","import maya.cmds as cmds;cmds.file(r'{asset_id}', open=True, force=True, options='v=0', ignoreVersion=True);"]
+#  - ["打开路径(Goto)","Y:/Development/Module/icons/animation/002.png","import os;os.startfile(os.path.split(r'{asset_id}')[0]);"]
+#  - ["打开对应版本Version文件(Open)","Y:/Development/Module/icons/animation/002.png","import os;os.startfile(r'{asset_id}');"]
+#
+
+
+publish:
+  - ['publish', 'Z:/dev/ico/sq32/ip.png', "import apps.tools.maya.sub_assets_republish.commont.base_data as base_data;reload(base_data);base_data.publish_work_file({task_data})"]
+

@@ -1,0 +1,240 @@
+/* common */
+
+
+QWidget{
+    font-family: Microsoft YaHei UI;
+    font: bold 12px;
+    color: #aaaaaa;
+    background-color: #444444;
+}
+
+
+
+QPushButton{
+    background-color: #555555;
+    font: bold 14px Microsoft YaHei UI;
+    color: #cccccc;
+    border: 0px solid #444444;
+    border-radius:4;
+}
+
+QPushButton:hover{
+    background-color: #5e9ba2;
+}
+
+QPushButton:pressed{
+    background-color: #4a2e47;
+}
+
+QPushButton:disabled{
+    background-color: #565656;
+    color: #909090
+}
+
+
+QToolButton{
+    color: #cccccc;
+    border: 0px solid #444444;
+}
+
+
+QGroupBox{
+    border: 1px solid #222222;
+    margin-top: 12px; /* set title height*/
+}
+
+QGroupBox:title{
+    subcontrol-position:top left;
+    bottom: 12px;
+    left:5px
+}
+
+QScrollArea{
+    border: 1px solid #222222;
+}
+
+QScrollArea:focus{
+    border: 1px groove #6f9daa;
+}
+
+/*表右侧的滑条*/
+QScrollBar:vertical{
+    background:#484848;
+    padding:0px;
+    border-radius:6px;
+    max-width:12px;
+}
+/*滑块*/
+QScrollBar::handle:vertical{
+    background:#CCCCCC;
+}
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+    background:#A7A7A7;
+}
+/*
+滑块已经划过的区域*/
+QScrollBar::sub-page:vertical{
+    background:#444444;
+}
+
+/*
+滑块还没有划过的区域*/
+QScrollBar::add-page:vertical{
+    background:#5B5B5B;
+}
+
+/*页面下移的按钮*/
+QScrollBar::add-line:vertical{
+    background:none;
+}
+/*页面上移的按钮*/
+QScrollBar::sub-line:vertical{
+    background:none;
+}
+
+
+QSplitter::handle {
+	background-color: #444444;
+
+}
+
+
+QScrollBar:vertical {
+     background: #666666;
+     padding-top:20px;
+     padding-bottom:20px;
+     border-radius:10px;
+     padding-left:1px;
+     padding-right:1px;
+     border-left:1px solid #d7d7d7;
+}
+
+QHeaderView{
+    font: 15px "宋体";
+    color:rgb(240, 240, 240);
+    background-color: rgb(80, 80, 80);
+}
+QHeaderView::section:horizontal{
+    /*横表头*/
+    min-height:30px;
+    border:0;
+    border-bottom:1px solid rgb(0, 170, 255);
+    background-color: rgb(60,60,60);
+}
+QHeaderView::section:vertical{
+    /*竖表头*/
+    min-width:60px;
+    padding-left:15px;
+    border:1px solid rgb(128, 128, 128);
+    border-top:0;
+    border-left:0;
+    background-color: rgb(60, 60, 60);
+}
+QHeaderView::section{
+    font: 15px "宋体";
+    text-align:center;
+}
+QHeaderView::section:hover{
+    color:black;
+    background-color: rgb(255, 170, 0);
+}
+QHeaderView::section:checked{
+    /*不取消高亮*/
+    font: 15px "宋体";
+    font-weight:normal;
+    color: rgb(255, 170, 0);
+}
+QHeaderView::section:selected{
+    font: 15px "宋体";
+    font-weight:normal;
+    color: red;
+}
+QHeaderView::section:checked:hover{
+    font-weight:normal;
+    color: rgb(240, 240, 240);
+}
+QHeaderView::section:first{
+    /*表头第一个位置*/
+}
+QHeaderView::down-arrow{
+    /*图标用来排序的*/
+}
+QHeaderView::up-arrow{
+
+}
+
+/*表格*/
+QTableView{
+    /*对齐方式代码设置*/
+    border:1px solid rgb(128, 128, 128);
+    gridline-color: rgb(128, 128, 128);/*网格线颜色*/
+    background-color: rgb(80, 80, 80);
+}
+QTableView QTableCornerButton::section{
+    /*表头左上*/
+    background-color: rgb(60,60,60);
+    border:0;
+    border-bottom:1px solid rgb(0, 170, 255);
+}
+QTableView::item{
+    /*表内容*/
+    font: 15px "宋体";
+    color: rgb(250, 250, 250);
+    background-color: rgb(80, 80, 80);
+}
+QTableView::item:selected{
+    color:black;
+    background-color: rgb(255, 170, 0);
+}
+QTableView::indicator{
+    width: 20px;
+    height: 20px;
+}
+QTableView::indicator:enabled:checked{
+    image: ;
+}
+QTableView::indicator:enabled:unchecked{
+    image: ;
+}
+
+/*菜单*/
+QMenu{
+    border:1px solid rgb(128, 128, 128);
+    background-color:rgb(70, 70, 70);
+}
+QMenu::item {
+    font:15px "宋体";
+    min-height:26px;
+    max-height:28px;
+    color:rgb(240, 240, 240);
+    background-color:rgb(70, 70, 70);
+}
+QSpacerItem{
+    background-color: rgb(0, 255, 0);
+}
+QMenu::item:disabled{
+    color:rgb(240, 240, 240);
+    background-color:rgb(110, 110, 110);
+}
+QMenu::item:selected {
+    color:black;
+    background-color: rgb(255, 170, 0);
+}
+QMenu::item:selected:disabled{
+    color:rgb(240, 240, 240);
+    background-color:rgb(110, 110, 110);
+}
+QMenu::separator {/*分割线*/
+    height: 1px;
+    background: transparent;
+}
+QMessageBox{
+    messagebox-text-interaction-flags:5;
+    font: bold 15px;
+    color: #222222;
+    text-indent: 8;
+    padding-left:100px;
+    padding-right:100px;
+}

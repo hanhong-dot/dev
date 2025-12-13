@@ -1,0 +1,7 @@
+#
+asset:
+  { body: [ 'drama_rig' ],role: [ 'rbf','drama_rig' ],rolaccesory': [ 'drama_rig' ],weapon: [ 'drama_rig' ],npc: [ 'rbf','drama_rig' ],enemy: [ 'drama_rig' ],hair: [ 'rbf','drama_rig' ],item: [ 'drama_rig' ] ,
+  cartoon_body: [ 'drama_rig' ],cartoon_role: [ 'rbf','drama_rig' ],cartoon_rolaccesory: [ 'rbf','drama_rig' ]}
+
+
+

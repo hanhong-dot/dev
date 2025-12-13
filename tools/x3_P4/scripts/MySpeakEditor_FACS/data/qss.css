@@ -1,0 +1,53 @@
+QWidget{
+    background: #353535;
+    font-size: 12px;
+    font-family: 宋体;
+}
+
+QDialog{
+    background-color: #404040
+}
+
+QGroupBox{
+border:1px solid #242424;
+border-radius:5px;
+margin-top: 5px;
+}
+
+QGroupBox::title{
+subcontrol-origin:margin;
+position:relative;
+left:10px;
+}
+
+
+
+QPushButton{
+border-style:none;
+border:1px solid #242424;
+color:#DCDCDC;
+padding:4px;
+min-height:15px;
+border-radius:5px;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);
+}
+
+QPushButton:hover{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #646464,stop:1 #525252);
+}
+
+QPushButton:pressed{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);
+}
+
+QLineEdit,QSpinBox,QComboBox{
+    border-radius: 5px;
+    padding:3px;
+    border: 1px solid #404040;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0.0 #202020,
+                                 stop: 1.0 #505050);
+}
+QLineEdit::hover, QSpinBox::hover,QComboBox::hover{
+    border-color:#606060;
+}

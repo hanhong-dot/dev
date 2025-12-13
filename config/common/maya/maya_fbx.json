@@ -1,0 +1,3142 @@
+{
+  "Asset.body.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{ad}001F_HD",
+        "{ad}001B_HD",
+        "{ad}001H_HD",
+        "{ad}001H_New_HD",
+        "{ad}001F_New_HD",
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_New_HD",
+      "fbx_objs": [
+        "{ad}001H_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_HD",
+      "fbx_objs": [
+        "{ad}001F_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_HD",
+      "fbx_objs": [
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_New_LD",
+      "fbx_objs": [
+        "{ad}001H_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_LD",
+      "fbx_objs": [
+        "{ad}001F_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_LD",
+      "fbx_objs": [
+        "{ad}001B_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_HD",
+      "fbx_objs": [
+        "{ad}001H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_HD",
+      "fbx_objs": [
+        "{ad}001F_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_HD",
+      "fbx_objs": [
+        "{ad}001B_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_LD",
+      "fbx_objs": [
+        "{ad}001H_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_LD",
+      "fbx_objs": [
+        "{ad}001F_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_LD",
+      "fbx_objs": [
+        "{ad}001B_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.body.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{ad}001F_HD",
+        "{ad}001B_HD",
+        "{ad}001H_HD",
+        "{ad}001H_New_HD",
+        "{ad}001F_New_HD",
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_New_HD",
+      "fbx_objs": [
+        "{ad}001H_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_HD",
+      "fbx_objs": [
+        "{ad}001F_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_HD",
+      "fbx_objs": [
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_New_LD",
+      "fbx_objs": [
+        "{ad}001H_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_LD",
+      "fbx_objs": [
+        "{ad}001F_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_LD",
+      "fbx_objs": [
+        "{ad}001B_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_HD",
+      "fbx_objs": [
+        "{ad}001H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_HD",
+      "fbx_objs": [
+        "{ad}001F_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_HD",
+      "fbx_objs": [
+        "{ad}001B_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_LD",
+      "fbx_objs": [
+        "{ad}001H_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_LD",
+      "fbx_objs": [
+        "{ad}001F_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_LD",
+      "fbx_objs": [
+        "{ad}001B_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.body.rig.drama_rig": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{ad}001F_HD",
+        "{ad}001B_HD",
+        "{ad}001H_HD",
+        "{ad}001H_New_HD",
+        "{ad}001F_New_HD",
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_New_HD",
+      "fbx_objs": [
+        "{ad}001H_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_New_HD",
+      "fbx_objs": [
+        "{ad}001F_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_New_HD",
+      "fbx_objs": [
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_New_LD",
+      "fbx_objs": [
+        "{ad}001H_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_New_LD",
+      "fbx_objs": [
+        "{ad}001F_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_New_LD",
+      "fbx_objs": [
+        "{ad}001B_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_HD",
+      "fbx_objs": [
+        "{ad}001H_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_HD",
+      "fbx_objs": [
+        "{ad}001F_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_HD",
+      "fbx_objs": [
+        "{ad}001B_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_LD",
+      "fbx_objs": [
+        "{ad}001H_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_LD",
+      "fbx_objs": [
+        "{ad}001F_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_LD",
+      "fbx_objs": [
+        "{ad}001B_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "Roots"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.body.lan.lan_rig": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{ad}001F_HD",
+        "{ad}001B_HD",
+        "{ad}001H_HD",
+        "{ad}001H_New_HD",
+        "{ad}001F_New_HD",
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_HD",
+      "fbx_objs": [
+        "{ad}001F_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_HD",
+      "fbx_objs": [
+        "{ad}001F_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "Roots"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.body.ue.ue_rig": [
+    {
+      "fbx_file": "{ad}001H_New_UE",
+      "fbx_objs": [
+        "{ad}001H_New_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_UE",
+      "fbx_objs": [
+        "{ad}001F_New_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_UE",
+      "fbx_objs": [
+        "{ad}001B_New_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_UE",
+      "fbx_objs": [
+        "{ad}001H_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_UE",
+      "fbx_objs": [
+        "{ad}001F_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_UE",
+      "fbx_objs": [
+        "{ad}001B_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_UE_Render",
+      "fbx_objs": [
+        "{ad}001F_UE_{Eyelashes}"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_UE_Render",
+      "fbx_objs": [
+        "{ad}001F_New_UE_{Eyelashes}"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.body.ue.ue_rig_low": [
+    {
+      "fbx_file": "{ad}001H_New_UE_Low",
+      "fbx_objs": [
+        "{ad}001H_New_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_UE_Low",
+      "fbx_objs": [
+        "{ad}001F_New_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_UE_Low",
+      "fbx_objs": [
+        "{ad}001B_New_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_UE_Low",
+      "fbx_objs": [
+        "{ad}001H_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_UE_Low",
+      "fbx_objs": [
+        "{ad}001F_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_UE_Low",
+      "fbx_objs": [
+        "{ad}001B_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_UE_Low_Render",
+      "fbx_objs": [
+        "{ad}001F_UE_Low_{Eyelashes}"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_UE_Low_Render",
+      "fbx_objs": [
+        "{ad}001F_New_UE_Low_{Eyelashes}"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.body.rbf": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{ad}001F_HD",
+        "{ad}001B_HD",
+        "{ad}001H_HD",
+        "{ad}001H_New_HD",
+        "{ad}001F_New_HD",
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_New_HD",
+      "fbx_objs": [
+        "{ad}001H_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_New_HD",
+      "fbx_objs": [
+        "{ad}001F_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_New_HD",
+      "fbx_objs": [
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_New_LD",
+      "fbx_objs": [
+        "{ad}001H_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_New_LD",
+      "fbx_objs": [
+        "{ad}001F_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_New_LD",
+      "fbx_objs": [
+        "{ad}001B_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_HD",
+      "fbx_objs": [
+        "{ad}001H_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_HD",
+      "fbx_objs": [
+        "{ad}001F_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_HD",
+      "fbx_objs": [
+        "{ad}001B_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_LD",
+      "fbx_objs": [
+        "{ad}001H_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_LD",
+      "fbx_objs": [
+        "{ad}001F_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_LD",
+      "fbx_objs": [
+        "{ad}001B_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "Roots"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.role.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_LD",
+      "fbx_objs": [
+        "{entity_name}_H_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_LD",
+      "fbx_objs": [
+        "{entity_name}_FA_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_EA_LD",
+      "fbx_objs": [
+        "{entity_name}_EA_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HE_HD",
+      "fbx_objs": [
+        "{entity_name}_HE_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HE_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HE_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_LD",
+      "fbx_objs": [
+        "{entity_name}_Tails_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.role.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_LD",
+      "fbx_objs": [
+        "{entity_name}_H_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_LD",
+      "fbx_objs": [
+        "{entity_name}_FA_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_EA_LD",
+      "fbx_objs": [
+        "{entity_name}_EA_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HE_HD",
+      "fbx_objs": [
+        "{entity_name}_HE_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HE_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HE_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_LD",
+      "fbx_objs": [
+        "{entity_name}_Tails_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.role.rig": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_LD",
+      "fbx_objs": [
+        "{entity_name}_H_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_LD",
+      "fbx_objs": [
+        "{entity_name}_FA_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_EA_LD",
+      "fbx_objs": [
+        "{entity_name}_EA_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_HE_LD",
+      "fbx_objs": [
+        "{entity_name}_HE_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HE_HD",
+      "fbx_objs": [
+        "{entity_name}_HE_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_HE_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HE_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_LD",
+      "fbx_objs": [
+        "{entity_name}_Tails_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.role.rbf": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_LD",
+      "fbx_objs": [
+        "{entity_name}_H_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_LD",
+      "fbx_objs": [
+        "{entity_name}_FA_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_EA_LD",
+      "fbx_objs": [
+        "{entity_name}_EA_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_HE_LD",
+      "fbx_objs": [
+        "{entity_name}_HE_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HE_HD",
+      "fbx_objs": [
+        "{entity_name}_HE_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_HE_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HE_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_LD",
+      "fbx_objs": [
+        "{entity_name}_Tails_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.role.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "{entity_name}_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.role.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_HD_Low"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_body.mod.drama_mdl": [
+    {
+      "fbx_file": "{ad}001H_New_HD",
+      "fbx_objs": [
+        "{ad}001H_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_HD",
+      "fbx_objs": [
+        "{ad}001F_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_HD",
+      "fbx_objs": [
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_New_LD",
+      "fbx_objs": [
+        "{ad}001H_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_LD",
+      "fbx_objs": [
+        "{ad}001F_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_LD",
+      "fbx_objs": [
+        "{ad}001B_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_HD",
+      "fbx_objs": [
+        "{ad}001H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_HD",
+      "fbx_objs": [
+        "{ad}001F_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_HD",
+      "fbx_objs": [
+        "{ad}001B_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_LD",
+      "fbx_objs": [
+        "{ad}001H_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_LD",
+      "fbx_objs": [
+        "{ad}001F_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_LD",
+      "fbx_objs": [
+        "{ad}001B_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_body.fight.fight_mdl": [
+    {
+      "fbx_file": "{ad}001H_New_HD",
+      "fbx_objs": [
+        "{ad}001H_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_HD",
+      "fbx_objs": [
+        "{ad}001F_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_HD",
+      "fbx_objs": [
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_New_LD",
+      "fbx_objs": [
+        "{ad}001H_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_LD",
+      "fbx_objs": [
+        "{ad}001F_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_LD",
+      "fbx_objs": [
+        "{ad}001B_New_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_HD",
+      "fbx_objs": [
+        "{ad}001H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_HD",
+      "fbx_objs": [
+        "{ad}001F_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_HD",
+      "fbx_objs": [
+        "{ad}001B_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_LD",
+      "fbx_objs": [
+        "{ad}001H_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_LD",
+      "fbx_objs": [
+        "{ad}001F_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_LD",
+      "fbx_objs": [
+        "{ad}001B_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_body.rig.drama_rig": [
+    {
+      "fbx_file": "{ad}001H_New_HD",
+      "fbx_objs": [
+        "{ad}001H_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_New_HD",
+      "fbx_objs": [
+        "{ad}001F_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_New_HD",
+      "fbx_objs": [
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_New_LD",
+      "fbx_objs": [
+        "{ad}001H_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_New_LD",
+      "fbx_objs": [
+        "{ad}001F_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_New_LD",
+      "fbx_objs": [
+        "{ad}001B_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_HD",
+      "fbx_objs": [
+        "{ad}001H_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_HD",
+      "fbx_objs": [
+        "{ad}001F_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_HD",
+      "fbx_objs": [
+        "{ad}001B_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_LD",
+      "fbx_objs": [
+        "{ad}001H_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_LD",
+      "fbx_objs": [
+        "{ad}001F_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_LD",
+      "fbx_objs": [
+        "{ad}001B_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "Roots"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.cartoon_body.lan.lan_rig": [
+    {
+      "fbx_file": "{ad}001F_New_HD",
+      "fbx_objs": [
+        "{ad}001F_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_HD",
+      "fbx_objs": [
+        "{ad}001F_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "Roots"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.cartoon_body.ue.ue_rig": [
+    {
+      "fbx_file": "{ad}001H_New_UE",
+      "fbx_objs": [
+        "{ad}001H_New_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_UE",
+      "fbx_objs": [
+        "{ad}001F_New_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_New_UE",
+      "fbx_objs": [
+        "{ad}001B_New_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_New_UE_Render",
+      "fbx_objs": [
+        "{ad}001F_New_UE_{Eyelashes}"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001H_UE",
+      "fbx_objs": [
+        "{ad}001H_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_UE",
+      "fbx_objs": [
+        "{ad}001F_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001B_UE",
+      "fbx_objs": [
+        "{ad}001B_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{ad}001F_UE_Render",
+      "fbx_objs": [
+        "{ad}001F_UE_{Eyelashes}"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_body.rbf": [
+    {
+      "fbx_file": "{ad}001H_New_HD",
+      "fbx_objs": [
+        "{ad}001H_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_New_HD",
+      "fbx_objs": [
+        "{ad}001F_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_New_HD",
+      "fbx_objs": [
+        "{ad}001B_New_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_New_LD",
+      "fbx_objs": [
+        "{ad}001H_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_New_LD",
+      "fbx_objs": [
+        "{ad}001F_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_New_LD",
+      "fbx_objs": [
+        "{ad}001B_New_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_HD",
+      "fbx_objs": [
+        "{ad}001H_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_HD",
+      "fbx_objs": [
+        "{ad}001F_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_HD",
+      "fbx_objs": [
+        "{ad}001B_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001H_LD",
+      "fbx_objs": [
+        "{ad}001H_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001F_LD",
+      "fbx_objs": [
+        "{ad}001F_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{ad}001B_LD",
+      "fbx_objs": [
+        "{ad}001B_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "Roots"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.cartoon_role.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_HD",
+      "fbx_objs": [
+        "{entity_name}_UP_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_HD",
+      "fbx_objs": [
+        "{entity_name}_DN_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_LD",
+      "fbx_objs": [
+        "{entity_name}_UP_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_LD",
+      "fbx_objs": [
+        "{entity_name}_DN_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_LD",
+      "fbx_objs": [
+        "{entity_name}_H_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_LD",
+      "fbx_objs": [
+        "{entity_name}_FA_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_EA_LD",
+      "fbx_objs": [
+        "{entity_name}_EA_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_LD",
+      "fbx_objs": [
+        "{entity_name}_Tails_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_role.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_HD",
+      "fbx_objs": [
+        "{entity_name}_UP_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_HD",
+      "fbx_objs": [
+        "{entity_name}_DN_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_LD",
+      "fbx_objs": [
+        "{entity_name}_UP_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_LD",
+      "fbx_objs": [
+        "{entity_name}_DN_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_H_LD",
+      "fbx_objs": [
+        "{entity_name}_H_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_FA_LD",
+      "fbx_objs": [
+        "{entity_name}_FA_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_EA_LD",
+      "fbx_objs": [
+        "{entity_name}_EA_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_LD",
+      "fbx_objs": [
+        "{entity_name}_Tails_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_role.rig": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_UP_HD",
+      "fbx_objs": [
+        "{entity_name}_UP_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_DN_HD",
+      "fbx_objs": [
+        "{entity_name}_DN_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_UP_LD",
+      "fbx_objs": [
+        "{entity_name}_UP_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_DN_LD",
+      "fbx_objs": [
+        "{entity_name}_DN_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_H_LD",
+      "fbx_objs": [
+        "{entity_name}_H_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_FA_LD",
+      "fbx_objs": [
+        "{entity_name}_FA_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_EA_LD",
+      "fbx_objs": [
+        "{entity_name}_EA_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_HD",
+      "fbx_objs": [
+        "{entity_name}_Tails_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_Tails_LD",
+      "fbx_objs": [
+        "{entity_name}_Tails_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_HE_HD",
+      "fbx_objs": [
+        "{entity_name}_HE_HD"
+      ],
+      "triangulate": 1
+
+    }
+  ],
+  "Asset.cartoon_role.rbf": [
+    {
+      "fbx_file": "{entity_name}_UP_HD",
+      "fbx_objs": [
+        "{entity_name}_UP_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_DN_HD",
+      "fbx_objs": [
+        "{entity_name}_DN_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_UP_LD",
+      "fbx_objs": [
+        "{entity_name}_UP_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_DN_LD",
+      "fbx_objs": [
+        "{entity_name}_DN_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_H_HD",
+      "fbx_objs": [
+        "{entity_name}_H_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_H_LD",
+      "fbx_objs": [
+        "{entity_name}_H_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_FA_HD",
+      "fbx_objs": [
+        "{entity_name}_FA_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_FA_LD",
+      "fbx_objs": [
+        "{entity_name}_FA_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_EA_LD",
+      "fbx_objs": [
+        "{entity_name}_EA_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_EA_HD",
+      "fbx_objs": [
+        "{entity_name}_EA_HD"
+      ],
+      "triangulate": 1
+    },
+        {
+      "fbx_file": "{entity_name}_HE_HD",
+      "fbx_objs": [
+        "{entity_name}_HE_HD"
+      ],
+      "triangulate": 1
+
+    }
+  ],
+  "Asset.cartoon_role.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "{entity_name}_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_role.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_HD_Low"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_npc.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_HD",
+      "fbx_objs": [
+        "{entity_name}_UP_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_HD",
+      "fbx_objs": [
+        "{entity_name}_DN_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_LD",
+      "fbx_objs": [
+        "{entity_name}_UP_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_LD",
+      "fbx_objs": [
+        "{entity_name}_DN_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_npc.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_HD",
+      "fbx_objs": [
+        "{entity_name}_UP_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_HD",
+      "fbx_objs": [
+        "{entity_name}_DN_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_LD",
+      "fbx_objs": [
+        "{entity_name}_UP_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_LD",
+      "fbx_objs": [
+        "{entity_name}_DN_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_npc.rig": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_HD",
+      "fbx_objs": [
+        "{entity_name}_UP_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_HD",
+      "fbx_objs": [
+        "{entity_name}_DN_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_LD",
+      "fbx_objs": [
+        "{entity_name}_UP_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_LD",
+      "fbx_objs": [
+        "{entity_name}_DN_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_npc.rbf": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_UP_HD",
+      "fbx_objs": [
+        "{entity_name}_UP_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_DN_HD",
+      "fbx_objs": [
+        "{entity_name}_DN_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_UP_LD",
+      "fbx_objs": [
+        "{entity_name}_UP_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_DN_LD",
+      "fbx_objs": [
+        "{entity_name}_DN_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.cartoon_npc.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "{entity_name}_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_UE",
+      "fbx_objs": [
+        "{entity_name}_DN_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_UE",
+      "fbx_objs": [
+        "{entity_name}_UP_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_DN_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UP_UE"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_npc.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_DN_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_UP_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_HD_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_DN_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_DN_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UP_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_UP_UE_Low"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.npc.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_asis",
+      "fbx_objs": [
+        "{All}"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "{All}"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.npc.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_asis",
+      "fbx_objs": [
+        "{All}"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "{All}"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.npc.rig.drama_rig": [
+    {
+      "fbx_file": "{entity_name}_asis",
+      "fbx_objs": [
+        "*_Rig"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "*_Rig"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.npc.lan.lan_rbf": [
+    {
+      "fbx_file": "",
+      "fbx_objs": []
+    }
+  ],
+  "Asset.npc.rbf.rbf": [
+    {
+      "fbx_file": "{entity_name}_asis",
+      "fbx_objs": [
+        "*_Rig"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "*_Rig"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_GuaranteedAnim",
+      "fbx_objs": [
+        "Root_M"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_GuaranteedAnim",
+      "fbx_objs": [
+        "Roots"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.npc.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "*_Rig"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.npc.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "*_Rig"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.fx.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.fx.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.fx.rig": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.fx.rbf": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.fx.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "{entity_name}_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_fx.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_fx.mod.drama_mdl": [
+    "{entity_name}_HD"
+  ],
+  "Asset.cartoon_fx.rig": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.cartoon_fx.rbf": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.cartoon_fx.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "{entity_name}_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_fx.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_HD_Low"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.item.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "common_item_export_grp"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.item.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "common_item_export_grp"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.item.rig.drama_rig": [
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "common_item_export_grp"
+      ],
+      "triangulate": 1
+    }
+  ],
+    "Asset.item.rig.fight_rig": [
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "common_item_export_grp"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.item.rbf": [
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "common_item_export_grp"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.item.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "common_item_export_grp"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.item.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "common_item_export_grp"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_HD_Low"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.rolaccesory.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.rolaccesory.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.rolaccesory.rig": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.rolaccesory.rbf": [
+    {
+      "fbx_file": "{entity_name}_HD_asis",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.rolaccesory.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "{entity_name}_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.rolaccesory.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_HD_Low"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_rolaccesory.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_rolaccesory.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_rolaccesory.rig": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.cartoon_rolaccesory.rbf": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.cartoon_rolaccesory.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "{entity_name}_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.weapon.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.weapon.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.weapon.rig": [
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.weapon.rbf": [
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.weapon.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "{entity_name}_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.weapon.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_HD_Low"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.enemy.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "{All}"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.enemy.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "{All}"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.enemy.rig": [
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "*_Rig"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.enemy.rbf": [
+    {
+      "fbx_file": "{entity_name}",
+      "fbx_objs": [
+        "*_Rig"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.enemy.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "*_Rig"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.enemy.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "*_Rig"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_HD_Low"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.hair.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.hair.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.hair.rig": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.hair.rbf": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.hair.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "{entity_name}_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.hair.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_HD_Low"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_hair.fight.fight_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_hair.mod.drama_mdl": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_hair.rig": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.cartoon_hair.rbf": [
+    {
+      "fbx_file": "{entity_name}_HD",
+      "fbx_objs": [
+        "{entity_name}_HD"
+      ],
+      "triangulate": 1
+    },
+    {
+      "fbx_file": "{entity_name}_LD",
+      "fbx_objs": [
+        "{entity_name}_LD"
+      ],
+      "triangulate": 1
+    }
+  ],
+  "Asset.cartoon_hair.ue.ue_rig": [
+    {
+      "fbx_file": "{entity_name}_UE",
+      "fbx_objs": [
+        "{entity_name}_UE"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    }
+  ],
+  "Asset.cartoon_hair.ue.ue_rig_low": [
+    {
+      "fbx_file": "{entity_name}_UE_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_Low"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_HD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_HD"
+      ],
+      "triangulate": 0
+    },
+    {
+      "fbx_file": "{entity_name}_UE_LD_Low",
+      "fbx_objs": [
+        "{entity_name}_UE_LD"
+      ],
+      "triangulate": 0
+    }
+  ]
+}

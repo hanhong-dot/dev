@@ -1,0 +1,85 @@
+{
+  "Asset": {
+    "nodetype": {
+      "light": [
+        "ambientLight",
+        "directionalLight",
+        "pointLight",
+        "spotLight",
+        "areaLight",
+        "volumeLight",
+        "aiAreaLight",
+        "aiSkyDomeLight",
+        "aiPhotometricLight",
+        "aiLightPortal",
+        "aiPhysicalSky",
+        "aiMeshLight",
+        "RedshiftPhysicalLight",
+        "RedshiftIESLight",
+        "RedshiftPortalLight",
+        "RedshiftDomeLight"
+      ],
+      "displayLayer": [
+        "displayLayer"
+      ],
+      "renderLayer": [
+        "renderLayer"
+      ],
+      "aov": [
+        "aiAOV",
+        "RedshiftAOV"
+      ],
+      "camera": [
+        "camera"
+      ],
+      "reference": [
+        "reference"
+      ],
+      "animlayer": [
+        "animLayer"
+      ],
+      "animcurve": [
+        "animCurveTU",
+        "animCurveTA",
+        "animCurveTL"
+      ]
+    },
+    "nodename": {
+      "script": [
+        "*anzovinDeleteScript*",
+        "*:anzovinDeleteScript*",
+        "*AnzovinInterfaceNode*",
+        "*:AnzovinInterfaceNode*",
+        "*anzovinSetupScript*",
+        "*:anzovinSetupScript*",
+        "*fmSceneOpenPluginCheckScript*",
+        "*:fmSceneOpenPluginCheckScript*",
+        "*defaultLegacyAssetGlobals*",
+        "*:defaultLegacyAssetGlobals*",
+        "*vaccine_gene*",
+        "*:vaccine_gene*",
+        "*breed_gene*",
+        "*:breed_gene*"
+      ]
+    },
+    "excluded": {
+      "renderLayer": ["defaultRenderLayer","defaultRenderLayer1"],
+      "camera": [
+        "|front",
+        "|top",
+        "|side",
+        "|persp"
+      ],
+      "displayLayer": [
+        "defaultLayer",
+        "defaultLayer1"
+
+      ]
+    }
+  }
+}
+
+
+
+
+ 

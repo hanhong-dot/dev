@@ -1,0 +1,10 @@
+QMessageBox{
+    messagebox-text-interaction-flags:10;
+    font: bold 15px;
+    color: #222222;
+    text-indent: 10;
+    padding-left:100px;
+    padding-right:100px;
+    background-color: #002d5c;
+}
+

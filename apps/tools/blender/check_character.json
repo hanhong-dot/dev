@@ -1,0 +1,26 @@
+{
+    "characters": [
+        {
+            "name": "PL",
+            "features": {
+                "head_vertex_ratio": 0.7453724380924024,
+                "head_loop_complexity": 54434,
+                "upper_density": 0.840727507319736,
+                "uv_islands": 0,
+                "z_density_var": 17072661.96,
+                "vertex_count": 40302
+            }
+        },
+        {
+            "name": "ST",
+            "features": {
+                "head_vertex_ratio": 0.7622044292102937,
+                "head_loop_complexity": 50806,
+                "upper_density": 0.9030608146105026,
+                "uv_islands": 0,
+                "z_density_var": 40587615.21,
+                "vertex_count": 37343
+            }
+        }
+    ]
+}

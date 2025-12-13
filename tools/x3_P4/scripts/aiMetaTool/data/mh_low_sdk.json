@@ -1,0 +1,710 @@
+{
+    "eyeLookDownR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1
+        ], 
+        "ctrl": "CTRL_R_eye"
+    }, 
+    "browRaiseInL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_brow_raiseIn"
+    }, 
+    "eyeSquintInnerR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_eye_squintInner"
+    }, 
+    "eyeLookUpR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1
+        ], 
+        "ctrl": "CTRL_R_eye"
+    }, 
+    "noseWrinkleL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_nose"
+    }, 
+    "eyeLookLeftR": {
+        "attr": "tx", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1
+        ], 
+        "ctrl": "CTRL_R_eye"
+    }, 
+    "mouthLipsPurse": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_purseD"
+    }, 
+    "browLateralR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_brow_lateral"
+    }, 
+    "browLateralL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_brow_lateral"
+    }, 
+    "eyeLookLeftL": {
+        "attr": "tx", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1
+        ], 
+        "ctrl": "CTRL_L_eye"
+    }, 
+    "noseNostrilCompress": {
+        "attr": "tx", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1.0
+        ], 
+        "ctrl": "CTRL_L_nose"
+    }, 
+    "mouthFunnel": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_funnelD"
+    }, 
+    "noseWrinkleR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_nose"
+    }, 
+    "eyeSquintInnerL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_eye_squintInner"
+    }, 
+    "eyeLookUpL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1
+        ], 
+        "ctrl": "CTRL_L_eye"
+    }, 
+    "eyeLookDownL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1
+        ], 
+        "ctrl": "CTRL_L_eye"
+    }, 
+    "browRaiseInR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_brow_raiseIn"
+    }, 
+    "mouthLipsTowardsD": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_towardsD"
+    }, 
+    "eyeLookRightR": {
+        "attr": "tx", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1
+        ], 
+        "ctrl": "CTRL_R_eye"
+    }, 
+    "jawRight": {
+        "attr": "tx", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_C_jaw"
+    }, 
+    "mouthCornerDepressR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_mouth_cornerDepress"
+    }, 
+    "mouthDimpleL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_dimple"
+    }, 
+    "mouthLipsTogetherU": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_lipsTogetherU"
+    }, 
+    "mouthStretch": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_stretch"
+    }, 
+    "mouthCheekBlow": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_suckBlow"
+    }, 
+    "mouthLipsTowardsU": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_towardsU"
+    }, 
+    "noseNostrilDilate": {
+        "attr": "tx", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_nose"
+    }, 
+    "mouthLeft": {
+        "attr": "tx", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_C_mouth"
+    }, 
+    "mouthDimpleR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_mouth_dimple"
+    }, 
+    "mouthLipsTogetherD": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_lipsTogetherD"
+    }, 
+    "tongueDown": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1.0
+        ], 
+        "ctrl": "CTRL_C_tongue_move"
+    }, 
+    "mouthCornerDepressL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_cornerDepress"
+    }, 
+    "eyeLookRightL": {
+        "attr": "tx", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1
+        ], 
+        "ctrl": "CTRL_L_eye"
+    }, 
+    "jawFwd": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1.0
+        ], 
+        "ctrl": "CTRL_C_jaw_fwdBack"
+    }, 
+    "jawChinRaise": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_jaw_chinCompress"
+    }, 
+    "mouthStickyC": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_C_mouth_stickyD"
+    }, 
+    "tongueTipUp": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_C_tongue_tipMove"
+    }, 
+    "mouthRight": {
+        "attr": "tx", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1.0
+        ], 
+        "ctrl": "CTRL_C_mouth"
+    }, 
+    "eyeBlinkL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_eye_blink"
+    }, 
+    "jawLeft": {
+        "attr": "tx", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1.0
+        ], 
+        "ctrl": "CTRL_C_jaw"
+    }, 
+    "jawOpen": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_C_jaw"
+    }, 
+    "eyeBlinkR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_eye_blink"
+    }, 
+    "mouthUpperLipBite": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_lipBiteU"
+    }, 
+    "mouthSticky": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_stickyInnerD"
+    }, 
+    "mouthUpperLipRaise": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_upperLipRaise"
+    }, 
+    "tongueTipDown": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1.0
+        ], 
+        "ctrl": "CTRL_C_tongue_tipMove"
+    }, 
+    "browRaiseOuterL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_brow_raiseOut"
+    }, 
+    "eyeWidenR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1.0
+        ], 
+        "ctrl": "CTRL_R_eye_blink"
+    }, 
+    "browDownR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_brow_down"
+    }, 
+    "mouthCornerPullR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_mouth_cornerPull"
+    }, 
+    "tonguePress": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_C_tongue_press"
+    }, 
+    "eyeCheekRaiseR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_eye_cheekRaise"
+    }, 
+    "eyeCheekRaiseL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_eye_cheekRaise"
+    }, 
+    "mouthLowerLipDepress": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_lowerLipDepress"
+    }, 
+    "mouthLowerLipBite": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_lipBiteD"
+    }, 
+    "mouthCornerPullL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_mouth_cornerPull"
+    }, 
+    "browDownL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_L_brow_down"
+    }, 
+    "browRaiseOuterR": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            1.0
+        ], 
+        "ctrl": "CTRL_R_brow_raiseOut"
+    }, 
+    "eyeWidenL": {
+        "attr": "ty", 
+        "vs": [
+            0.0, 
+            1.0
+        ], 
+        "ts": [
+            0.0, 
+            -1.0
+        ], 
+        "ctrl": "CTRL_L_eye_blink"
+    }
+}

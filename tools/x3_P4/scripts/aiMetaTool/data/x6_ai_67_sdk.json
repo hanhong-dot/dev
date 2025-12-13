@@ -1,0 +1,794 @@
+{
+    "EyeSquint_R": {
+        "ctrl": "CTRL_R_eye_squintInner",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeSquint_L": {
+        "ctrl": "CTRL_L_eye_squintInner",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "CheekSquint_R": {
+        "ctrl": "CTRL_R_eye_cheekRaise",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "CheekSquint_L": {
+        "ctrl": "CTRL_L_eye_cheekRaise",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeBlink_L": {
+        "ctrl": "CTRL_L_eye_blink",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeWide_L": {
+        "ctrl": "CTRL_L_eye_blink",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeBlink_R": {
+        "ctrl": "CTRL_R_eye_blink",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeWide_R": {
+        "ctrl": "CTRL_R_eye_blink",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "NoseSneer_L": {
+        "ctrl": "CTRL_L_nose",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeBlinkDn_R": {
+        "ctrl": "CTRL_R_eye_blinkDn",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "BrowInnerUp": {
+        "ctrl": "CTRL_C_brow_raiseIn",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "BrowOuterUp_L": {
+        "ctrl": "CTRL_L_brow_raiseOut",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "BrowOuterUp_R": {
+        "ctrl": "CTRL_R_brow_raiseOut",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "BrowDown_L": {
+        "ctrl": "CTRL_L_brow_down",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "BrowDown_R": {
+        "ctrl": "CTRL_R_brow_down",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "BrowDownIn_L": {
+        "ctrl": "CTRL_L_brow_downIn",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "BrowDownIn_R": {
+        "ctrl": "CTRL_R_brow_downIn",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeLookOut_L": {
+        "ctrl": "CTRL_L_eye",
+        "attr": "tx",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeLookIn_L": {
+        "ctrl": "CTRL_L_eye",
+        "attr": "tx",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeLookUp_L": {
+        "ctrl": "CTRL_L_eye",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeLookDown_L": {
+        "ctrl": "CTRL_L_eye",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeLookIn_R": {
+        "ctrl": "CTRL_R_eye",
+        "attr": "tx",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeLookOut_R": {
+        "ctrl": "CTRL_R_eye",
+        "attr": "tx",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeLookUp_R": {
+        "ctrl": "CTRL_R_eye",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeLookDown_R": {
+        "ctrl": "CTRL_R_eye",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeBlinkUp_R": {
+        "ctrl": "CTRL_R_eye_blinkUp",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyelipUpRollIn_R": {
+        "ctrl": "CTRL_R_eye_blinkUp",
+        "attr": "rz",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyelipUpRollOut_R": {
+        "ctrl": "CTRL_R_eye_blinkUp",
+        "attr": "rz",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeBlinkUp_L": {
+        "ctrl": "CTRL_L_eye_blinkUp",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyelipUpRollIn_L": {
+        "ctrl": "CTRL_L_eye_blinkUp",
+        "attr": "rz",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyelipUpRollOut_L": {
+        "ctrl": "CTRL_L_eye_blinkUp",
+        "attr": "rz",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "EyeBlinkDn_L": {
+        "ctrl": "CTRL_L_eye_blinkDn",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "NoseSneer_R": {
+        "ctrl": "CTRL_R_nose",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthUpperUp_L": {
+        "ctrl": "CTRL_L_mouth_upperLipRaise",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthLeft": {
+        "ctrl": "CTRL_C_mouth",
+        "attr": "tx",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthRight": {
+        "ctrl": "CTRL_C_mouth",
+        "attr": "tx",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthClose": {
+        "ctrl": "CTRL_C_mouth",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthUpperUp_R": {
+        "ctrl": "CTRL_R_mouth_upperLipRaise",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthSmile_L": {
+        "ctrl": "CTRL_L_mouth_cornerPull",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthSmile_R": {
+        "ctrl": "CTRL_R_mouth_cornerPull",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthDimple_L": {
+        "ctrl": "CTRL_L_mouth_dimple",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthFrown_L": {
+        "ctrl": "CTRL_L_mouth_cornerDepress",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthFrown_R": {
+        "ctrl": "CTRL_R_mouth_cornerDepress",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthDimple_R": {
+        "ctrl": "CTRL_R_mouth_dimple",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthLowerDown_R": {
+        "ctrl": "CTRL_R_mouth_lowerLipDepress",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthLowerDown_L": {
+        "ctrl": "CTRL_L_mouth_lowerLipDepress",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "CheekPuff": {
+        "ctrl": "CTRL_C_mouth_suckBlow",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthStretch_L": {
+        "ctrl": "CTRL_L_mouth_pressU",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthStretch_R": {
+        "ctrl": "CTRL_R_mouth_pressU",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthPress_L": {
+        "ctrl": "CTRL_L_mouth_pressD",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthPress_R": {
+        "ctrl": "CTRL_R_mouth_pressD",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthFunnel": {
+        "ctrl": "CTRL_C_mouth_funnel",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthPucker": {
+        "ctrl": "CTRL_C_mouth_pucker",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "Tongue_L": {
+        "ctrl": "CTRL_C_Tongue",
+        "attr": "tx",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "Tongue_R": {
+        "ctrl": "CTRL_C_Tongue",
+        "attr": "tx",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "TongueUp": {
+        "ctrl": "CTRL_C_Tongue",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "TongueDn": {
+        "ctrl": "CTRL_C_Tongue",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "TongueOut": {
+        "ctrl": "CTRL_C_Tongue",
+        "attr": "tz",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthRollLower": {
+        "ctrl": "CTRL_C_mouth_lipsRollD",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthShrugLower": {
+        "ctrl": "CTRL_C_mouth_lipsRollD",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthRollUpper": {
+        "ctrl": "CTRL_C_mouth_lipsRollU",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "MouthShrugUpper": {
+        "ctrl": "CTRL_C_mouth_lipsRollU",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "JawRight": {
+        "ctrl": "CTRL_C_jaw",
+        "attr": "tx",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "JawLeft": {
+        "ctrl": "CTRL_C_jaw",
+        "attr": "tx",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "JawOpen": {
+        "ctrl": "CTRL_C_jaw",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    },
+    "JawForward": {
+        "ctrl": "CTRL_C_jaw_fwdBack",
+        "attr": "ty",
+        "ts": [
+            0.0,
+            -1
+        ],
+        "vs": [
+            0.0,
+            1.0
+        ]
+    }
+}

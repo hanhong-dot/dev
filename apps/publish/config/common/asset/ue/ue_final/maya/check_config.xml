@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<check name="check" project="">
+    <!-- check_page 属性说明 name    检查分页的名称
+                           project  继承的项目
+
+    属性说明
+                  order_id       表示检查的顺序
+                  projectType    表示这个item是这类项目的类型才显示  类型有：TV,FILM,AD,all
+                  item_name      表示该item的名字
+                  toolTip        表示提示文字
+                  check_command  表示调用的检测命令,需传个固定的参数TaskData_Class给方法或类，这样无需重新初始化task_data，这样速度会快很多
+                  fix_command    表示修复的命令 表示修复的命令 当为False时候不进行修复
+                  except_project 表示排除的项目名
+                  except_projectType 表示排除的项目类型  建议当projectType为all时候进行排除
+                  ignore         表示忽略按钮的开启，当为True被开启，当为False被关闭
+
+    -->
+    <check_tab tab_name="X3项目检测">
+        <!--        <checkItem order_id="1" projectType="all"-->
+        <!--                   item_name="检查物体命名(模型或组)"-->
+        <!--                   toolTip="检查文件中是否存在未规范命名的模型或组"-->
+        <!--                   check_command="import publish.check.maya.check_objectName as check_objectName;reload(check_objectName);check_objectName.Check(TaskData_Class).checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="False"/>-->
+        <checkItem order_id="1" projectType="all"
+                   item_name="检查参考"
+                   toolTip="检查文件中是否存在参考节点"
+                   check_command="import apps.publish.check.maya.asset.check_exist_reference as check_exist_reference;reload(check_exist_reference);check_exist_reference.Check().checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_exist_reference as check_exist_reference;reload(check_exist_reference);check_exist_reference.Check().fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="2" projectType="all"
+                   item_name="检测namespace"
+                   toolTip="检查文件中是否存在namespace"
+                   check_command="import apps.publish.check.maya.asset.check_exist_namespace as check_exist_namespace;reload(check_exist_namespace);check_exist_namespace.Check().checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_exist_namespace as check_exist_namespace;reload(check_exist_namespace);check_exist_namespace.Check().fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="3" projectType="all"
+                   item_name="检测并清理节点(例如显示层,渲染层)"
+                   toolTip="检查文件中是否存在类型节点(例如显示层,渲染层)"
+                   check_command="import apps.publish.check.maya.asset.check_exist_cleannode as check_exist_cleannode;reload(check_exist_cleannode);check_exist_cleannode.Check(TaskData_Class).checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_exist_cleannode as check_exist_cleannode;reload(check_exist_cleannode);check_exist_cleannode.Check(TaskData_Class).fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="4" projectType="all"
+                   item_name="检测文件结构"
+                   toolTip="检查文件结构是否符合规范"
+                   check_command="import apps.publish.check.maya.asset.check_is_structure as check_is_structure;reload(check_is_structure);check_is_structure.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="5" projectType="all"
+                   item_name="检测非模型节点"
+                   toolTip="检查文件中是否存在非模型节点"
+                   check_command="import apps.publish.check.maya.check_exist_cleanumnode as check_exist_cleanumnode;reload(check_exist_cleanumnode);check_exist_cleanumnode.Check(TaskData_Class).checkinfo()"
+                   fix_command="import apps.publish.check.maya.check_exist_cleanumnode as check_exist_cleanumnode;reload(check_exist_cleanumnode);check_exist_cleanumnode.Check(TaskData_Class).fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="True"/>
+
+        <checkItem order_id="6" projectType="all"
+                   item_name="清理模型历史记录(检测时直接清理,请慎点)"
+                   toolTip="清理模型Non_Deformer历史"
+                   check_command="import apps.publish.check.maya.asset.check_exist_history as check_exist_history;reload(check_exist_history);check_exist_history.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <!--        <checkItem order_id="7" projectType="all"-->
+        <!--                   item_name="检测组下模型命名"-->
+        <!--                   toolTip="检查组下模型命名"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_group_objects as check_group_objects;reload(check_group_objects);check_group_objects.Check(TaskData_Class).checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="False"/>-->
+
+<!--        <checkItem order_id="7" projectType="all"-->
+<!--                   item_name="强制清理模型文件"-->
+<!--                   toolTip="强制清理模型文件"-->
+<!--                   check_command="import apps.publish.check.maya.asset.check_clean_mod_force as check_clean_mod_force;reload(check_clean_mod_force);check_clean_mod_force.Check().checkinfo()"-->
+<!--                   fix_command=""-->
+<!--                   except_project=""-->
+<!--                   except_projectType=""-->
+<!--                   ignore="False"/>-->
+
+        <checkItem order_id="8" projectType="all"
+                   item_name="形节点mesh/shape(不修复无用shape节点,请手动修复)"
+                   toolTip="检测shape节点(不修复无用shape节点,请手动修复)"
+                   check_command="import apps.publish.check.maya.asset.check_modelShape as check_modelShape;reload(check_modelShape);check_modelShape.Check(TaskData_Class).checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_modelShape as check_modelShape;reload(check_modelShape);check_modelShape.Check(TaskData_Class).fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="9" projectType="all"
+                   item_name="检测模型材质连接（一个模型需要连接且只连接一个材质节点)"
+                   toolTip="检测模型材质连接（一个模型需要连接且只连接一个材质节点)"
+                   check_command="import apps.publish.check.maya.asset.check_exist_mshader as check_exist_mshader;reload(check_exist_mshader);check_exist_mshader.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+
+        <checkItem order_id="10" projectType="all"
+                   item_name="检查UE任务材质节点命名(body,role)"
+                   toolTip="检查UE任务材质节点命名(body,role)"
+                   check_command="import apps.publish.check.maya.asset.check_ue_role_shader as check_ue_role_shader;reload(check_ue_role_shader);check_ue_role_shader.Check(TaskData_Class).checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_ue_role_shader as check_ue_role_shader;reload(check_ue_role_shader);check_ue_role_shader.Check(TaskData_Class).fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+
+        <checkItem order_id="11" projectType="all"
+                   item_name="检测坐标归零"
+                   toolTip="检测组及物体坐标是否在原点"
+                   check_command="import apps.publish.check.maya.asset.check_is_freeze as check_is_freeze;reload(check_is_freeze);check_is_freeze.Check().checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_is_freeze as check_is_freeze;reload(check_is_freeze);check_is_freeze.Check().fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="12" projectType="all"
+                   item_name="检测空模型"
+                   toolTip="检测文件中是否存在空模型"
+                   check_command="import apps.publish.check.maya.asset.check_exist_nullpolygon as check_exist_nullpolygon ;reload(check_exist_nullpolygon);check_exist_nullpolygon.Check().checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_exist_nullpolygon as check_exist_nullpolygon ;reload(check_exist_nullpolygon);check_exist_nullpolygon.Check().fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+
+        <checkItem order_id="13" projectType="all"
+                   item_name="镜像检查"
+                   toolTip="检查模型不对称点"
+                   check_command="import apps.publish.check.maya.asset.check_is_mirror as check_is_mirror;reload(check_is_mirror);check_is_mirror.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="True"/>
+
+        <checkItem order_id="14" projectType="all"
+                   item_name="重叠模型"
+                   toolTip="检查文件中是否存在重叠模型"
+                   check_command="import apps.publish.check.maya.asset.check_exist_laminaface as check_exist_laminaface;reload(check_exist_laminaface);check_exist_laminaface.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+        <checkItem order_id="15" projectType="all"
+                   item_name="检查零距离边"
+                   toolTip="检查文件中是否存在零距离边"
+                   check_command="import apps.publish.check.maya.asset.check_exist_zeroedge as check_exist_zeroedge;reload(check_exist_zeroedge);check_exist_zeroedge.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="True"/>
+
+<!--        <checkItem order_id="15" projectType="all"-->
+<!--                   item_name="检查重点"-->
+<!--                   toolTip="检查文件中是否存在重点"-->
+<!--                   check_command="import apps.publish.check.maya.asset.check_exist_closingpoint as check_exist_closingpoint;reload(check_exist_closingpoint);check_exist_closingpoint.Check().checkinfo()"-->
+<!--                   fix_command=""-->
+<!--                   except_project=""-->
+<!--                   except_projectType=""-->
+<!--                   ignore="True"/>-->
+
+        <checkItem order_id="16" projectType="all"
+                   item_name="检查多边面"
+                   toolTip="检查多边面"
+                   check_command="import apps.publish.check.maya.asset.check_exist_fiveedge as check_exist_fiveedge;reload(check_exist_fiveedge);check_exist_fiveedge.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="True"/>
+
+        <!--        <checkItem order_id="17" projectType="all"-->
+        <!--                   item_name="检查面数(三角面)"-->
+        <!--                   toolTip="检查面数(三角面)"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_exist_triexceed as check_exist_triexceed;reload(check_exist_triexceed);check_exist_triexceed.Check(TaskData_Class).checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="False"/>-->
+
+        <checkItem order_id="18" projectType="all"
+                   item_name="检查非流体"
+                   toolTip="检查文件中是否存在非流体"
+                   check_command="import apps.publish.check.maya.asset.check_exist_nonmanifoldedges as check_exist_nonmanifoldedges;reload(check_exist_nonmanifoldedges);check_exist_nonmanifoldedges.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="True"/>
+
+        <checkItem order_id="19" projectType="all"
+                   item_name="检查UV翻转"
+                   toolTip="检查文件中是否存UV翻转"
+                   check_command="import apps.publish.check.maya.asset.check_exist_reverseduv as check_exist_reverseduv;reload(check_exist_reverseduv);check_exist_reverseduv.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="True"/>
+
+
+        <checkItem order_id="20" projectType="all"
+                   item_name="检查UVSet命名(只有场景道具有uv命名修复)"
+                   toolTip="检查UVSet命名"
+                   check_command="import apps.publish.check.maya.asset.check_is_uvsetname as check_is_uvsetname;reload(check_is_uvsetname);check_is_uvsetname.Check(TaskData_Class).checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_is_uvsetname as check_is_uvsetname;reload(check_is_uvsetname);check_is_uvsetname.Check(TaskData_Class).fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+
+        <checkItem order_id="21" projectType="all"
+                   item_name="检查缺失贴图"
+                   toolTip="缺失贴图检查"
+                   check_command="import apps.publish.check.maya.asset.check_missing_map as check_missing_map;reload(check_missing_map);check_missing_map.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+<!--        <checkItem order_id="22" projectType="all"-->
+<!--                   item_name="检查材质节点"-->
+<!--                   toolTip="检查材质节点(材质球及SG节点命名)"-->
+<!--                   check_command="import apps.publish.check.maya.asset.check_body_mat as check_body_mat;reload(check_body_mat);check_body_mat.Check(TaskData_Class).checkinfo()"-->
+<!--                   fix_command="import apps.publish.check.maya.asset.check_body_mat as check_body_mat;reload(check_body_mat);check_body_mat.Check(TaskData_Class).fix()"-->
+<!--                   except_project=""-->
+<!--                   except_projectType=""-->
+<!--                   ignore="False"/>-->
+        <checkItem order_id="23" projectType="all"
+                   item_name="节点重名检测"
+                   toolTip="节点重名检测"
+                   check_command="import apps.publish.check.maya.asset.check_exist_duplicate_name_node as check_exist_duplicate_name_node;reload(check_exist_duplicate_name_node);check_exist_duplicate_name_node.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="24" projectType="all"
+                   item_name="检测Smooth模型(按'3'键)"
+                   toolTip="检测Smooth模型(按'3'键)"
+                   check_command="import apps.publish.check.maya.asset.check_exist_smooth_3 as check_exist_smooth_3;reload(check_exist_smooth_3);check_exist_smooth_3.Check().checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_exist_smooth_3 as check_exist_smooth_3;reload(check_exist_smooth_3);check_exist_smooth_3.Check().fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+
+
+
+    </check_tab>
+</check>

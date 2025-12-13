@@ -1,0 +1,119 @@
+﻿FirstMenu_shotgun:
+  - MainTitle: 基本配置(包含shotgun环境,dcc 配置,Z盘及M盘映射)
+  - MainCMD: True
+  - MainIcon: 'Z:/dev/ico/sq32/win_tools/new.png'
+  - MainMethod: [ '//10.10.201.151/share/development/dev/tools/win_tools/config/cofig_set.exe' ]
+
+
+
+
+FirstMenu_python:
+  - MainTitle: 安装配置本地python
+  - MainCMD: True
+  - MainIcon: 'Z:/dev/ico/sq32/win_tools/new.png'
+  - MainMethod: [ 'Z:/dev/tools/win_tools/config/item/python_set.exe' ]
+
+
+FirstMenu_desktopsetup:
+  - MainTitle: 安装desktop
+  - MainCMD: False
+  - MainIcon: 'Z:/dev/ico/sq32/win_tools/new.png'
+  - MainMethod: [ 'Z:/dev/tools/win_tools/config/sg-desktop_setup_0.6.0.exe' ]
+
+FirstMenu_deadlinesetup:
+  - MainTitle: 安装deadline
+  - MainCMD: False
+  - MainIcon: 'Z:/dev/ico/sq32/win_tools/new.png'
+  - MainMethod: [ 'Z:/software/tools/deadline/DeadlineClient-10.1.17.4-windows-installer.exe' ]
+
+FirstMenu_deadlinestady:
+  - MainTitle: deadline 服务配置
+  - MainCMD: True
+  - MainIcon: 'Z:/dev/ico/sq32/win_tools/new.png'
+  - MainMethod: [ 'Z:/software/tools/deadline/bat.bat' ]
+
+FirstMenu_HoudiniInstall:
+  - MainTitle: 安装激活Houdini
+  - MainCMD: True
+  - MainIcon: 'Z:/dev/ico/sq32/tools/houdin.png'
+  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/houdini_install_x.bat' ]
+
+FirstMenu_HoudiniSetup:
+  - MainTitle: 配置Houdini
+  - MainCMD: True
+  - MainIcon: 'Z:/dev/ico/sq32/tools/houdin.png'
+  - MainMethod: [ 'Z:\dev\tools\win_tools\tools\houdini_setup.bat' ]
+
+FirstMenu_X3MyTaskInstall:
+  - MainTitle: 安装X3 MyTaskTool
+  - MainCMD: True
+  - MainIcon: 'Z:/dev/ico/small/x3_thum.png'
+  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/login_maya_task_install.bat' ]
+
+FirstMenu_X3MyTaskStart:
+  - MainTitle: 启动X3 MyTaskTool
+  - MainCMD: False
+  - MainIcon: 'Z:/dev/ico/small/x3_thum.png'
+  - MainMethod: [ '%localappdata%/Programs/sg-mytasktool/login_maya_task.exe' ]
+
+
+FirstMenu_desktop:
+  - MainTitle: 启动desktop
+  - MainCMD: False
+  - MainIcon:
+  - MainMethod: [ '%localappdata%/Programs/sg-desktop/sg-desktop.exe' ]
+
+FirstMenu_BatchProcess:
+  - MainTitle: 批处理
+  - MainCMD: True
+  - MainIcon:
+  - MainMethod: [ "Z:/dev/tools/win_tools/config/maya_batch.exe" ]
+
+FirstMenu_CollectTool:
+  - MainTitle: 收集工具
+  - MainCMD: True
+  - MainIcon:
+  - MainMethod: [ "Z:/dev/tools/win_tools/tools/collect_tool.exe" ]
+
+FirstMenu_MopTool:
+  - MainTitle: 批量更名工具(拖把)
+  - MainCMD: True
+  - MainIcon:
+  - MainMethod: [ "Z:/software/tools/SmartRename/xTools.exe" ]
+
+
+
+
+FirstMenu_PathPaste:
+  - MainTitle: 路径粘贴器(“\”《=》“/”)
+  - MainCMD: False
+  - MainIcon:
+  - MainMethod: [ 'Z:/dev/tools/win_tools/Path_Paste.exe' ]
+
+FirstMenu_SubShogunMark:
+  - MainTitle: 提交Mark Clean Up 工具
+  - MainCMD: True
+  - MainIcon: 'Z:/dev/ico/sq32/Shogun.png'
+  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/sub_mark_clean_up_tool.exe' ]
+
+FirstMenu_CoverToMaya2018:
+  - MainTitle: ma文件转换为maya2018版本
+  - MainCMD: True
+  - MainIcon: 'Z:/dev/ico/sq32/maya.png'
+  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/cover_maya_2018_tool.exe' ]
+
+FirstMenu_ExportSingleMeshFbx:
+  - MainTitle: 拆分单个Mesh导出FBX工具
+  - MainCMD: True
+  - MainIcon: 'Z:/dev/ico/sq32/win_tools/fbx.jpg'
+  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/export_single_mesh_tool_01.exe' ]
+
+FirstMenu_AiVideoMatch:
+  - MainTitle: AI视频匹配工具
+  - MainCMD: True
+  - MainIcon:
+  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/AiVideoMatch.bat' ]
+
+
+
+

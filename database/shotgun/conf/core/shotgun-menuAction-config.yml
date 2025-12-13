@@ -1,0 +1,28 @@
+#shotgun-menu-config file
+#Asset
+shotgun://export_select_excel: 'Z:/dev/database/shotgun/tools/actionitem/export_select_excel.py'
+shotgun://down_select_asset_thumbnail: 'Z:/dev/database/shotgun/tools/actionitem/down_select_asset_thumbnail.py'
+shotgun://unregister_folders: 'Z:/dev/database/shotgun/tools/actionitem/entity_unregister_folder.py'
+shotgun://export_select_thumbnail_excel: 'Z:/dev/database/shotgun/tools/actionitem/export_asset_select_thumbnail_excel.py'
+shotgun://batch_update_thumbnail: 'Z:/dev/database/shotgun/tools/actionitem/batch_update_thumbnail.py'
+
+
+#Task
+shotgun://export_task_excel: 'Z:/dev/database/shotgun/tools/actionitem/export_task_excel.py'
+shotgun://add_subtasks: 'Z:/dev/database/shotgun/tools/actionitem/add_subtasks.py'
+
+#Publish
+shotgun://copy_publish_file: 'Z:/dev/database/shotgun/tools/actionitem/copy_publish_file.py'
+
+#Version
+shotgun://update_playlist: 'Z:/dev/database/shotgun/tools/actionitem/update_playlist.py'
+
+
+shotgun://down_version_file: 'Z:/dev/database/shotgun/tools/actionitem/down_version_file.py'
+
+
+
+shotgun://batch_submit_variant_assets: 'Z:/dev/database/shotgun/tools/actionitem/batch_submit_variant_assets.py'
+
+
+

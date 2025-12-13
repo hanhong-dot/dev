@@ -1,0 +1,48 @@
+{
+  "server_py2": {
+    "name": "server_py2",
+    "root": "Z:\\dev",
+    "package": [
+      "Ide\\Python\\2.7.11\\Lib\\site-packages",
+      "Ide\\Python\\2.7.11\\DLLs",
+      "tools\\maya",
+      "tools\\x3_P4\\python",
+      "tools\\x3_P4\\scripts"
+    ]
+  },
+  "server_py3": {
+    "name": "server_py3",
+    "root": "Z:\\dev",
+    "package": [
+      "Ide\\Python\\Python39\\Lib\\site-packages",
+      "Ide\\Python\\Python39\\DLLs",
+      "tools\\maya2023",
+      "tools\\x3_P4\\python_2023",
+      "tools\\x3_P4\\scripts_2023"
+    ]
+  },
+  "local_py2": {
+    "name": "TD",
+    "host": "",
+    "root": "D:\\dev",
+    "package": [
+      "Ide\\Python\\2.7.18-x64\\Lib\\site-packages",
+      "Ide\\Python\\2.7.11\\DLLs",
+      "tools\\x3_P4\\python",
+      "tools\\x3_P4\\scripts"
+    ]
+  },
+  "env_py2": {
+    "PROJECT": "{current_project}",
+    "TCL_LIBRARY": "Z:\\dev\\Ide\\Python\\2.7.11\\Lib\\tcl8.5",
+    "TK_LIBRARY": "Z:\\dev\\Ide\\Python\\2.7.11\\Lib\\tk8.5"
+  },
+  "env_py3": {
+    "PROJECT": "{current_project}",
+    "TCL_LIBRARY": "Z:\\dev\\Ide\\Python\\Python39\\tcl\\tcl8.6",
+    "TK_LIBRARY": "Z:\\dev\\Ide\\Python\\Python39\\tcl\\tk8.6"
+  },
+  "maya_env": {
+    "MAYA_MODULE_PATH": "Z:\\dev\\tools\\x3_P4\\maya_2023_modules"
+  }
+}

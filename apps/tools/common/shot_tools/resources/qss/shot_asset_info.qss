@@ -1,0 +1,120 @@
+/* common */
+QWidget{
+    font-family: Microsoft YaHei UI;
+    font: bold 12px;
+    color: #aaaaaa;
+    background-color: #444444;
+}
+
+
+QPushButton{
+    background-color: #555555;
+    font: bold 14px Microsoft YaHei UI;
+    color: #cccccc;
+    border: 0px solid #444444;
+    border-radius:4;
+}
+
+QPushButton:hover{
+    background-color: #5e9ba2;
+}
+
+QPushButton:pressed{
+    background-color: #4a2e47;
+}
+
+QPushButton:disabled{
+    background-color: #565656;
+    color: #909090
+}
+
+/*
+QTableWidget*/
+    QTableWidget{
+    color:#DCDCDC;
+    background:#444444;
+    border:0px solid #242424;
+    alternate-background-color:#525252;/*交错颜色*/
+    gridline-color:#242424;
+}
+
+/*选中item*/
+QTableWidget::item:selected{
+    color:#DCDCDC;
+    background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);
+}
+
+
+
+QTabBar:tab{
+    background-color: #373737;
+    color: #929292;
+}
+
+QTabWidget:pane{
+    border: 2px solid #555555;
+}
+
+/*
+悬浮item*/
+QTableWidget::item:hover{
+    background:#5B5B5B;
+}
+/*表头*/
+QHeaderView::section{
+    text-align:center;
+    background:#5E5E5E;
+    padding:3px;
+    margin:0px;
+    color:#DCDCDC;
+    border:1px solid #242424;
+    border-left-width:0;
+}
+
+/*表右侧的滑条*/
+QScrollBar:vertical{
+    background:#484848;
+    padding:0px;
+    border-radius:6px;
+    max-width:12px;
+}
+
+/*滑块*/
+QScrollBar::handle:vertical{
+    background:#CCCCCC;
+}
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+    background:#A7A7A7;
+}
+/*
+滑块已经划过的区域*/
+QScrollBar::sub-page:vertical{
+    background:444444;
+}
+
+/*
+滑块还没有划过的区域*/
+QScrollBar::add-page:vertical{
+    background:5B5B5B;
+}
+
+/*页面下移的按钮*/
+QScrollBar::add-line:vertical{
+    background:none;
+}
+/*页面上移的按钮*/
+QScrollBar::sub-line:vertical{
+    background:none;
+}
+
+QCheckBox::indicator{
+    width: 13px;
+    height: 13px;
+}
+
+QCheckBox::indicator:checked{
+    image:url("Z:/dev/apps/tools/common/shot_tools/resources/icon/checkbox_checked.png");
+}
+

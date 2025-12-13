@@ -1,0 +1,5132 @@
+//==============================================================//
+//                   MGPicker 
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback/E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//============== global utils for c++ =========================
+global string $MGPicker_LoaderMelFileName = "MGPicker_WrittenByMiguel.mel";
+
+proc mgp_guardSourceBehavior()
+{
+    global string $MGPicker_LoaderMelFileName;
+	if(!`exists "MGPicker_GPS"`)
+	{
+		error ("You need to source \""+$MGPicker_LoaderMelFileName+"\" first.");
+	}
+}
+
+mgp_guardSourceBehavior;
+
+proc int mgp_wasDocking()
+{
+    int $docking = 0;
+    global string $MGPicker_Config_Docking;
+    if(`optionVar -ex $MGPicker_Config_Docking`)
+    {
+        $docking = `optionVar -q $MGPicker_Config_Docking`;
+    }
+    return $docking;
+}
+proc int mgp_getMayaVersionNumForPlugin ()
+{
+    int $v=`about -api`;
+    int $mainV = $v / 100.0;
+    // Starting from maya 2018, two more zero at the end for unknown reason.
+    if($mainV > 200000)
+    {
+        $mainV /= 100.0;
+    }
+    return $mainV;
+} 
+proc string mgp_getMayaVersionStringForPlugin ()
+{
+    string $result = `mgp_getMayaVersionNumForPlugin`;
+    return $result;
+} 
+
+proc initGlobalVar()
+{
+  global int $MGPKR_OStype;
+    
+  global string $MGPicker_AppName;
+  $MGPicker_AppName = "MG-PickerStudio";
+  
+  global string $MGPicker_AutoSourceFolder;
+  $MGPicker_AutoSourceFolder = "AutoSourced";
+  
+  global string $MGPicker_AutoLoaderFolder;
+  $MGPicker_AutoLoaderFolder = "AutoLoaders";
+    
+  global string $MGPicker_PythonAPIFolder;
+  $MGPicker_PythonAPIFolder = "Python";
+
+  //config global vars:  
+  global string $MGPicker_Config_LanID;
+  
+  global string $MGPicker_Config_AutoloadScenePkrID;
+
+  global string $MGPicker_Config_SearchingOrderID;
+  
+  
+ 
+  global string $MGPicker_Config_UiMode;
+
+  global string $MGPicker_Config_Docking;
+  global string $MGPicker_Config_DockArea;
+  
+  $MGPicker_Config_LanID = "language";
+  
+  $MGPicker_Config_AutoloadScenePkrID = "autoloadScenePicker";
+
+  $MGPicker_Config_SearchingOrderID = "pickerSearchingOrder";
+  
+  
+  
+  $MGPicker_Config_UiMode = "MGPicker_UiMode";
+  
+  $MGPicker_Config_Docking = "MGPicker_Config_Docking";
+  $MGPicker_Config_DockArea = "MGPicker_Config_DockArea";
+  
+  global string $MGPicker_FolderName;
+  $MGPicker_FolderName = "MG-PickerStudio"; 
+  
+  global string $MGPicker_3DModelPanel;
+  $MGPicker_3DModelPanel = "MGPicker_3DModelPanel";
+  
+  global string $MGPicker_3DModelPanelImagePlane;
+  $MGPicker_3DModelPanelImagePlane = "MGPicker_3DModelPanel_ImagePlane";
+  
+  global string $MGPicker_3DModelPanelLayout;
+  $MGPicker_3DModelPanelLayout = "MGPicker_3DModelPanelLayout";
+    
+  global string $MGPicker_3DModelView_FormLay;
+  $MGPicker_3DModelView_FormLay = "MGPicker_3DModelEditorFormLayout";
+    
+  global string $MGPicker_AttributePanel_ChannelBoxName;    
+  $MGPicker_AttributePanel_ChannelBoxName = "MGPicker_AttrPanel_ChannelBox";
+  
+  global string $MGPicker_3DPanelCamera_OV;
+  $MGPicker_3DPanelCamera_OV = "MGPicker_3DModelPanel_Camera";
+  
+  
+  global int $MGPicker_LastRenderResolution[];
+  clear $MGPicker_LastRenderResolution;
+  
+  global string $MGPicker_ControlName;
+  $MGPicker_ControlName = "MG_PickerCtl"; 
+  global string $MGPicker_WindowName;
+  $MGPicker_WindowName = "MG_PickerWindow"; 
+  global string $MGPicker_DockControlName;
+  $MGPicker_DockControlName = "MG_PickerDockControl"; 
+  global string $MGPicker_FrameFormLayout;
+  $MGPicker_FrameFormLayout = "MGPicker_FrameFormLayout"; 
+  
+  global string $MGPicker_SceneDataSuffix;
+  $MGPicker_SceneDataSuffix = "_MGPIKR"; 
+  
+  global string $MGPicker_pickerFileExtension;
+  $MGPicker_pickerFileExtension = ".mgpkr"; 
+  
+  global string $MGPicker_SceneDataNodeType;
+  $MGPicker_SceneDataNodeType = "subdivSurfaceVarGroup"; 
+  
+  global string $MGPicker_SceneData_PickerFilePathAttr;
+  $MGPicker_SceneData_PickerFilePathAttr = "pickerFilePath"; 
+  
+  global string $MGPicker_SceneData_NameAttr;
+  $MGPicker_SceneData_NameAttr = "pickerName";
+  global string $MGPicker_SceneData_NsAttr;
+  $MGPicker_SceneData_NsAttr  = "namespace";
+  global string $MGPicker_SceneData_DataAttr;
+  $MGPicker_SceneData_DataAttr = "data";
+      
+  global string $MGPicker_DefaultProjName;
+  $MGPicker_DefaultProjName = "Default";
+    
+ 
+  global string $MGPicker_AllConverters[];
+  clear  $MGPicker_AllConverters;
+  
+  global string $MGPicker_WithScene_Folder;
+  $MGPicker_WithScene_Folder = "pickers";
+  
+  
+  global string $MGPicker_InScene_DummyName;
+  $MGPicker_InScene_DummyName = "*[In-Scene]";
+  global string $MGPicker_WithScene_DummyName;
+  $MGPicker_WithScene_DummyName = ("*[Scene/"+$MGPicker_WithScene_Folder+"]");
+  global string $MGPicker_Local_DummyName;
+  $MGPicker_Local_DummyName = "*[Local]";
+  
+  
+  global string $MGPicker_AttributeNudger_Context;
+  $MGPicker_AttributeNudger_Context = "attrNudgerToolContext1";
+  
+  global string $MGPicker_AttributeNudger_Command;
+  $MGPicker_AttributeNudger_Command =  "MGPickerAttrNudger";
+    
+    global int $gMGPicker_MayaVerInt;
+    $gMGPicker_MayaVerInt = `mgp_getMayaVersionNumForPlugin`;
+    
+    
+    global string $gMGPicker_ShelfLabel_anim;
+    global string $gMGPicker_ShelfLabel_designer;
+    $gMGPicker_ShelfLabel_anim = "MGPickerStudio_AnimatorMode"; 
+    $gMGPicker_ShelfLabel_designer = "MGPickerStudio_DesignerMode";
+    
+  
+    global string $MGPicker_ServerConfigFolder;
+    $MGPicker_ServerConfigFolder = "ServerConfig";
+    
+    global string $MGPicker_DefaultUserConfigFolder;
+    $MGPicker_DefaultUserConfigFolder = "MGPicker_UserConfig";
+    
+    
+    global string $MGPicker_UserConfigDefinitionFile;
+    $MGPicker_UserConfigDefinitionFile = "UserConfig_Position.txt";
+    
+    global string $MGPicker_UserConfig_Position_Key;
+    $MGPicker_UserConfig_Position_Key = "MGPICKER_USER_CONFIG_DIR";
+    
+    global string $MGPicker_UserConfig_Position_Value_UserApp;
+    $MGPicker_UserConfig_Position_Value_UserApp = "$UserAppDir";
+    global string $MGPicker_UserConfig_Position_Value_UserApp_1;
+    $MGPicker_UserConfig_Position_Value_UserApp_1 = "${UserAppDir}";
+    global string $MGPicker_UserConfig_Position_Value_UserApp_2;
+    $MGPicker_UserConfig_Position_Value_UserApp_2 = "__UserAppDir__";
+    
+    global string $MGPicker_UserConfig_Position_UserApp_Folder;
+    $MGPicker_UserConfig_Position_UserApp_Folder = "MG_PickerUserConfig";
+    
+    global string $MGPicker_UserConfig_Position_Value_UserScript;
+    $MGPicker_UserConfig_Position_Value_UserScript = "$UserScriptDir";
+    global string $MGPicker_UserConfig_Position_Value_UserScript_1;
+    $MGPicker_UserConfig_Position_Value_UserScript_1 = "${UserScriptDir}";
+    global string $MGPicker_UserConfig_Position_Value_UserScript_1;
+    $MGPicker_UserConfig_Position_Value_UserScript_2 = "__UserScriptDir__";
+    
+    global string $MGPIcker_AutoloadingCleaned_Maya2017;
+    $MGPIcker_AutoloadingCleaned_Maya2017 =  "MG_Picker_Maya2017_AutoloadCleaned";
+    
+
+    global int $MGPicker_AvoidSourceAgain;
+}
+initGlobalVar;
+
+global proc MGP_ScriptEditorFeedback(string $msg, int $type)
+//$type 0: normal msg
+//$type 1: warning 
+//$type 2: error
+{
+    global string $MGPicker_AppName;
+    if(!$type)
+    {
+        // the warning and error will need a new line
+        $msg = ("["+$MGPicker_AppName+"] "+$msg);
+        if(!`endsWith $msg "\n"`)
+        {
+            $msg += "\n";
+        }
+        print $msg ;
+    }
+    else if($type == 1)
+    {
+        warning $msg;
+    }
+    else 
+    {
+        error $msg;
+    }
+}
+
+global proc string MGP_GetDirInProgramfiles(string $subDir)
+{
+    global string $MGPicker_ProgramPath;  
+    global string $MGPicker_ProgramFolder;
+    string $path = ($MGPicker_ProgramPath+$MGPicker_ProgramFolder+"/"+ $subDir);    
+    return $path;
+}
+
+proc string getMayaBinFolder()
+{
+    string $dir = `getenv "MAYA_LOCATION"`;
+    return ($dir + "/bin");
+}
+
+global proc string MGP_GetAutoLoaderDir()
+{
+    global string $MGPicker_AutoLoaderFolder;
+    return `MGP_GetDirInProgramfiles $MGPicker_AutoLoaderFolder`;
+}
+
+global proc string MGP_GetPythonAPIDir()
+{
+    global string $MGPicker_PythonAPIFolder;
+    return `MGP_GetDirInProgramfiles $MGPicker_PythonAPIFolder`;
+}
+
+proc string mgp_getDefaultLoaderMelPath()
+{ 
+  global string $MGPicker_LoaderMelFileName;
+  string $loaderMel = `MGP_GetDirInProgramfiles $MGPicker_LoaderMelFileName`;
+  return $loaderMel;
+}
+
+proc string mgp_icon(string $iconName)
+{
+    global string $MGPicker_ProgramPath;
+    global int $MGPKR_OStype;
+    
+    string $path = (`MGP_GetDirInProgramfiles "Icons/"`+ $iconName);
+    
+    if(!$MGPKR_OStype)
+    {
+        $path = `substituteAllString $path "/" "\\"`;
+    }
+    if(`filetest -f $path`)
+    {
+        return $path;
+    }
+    $path = (`MGP_GetDirInProgramfiles "Icons/"`+ $iconName);
+    if(!$MGPKR_OStype)
+    {
+        $path = `substituteAllString $path "/" "\\"`;
+    }
+    return $path;
+}
+
+proc mgp_initSearchingOrder()
+{   
+  global string $MGPicker_SearchOrder[];
+  clear $MGPicker_SearchOrder;
+  global string $MGPicker_Config_SearchingOrderID;
+    string $config = `MGPicker -q -config $MGPicker_Config_SearchingOrderID ""`; 
+    $MGPicker_SearchOrder = `stringToStringArray $config ","`;
+}
+
+proc string[] mgp_getSearchingOrder()
+{
+    mgp_initSearchingOrder;
+    global string $MGPicker_SearchOrder[];
+    
+  global string $MGPicker_InScene_DummyName;
+  global string $MGPicker_Local_DummyName;
+  global string $MGPicker_WithScene_DummyName;
+  
+  int $hasInScene = `stringArrayContains $MGPicker_InScene_DummyName $MGPicker_SearchOrder`;
+  int $hasWithScene = `stringArrayContains $MGPicker_WithScene_DummyName $MGPicker_SearchOrder`;
+  int $hasLocal = `stringArrayContains $MGPicker_Local_DummyName $MGPicker_SearchOrder`;
+  if(!$hasInScene)
+  {
+    stringArrayInsertAtIndex(0,$MGPicker_SearchOrder,$MGPicker_InScene_DummyName);
+  }
+  if(!$hasWithScene)
+  {
+    stringArrayInsertAtIndex(1,$MGPicker_SearchOrder,$MGPicker_WithScene_DummyName);
+  }
+  if(!$hasLocal)
+  {
+    stringArrayInsertAtIndex(2,$MGPicker_SearchOrder,$MGPicker_Local_DummyName);
+  }
+  return $MGPicker_SearchOrder;
+}
+global proc string MGP_MultiLanguage(string $id)
+{
+    if(!`exists MGPickerService`)
+    {
+        return $id;
+    }
+    return `MGPickerService -tr $id`;
+}
+global proc string MGP_MultiLanguage_rep1(string $id,string $rep1)
+{
+    if(!`exists MGPickerService`)
+    {
+        return $id;
+    }
+    return `MGPickerService -tr1 $id $rep1`;
+}
+global proc string MGP_MultiLanguage_rep2(string $id,string $rep1,string $rep2)
+{
+    if(!`exists MGPickerService`)
+    {
+        return $id;
+    }
+    return `MGPickerService -tr2 $id $rep1 $rep2`;
+}
+
+// --------get user config root dir---------------------------
+
+proc string mgp_getPickerConfigItemDir(string $configName)
+{
+    global string $MGPicker_UserConfig_Position;
+    string $folder=($MGPicker_UserConfig_Position + $configName);
+    return $folder;
+}
+
+global proc string MGP_GetPickerRootDirectory()
+{
+    global string $MGPicker_ProgramPath;
+    return $MGPicker_ProgramPath;
+}
+
+proc string mgp_getSnapshotStyle_FactoryDefaultDirectory()
+{
+    return (`MGP_GetDirInProgramfiles "SnapshotStyles/"`);
+}
+proc string mgp_getSnapshotStyle_UserDirectory()
+{
+    return (`mgp_getPickerConfigItemDir "SnapshotStyles/"`);
+}
+global proc string MGP_getPickerUserTamplateDirectory()
+{
+    string $dir = `internalVar -userAppDir`;
+    $dir += "MG_PickerTemplate/";
+    return $dir;
+}
+
+global proc string MGP_getPkrDataDirectory()
+{
+    string $dir = `internalVar -userAppDir`;
+    $dir += "MG_PickerData/";
+    return $dir;
+}
+proc string mgp_getPkrProgramFilesDirectory()
+{
+    return `MGP_GetDirInProgramfiles ""`;
+}
+proc string mgp_getPkrConverterFactoryDirectory() 
+{
+    return `MGP_GetDirInProgramfiles "Converters/"`;
+}
+proc string mgp_getPkrConverterUserDirectory()
+{
+    return `mgp_getPickerConfigItemDir "Converters/"`;
+}
+proc string mgp_getPkrAutoSourceFactoryDirectory()
+{
+    global string $MGPicker_AutoSourceFolder;
+    return `MGP_GetDirInProgramfiles ($MGPicker_AutoSourceFolder+"/")`;
+}
+proc string mgp_getPkrAutoSourceUserDirectory()
+{
+    global string $MGPicker_AutoSourceFolder;
+     return `mgp_getPickerConfigItemDir ($MGPicker_AutoSourceFolder+"/")`;
+}
+proc sourceAllPickerAutoInvokeMels_doit(string $dir)
+{       
+        string $mels[]=`getFileList -fld $dir -fs "*.mel"`;
+        
+        
+        string $melError = "Error auto sourcing mel:";
+        string $melSourced = "Mel auto sourced:";
+        string $pyError = "Error auto sourcing python script:";
+        string $pycWarning = ".pyc file(s) skipped as they not supported for auto-sourcing.";
+        string $pySourced = "Python script auto sourced:";
+    
+        if(`exists MGPickerService`)
+        {
+            $melError = `MGP_MultiLanguage "pkr.errorAutoSourceMel"`;
+            $melSourced = `MGP_MultiLanguage "pkr.autoSourceMel"`;
+            $pyError = `MGP_MultiLanguage "pkr.errorAutoSourcePy"`;
+            $pycError = `MGP_MultiLanguage "pkr.warningPycNotSupported"`;
+            $pySourced = `MGP_MultiLanguage "pkr.autoSourcePy"`;
+        }
+        
+        for($mel in $mels)
+        {
+            string $cmd = "source \""+$dir+$mel+"\"";
+            int $result = catch (`eval $cmd`);
+            if($result)
+            {
+                MGP_ScriptEditorFeedback ($melError+" "+$mel) 1;
+            }
+            else
+            {
+                MGP_ScriptEditorFeedback ($melSourced +" "+$mel) 0;
+            }
+        }
+
+        // Prepare for intialising the MGP module:
+        global string $MGPicker_ProgramPath;  
+        global string $MGPicker_ProgramFolder;
+        python("import os; os.environ['MGPICKER_PROGRAM_FILE_DIR'] = '"+$MGPicker_ProgramPath+$MGPicker_ProgramFolder+"'");
+
+        string $pycs[]=`getFileList -fld $dir -fs "*.pyc"`;
+        int $pycCount = size($pycs);
+        if($pycCount)
+        {
+            MGP_ScriptEditorFeedback ($pycCount + " " + $pycWarning) 1;
+        }
+        string $pys[]=`getFileList -fld $dir -fs "*.py"`;
+        // No pyc here as it will cause syntax error.
+        for($py in $pys)
+        {
+            string $modulePath = $dir+$py;
+            string $cmd = "python (\"exec(open('"+$modulePath+"').read())\")";
+            int $result = catch (`eval $cmd`);
+            if($result)
+            {
+                MGP_ScriptEditorFeedback ($pyError+" "+$py) 1;
+            }
+            else
+            {
+                MGP_ScriptEditorFeedback ($pySourced +" "+$py) 0;
+            }
+        }
+}
+proc sourceAllPickerAutoInvokeMels()
+{    
+    global int $MGPicker_AvoidSourceAgain;
+    if($MGPicker_AvoidSourceAgain)
+    {
+        $MGPicker_AvoidSourceAgain = 0;
+        return;
+    }
+    sourceAllPickerAutoInvokeMels_doit `mgp_getPkrAutoSourceFactoryDirectory`;
+    sourceAllPickerAutoInvokeMels_doit `mgp_getPkrAutoSourceUserDirectory`;
+    
+}
+sourceAllPickerAutoInvokeMels;
+
+proc string mgp_getPickerConverterProc_autoReadNode(string $melBasename)
+{
+    return ($melBasename+"_autoReadNode");
+}
+proc string mgp_getPickerConverterProc_nodeType(string $melBasename)
+{
+    return ($melBasename+"_nodeType");
+}
+proc string mgp_getPickerConverterProc_isPickerNode(string $melBasename)
+{
+    return ($melBasename+"_isPickerNode");
+}
+proc string mgp_getPickerConverterProc_nodeLister(string $melBasename)
+{
+    return ($melBasename+"_nodeLister");
+}
+proc string mgp_getPickerConverterProc_readNode(string $melBasename)
+{
+    return ($melBasename+"_readNode");
+}
+proc string mgp_getPickerConverterProc_isPickerFile(string $melBasename)
+{
+    return ($melBasename+"_isPickerFile");
+}
+proc string mgp_getPickerConverterProc_readFile(string $melBasename)
+{
+    return ($melBasename+"_readFile");
+}
+proc string mgp_getPickerConverterProc_getNamespace(string $melBasename)
+{
+    return ($melBasename+"_getNamespace");
+}
+proc mgp_sourcePickerConverterMel(string $melFile)
+{
+    string $cmd = "source \""+$melFile+"\"";
+    eval $cmd;
+}
+proc mgp_initAllPkrConverters_doit(string $dir)
+{
+    string $mels []=`getFileList -fld $dir -fs "*.mel"`;
+    global string $MGPicker_AllConverters[];
+    string $bn;
+    //print $mels;
+    for($mel in $mels)
+    {
+        $bn = `basename $mel ".mel"`;
+        if(`stringArrayContains $bn $MGPicker_AllConverters`)
+        {
+            continue;
+        }
+        string $cFile = $dir+$mel;
+        if(catch(`mgp_sourcePickerConverterMel $cFile`))
+        {
+            continue;
+        }
+        $MGPicker_AllConverters[size($MGPicker_AllConverters)] = $bn;       
+    }   
+}
+proc mgp_initAllPkrConverters()
+{  
+    global string $MGPicker_AllConverters[];
+    clear $MGPicker_AllConverters;
+    string $factoryDir = `mgp_getPkrConverterFactoryDirectory`;
+    mgp_initAllPkrConverters_doit $factoryDir;
+    string $userDir = `mgp_getPkrConverterUserDirectory`;
+    mgp_initAllPkrConverters_doit $userDir;
+}
+mgp_initAllPkrConverters;
+
+proc int mgp_hasNamespace(string $name)
+{
+    return `gmatch $name "*:*"`;
+}
+global proc string MGP_cleanUpNonNamespaceMix(string $name)
+{
+    return `MGPickerService -q -cleanNamespaceMix $name`;
+}
+global proc string [] MGP_cleanUpNonNamespaceMixList(string $names[])
+{
+    string $used[];
+    for($each in $names)
+    {
+        $used[size($used)] = `MGP_cleanUpNonNamespaceMix $each`;
+    }
+    return $used;
+}
+
+proc string [] mgp_listAllPkrConverters()
+{
+    global string $MGPicker_AllConverters[];
+    return $MGPicker_AllConverters;
+}
+
+proc mgp_ensureDirBuilt(string $dir)
+{
+    if(!`filetest -d $dir`)
+    {
+        sysFile -md $dir;
+    }
+}
+
+
+proc string [] mgp_ListAllSubFolders (string $parentFolder)
+//this servers as a replacement to getFileList, so it only return subfolder names but not the full pathes.
+{
+  if(!`filetest -d  $parentFolder`)
+  {
+    return {};
+  }
+  string $resultFolders[];
+    if(!`endsWith $parentFolder "/"`)
+    {
+        $parentFolder += "/";
+    }
+    string $subItems[] = `getFileList -folder $parentFolder`;
+    if(!size($subItems))
+    {
+        return $resultFolders;
+    }
+    string $cSubDir;
+    for($each in $subItems)
+    {
+        if($each == "." || $each == "..")
+			continue;
+        $cSubDir = ($parentFolder+$each);
+        if(`filetest -d $cSubDir`)
+        {
+            $resultFolders[size($resultFolders)] = $each;
+        }       
+    }
+    return $resultFolders;
+}
+
+
+global proc string MGP_getAppName()
+{
+  global string $MGPicker_AppName;
+  return $MGPicker_AppName;
+}
+global proc string MGPkr_getDefaultProjectName()
+{
+    global string $MGPicker_DefaultProjName;
+    return $MGPicker_DefaultProjName;
+}
+
+global proc string [] MGP_getProgramInfoFromProgramRoot(string $programRoot)
+{
+	global string $MGPicker_ProgramFolder;	
+    global string $MGPicker_LoaderMelFileName;
+    string $content[];
+	string $pickerMel = ($programRoot+$MGPicker_ProgramFolder+"/"+$MGPicker_LoaderMelFileName);
+	$content[size($content)] = "LoaderMel="+$pickerMel;
+    $content[size($content)] = "LoadCommand=MG_PickerStudio";
+    $content[size($content)] = "AnimatorMode=1";
+    $content[size($content)] = "DesignerMode=0";
+    return $content;
+}
+
+global proc string [] MGP_getProgramInfo()
+{
+    global string $MGPicker_ProgramPath;
+    return `MGP_getProgramInfoFromProgramRoot $MGPicker_ProgramPath`;
+}
+
+global proc string MGP_getSnapshotStyleFilePathViaName(string $styleName)
+{
+    int $isDefault = 1;
+    string $filePath = `mgp_getSnapshotStyle_FactoryDefaultDirectory`;
+    if(!`startsWith $styleName "~"`)
+    {
+        $filePath = `mgp_getSnapshotStyle_UserDirectory`;
+        $isDefault = 0;
+    }
+    if(!`endsWith $filePath "/"`)
+    {
+        $filePath += "/";
+    }
+    $filePath  += $styleName;
+    $filePath += ".style";
+    return $filePath;
+}
+proc string [] mgp_listExistedStyleNames()
+{
+        string $dirs[];
+        $dirs[0] = `mgp_getSnapshotStyle_UserDirectory`;
+        $dirs[1] = `mgp_getSnapshotStyle_FactoryDefaultDirectory`;
+    if(!`endsWith $dirs[0] "/"`)
+    {
+        $dirs[0] = $dirs[0] + "/";
+    }
+    if(!`endsWith $dirs[1] "/"`)
+    {
+        $dirs[1] = $dirs[1] + "/";
+    }
+      string $result [];
+        int $index = 0;
+    for($dir in $dirs)
+    {
+        string $styles[]=`getFileList -fld $dir -fs "*.style"`;
+        for($each in $styles)
+        {
+            if(!$index)
+            {
+                if(`startsWith $each "~"`)
+                {
+                    continue;
+                }
+            }
+            else
+            {
+                if(!`startsWith $each "~"`)
+                {
+                    continue;
+                }
+            }
+            $result[size($result)] = `basenameEx $each`;
+        }
+        $index ++;
+    }
+    return $result;
+}
+proc string mgp_getPicker3DPanelInitialCamera()
+{
+    string $cam = "front";
+    global string $MGPicker_3DPanelCamera_OV;
+    if(`optionVar -ex $MGPicker_3DPanelCamera_OV`)
+    {
+        $cam = `optionVar -q $MGPicker_3DPanelCamera_OV`;
+    }
+    if(!`objExists $cam`)
+    {
+        $cam = "front";
+    }
+    return $cam;
+}
+
+proc mgp_restoreLastRenderResolution()
+{
+    float $width = `getAttr defaultResolution.width`;
+    float $height = `getAttr defaultResolution.height`;
+    $height = $height ? $height : 1;
+    setAttr defaultResolution.deviceAspectRatio ($width/$height);
+}
+
+proc string[] mgp_getFailsaveSnapshotStyle()
+{
+    return {"antialiasing=1",
+                    "silhouette=0",
+                    "invert=0",
+                    "grayscale=0",
+                    "brightness=0",
+                    "contrast=0",
+                    "saturation=0",
+                    "blur=0",
+                    "bgcolor=0,0,0",
+                    "hTile=1",
+                    "hTileGap=0",
+                    "vTile=1",
+                    "vTileGap=0"};
+}
+
+global proc string[] MGP_readSnapshotStyleViaName(string $styleName)
+//0: antialiasing 0~1
+//1: silhouette 0~1
+//2: invert 0~1
+//3: grayscale 0~1
+//4: brightness -255~255
+//5: contrast -255~255
+//6: saturation  -255~255
+//7: blur 0~18
+//8: bgcolor 0~255,0~255,0~255
+//9: hTile 1~10
+//10: hTileGap 0~100
+//11: vTile 1~10
+//12: vTileGap 0~100
+{
+    string $result[];
+    clear $result;
+    string $filePath = `MGP_getSnapshotStyleFilePathViaName $styleName`;
+    if(!`filetest -f $filePath`)
+    {
+        if($styleName != "~Default")
+        {
+            return `MGP_readSnapshotStyleViaName "~Default"`;
+        }
+        else
+        {
+            return `mgp_getFailsaveSnapshotStyle`;
+        }
+    }
+    else
+    {
+        $result = `MGP_ReadFileArray $filePath`;
+    }
+    return $result;
+}
+
+proc string [] mgp_getLabelValuepair(string $line)
+{
+    string $temp[]=`stringToStringArray $line "="`;
+    string $result[];
+    $result[0] = strip($temp[0]);
+    $result[1] = strip($temp[1]);
+    return $result;
+}
+global proc string[] MGP_selectedMGChannelBoxPlugs(int $channelBoxMode)
+//$channelBoxMode 0 : Maya channelBox
+//$channelBoxMode 1: MG-channelBox
+//$channelBoxMode 2: MGPicker channelBox
+{
+    string $mgChannelBoxName = "MGChannelBoxControl"; 
+    global string $MGPicker_AttributePanel_ChannelBoxName;
+    global string $gChannelBoxName;  
+    if($channelBoxMode == 2)
+    {
+        $mgChannelBoxName = $MGPicker_AttributePanel_ChannelBoxName;  
+    }
+    else if(!$channelBoxMode)
+    {
+        $mgChannelBoxName = $gChannelBoxName;
+    }
+    string  $result[];
+
+    if( `channelBox -q -exists $mgChannelBoxName` ) {
+        string  $main[], $mainObjects[];
+        string  $shape[], $shapeObjects[];
+        string  $history[], $historyObjects[];
+        string  $outputs[], $outputObjects[];
+        
+        $main = `channelBox -q -selectedMainAttributes  $mgChannelBoxName`;
+        $shape = `channelBox -q -selectedShapeAttributes $mgChannelBoxName`;
+        $history = `channelBox -q -selectedHistoryAttributes $mgChannelBoxName`;
+        $outputs = `channelBox -q -selectedOutputAttributes $mgChannelBoxName`;
+        
+        string  $attr;
+        
+        $main = `channelBox -q -selectedMainAttributes $mgChannelBoxName`;
+        $mainObjects = `channelBox -q -mainObjectList $mgChannelBoxName`;
+
+        $shape = `channelBox -q -selectedShapeAttributes $mgChannelBoxName`;
+        $shapeObjects = `channelBox -q -shapeObjectList $mgChannelBoxName`;
+
+        $history = `channelBox -q -selectedHistoryAttributes $mgChannelBoxName`;
+        $historyObjects = `channelBox -q -historyObjectList $mgChannelBoxName`;
+
+        $outputs = `channelBox -q -selectedOutputAttributes $mgChannelBoxName`;
+        $outputObjects = `channelBox -q -outputObjectList $mgChannelBoxName`;
+        
+        if( size( $main ) > 0 ) 
+        {
+            for( $object in $mainObjects ) 
+            {
+                for ($mattr in $main) 
+                {
+                    $result[ size($result) ] = ($object+"."+$mattr);
+                }
+            }
+        }
+
+        if( size( $shape ) > 0 ) 
+        {
+            for( $object in $shapeObjects ) 
+            {
+                for ($mattr in $shape) 
+                {
+                    $result[ size($result) ] = ($object+"."+$mattr);
+                }
+            }
+        }
+
+        if( size( $history ) > 0 ) 
+        {
+            for( $object in $historyObjects ) 
+            {
+                for ($mattr in $history) 
+                {
+                    $result[ size($result) ] = ($object+"."+$mattr);
+                }
+            }
+        }
+
+        if( size( $outputs ) > 0 ) 
+        {
+            for( $object in $outputObjects ) 
+            {
+                for ($mattr in $outputs) 
+                {
+                    $result[ size($result) ] = ($object+"."+$mattr);
+                }
+            }
+        }
+    }
+        
+    return $result;
+}
+proc string [] mgp_getAttributeMinMaxValue(string $node, string $attr)
+{
+        string $result[];
+        float $minV = -100000;
+        float $maxV = 100000;
+        if(`getAttr -l ($node+"."+$attr)`)
+        {
+            $minV = $maxV = `getAttr ($node+"."+$attr)`;
+            $result[0] = $minV;
+            $result[1] = $maxV;
+            return $result;
+        }
+        if(`attributeQuery -n $node -softMinExists $attr`)
+        {
+            float $mins[] =`attributeQuery -n $node -softMin $attr`;
+            $result[0] = $mins[0];
+            $minV = $mins[0];
+        }
+        else if(`attributeQuery -n $node -minExists $attr`)
+        {
+            float $mins[] =`attributeQuery -n $node -minimum $attr`;
+            $result[0] = $mins[0];
+            $minV = $mins[0];
+        } 
+        else
+        {
+            $result[0] = "";
+        } 
+         
+        if(`attributeQuery -n $node -softMaxExists $attr`)
+        {
+            float $max[] =`attributeQuery -n $node -softMax $attr`;
+            $result[1] = $max[0];
+            $maxV = $max[0];
+        }
+        else if(`attributeQuery -n $node -maxExists $attr`)
+        {
+            float $max[] =`attributeQuery -n $node -maximum $attr`;
+            $result[1] = $max[0];
+            $maxV = $max[0];
+        } 
+        else
+        {
+            $result[1] = "";
+        }
+        int $enable[];
+        float $limit [];
+        int $isTransform = 0;
+    if($attr == "tx" || $attr == "translateX")
+    {
+        $enable =`transformLimits -q -etx $node`;
+        $limit = `transformLimits -q -tx $node`;
+        $isTransform = 1;
+    }
+    else if($attr == "ty" || $attr == "translateY")
+    {
+        $enable =`transformLimits -q -ety $node`;
+        $limit = `transformLimits -q -ty $node`;
+        $isTransform = 1;
+    }
+    else if($attr == "tz" || $attr == "translateZ")
+    {
+        $enable = `transformLimits -q -etz $node`;
+        float $limit [] = `transformLimits -q -tz $node`;
+        $isTransform = 1;
+    }
+    else if($attr == "rx" || $attr == "rotateX")
+    {
+        $enable = `transformLimits -q -erx $node`;
+        $limit = `transformLimits -q -rx $node`;
+        $isTransform = 1;
+    }
+    else if($attr == "ry" || $attr == "rotateY")
+    {
+        $enable = `transformLimits -q -ery $node`;
+        $limit = `transformLimits -q -ry $node`;
+        $isTransform = 1;
+    }
+    else if($attr == "rz" || $attr == "rotateZ")
+    {
+        $enable = `transformLimits -q -erz $node`;
+        $limit = `transformLimits -q -rz $node`;
+        $isTransform = 1;
+    }
+    else if($attr == "sx" || $attr == "scaleX")
+    {
+        $enable =`transformLimits -q -esx $node`;
+        $limit = `transformLimits -q -sx $node`;
+        $isTransform = 1;
+    }
+    else if($attr == "sy" || $attr == "scaleY")
+    {
+        $enable =`transformLimits -q -esy $node`;
+        $limit = `transformLimits -q -sy $node`;
+        $isTransform = 1;
+    }
+    else if($attr == "sz" || $attr == "scaleZ")
+    {
+        $enable =`transformLimits -q -esz $node`;
+        $limit = `transformLimits -q -sz $node`;
+        $isTransform = 1;
+    }
+    if($isTransform)
+    {
+        if($enable[0])
+        {
+            if($limit [0] < -100000)
+            {
+                $result[0] = "";
+            }
+            else
+            {
+                $minV = $minV < $limit [0] ? $limit [0] : $minV;
+                $result[0] = $minV;
+            }
+        }
+        if($enable[1])
+        {
+            if($limit [1] > 100000)
+            {
+                $result[1] = "";
+            }
+            else
+            {
+                $maxV = $maxV > $limit [1] ? $limit [1] : $maxV;
+                $result[1] = $maxV;
+            }
+        }
+    }
+    return $result;
+}
+proc int mgp_isAttrRotateAttribute(string $attr)
+{
+    if($attr == "rotateX" || $attr == "rotateY" || $attr == "rotateZ" || $attr == "rx" || $attr == "ry" || $attr == "rz")
+    {
+        return 1;
+    }
+    return 0;
+}
+proc int mgp_isAttrScaleAttribute(string $attr)
+{
+    if($attr == "scaleX" || $attr == "scaleY" || $attr == "scaleZ" || $attr == "sx" || $attr == "sy" || $attr == "sz")
+    {
+        return 1;
+    }
+    return 0;
+}
+proc string [] mgp_fillupNoRangeAttributeMinMaxValues(string $attr, string $infos[], float $cv)
+{   
+    int $isRotate = `mgp_isAttrRotateAttribute $attr`;
+    int $isScale = `mgp_isAttrScaleAttribute $attr`;
+    int $wholeRange = 2;
+    int $halfRange = 1;
+    if($isRotate)
+    {
+        $wholeRange = 90;
+        $halfRange = 45;
+    }
+    if(!size($infos[0]) && !size($infos[1]))
+    {       
+        if(!$isScale)
+        {
+            $infos[0] = -$halfRange;
+            $infos[1] = $halfRange;
+            $infos[2] = 0;
+        }
+        else
+        {
+            $infos[0] = 0.01;
+            $infos[1] = 2;
+            $infos[2] = 0;
+        }
+    }
+    else
+    {
+        if(!size($infos[0]))
+        {
+            float $max = $infos[1];
+            
+            if($cv >= $max)
+            {
+                $infos[0] = $max-$wholeRange;
+            }
+            else
+            {
+                float $gap = $max - $cv;
+                if($gap < $halfRange)
+                {
+                    $infos[0] = $max-$wholeRange;
+                }
+                else
+                {
+                    $infos[0] = $cv - $halfRange;
+                }
+            }     
+            $infos[2] = 0;
+        }
+        if(!size($infos[1]))
+        {
+            float $min = $infos[0];
+            if($cv <= $min)
+            {
+                $infos[1] = $min+$wholeRange;
+            }
+            else
+            {
+                float $gap = $cv - $min;
+                if($gap < $halfRange)
+                {
+                    $infos[1] = $min+$wholeRange;
+                }
+                else
+                {
+                    $infos[1] = $cv + $halfRange;
+                }
+            }          
+            $infos[2] = 0;
+        }
+        //if both min max available, it has range.
+        if(!size($infos[2]))
+        {
+            $infos[2] = 1;
+        }
+    }
+    return $infos;
+}
+global proc string MGP_GetAliasRealAttributeName(string $node, string $attr)
+{
+        string $alias[] = `aliasAttr -q $node`;
+        int $aliasLen = size($alias);
+        if(!$aliasLen)
+        {
+            return "";
+        }
+        for($i=0; $i<$aliasLen-1; $i+=2)
+        {
+            if($alias[$i] == $attr)
+            {
+                return $alias[$i+1];
+            }
+        }
+        return "";
+}
+global proc string[] MGP_getContainerRealAttribute(string $node, string $attr)
+{
+    string $result[]={$node, $attr};
+    if(`nodeType $node` == "container")
+    {
+        string $bindAttrs[]=`container -q -bindAttr $node`;
+        int $sz = size($bindAttrs);
+        string $nodeList[] = `container -q -nodeList $node`;
+        // print $nodeList;
+        for($i=0; $i<$sz; $i+=2)
+        {
+            if($bindAttrs[$i+1] == $attr)
+            {
+                string $realObjDotName = $bindAttrs[$i];
+                $result=`stringToStringArray $realObjDotName "."`;
+                // chances are there are duplicate named control!
+                // if you get that from container -q -bindAttr, it just give you short publish name!
+                for($each in $nodeList)
+                {
+                    if(`endsWith $each $result[0]`)
+                    {
+                        $result[0] = $each;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    }
+    return $result;
+}
+
+global proc string [] MGP_GetInfosFromAttribute(string $nodeAttrName, int $forSlider)
+/*return a array contains these element:
+    0 AttributeType
+    1 node name
+    2 attr nice name
+    3 attr short name
+    4 attr long name
+    5 current value
+    6 default value
+    7 min value
+    8 max value
+    9 other value : will be enums when it is enum, empty if not enum type.
+    
+  $forSlider: if it is for slider, we have to clamp the rangeliss attribute into a placeholder range.
+*/
+{
+    string $temp[]=`stringToStringArray $nodeAttrName "."`;
+    if(size($temp) != 2)
+    {
+        return {};
+    } 
+    string $node = $temp[0];
+    if(!`objExists $node`)
+    {
+            return {};
+    }
+    string $attr = $temp[1];
+    string $validated[]=`MGP_getContainerRealAttribute $node $attr`;
+    $node =  $validated[0];
+    $attr =  $validated[1];
+    string $realAttrName = `MGP_GetAliasRealAttributeName $node $attr`;
+    int $hasAlias = size($realAttrName);
+    
+    if(!`attributeExists $attr $node`)  //attributeExists is not accurate because it says not exist if it is a alias attribute.
+    {
+        if(!$hasAlias)
+        {
+            return {};
+        }
+    }
+    string $result[];
+    int $attrType = 0;
+
+    
+    string $typeStr = `getAttr -type $nodeAttrName`;
+    if($typeStr == "long" || $typeStr == "short")
+    {
+        $attrType = 2;
+    }
+    else if($typeStr == "enum")
+    {
+        $attrType = 3;
+    }
+    else if($typeStr == "bool")
+    {
+        $attrType = 4;
+    }
+    else //if(`startsWith $typeStr "double"` || `startsWith $typeStr "float"`)
+    {
+        $attrType = 1;
+    }
+    string $shortAttr;
+    if(!$hasAlias)
+    {
+        $shortAttr = `attributeQuery -n $node -shortName $attr`;
+    }
+    else
+    {
+        $shortAttr = $attr;
+    }
+    string $niceAttr;
+    if(!$hasAlias)
+    {
+        $niceAttr = `attributeQuery -n $node -niceName $attr`;
+    }
+    else
+    {
+        $niceAttr = $attr;
+    }
+    string $longAttr;
+    if(!$hasAlias)
+    {
+        $longAttr = `attributeQuery -n $node -longName $attr`;
+    }
+    else
+    {
+        $longAttr = $attr;
+        //$longAttr = $realAttrName;
+    }
+    $result[size($result)] = $attrType;
+    $result[size($result)] = $node;
+    $result[size($result)] = $niceAttr;
+    $result[size($result)] = $shortAttr;
+    $result[size($result)] = $longAttr;
+    $result[size($result)] = `getAttr $nodeAttrName`;
+    float $defaultVs[] =`attributeQuery -n $node -listDefault $attr`;
+    if(size($defaultVs))
+    {
+        $result[size($result)] = $defaultVs[0];
+    }
+    else
+    {
+        $result[size($result)] = "";
+    }
+    string $minMax [] = `mgp_getAttributeMinMaxValue $node $attr`;
+    if($forSlider)
+    {
+        float $cv = `getAttr ($node+"."+$attr)`;
+            $minMax = `mgp_fillupNoRangeAttributeMinMaxValues $attr $minMax $cv`;
+    }
+    $result[size($result)] = $minMax[0];
+    $result[size($result)] = $minMax[1];
+    if($attrType == 3)
+    {
+        string $enums[]=`attributeQuery -n $node -listEnum $attr`;
+        $result[size($result)] = $enums[0];
+    }
+    else
+    {
+        $result[size($result)] = "";
+    }
+    return $result;
+}
+global proc MGP_setAttr(string $nodeDotAttr, float $value)
+{
+    string $temp[]=`stringToStringArray $nodeDotAttr "."`;
+    MGP_setMayaNodeAttribute($temp[0], $temp[1], $value);
+}
+global proc int MGP_setMayaNodeAttribute(string $node, string $attr, float $value)
+{
+        string $minMax[] = `mgp_getAttributeMinMaxValue $node $attr`;
+        if(size($minMax[0]))
+        {
+            float $min = $minMax[0];
+            $value = $value < $min ? $min : $value;
+        }
+        if(size($minMax[1]))
+        {
+            float $max = $minMax[1];
+            $value = $value > $max ? $max : $value;
+        }
+    int $error = catchQuiet(`setAttr ($node+"."+$attr) $value`);
+    if($error)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+proc mgp_SwitchModelViewCamera(string $modelView, string $camera)
+{
+    if(`objExists $camera` && `modelEditor -q -ex $modelView`)
+    {
+        modelEditor -e -cam $camera $modelView;
+                MGP_clear3DModelEditorImagePlane;        
+    }
+}
+proc string mgp_getCurrent3DViewCamera()
+{
+    string $editor = `MGP_get3DModelEditor`;
+    if(`modelEditor -q -ex $editor`)
+    {
+        return `modelEditor -q -cam $editor`;
+    }
+    return "";
+}
+proc mgp_switchModelViewCameraViaCameraTransform(string $cameraTransform)
+{
+        string $editor = `MGP_get3DModelEditor`;
+        if(!`modelEditor -q -ex $editor`)
+        {
+            return;
+        }
+        string $shapes[]=`listRelatives -s $cameraTransform`;
+    //int $gotCam = 0;
+    //string $shape = "";
+    for($camShape in $shapes)
+    {
+        if(`nodeType $camShape` == "camera")
+        {
+            mgp_SwitchModelViewCamera $editor $camShape;
+            break;
+        }
+    }
+}
+global proc MGP_SwitchModelViewOM_CC()
+{
+    if(!`optionMenu -q -ex MGPicker_3DModelView_camOM`)
+    {
+        return;
+    }
+    string $cam = `optionMenu -q -v MGPicker_3DModelView_camOM`;
+    if(size($cam))
+    {
+        mgp_switchModelViewCameraViaCameraTransform $cam;
+        global string $MGPicker_3DPanelCamera_OV;
+        optionVar -sv $MGPicker_3DPanelCamera_OV $cam;
+    }
+}
+proc string [] mgp_filterSelectedObjsToSelectedRigs()
+{
+    string $sel[] = `ls -sl -long -dagObjects`;
+    if(!size($sel))
+    {
+        return {};
+    }
+    string $result[];
+    clear $result;
+    string $temp[];
+    for($s in $sel)
+    {
+        clear $temp;
+        tokenize $s "," $temp;
+        $result [size($result)] = $temp[0];
+    }
+    $result = `stringArrayRemoveDuplicates $result`;
+    return $result;
+}
+global proc MGP_IsolateSelectedRig_doit(string $panel)
+{
+    if(!`modelPanel -q -ex $panel`)
+    {
+        MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.activeModelPanelFirst"` 1;
+    }
+    string $oldSel[] = `ls -sl`;
+    if(!size($oldSel))
+    {
+        enableIsolateSelect $panel false;   
+    }
+    else
+    {
+        string $tops [] = `mgp_filterSelectedObjsToSelectedRigs`;
+        select $tops;
+        enableIsolateSelect $panel true;
+        select $oldSel;
+    } 
+}
+global proc MGP_IsolateSelection_doit(string $panel)
+{
+    if(!`modelPanel -q -ex $panel`)
+    {
+        MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.activeModelPanelFirst"` 1;
+    }
+    string $oldSel[] = `ls -sl`;
+    if(!size($oldSel))
+    {
+        enableIsolateSelect $panel false;   
+    }
+    else
+    {
+        enableIsolateSelect $panel true;
+    }   
+}
+global proc MGP_CancelIsolation_doit(string $panel)
+{
+    if(!`modelPanel -q -ex $panel`)
+    {
+        MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.activeModelPanelFirst"` 1;
+    }
+    enableIsolateSelect $panel false;   
+}
+global proc MGP_Change3DCamConfig(string $configType)
+//$applyToAll 0: only apply to current active view
+//$applyToAll 1: apply to all 4 view
+{
+    string $editor = `MGP_get3DModelEditor`;
+        string $activeEditor= $editor;    
+    if(!`modelEditor -q -ex ($activeEditor)`)
+    {
+        return;
+    }
+    int $value = 0;
+    int $index = 0;
+    if($configType == "Texture")
+    {
+        $value = 1-`modelEditor -q -displayTextures $activeEditor`;
+        modelEditor -e -da "smoothShaded" -displayTextures $value -dl "default"  $activeEditor;
+    }
+    else if($configType == "FieldChart")
+    {
+        string $cam = `modelEditor -q -cam $activeEditor`;
+        $value = 1-`camera -q -displayFieldChart $cam`;
+        int $hudOldVis = `modelEditor -q -hud $activeEditor`;
+        camera -e -displayFieldChart $value $cam;
+        if($value && (`mgp_getMayaVersionNumForPlugin` >= 2019)) // since Maya 2019, field chart is drawn as HUD.
+        {
+            modelEditor -e -hud true $activeEditor;
+        }        
+    }
+    else if($configType == "WireframeOnShaded")
+    {
+        if(!$index)
+        $value = 1-`modelEditor -q -wireframeOnShaded $activeEditor`;
+        modelEditor -e -wireframeOnShaded $value $activeEditor;
+    }
+    else if($configType == "IsolateSelRig")
+    {
+        string $panel = `modelEditor -q -panel $activeEditor`;
+        MGP_IsolateSelectedRig_doit $panel;
+    }
+    else if($configType == "IsolateSelObj")
+    {
+        string $panel = `modelEditor -q -panel $activeEditor`;
+        MGP_IsolateSelection_doit $panel;
+    }
+    else if($configType == "CancelIsolate")
+    {
+        string $panel = `modelEditor -q -panel $activeEditor`;
+        MGP_CancelIsolation_doit $panel;    
+    }
+}
+proc mgp_applyUserCamPresetToSingleCam (string $file, string $panel, string $cam)
+{    
+    if(!`filetest -f $file`)
+    {
+        return;
+    }
+    string $getData[] = `MGP_ReadFileArray $file`;
+    //mgSnapshot_applyUserCamPresetToSingleCam_doit $getData $panel $cam;
+}
+proc mgp_applyUserCamPresetTo4Cams (string $file)
+{    
+  if(!`filetest -f $file`)
+  {
+        return;
+  }
+  
+ global string $g_MGSnapshot_CreatePreviewEditorPanelPrefix;
+  string $cams[] = `mgSnapshot_getAllSnapshotCamsViaModelEditors`;
+    int $currentReadCamIndex = 0;
+    string $presetInfoArray [] =`MGP_ReadFileArray $file`;
+    string $cContents[];
+    //now we apply the last one.
+    //clear $cContents;
+}
+
+global proc MGP_Update3DCameraOptionMenu()
+{
+    string $camOM = "MGPicker_3DModelView_camOM";
+    if(!`optionMenu -q -ex $camOM`)
+    {
+        return;
+    }
+    string $mis[] = `optionMenu -q -itemListLong $camOM`;
+    if(size($mis))
+    {
+        for($mi in $mis)
+        {
+            deleteUI -menuItem $mi;
+        }
+    }
+    string $usedCam = `mgp_getPicker3DPanelInitialCamera`;
+  string $camShapes []=`ls -cameras`;
+    string $cam [];clear $cam;
+    for ($each in $camShapes)
+    {
+        $temp=`listRelatives -p $each`;
+        $cam[size($cam)]=$temp[0];
+    }
+    int $cCamIndex = 1;
+    int $currentCamIndex = $cCamIndex;
+    for ($eachCam in $cam)
+    {
+        menuItem -p ($camOM) -l $eachCam;
+        if($eachCam == $usedCam)
+        {
+            $currentCamIndex = $cCamIndex;
+        }
+        $cCamIndex ++;
+    }   
+  optionMenu -e -select $currentCamIndex $camOM;
+  MGP_SwitchModelViewOM_CC;
+}
+global proc MGP_3DViewConfigMenu_TopCommand(int $mode)
+//$mode 0 : all
+//$mode 1: none
+//$mode 2: geo
+{
+    string $editor = `MGP_get3DModelEditor`;
+    if(!`modelEditor -q -ex $editor`)
+    {
+        return;
+    }
+    if(!$mode)
+    {       
+        modelEditor -e -allObjects 1 -cv 1 -hulls 1 -grid 1  -hud 1  $editor;
+    }
+    else
+    {
+        modelEditor -e -allObjects 0 -cv 0 -hulls 0 -grid 0 -hud 0 $editor;
+      if($mode == 2)
+      {
+        modelEditor -e -polymeshes 1 -subdivSurfaces 1 -nurbsSurfaces 1 $editor;
+      }
+    }
+}
+global proc MGP_Update3DViewConfigMenu()
+{
+    if(!`popupMenu -q -ex MGPiker_3DView_ConfigMenu`)
+    {
+        return;
+    }
+    if(!`control -q -ex MGP_ShowTex_ITCB`)
+    {
+        return;
+    }
+    
+    string $editor = `MGP_get3DModelEditor`;
+    popupMenu -e -deleteAllItems -p MGPiker_3DView_ConfigBtn MGPiker_3DView_ConfigMenu;
+    
+  string $tempMenu = `popupMenu -p MGP_ShowTex_ITCB`;
+  updateShowMenu $tempMenu   $editor "" ""; 
+  //clear the isolate menuitems;
+  string $ca[]=`popupMenu -q -itemArray $tempMenu`;
+  int $menuLen = size($ca);
+    menuItem -l "All" -p MGPiker_3DView_ConfigMenu -c "MGP_3DViewConfigMenu_TopCommand 0;MGP_RefocusOnPicker3DviewPanel;";
+    menuItem -l "None" -p MGPiker_3DView_ConfigMenu  -c "MGP_3DViewConfigMenu_TopCommand 1;MGP_RefocusOnPicker3DviewPanel;";
+    menuItem -l "Geometry" -p MGPiker_3DView_ConfigMenu  -c "MGP_3DViewConfigMenu_TopCommand 2;MGP_RefocusOnPicker3DviewPanel;";        
+  if($menuLen >4)
+  {
+        string $lbl,$command;
+        int $cb = 0, $sep = 0;
+        for($i=4; $i<$menuLen; $i++)
+        {
+            $sep = `menuItem -q -d $ca[$i]`;
+            if($sep)
+            {
+                menuItem -d 1 -p MGPiker_3DView_ConfigMenu;
+                continue;
+            }
+            $lbl = `menuItem -q -l $ca[$i]`;
+            $command = `menuItem -q -c $ca[$i]`;
+            if(!`endsWith $command ";"`)
+            {
+                $command += ";";
+            }
+            $command += "MGP_RefocusOnPicker3DviewPanel;";
+            $cb = `menuItem -q -checkBox $ca[$i]`;
+            menuItem -p MGPiker_3DView_ConfigMenu -l $lbl -c  $command -checkBox $cb;
+        }
+  }
+  deleteUI -menu $tempMenu;
+}
+global proc string MGP_get3DModelPanel()
+{   
+    global string $MGPicker_3DModelPanel;
+    return $MGPicker_3DModelPanel;
+}
+global proc string MGP_get3DModelEditor()
+{   
+    global string $MGPicker_3DModelPanel;
+    return `modelPanel -q -modelEditor $MGPicker_3DModelPanel`;
+}
+proc mgp_preImageplane_setOptionVars ()
+{
+    if ( !`optionVar -exists freeImageWidth`) {
+            optionVar -floatValue freeImageWidth 10.0;
+    }
+    if ( !`optionVar -exists freeImageHeight`) {
+            optionVar -floatValue freeImageHeight 10.0;
+    }
+    if ( !`optionVar -exists freeImageMR`) {
+            optionVar -intValue freeImageMR 1;
+    }
+}
+
+proc string[] mgp_createImagePlane_doit (string $camera)                                          
+{
+    //Initialize the parameters
+    mgp_preImageplane_setOptionVars();
+    global string $MGPicker_3DModelPanelImagePlane;
+    
+    // Initialize the command's parameters
+    float $width  = `optionVar -query freeImageWidth`;
+    float $height = `optionVar -query freeImageHeight`;
+    int   $mr      = `optionVar -query freeImageMR`;
+    
+    // create image plane
+    string $newImagePlane[];
+    
+    string $attrName;
+    
+    
+    //make sure it is legacy render not viewport 2.0, in viewport2.0, imageplane will not lock to camera.
+    global string $MGPicker_3DModelPanel;
+    setRendererInModelPanel base_OpenGL_Renderer $MGPicker_3DModelPanel;
+    
+    
+    string $lookThruCamera = `lookThru -q`;
+    // create imageplane in underworld of the camera.
+    // We will consider that if user(s) detach the image plane from the camera 
+    // and the image plane will still respect the optionVars        
+    
+    string $okCam = $camera;
+    //something in Maya2014, using transform name will issue error, so we switch to camera shape name after all.
+    if(`nodeType $okCam` == "transform")
+    {
+        string $shapes[] = `listRelatives -s $okCam`;
+        for($each in $shapes)
+        {
+            if(`nodeType $each` == "camera")
+            {
+                $okCam = $each;
+            }
+        }
+    }
+    
+    $newImagePlane = `imagePlane -camera $okCam -width $width -height $height -maintainRatio $mr`;
+   
+    $newImagePlane[0] = `rename $newImagePlane[0] $MGPicker_3DModelPanelImagePlane`;    
+
+    // make camera visible to ensure the image plane outline is drawn and selectable.
+    string $parents[] = `listRelatives -parent $camera`;
+    for ($item in $parents) 
+    {
+        showHidden $item;    
+    } 
+    return $newImagePlane;
+}
+
+global proc int MGP_make3DModelEditorImagePlane(string $image)
+{
+    if(!`filetest -f $image`)
+    {
+        return 0;
+    }
+    global int $MGPKR_OStype;
+  global string $MGPicker_3DModelPanel;
+  string $cam = `modelPanel -q -cam $MGPicker_3DModelPanel`;
+    global string $MGPicker_3DModelPanelImagePlane;
+    MGP_clear3DModelEditorImagePlane; 
+    string $oldSel[] = `ls -sl`;
+    
+    string $ips[]=`mgp_createImagePlane_doit  $cam`;
+    
+    setAttr ($ips[0] + ".imageName")   -type "string" $image;
+    setAttr ($ips[0] + ".displayOnlyIfCurrent")  1;
+    
+    //setting alphaGain in my mac crash maya. Why?
+    if($MGPKR_OStype != 1)
+    {
+        setAttr ($ips[0] + ".alphaGain")   0.8;
+    }
+    setAttr ($ips[0] + ".lockedToCamera") on; 
+    if(size($oldSel))
+    {
+        catch (`select $oldSel`);
+    }
+    
+    string $editor = `MGP_get3DModelEditor`;
+    modelEditor -e -imagePlane 1 $editor;
+  
+    return 1;
+}
+global proc int MGP_clear3DModelEditorImagePlane()
+{
+    global string $MGPicker_3DModelPanelImagePlane;
+    string $olds[]=`ls -type "transform" ("*"+$MGPicker_3DModelPanelImagePlane+"*")`;
+    for($old in $olds)
+    {
+        catch (`delete $old`);
+    }
+    print "\n";
+    return 1;
+}
+
+proc mgp_initModelEditorViewportRender(string $editor)
+{    
+    if(`optionVar -ex "viewportRenderer"`)
+    {
+        int $v = `optionVar -q "viewportRenderer"`;
+        if($v == 2)
+        {
+            modelEditor -e -rnm "vp2Renderer" $editor;
+        }
+    }
+}
+global proc int MGP_make3DviewPanelContent_Doit()
+{
+    global string $MGPicker_3DModelPanelLayout;
+    //print ("MGP_make3DviewPanelContent_Doit: " + $MGPicker_3DModelPanelLayout+"\n");
+    if(!`optionMenu -q -ex MGPicker_3DModelView_camOM`)
+    {
+        return 0;
+    }
+    global string $MGPicker_3DModelView_FormLay;
+    if(!`layout -q -ex $MGPicker_3DModelView_FormLay`)
+    {
+        return 0;
+    }
+        global string $MGPicker_3DModelPanel;
+        
+    if(`modelPanel -q -ex $MGPicker_3DModelPanel`)
+    {
+        string $p = `modelPanel -q -p $MGPicker_3DModelPanel`;
+        if(!`endsWith $p $MGPicker_3DModelPanelLayout`)
+        {
+            modelPanel -e -up $MGPicker_3DModelPanel;
+            modelPanel -e -p $MGPicker_3DModelPanelLayout -mbv 0 $MGPicker_3DModelPanel;
+        }
+      string $bl = `modelPanel -q -bl $MGPicker_3DModelPanel`;
+      layout -e -vis 0 $bl;
+      fillEmptyPanes;   
+        //print "\n"; 
+      return 1;
+    }
+    else
+    {
+        modelPanel -p $MGPicker_3DModelPanelLayout -mbv 0 -label "MG-PickerStudio_3DPanel" $MGPicker_3DModelPanel;
+    }
+    string $editor = `MGP_get3DModelEditor`;
+    mgp_initModelEditorViewportRender $editor;
+    string $bl = `modelPanel -q -bl $MGPicker_3DModelPanel`;
+    layout -e -vis 0 $bl;
+    modelEditor -e -displayAppearance smoothShaded $editor;  //-p $MGPicker_3DModelView_FormLay
+        
+    string $initCam = `mgp_getPicker3DPanelInitialCamera`;   
+        mgp_switchModelViewCameraViaCameraTransform   $initCam;  
+    
+    if(`optionMenu -q -ex MGPicker_3DModelView_camOM`)
+    {
+        formLayout -e 
+            -ac $MGPicker_3DModelPanelLayout  "top" 3 MGPicker_3DModelView_camOM
+            -af $MGPicker_3DModelPanelLayout  "left" 3
+            -af $MGPicker_3DModelPanelLayout  "right" 0
+            -af $MGPicker_3DModelPanelLayout  "bottom" 3 
+            $MGPicker_3DModelView_FormLay;
+    }
+    print "\n"; 
+    return 1;
+}
+global proc MGP_RefocusOnPicker3DviewPanel()
+{   
+    global string $MGPicker_3DModelPanel;
+    if(`control -q -ex $MGPicker_3DModelPanel`)
+    {
+        setFocus $MGPicker_3DModelPanel;
+    }
+}
+
+proc string mgp_make3DviewPanelContent(string $parentLayout)
+{
+    //print ("mgp_make3DviewPanelContent: " + $parentLayout + "\n\n\n");
+    global string $MGPicker_3DModelPanelLayout;
+    global string $MGPicker_3DModelPanel;
+    string $result;
+    setParent $parentLayout;
+    
+    //make the form layout:
+    global string $MGPicker_3DModelView_FormLay;
+    if(`layout -q -ex $MGPicker_3DModelView_FormLay`)
+    {
+        deleteUI -layout $MGPicker_3DModelView_FormLay;
+    }
+    $result = `formLayout -p $parentLayout $MGPicker_3DModelView_FormLay`;   
+    $MGPicker_3DModelView_FormLay = $result;
+       
+    
+    setParent $result;    
+
+    //now make the camera switch option menu:
+    string $camLbl = `MGP_MultiLanguage "pkr.Cam"`;
+    string $camOM = `optionMenu -l $camLbl
+                                     -cc "MGP_SwitchModelViewOM_CC;MGP_RefocusOnPicker3DviewPanel;"  MGPicker_3DModelView_camOM`;   
+        popupMenu;
+        menuItem -l `MGP_MultiLanguage "pkr.updateMenu.lbl"` 
+                    -c "evalDeferred (\"MGP_Update3DCameraOptionMenu;\");MGP_RefocusOnPicker3DviewPanel;"
+                    MGP_UpdateCameraMenuMI; 
+   
+      string $viewCfgBtn = `iconTextButton -i "rightArrow.png" -w 18 -h 18 MGPiker_3DView_ConfigBtn`;     
+                popupMenu -b 1 -postMenuCommand "MGP_Update3DViewConfigMenu" MGPiker_3DView_ConfigMenu;
+                
+      string $SmallBtnRL = `rowLayout -nc 4 -cw4 16 16 2 16`;                    
+                      
+                    $icon = `mgp_icon "Textured.png"`;     
+                    $ann = `MGP_MultiLanguage "pkr.texture.ann"`;               
+                    iconTextButton -w 18 -h 18 
+                                            -image $icon -ann $ann
+                                            -c "MGP_Change3DCamConfig \"Texture\";MGP_RefocusOnPicker3DviewPanel;"
+                                            MGP_ShowTex_ITCB;
+                    $icon = `mgp_icon "FieldChart.png"`;  
+                    $ann = `MGP_MultiLanguage "pkr.fieldChart.ann"`;
+                    iconTextButton -w 18 -h 18 
+                                            -image $icon  -ann $ann
+                                            -c "MGP_Change3DCamConfig \"FieldChart\";MGP_RefocusOnPicker3DviewPanel;" 
+                                            MGP_WireOnShaded_ITCB;        
+                    separator -w 2 -h 16 -horizontal 0 -style "in";
+                    $icon = `mgp_icon "IsolateSelected.png"`;                              
+                    iconTextButton -w 18 -h 18 
+                                            -image $icon                                         
+                                            MGP_Isolate_ITCB;
+                            popupMenu -button 1;
+                            $text = `MGP_MultiLanguage "pkr.isolateSelRig.lbl"`;
+                            menuItem -l $text -c "MGP_Change3DCamConfig \"IsolateSelRig\";MGP_RefocusOnPicker3DviewPanel;" MGP_IsolateRig_MI;
+                            $text = `MGP_MultiLanguage "pkr.isolateSelObj.lbl"`;
+                            menuItem -l $text -c "MGP_Change3DCamConfig \"IsolateSelObj\";MGP_RefocusOnPicker3DviewPanel;" MGP_IsolateObj_MI;
+                            menuItem -d 1;
+                            $text = `MGP_MultiLanguage "pkr.isolateCancel.lbl"`;
+                            menuItem -l $text -c "MGP_Change3DCamConfig \"CancelIsolate\";MGP_RefocusOnPicker3DviewPanel;" MGP_IsolateCancel_MI;
+    
+    setParent $result;  
+    
+    $MGPicker_3DModelPanelLayout = `paneLayout -p $MGPicker_3DModelView_FormLay -configuration  "single" $MGPicker_3DModelPanelLayout`;
+    //make the form 3d model editor:  
+    MGP_make3DviewPanelContent_Doit;// $MGPicker_3DModelPanelLayout;         
+                    
+    MGP_Update3DCameraOptionMenu;  
+    formLayout -e 
+            -af $camOM  "top" 0
+            -af $camOM  "left" 3
+            -ac $camOM  "right" 1 $viewCfgBtn            
+            
+            -af $viewCfgBtn "top" 1
+            -ac $viewCfgBtn  "right" -5 $SmallBtnRL
+            
+            -af $SmallBtnRL "top" 0
+            -af $SmallBtnRL  "right" 1
+            
+            -ac $MGPicker_3DModelPanelLayout  "top" 3 $camOM
+            -af $MGPicker_3DModelPanelLayout  "left" 3
+            -af $MGPicker_3DModelPanelLayout  "right" 0
+            -af $MGPicker_3DModelPanelLayout  "bottom" 3      
+            
+            $result;
+            
+    return $result;
+}
+global proc string MGP_make3DPanelForMGPicker(string $parentLayout)
+{
+    string $p = `setParent -q`;
+    string $result = `mgp_make3DviewPanelContent $parentLayout`;
+    if(size($p))
+    {
+        setParent $p;
+    }
+    return $result;
+}
+
+global proc MGP_DeleteItemMenu()
+{
+  string $prefix = "MGPicker_ItemPopupMenu";
+  string $rightMenuName = ($prefix+"_RightPM");
+  string $leftMenuName = ($prefix+"_LeftPM");
+  string $menu[] = {$rightMenuName,$leftMenuName};
+  for($m in $menu)
+  {
+      if(`popupMenu -q -ex $m`)
+      {
+        eval ("deleteUI -menu " + $m);
+      }
+    }
+}
+
+global proc string MGP_makeChannelBoxForAttributePanel(string $parentLayout)
+{
+    string $p = `setParent -q`;
+    global string $MGPicker_AttributePanel_ChannelBoxName;
+    string $result = $MGPicker_AttributePanel_ChannelBoxName;
+    if(`channelBox -q -ex $MGPicker_AttributePanel_ChannelBoxName`)
+    {
+        // channelBox -e -up $MGPicker_AttributePanel_ChannelBoxName; // not sure what this was for, it is invalid flag, -u is the valid one. Keep for record.
+        $result = `channelBox -e -p $parentLayout $MGPicker_AttributePanel_ChannelBoxName`;
+    }
+    else
+    {
+        $result = `channelBox -p $parentLayout $MGPicker_AttributePanel_ChannelBoxName`;
+    }
+    if(size($p))
+    {
+        if(catchQuiet(`setParent $p`))
+        {
+            print "\n";
+        }
+    }
+    return $MGPicker_AttributePanel_ChannelBoxName;
+}
+
+proc mgp_switchToVp2()
+{
+    string $editor = `MGP_get3DModelEditor`;
+    if(!`modelEditor -q -ex $editor`)
+    {
+        return;
+    }
+    string $render = `modelEditor -q -rnm  $editor`;
+    if($render == "base_OpenGL_Renderer" || $render == "hwRender_OpenGL_Renderer")
+    {
+        modelEditor -edit -rnm "vp2Renderer" $editor;
+        MGP_ScriptEditorFeedback(1, `MGP_MultiLanguage "pkr.3dView.switchVP2.war"`);
+    }
+}
+
+global proc int MGP_prepare3DViewForSnapshoting(int $w, int $h)
+{
+    string $editor = `MGP_get3DModelEditor`;
+    if(!`modelEditor -q -ex $editor`)
+    {
+        MGP_make3DviewPanelContent_Doit;
+    }
+    string $cam = `modelEditor -q -cam $editor`;
+    if(!`size($cam)`)
+    {
+        return 0;
+    }
+    if($w>0 && $h>0)
+    {
+        float $fw = $w;
+        if(!$h)
+        {
+            $h = 1;
+        }
+        float $ratio = $fw/$h;
+        //print $ratio;
+        setAttr defaultResolution.deviceAspectRatio $ratio; 
+        camera -e -displayFilmGate 0 -displayResolution 1 -displayGateMask 1 -filmFit fill $cam;
+        if($w >= $h)
+        {
+            camera -e -filmFit horizontal $cam;
+        }
+        else
+        {
+            camera -e -filmFit vertical $cam;
+        }
+    }
+
+    mgp_switchToVp2;
+    headsUpMessage `MGP_MultiLanguage "pkr.3dViewPrepared"`;
+    return 1;
+}
+proc int mgp_makeBGImageFrom3DView(string $filePath, int $w, int $h)
+{
+    string $editor = `MGP_get3DModelEditor`;
+    if(!`modelEditor -q -ex $editor`)
+    {
+        MGP_make3DviewPanelContent_Doit;
+    }
+    modelEditor -e -activeView $editor;
+    int $result = 0;
+    float $fr = `currentTime -q`;
+     
+    mgp_switchToVp2;
+    int $oldHudVis = `modelEditor -q -hud $editor`;
+    int $isMaya2019AndLayer = (`mgp_getMayaVersionNumForPlugin` >= 2019);
+    if($isMaya2019AndLayer)
+    {
+        modelEditor -e -hud false $editor;
+    }
+    playblast  -format "image" -forceOverwrite
+        -completeFilename  $filePath 
+        -offScreen 
+        -percent 100 
+        -compression "bmp" 
+        -showOrnaments 0
+        -frame  $fr 
+        -viewer 0
+        -widthHeight $w $h;
+    if($isMaya2019AndLayer)
+    {
+        modelEditor -e -hud $oldHudVis $editor;
+    }
+    return `filetest -f  $filePath`;
+}
+proc mgp_prepareVisualStyleForSnapshoting(int $visualMode)
+//$visualMode 0: normal mode
+//$visualMode 1: Silluate mode
+{
+    string $editor = `MGP_get3DModelEditor`;
+    string $modelView = $editor;
+    string $ambLight = "MGPicker_TempNULLLight";
+    if(`objExists $ambLight`)
+    {
+        delete $ambLight;
+    }
+    if(!`modelEditor -q -ex $modelView`)
+    {
+        return;
+    }
+    if(!$visualMode)
+    {
+        modelEditor -e -dl "default" $modelView;
+    }
+    else
+    {
+        string $lights[]=`ls -type "light"`;
+        if(size($lights))
+        {   
+            $ambLight = `ambientLight -n $ambLight -intensity 0`;
+                select $ambLight;
+                modelEditor -e -dl "selected" $modelView;    
+        }  
+        else
+        {
+            modelEditor -e -dl "all" $modelView;   
+        }  
+    }
+}
+
+global proc string MGP_GetTrailingDigitStr(string $str)
+{
+  if(!size($str))
+  {
+    return "";
+  }
+  return `match "([0-9])+$" $str`;
+}
+global proc string MGP_GetValidNonDupFileName(string $basename, string $ext , string $initUntitledName, string $existsFileList[])
+{
+    if(size($ext) && !`startsWith $ext "."`)
+    {
+        $ext = "." + $ext;
+    }
+    string $validName = `MGP_ValidateFileNameString $basename`;
+    if(!`size $validName`)
+    {
+        $validName = $initUntitledName;
+    }
+    //print $bookmarks;
+    string $realFileName = $validName+$ext;
+    string $version = `MGP_GetTrailingDigitStr $validName`;
+    int $verInt;
+    int $versonSize;
+    if(size($existsFileList))
+    {
+        while(stringArrayContains ($realFileName,$existsFileList))
+        {
+            if(!size($version)) 
+            {
+                $version = "1";
+            }
+            else
+            {
+                $verInt = $version;  
+                $verInt ++;
+                $versonSize = size($version);
+                $validName = `substring $validName 1 (size($validName)-$versonSize)`;
+                $version =  $verInt;
+            }
+            $validName += $version;
+            $realFileName = $validName+$ext;
+        }
+        return $realFileName;
+    }
+    else
+    {
+        return $realFileName;
+    }
+}
+proc string mgp_getNonDuplicateFilename(string $basename, string $ext,string $initUntitledName,string $exFiles[])
+{
+    return `MGP_GetValidNonDupFileName $basename $ext $initUntitledName $exFiles`;
+}
+
+proc string mgp_getSnapshotNonDupFullPath(string $fullPath)
+{
+    
+    string $dir = `dirname $fullPath`+"/";
+    string $exFiles[] = `getFileList -fld $dir -fs "*.bmp"`;
+    string $baseName  = `basename $fullPath ""`;
+    string $fileName = `mgp_getNonDuplicateFilename $baseName ".bmp" "" $exFiles`;
+    $fullPath = ($dir + $fileName);    
+    return $fullPath;
+}
+proc int[] mgp_getPreProcessOptionFromStyleStringList(string $styleList[])
+{
+    int $result[];
+    for($each in $styleList)
+    {
+        string $data[]=`mgp_getLabelValuepair $each`;
+        if($data[0] == "antialiasing")
+        {
+            $result[0] = $data[1];
+        }
+        else if($data[0] == "silhouette")
+        {
+            $result[1] = $data[1];
+        }
+    }
+    return $result;
+}
+
+global proc int MGP_snapshot(string $fullPath, int $w, int $h)
+{
+    string $appName = `MGP_getAppName`;
+    if(`filetest -f $fullPath`)
+    {
+        string $override = `MGP_MultiLanguage "pkr.override"`;
+        string $append = `MGP_MultiLanguage "pkr.versionUp"`;
+        string $cancel = `MGP_MultiLanguage "pkr.cancel"`;
+        string $msg = `MGP_MultiLanguage "pkr.override.msg"`;
+        string $answer = `confirmDialog -t $appName  -m ($msg+"\n\n"+$fullPath)
+                            -button $override 
+                            -button $append 
+                            -button $cancel 
+                            -defaultButton $append 
+                            -dismissString $cancel`;
+        if($answer == $cancel)
+        {
+            return 0;
+        }
+        else if($answer == $append)
+        {
+            $fullPath = `mgp_getSnapshotNonDupFullPath $fullPath`;
+        }
+    }
+    string $styleName = `MGImageProcesser -q -currentStyleName`;
+    string $styleConfig[] = MGP_readSnapshotStyleViaName($styleName);
+    int $preprocessOptions[] = `mgp_getPreProcessOptionFromStyleStringList $styleConfig`;
+    int $pw = $w;
+    int $ph = $h;
+    if($preprocessOptions[0])
+    {
+        $pw *= 2;
+        $ph *= 2;
+    }
+    mgp_prepareVisualStyleForSnapshoting $preprocessOptions[1];    
+    if(!`mgp_makeBGImageFrom3DView $fullPath $pw $ph`)
+    {
+        return 0;
+    }
+    mgp_restoreLastRenderResolution;
+    string $cStyleFile = MGP_getSnapshotStyleFilePathViaName ($styleName);
+    MGImageProcesser -style $cStyleFile $fullPath;
+    if($preprocessOptions[0])
+    {
+        //print "Goona resize the image!\n";
+        MGImageProcesser -resize ($w+":"+$h) $fullPath;
+    }
+    mgp_prepareVisualStyleForSnapshoting 0;
+    return 1;
+}
+
+global proc int MGP_PrepareAttributeNugerContext(string $attrInfo)
+{
+    global string $MGPicker_AttributeNudger_Context;
+    global string $MGPicker_AttributeNudger_Command;
+    if (!`contextInfo -ex $MGPicker_AttributeNudger_Context`)
+    {
+        string $cmd = ($MGPicker_AttributeNudger_Command + " "+$MGPicker_AttributeNudger_Context);
+        eval $cmd;
+    }
+    if (!`contextInfo -ex $MGPicker_AttributeNudger_Context`)
+    {
+        return 0;
+    }
+    string $cmd = ($MGPicker_AttributeNudger_Command + " -e -attribute \""+$attrInfo+"\" "+$MGPicker_AttributeNudger_Context); //-markClean 1 
+    eval $cmd;
+    //print ($attrInfo+"\n");
+    setToolTo $MGPicker_AttributeNudger_Context;
+    return 1;
+}
+global proc MGP_ResetAttributeNugerContext()
+{
+    global string $MGPicker_AttributeNudger_Context;
+    if (!`contextInfo -ex $MGPicker_AttributeNudger_Context`)
+    {
+        return;
+    }
+    global string $MGPicker_AttributeNudger_Command;
+    string $cmd = ($MGPicker_AttributeNudger_Command + " -e -reset "+$MGPicker_AttributeNudger_Context); //-markClean 1 
+    eval $cmd;
+}
+global proc MGP_deleteAttributeNudgerContext()
+{
+    global string $MGPicker_AttributeNudger_Context;
+    if (!`contextInfo -ex $MGPicker_AttributeNudger_Context`)
+    {
+        return;
+    }
+    
+        global string $gSelect;
+        setToolTo $gSelect;
+    global string $gNonSacredToolWidget;            
+    string $vacantPix = "vacantCell.png";   
+    string $currentPix =`toolButton -q -i1 $gNonSacredToolWidget`;
+    global string $gNonSacredTool;
+    if($gNonSacredTool == $MGPicker_AttributeNudger_Context)
+    {
+        toolButton -edit -enable false 
+                -i1 $vacantPix $gNonSacredToolWidget;               
+        $gNonSacredTool="";
+    }
+}
+global proc MGP_uninstallPlugin_Callback()
+{  
+    global string $MGPicker_DockControlName;
+    if(`control -q -ex $MGPicker_DockControlName`)
+    {
+        deleteUI -control $MGPicker_DockControlName;
+    }
+    global string $MGPicker_WindowName;
+    if(`window -q -ex $MGPicker_WindowName`)
+    {
+        deleteUI $MGPicker_WindowName;
+    }
+}
+
+
+global proc MGP_SwitchToTool(int $mode)
+//$mode 0: do nothing;
+//$mode 1: switch to translate;
+//$mode 2: switch to rotate;
+//$mode 3: switch to scale;
+{
+  global string $gMove;
+    global string $gRotate;
+    global string $gScale;
+    if($mode == 1)
+    {
+        setToolTo $gMove;
+    }
+    else if($mode == 2)
+    {
+        setToolTo $gRotate;
+    }
+    if($mode == 3)
+    {
+        setToolTo $gScale;
+    }
+}
+global proc int MGP_isNodeReadonly(string $node)
+{
+    if(!size($node))
+    {
+        return 1;
+    }
+    if(!`objExists $node`)
+    {
+        return 0;
+    }
+  int $isRef = `referenceQuery -isNodeReferenced $node`;
+  if($isRef)
+  {
+    return 1;
+  }
+  //print $node;
+  int $locked[] = `lockNode -q -lock $node`;
+  return $locked[0];
+}
+
+
+global proc string MGP_GetPickerFilePathFromNode(string $nodeName)
+{
+    if(!`objExists $nodeName`)
+    {
+        return "";
+    }
+    global string $MGPicker_SceneDataNodeType;
+    global string $MGPicker_SceneData_PickerFilePathAttr;
+    if(`nodeType $nodeName` != $MGPicker_SceneDataNodeType)
+    {
+        return "";
+    }
+    if(!`attributeExists $MGPicker_SceneData_PickerFilePathAttr $nodeName`)
+    {
+        return "";
+    }
+    return `getAttr ($nodeName+"."+$MGPicker_SceneData_PickerFilePathAttr)`;
+}
+global proc int MGP_ExportFilePathToNode(string $nodeName, string $filePath)
+{
+    string $pickerName = `basenameEx $filePath`;
+    if(!`objExists $nodeName`)
+    {
+        return `MGP_StorePickerWithScene $nodeName "" "" 1 $filePath`;
+    }
+    global string $MGPicker_SceneData_PickerFilePathAttr;
+
+    if(!`attributeExists $MGPicker_SceneData_PickerFilePathAttr $nodeName`)
+    {
+        addAttr -dt "string" -ln $MGPicker_SceneData_PickerFilePathAttr $nodeName;
+    }
+    setAttr -type "string" ($nodeName+"."+$MGPicker_SceneData_PickerFilePathAttr) $filePath;
+    return 1;
+}
+
+global proc int MGP_StorePickerWithScene(string $pickerName, string $ns, string $data, int $forceOverride, string $pickerFilePath)
+{
+    
+    global string $MGPicker_SceneData_NameAttr;
+    global string $MGPicker_SceneData_NsAttr;
+    global string $MGPicker_SceneData_DataAttr;
+    global string $MGPicker_SceneData_PickerFilePathAttr;
+    
+    global string $MGPicker_SceneDataNodeType;
+    global string $MGPicker_SceneDataSuffix;
+    string $name = $pickerName;
+
+    string $appName = `MGP_getAppName`;
+    string $ok = "OK";
+    if(`objExists $name`)
+    {
+            if(!$forceOverride)
+            {
+            string $cancel = `MGP_MultiLanguage "pkr.cancel"`;
+            string $msg = `MGP_MultiLanguage_rep1 "pkr.overrideNode.war" $name`;
+            string $answer = `confirmDialog -t $appName 
+                                    -m $msg
+                                    -button $ok -button $cancel
+                                    -defaultButton $cancel -dismissString $cancel`;
+            if($answer != $ok)
+            {
+                return 0;
+            }
+            else
+            {
+                delete $name;
+            }
+        }
+        else
+        {
+            delete $name;
+            string $msg = `MGP_MultiLanguage_rep1 "pkr.OverridedNode.rep" $name`;
+                MGP_ScriptEditorFeedback($msg,0);
+        }
+    }
+    createNode $MGPicker_SceneDataNodeType -n $name;
+    string $nameAttr = $MGPicker_SceneData_NameAttr;
+    string $nsAttr = $MGPicker_SceneData_NsAttr;
+    string $dataAttr = $MGPicker_SceneData_DataAttr;
+    string $filepathAttr = $MGPicker_SceneData_PickerFilePathAttr;
+    addAttr -dt "string" -ln $filepathAttr;
+    addAttr -dt "string" -ln $nameAttr;
+    addAttr -dt "string" -ln $nsAttr;
+    addAttr -dt "string" -ln $dataAttr;
+    setAttr -type "string" ($name+"."+$nameAttr) $pickerName;
+    setAttr -type "string" ($name+"."+$nsAttr) $ns;
+    setAttr -type "string" ($name+"."+$dataAttr) $data;
+    setAttr -type "string" ($name+"."+$filepathAttr) $pickerFilePath;
+    
+    setAttr -l 1 ($name+"."+$dataAttr);
+    string $msg = `MGP_MultiLanguage_rep1 "pkr.storeNode.done.rep" $name`;
+    MGP_ScriptEditorFeedback($msg,0);
+
+    return 1;                            
+}
+global proc string MGP_GetScenePathFromNode(string $node)
+{
+    if(!size($node))
+    {
+        return "";
+    }
+    if(!`objExists $node`)
+    {
+        return "";
+    }
+    if(`referenceQuery -isNodeReferenced $node`)
+    {
+            string $Refname =`referenceQuery -topReference -referenceNode $node`;
+            string $path =`referenceQuery -filename  $Refname`;
+            return $path;
+    }
+    else
+    {
+        return `file -q -sn`;
+    }
+}
+global proc string [] MGP_ReadPickerNodeData(string $node)
+//result[0]: node name
+//result[1]: picker name
+//result[2]: namespace
+//result[3]: data
+{
+        if(!`objExists $node`)
+    {
+        return {};
+    }
+    global string $MGPicker_SceneData_NameAttr;
+    global string $MGPicker_SceneData_NsAttr;
+    global string $MGPicker_SceneData_DataAttr;
+    
+    //get picker name attr:
+    if(!`attributeExists $MGPicker_SceneData_NameAttr $node`)
+    {
+        return {};
+    }
+    $pickerName = getAttr ($node+"."+$MGPicker_SceneData_NameAttr);
+    //get namespace:
+    $ns = `MGP_GetNamespaceViaObj $node`;
+    if(!size($ns))
+    {
+        if(!`attributeExists $MGPicker_SceneData_NsAttr $node`)
+        {
+            return {};
+        }
+        $ns = getAttr ($node+"."+$MGPicker_SceneData_NsAttr);
+    }
+    //get data:
+    if(!`attributeExists $MGPicker_SceneData_DataAttr $node`)
+    {
+        return {};
+    }
+    $data = getAttr ($node+"."+$MGPicker_SceneData_DataAttr);
+    string $result[];
+    $result[0] = $node;
+    $result[1] = $pickerName;
+    $result[2] = $ns;
+    $result[3] = $data;
+    return $result;
+}
+
+proc int mgp_loadPickerFileIfNotLoadedAndEditNamespace(string $file, string $ns, int $editNamespace)
+{
+    if(!`MGPicker -q -activate $file $ns`)  //if exist, we active it, if not, we open it.
+  {
+    if(`MGPicker -e -readPickerFile $file 1`)  //if is not loaded, we still open it!
+    {
+            if($editNamespace)
+            {
+                MGPicker -e -namespace $ns;
+            }
+            return 1;
+    }
+    else
+    {
+        return  0;
+    }
+    }
+  return 1;
+}
+
+proc int mgp_readSceneMGPickerNode(string $node, int $appendToRecentList)
+{
+        //print "mgp_readSceneMGPickerNode\n";
+    global string $MGPicker_SceneData_NameAttr;
+    global string $MGPicker_SceneData_NsAttr;
+    global string $MGPicker_SceneData_DataAttr;
+    global string $MGPicker_SceneData_PickerFilePathAttr;
+    //get picker name attr:
+    if(!`attributeExists $MGPicker_SceneData_NameAttr $node`)
+    {
+        return 0;
+    }
+    string $pickerName = getAttr ($node+"."+$MGPicker_SceneData_NameAttr);
+    //get namespace:
+    string $ns = `MGP_GetNamespaceViaObj $node`;
+    string $nsInPickerNode = $ns;
+    if(`attributeExists $MGPicker_SceneData_NsAttr $node`)
+    {
+        $nsInPickerNode = `getAttr ($node+"."+$MGPicker_SceneData_NsAttr)`;
+    }
+    
+    if(!size($ns))
+    {
+        if(size($nsInPickerNode))
+        {
+            $ns = $nsInPickerNode;
+        }
+    } 
+    if(`attributeExists $MGPicker_SceneData_PickerFilePathAttr $node`)
+    {
+        string $filePath = `getAttr ($node+"."+$MGPicker_SceneData_PickerFilePathAttr)`;
+        $filePath = `MGPickerService -q -resolvePath $filePath $node`;
+        //print ($filePath+"\n");
+        if(size($filePath))
+        {
+            if(`filetest -f $filePath`)
+            {
+                if(size(`MGPicker -e -readPickerFile $filePath 1`))  //if is loaded, we still open it!
+                {
+                    MGPicker -e -namespace $ns;
+                    if($appendToRecentList)
+                        MGPicker -e -appendRecentPickerNode $node;  //still we add recent opened node list!
+                    return 1;
+                }
+            }
+            MGP_ScriptEditorFeedback(`MGP_MultiLanguage_rep1 "pkr.loadfileFromNode.war" $filePath`, 1);
+            return 1;
+        }
+    }
+    //get data:
+    if(!`attributeExists $MGPicker_SceneData_DataAttr $node`)
+    {
+        return 0;
+    }
+    string $data = getAttr ($node+"."+$MGPicker_SceneData_DataAttr);
+    MGPicker -e -readScenePicker $node $pickerName $ns $data;
+    return 1;
+}
+
+global proc int MGP_ReadAllPickerFromScene()   //used for picker qt ui, in the menu.
+{    
+    //print "MGP_ReadAllPickerFromScene!";
+    //READ MGPicker nodes first:
+    global string $MGPicker_SceneDataNodeType;    
+    string $nodes[]=`ls -type $MGPicker_SceneDataNodeType`;
+    int $nodeSize = size($nodes);
+    int $readCount = 0;
+    if($nodeSize)
+    {
+        for($n in $nodes)
+        {
+            $readCount += `mgp_readSceneMGPickerNode $n 1`;
+        }
+    }
+    //read other picker nodes now:
+    string $converts[]= `mgp_listAllPkrConverters`;
+    for($converter in $converts)
+    {
+        //print ($converter+"\n");
+        string $autoload = `mgp_getPickerConverterProc_autoReadNode $converter`;
+        string $lister = `mgp_getPickerConverterProc_nodeLister $converter`;
+        string $reader = `mgp_getPickerConverterProc_readNode $converter`;
+        if(!`exists $autoload` || !`exists $lister` || !`exists $reader`)
+        {
+            continue;
+        }
+        string $pkrNodes[]=`eval $lister`;
+        if(!size($pkrNodes))
+        {
+            continue;
+        }       
+        for($each in $pkrNodes)
+        {
+            string $cmd = ($reader+" \""+$each+"\"");
+            $readCount += `eval $cmd`;
+        }       
+    }  
+    return $readCount;     
+}
+
+global proc int MGP_ReadOtherPickerFile(string $filePath)
+{
+    string $converts[]= `mgp_listAllPkrConverters`;
+    string $isFileProc, $readerProc;
+    string $cmd;
+    for($converter in $converts)
+    {
+        $isFileProc = `mgp_getPickerConverterProc_isPickerFile $converter`;
+        $cmd = $isFileProc+" \""+$filePath;
+        if(!`eval  $cmd`)
+        {
+            continue;
+        }
+        $readerProc = `mgp_getPickerConverterProc_readFile $converter`;
+        $cmd = $readerProc+" \""+$filePath;
+        eval $cmd;
+        return 1;
+    }
+    return 0;
+}
+global proc int MGP_ReadPickerFromScene_MGAndOther(string $node, int $stillOpenIfExist, int $appendToRecentList)
+{
+    if(!`objExists $node`)
+    {
+        warning (`MGP_MultiLanguage "pkr.nodeNotExist.war"` + " "+$node);
+        return 0;
+    }
+    if(!$stillOpenIfExist)
+    {
+        string $ns = `MGP_GetNamespaceViaObj $node`;
+        if(`MGPicker -e -activate $node $ns`)
+        {
+            return 1;
+        }
+    }
+    global string $MGPicker_SceneDataNodeType;  
+    if(`nodeType $node` == $MGPicker_SceneDataNodeType)
+    {
+      return `mgp_readSceneMGPickerNode $node $appendToRecentList`;
+    }
+    
+    //read using other picker converter now:
+    string $converts[]= `mgp_listAllPkrConverters`; 
+    for($converter in $converts)
+    {
+        string $isNodeProc = `mgp_getPickerConverterProc_isPickerNode $converter`;
+        string $reader = `mgp_getPickerConverterProc_readNode $converter`;
+        if(!`exists $isNodeProc` || !`exists $reader`)
+        {
+            continue;
+        }
+        if(`eval ($isNodeProc+" \""+$node+"\"")`)
+        {
+            string $cmd = ($reader+" \""+$node+"\"");
+            return `eval $cmd`;
+        }
+    }
+    return 0;       
+}
+global proc MGP_ReadSelectedPickerFromScene()
+{      
+    //print "MGP_ReadSelectedPickerFromScene";
+    string $nodes[]=`ls -sl`;
+        string $converts[]= `mgp_listAllPkrConverters`; 
+    int $nodeSize = size($nodes);
+    if(!$nodeSize)
+    {
+            return;
+    }
+    for($n in $nodes)
+    {
+        MGP_ReadPickerFromScene_MGAndOther $n 0 1;
+    }
+}
+
+global proc string [] MGP_getSelectedPickerNodes()
+{      
+    string $nodes[]=`ls -sl`;
+    string $pickerNodes[];
+    int $nodeSize = size($nodes);
+    if(!$nodeSize)
+    {
+        return $pickerNodes;
+    }
+    global string $MGPicker_SceneDataNodeType;  
+    for($node in $nodes)
+    {
+        if(`nodeType $node` == $MGPicker_SceneDataNodeType)
+        {
+            $pickerNodes[size($pickerNodes)] = $node;
+        }
+    }    
+    return $pickerNodes;
+}
+global proc string [] MGP_GetAllInScenePickerNodeNames()
+{
+    global string $MGPicker_SceneDataNodeType;
+    string $nodes[]=`ls -type $MGPicker_SceneDataNodeType`;
+
+    string $converts[]= `mgp_listAllPkrConverters`;
+    for($converter in $converts)
+    {
+        //print ($converter+"\n");
+        string $autoload = `mgp_getPickerConverterProc_autoReadNode $converter`;
+        string $lister = `mgp_getPickerConverterProc_nodeLister $converter`;
+        string $reader = `mgp_getPickerConverterProc_readNode $converter`;
+        if(!`exists $autoload` || !`exists $lister` || !`exists $reader`)
+        {
+            continue;
+        }
+        string $pkrNodes[]=`eval $lister`;
+        $nodes = stringArrayCatenate($nodes, $pkrNodes);
+    }
+    return $nodes;
+}
+
+//picker switch ui mode codes ----------------------------------
+
+proc int mgp_getPickerDesignerOrAnimatorMode()
+{
+    if(!`MGPicker -q -ex`)
+        return 0; // return designer mode by default
+    return `MGPicker -q -pickerMode`;
+}
+
+global proc MGP_ReactiveModelViewport ()
+{
+    
+    showWindow  MayaWindow;
+    string $cpanel =`getPanel -withFocus`;  
+    global string $gMainPane;
+    setFocus $gMainPane;
+    if(`modelPanel -q -ex $cpanel`)
+    {
+        setFocus    $cpanel;
+    }
+    else
+    {
+        string $visPanels[]=`getPanel -vis`;
+        for($each in $visPanels)
+        {
+            if(`modelPanel -q -ex $each`)   
+            {
+                setFocus $each;
+                break;  
+            }
+        }
+    }
+    //print "\nFocus!!\n";
+}
+global proc MGP_makeSureUIIsRestored()
+{
+    global string $MGPicker_DockControlName;
+    if(`workspaceControl -q -ex $MGPicker_DockControlName`)
+    {
+        workspaceControl -e -raise -vis 1 -restore $MGPicker_DockControlName;
+    }
+}
+
+global proc int MGP_isMinimized()
+{    
+    global string $MGPicker_DockControlName;        
+    if(`workspaceControl -q -ex $MGPicker_DockControlName`)
+    {
+        return `workspaceControl -q -raise $MGPicker_DockControlName`;
+    }
+    return 0;
+}
+
+proc mgp_switchUIMode(int $mode)
+//$mode 0: designer mode
+//$mode 1: animator mode
+{
+    //if it is minimized, we first restore:
+    if(`MGP_isMinimized`)
+    {
+        MGP_makeSureUIIsRestored;
+    } 
+    MGPicker -e -pickerMode $mode;   
+}
+
+global proc MGP_switchToDesignerMode()
+{
+      mgp_switchUIMode 0;
+}
+global proc MGP_switchToAnimatorMode()
+{
+      mgp_switchUIMode 1;
+}
+
+//picker project code ----------------------------------
+
+proc string mgp_getCurrentProjectName()
+{
+    string $proj = `MGPicker -q -pickerProject`;
+    if(!size($proj))
+    {
+        $proj = `MGPkr_getDefaultProjectName`;
+    }
+    return $proj; 
+}
+
+
+global proc string MGP_ValidateFileNameString(string $inputString)
+//return a string valid for being a file name.
+{
+    int $count = size($inputString);
+    if(!$count)
+    {
+        return $inputString;
+    }
+    string $outputString;
+    if(`isValidString $inputString "[a-zA-Z0-9_\.]+"`)
+    {
+        return $inputString;
+    }
+    string $cc;
+    for($i=1 ; $i <= $count ; $i++)
+    {
+        $cc = `substring $inputString $i $i`;
+        if(`isValidString $cc "[a-zA-Z0-9_\.]+"`)
+        {
+            $outputString += $cc;
+        }
+        else
+        {
+            $outputString += "_";
+        }
+    }
+    return $outputString;
+}
+
+//----------create picker selection button via 3d view----------------------
+proc string mgp_getObjectShortName(string $properName)
+{
+    string $temp[]=`stringToStringArray $properName "|"`;
+    if(!size($temp))
+    {
+        return "";
+    }
+    return $temp[(size($temp)-1)];
+}
+
+proc float[] mgp_getObjectPivotWorldPos(string $obj)
+{
+    float $result[];
+    if(!`objExists $obj`)
+    {
+        return $result;
+    }
+    return `xform -q -ws -t $obj`;
+}
+proc float[] mgp_getShapesBoundingCenter(string $shapes[])
+{
+    float $wPnt[];
+    int $shapeSize = size($shapes);
+    if(!$shapeSize)
+    {
+        return $wPnt;
+    }
+    int $usedShapeSize = $shapeSize;
+    float $x,$y,$z;
+    for($i=0; $i<$shapeSize; $i++)
+    {
+            $cShape = $shapes[$i];
+            float $bb[] = `exactWorldBoundingBox -ignoreInvisible 1 $cShape`;
+            if($bb[0] == 100000000000000000000)  //it is empty shape.
+            {
+                 $usedShapeSize--;
+                 continue;
+            }
+            $x += ($bb[0]+$bb[3])/2;
+            $y += ($bb[1]+$bb[4])/2;
+            $z += ($bb[2]+$bb[5])/2;
+    }
+    if(!$usedShapeSize)
+    {
+        return $wPnt;
+    }
+    $wPnt[0] = $x/$usedShapeSize;
+    $wPnt[1] = $y/$usedShapeSize;
+    $wPnt[2] = $z/$usedShapeSize;
+    return $wPnt;
+}
+proc float[] mgp_getObjectBoundingCenter(string $obj)
+{
+    float $wPnt[];
+    if(!`objExists $obj`)
+    {
+        return $wPnt;
+    }
+    string $shapes[]=`listRelatives -shapes -path $obj`;
+    int $shapeSize = size($shapes);
+    if(!$shapeSize)
+    {
+        $wPnt = `xform -q -ws -t $obj`;
+    }
+    else
+    {
+        $wPnt = `mgp_getShapesBoundingCenter $shapes`;
+        if(!size($wPnt))
+        {
+            $wPnt = `xform -q -ws -t $obj`;
+        }
+    }
+    return $wPnt;
+}
+proc int[] mgp_getObjectOverrideColorValue_doit(string $obj)
+{
+    //print ($obj+"\n");
+    int $result[];
+    string $colAttr = ".overrideColor";
+    int $index = `getAttr ($obj+$colAttr)`;
+    if($index <= 0 || $index > 31)
+    {
+        return {-1,-1,-1};
+    }
+    float $col []=`colorIndex -q $index`;   
+    $result [0] = $col[0]*255;
+    $result [1] = $col[1]*255;
+    $result [2] = $col[2]*255;
+    return $result;
+}
+proc int[] mgp_getObjectOverrideColorValue(string $obj)
+{
+    int $result[];
+    $result [0] = -1;
+    $result [1] = -1;
+    $result [2] = -1;
+    if(!`objExists $obj`)
+    {
+        return $result;
+    }
+    string $overideAttr = ".overrideEnabled";
+    int $transformNodeResult[];
+    $transformNodeResult [0] = -1;
+    $transformNodeResult [1] = -1;
+    $transformNodeResult [2] = -1;
+    if(`getAttr ($obj+$overideAttr)`)
+    {       
+        $transformNodeResult = `mgp_getObjectOverrideColorValue_doit $obj`;
+        if($transformNodeResult[0] >= 0)
+        {
+            return $transformNodeResult;
+        }
+    }
+    
+    string $shapes[]=`listRelatives -shapes -path $obj`;
+    for($s in $shapes)
+    {
+        if(`getAttr ($s+$overideAttr)`)
+        {
+            $result = `mgp_getObjectOverrideColorValue_doit $s`;
+            if($result[0] >= 0)
+            {
+                return $result;
+            }
+        }
+    }
+    
+    return {0,4,96};  //default curve color
+}
+global proc string[] MGP_getSelectionObjectButtonInfos(int $playblastW, int $playblastH)
+{
+    string $result[];
+    if(!$playblastW || !$playblastH)
+    {
+        return $result;
+    }
+    global string $MGPicker_AppName;
+    string $sel[]=`ls -sl -transforms`; 
+    if(!size($sel))
+    {
+        confirmDialog -t $MGPicker_AppName -m `MGP_MultiLanguage "pkr.noTransformSelected"` -button "OK";
+        return $result;
+    }
+    
+    int $portW,$portH;  
+    string $editor = `MGP_get3DModelEditor`;
+    int $size[] = `MGPickerService -modelEditorSize $editor`;
+    $portW = $size[0];
+    $portH = $size[1];
+    if($portW<=1 || $portH<=1)
+    {
+        confirmDialog -t $MGPicker_AppName -m `MGP_MultiLanguage "pkr.3dView.notVisible"` -button "OK";
+        return $result;
+    }
+    
+    if($playblastW<0)
+    {
+        $playblastW = $portW;
+    }
+    if($playblastH<0)
+    {
+        $playblastH = $portH;
+    }
+    
+    float $aspectRatio = float($playblastW)/$playblastH;
+    
+    
+    float $xGap = 0,$yGap = 0,$xGapRight = $portW ,$yGapRight = $portH;
+    float $viewToPlayblastMul_x = 1,$viewToPlayblastMul_y = 1;
+    if($playblastW <= $playblastH)  //h is full, but w has gap
+    {
+        float $usedPortWidth = $portH*$aspectRatio;
+        $xGap = ($portW-$usedPortWidth)/2.0;
+        $xGapRight = $portW-$xGap;
+        $viewToPlayblastMul_x = float($playblastW)/$usedPortWidth;
+        $viewToPlayblastMul_y = float($playblastH)/$portH;
+    }
+    else if($playblastW > $playblastH) //w is full, but h has gap
+    {
+        float $usedPortHeight = $portW/$aspectRatio;
+        $yGap = ($portH-$usedPortHeight)/2.0;
+        $yGapRight = $portH-$yGap;
+        $viewToPlayblastMul_x = float($playblastW)/$portW;
+        $viewToPlayblastMul_y = float($playblastH)/$usedPortHeight;
+    }   
+    
+    float $halfViewX = $portW/2.0;
+    float $halfViewY = $portH/2.0;
+    float $halfPlayblastX = $playblastW/2.0;
+    float $halfPlayblastY = $playblastH/2.0;
+    
+    float $wPnt[];
+    int $vPnt[];
+    int $clipCount = 0;
+    string $cDataStr;
+    
+    float $progress = 0;
+    int $count = size($sel);
+    float $step = 0.0;
+    if($count)
+    {
+        $step = 50.0 / $count;
+    }
+    int $progressInt = 0;
+    for($obj in $sel)
+    {
+        $progress += $step;
+        $progressInt = $progress;
+        MGPicker -e -progressBar $progressInt;
+        
+        $obj = `MGP_cleanUpNonNamespaceMix $obj`;
+        $wPnt = `mgp_getObjectBoundingCenter $obj`;
+        $vPnt = `MGPickerService -getViewCoordinate $editor $wPnt[0] $wPnt[1] $wPnt[2]`;
+
+        if($vPnt[1]<$xGap || $vPnt[1]>$xGapRight)
+        {
+            $clipCount ++;
+            continue;
+        }
+        if($vPnt[2]<$yGap || $vPnt[2]>$yGapRight)
+        {
+            $clipCount ++;
+            continue;
+        }
+        $cDataStr = $obj;
+        $cDataStr+=",";
+        $cDataStr+=`mgp_getObjectShortName $obj`;
+        $cDataStr+=",";
+        int $col[]=`mgp_getObjectOverrideColorValue $obj`;
+        //print $col;
+        $cDataStr+=$col[0];
+        $cDataStr+=",";
+        $cDataStr+=$col[1];
+        $cDataStr+=",";
+        $cDataStr+=$col[2];
+        $cDataStr+=",";     
+        float $px = ($vPnt[1] -$halfViewX)*$viewToPlayblastMul_x+$halfPlayblastX;
+        $cDataStr+= $px;
+        $cDataStr+=",";
+        float $py = ($vPnt[2] -$halfViewY)*$viewToPlayblastMul_y+$halfPlayblastY;
+        $cDataStr+= $py;
+        $result[size($result)] = $cDataStr;
+    }
+    if($clipCount)
+    {
+        MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.skipClippedObj"`+" "+$clipCount) 1;
+    }
+    //print $result;
+    return $result;
+}
+//----------end of create picker selection button via 3d view----------------------
+//---------start of create slider via 3d view----------------------------------
+proc int mgp_isAttributeMovable (string $obj, string $attr)
+//0 for locked
+//1 for movable
+//2 for no range
+{   
+    string $infos[] =  mgp_getAttributeMinMaxValue($obj, $attr);
+    if($infos[0] == $infos[1])
+    {
+        return 0;
+    }
+    if($infos[0] == -100000 && $infos[1] == 100000)
+    {
+        return 2;
+    }
+    return 1;
+}
+proc int[] mgp_getScreenCoordViaWorldPoint(string $obj)
+//$screenPnt[0]: within port or not
+//$screenPnt[1]: x in qt coordinate
+//$screenPnt[2]: y in qt coordinate
+{   
+    string $editor = `MGP_get3DModelEditor`;
+    float $worldPnt[]= `xform -q -ws -rotatePivot $obj`;
+    int $screenPnt[] =`MGPickerService -getViewCoordinate $editor $worldPnt[0] $worldPnt[1] $worldPnt[2]`;
+    return $screenPnt;
+}
+proc float mgp_getAttributeDefaultValue(string $obj, string $attr)
+{
+        float $defaultVs[] =`attributeQuery -n $obj -listDefault $attr`;
+    if(size($defaultVs))
+    {
+        return $defaultVs[0];
+    }
+    return 0;
+}
+
+proc int mgp_isAverageWorldPointWithinViewport(float $wpStart[], float $wpEnd[])
+{   
+    string $editor = `MGP_get3DModelEditor`;
+        float $averageWp [];
+        $averageWp = {($wpStart[0]+$wpEnd[0])/2.0,($wpStart[1]+$wpEnd[1])/2.0,($wpStart[2]+$wpEnd[2])/2.0};
+        int $screenPnt[] =`MGPickerService -getViewCoordinate $editor $averageWp[0] $averageWp[1] $averageWp[2]`;
+        return $screenPnt[0];
+}
+proc string [] mgp_getHorizontalVerticalAttributes (string $obj)
+//0 node name
+//1 horizontal attr
+//2 vertical attr
+//3 h min value
+//4 h max value
+//5 h default value
+//6 v min value
+//7 v max value
+//8 v default value
+
+//9 h min screen coord
+//10 v min screen coord
+//11 h max screen coord
+//12 v max screen coord
+
+//13 h has valid Range
+//14 v has valid Range
+{
+    if(!`objExists $obj`)
+    {
+        return {};
+    }
+    if(`nodeType $obj`!="transform")
+    {
+        return {};
+    }
+    string $result[];
+    clear $result;
+    $result[0] = $obj;
+    string $tx = "translateX";
+    string $ty = "translateY";
+    string $tz = "translateZ";
+    string $xinfos[] =  mgp_getAttributeMinMaxValue($obj, $tx);
+    float $cTx = `getAttr ($obj+"."+$tx)`;
+    $xinfos = `mgp_fillupNoRangeAttributeMinMaxValues $tx $xinfos $cTx`;  //to support the no range transform been created into slider.
+    //print $xinfos;
+    //print "\n-----\n";
+    string $yinfos[] =  mgp_getAttributeMinMaxValue($obj, $ty);
+    float $cTy = `getAttr ($obj+"."+$ty)`;
+    $yinfos = `mgp_fillupNoRangeAttributeMinMaxValues $ty $yinfos $cTy`;  //to support the no range transform been created into slider.
+    //print $yinfos;
+    //print "\n-----\n";
+    string $zinfos[] =  mgp_getAttributeMinMaxValue($obj, $tz);
+    float $cTz = `getAttr ($obj+"."+$tz)`;
+    $zinfos = `mgp_fillupNoRangeAttributeMinMaxValues $tz $zinfos $cTz`;  //to support the no range transform been created into slider.
+    //print $zinfos;
+    //print "\n-----\n";
+    int $txMoveable = 0;
+    if($xinfos[0] != $xinfos[1])
+    {
+        $txMoveable = 1;
+    }
+    int $tyMoveable = 0;
+    if($yinfos[0] != $yinfos[1])
+    {
+        $tyMoveable = 1;
+    }
+    int $tzMoveable = 0;
+    if($zinfos[0] != $zinfos[1])
+    {
+        $tzMoveable = 1;
+    }
+    
+    //first test the horizontal attribute:
+    int $xHGap = 0;
+    int $xVGap = 0;
+    int $startXPos[];
+    int $endXPos[];
+    if($txMoveable)
+    {
+        float $min = $xinfos[0];
+        float $max = $xinfos[1];
+        setAttr ($obj+"."+$tx) $min ;
+        $startXPos = `mgp_getScreenCoordViaWorldPoint $obj`;
+        float $wpStart [] = `xform -q -ws -rotatePivot $obj`;
+        undo;
+        setAttr ($obj+"."+$tx) $max;
+        $endXPos = `mgp_getScreenCoordViaWorldPoint $obj`;
+        float $wpEnd [] = `xform -q -ws -rotatePivot $obj`;
+        undo;
+        //if any part of the range within viewport
+        if($startXPos [0] || $endXPos [0] || `mgp_isAverageWorldPointWithinViewport $wpStart $wpEnd`)
+        {
+            $xHGap = abs($endXPos [1]-$startXPos [1]);
+            $xVGap = abs($endXPos [2]-$startXPos [2]);
+        }   
+    }
+    int $yHGap = 0;
+    int $yVGap = 0;
+    int $startYPos[];
+    int $endYPos[];
+    if($tyMoveable)
+    {
+        float $min = $yinfos[0];
+        float $max = $yinfos[1];
+        setAttr ($obj+"."+$ty) $min;
+        $startYPos = `mgp_getScreenCoordViaWorldPoint $obj`;
+        float $wpStart [] = `xform -q -ws -rotatePivot $obj`;
+        undo;
+        setAttr ($obj+"."+$ty) $max;
+        $endYPos = `mgp_getScreenCoordViaWorldPoint $obj`;
+        float $wpEnd [] = `xform -q -ws -rotatePivot $obj`;
+        undo;
+        //if any part of the range within viewport
+        if($startYPos [0] || $endYPos [0] || `mgp_isAverageWorldPointWithinViewport $wpStart $wpEnd`)
+        {
+            $yHGap = abs($endYPos [1]-$startYPos [1]);
+            $yVGap = abs($endYPos [2]-$startYPos [2]);
+        }   
+    }
+    int $zHGap = 0;
+    int $zVGap = 0;
+    int $startZPos[];
+    int $endZPos[];
+    if($tzMoveable)
+    {
+        float $min = $zinfos[0];
+        float $max = $zinfos[1];
+        setAttr ($obj+"."+$tz) $min;
+        $startZPos = `mgp_getScreenCoordViaWorldPoint $obj`;
+        float $wpStart [] = `xform -q -ws -rotatePivot $obj`;
+        undo;
+        setAttr ($obj+"."+$tz) $max;
+        $endZPos = `mgp_getScreenCoordViaWorldPoint $obj`;
+        float $wpEnd [] = `xform -q -ws -rotatePivot $obj`;
+        undo;
+        //if any part of the range within viewport:
+        if($startZPos [0] || $endZPos [0] || `mgp_isAverageWorldPointWithinViewport $wpStart $wpEnd`)
+        {
+            $zHGap = abs($endZPos [1]-$startZPos [1]);
+            $zVGap = abs($endZPos [2]-$startZPos [2]);
+        }
+    }
+    int $hMaxGap = max(max($xHGap,$yHGap), $zHGap);
+    int $vMaxGap = max(max($xVGap,$yVGap), $zVGap);
+    if(!$hMaxGap)
+    {
+        $result[1] = "";
+        if(!$vMaxGap)
+        {
+            $result[2] = "";
+        }
+        else
+        {
+            if($vMaxGap  == $yVGap)
+            {
+                $result[2] = $ty;
+                $result[6] = $yinfos[0];
+                $result[7] = $yinfos[1];
+                $result[14] = $yinfos[2];
+            }
+            else if($vMaxGap  == $zVGap)
+            {
+                $result[2] = $tz;
+                $result[6] = $zinfos[0];
+                $result[7] = $zinfos[1];
+                $result[14] = $zinfos[2];
+            }
+            else
+            {
+                $result[2] = $tx;
+                $result[6] = $xinfos[0];
+                $result[7] = $xinfos[1];
+                $result[14] = $xinfos[2];
+            }
+        }
+    }
+    else
+    {
+        if($hMaxGap  == $xHGap)
+        {
+            $result[1] = $tx;           
+            $result[3] = $xinfos[0];
+            $result[4] = $xinfos[1];
+            $result[13] = $xinfos[2];
+        }
+        else if($hMaxGap  == $zHGap)
+        {
+            $result[1] = $tz;
+            $result[3] = $zinfos[0];
+            $result[4] = $zinfos[1];
+            $result[13] = $zinfos[2];
+        }
+        else
+        {
+            $result[1] = $ty;
+            $result[3] = $yinfos[0];
+            $result[4] = $yinfos[1];
+            $result[13] = $yinfos[2];
+        }
+        if(!$vMaxGap)
+        {
+            $result[2] = "";
+        }
+        else
+        {
+            if($vMaxGap  == $yVGap)
+            {
+                $result[2] = $ty;
+                $result[6] = $yinfos[0];
+                $result[7] = $yinfos[1];
+                $result[14] = $yinfos[2];
+            }
+            else if($vMaxGap  == $zVGap)
+            {
+                $result[2] = $tz;
+                $result[6] = $zinfos[0];
+                $result[7] = $zinfos[1];
+                $result[14] = $zinfos[2];
+            }
+            else
+            {
+                $result[2] = $tx;
+                $result[6] = $xinfos[0];
+                $result[7] = $xinfos[1];
+                $result[14] = $xinfos[2];
+            }
+        }
+    }
+    //print $result;
+    //if same attribute for h/v attribute, we prefere vertical and abondan horizontal.
+    if($result[1] == $result[2])
+    {
+        $result[1] = "";
+        $result[3] = "";
+        $result[4] = "";
+        $result[5] = "";
+    }
+    int $hasH = size($result[1]);
+    int $hasV = size($result[2]);
+    if(!$hasH && !$hasV)
+    {
+        return {};
+    }
+    if($hasH)
+    {
+        $result[5] = mgp_getAttributeDefaultValue($obj, $result[1]);
+    }
+    if($hasV)
+    {
+        $result[8] = mgp_getAttributeDefaultValue($obj, $result[2]);
+    }
+    
+    if($hasH && $hasV)
+    {
+        float $hmin = $result[3];
+        //print ($result[3]+"="+$hmin+"\n");
+        float $vmin = $result[6];
+        //print ($result[6]+"="+$vmin+"\n");
+        setAttr ($obj+"."+$result[1]) $hmin;
+        setAttr ($obj+"."+$result[2]) $vmin;
+        //print ($result[1]+"="+$hmin+"\n");
+        //print ($result[2]+"="+$vmin+"\n");
+        int $minPnt[] = `mgp_getScreenCoordViaWorldPoint $obj`;
+        //print $minPnt;
+        //print "\n";
+        undo;
+        undo;
+        float $hmax = $result[4];
+        float $vmax = $result[7];
+        setAttr ($obj+"."+$result[1]) $hmax;
+        setAttr ($obj+"."+$result[2]) $vmax;
+        //print ($result[1]+"="+$hmax+"\n");
+        //print ($result[2]+"="+$vmax+"\n");
+        int $maxPnt[] = `mgp_getScreenCoordViaWorldPoint $obj`;
+        //print $maxPnt;
+        //print "\n";
+        undo;
+        undo;
+        $result[9] = $minPnt[1];
+        $result[12] = $minPnt[2];
+        $result[11] = $maxPnt[1];
+        $result[10] = $maxPnt[2];
+    }
+    else
+    {
+        if($hasH)
+        {
+            float $hmin = $result[3];
+            setAttr ($obj+"."+$result[1]) $hmin;
+            int $minPnt[] = `mgp_getScreenCoordViaWorldPoint $obj`;
+            undo;
+            float $hmax = $result[4];
+            setAttr ($obj+"."+$result[1]) $hmax;
+            int $maxPnt[] = `mgp_getScreenCoordViaWorldPoint $obj`;
+            undo;
+            $result[9] = $minPnt[1];
+            $result[12] = $minPnt[2];
+            $result[11] = $maxPnt[1];
+            $result[10] = $maxPnt[2];
+        }
+        else
+        {
+            float $vmin = $result[6];
+            setAttr ($obj+"."+$result[2]) $vmin;
+            int $minPnt[] = `mgp_getScreenCoordViaWorldPoint $obj`;
+            undo;
+            float $vmax = $result[7];
+            setAttr ($obj+"."+$result[2]) $vmax;
+            int $maxPnt[] = `mgp_getScreenCoordViaWorldPoint $obj`;
+            undo;
+            $result[9] = $minPnt[1];
+            $result[12] = $minPnt[2];
+            $result[11] = $maxPnt[1];
+            $result[10] = $maxPnt[2];
+        }
+    }
+    if(size($result)!=15)
+    {
+        $result[14]="";
+    }
+    return $result;
+}
+//0 node name
+//1 horizontal attr
+//2 vertical attr
+//3 h min value
+//4 h max value
+//5 h default value
+//6 v min value
+//7 v max value
+//8 v default value
+
+//9 h min screen coord
+//10 v min screen coord
+//11 h max screen coord
+//12 v max screen coord
+
+//13 h has valid Range
+//14 v has valid Range
+global proc string[] MGP_getSelectionSliderInfos(int $playblastW, int $playblastH)
+{
+    string $result[];
+    if(!$playblastW || !$playblastH)
+    {
+        return $result;
+    }
+    global string $MGPicker_AppName;
+    string $sel[] = `ls -sl -transforms`;   
+    if(!size($sel))
+    {
+        confirmDialog -t $MGPicker_AppName -m `MGP_MultiLanguage "pkr.noTransformSelected"` -button "OK";
+        return $result;
+    }
+    select $sel;
+    
+    int $portW,$portH;
+    string $editor = `MGP_get3DModelEditor`;
+    int $size[] = `MGPickerService -modelEditorSize $editor`;
+    $portW = $size[0];
+    $portH = $size[1];
+    if($portW<=1 || $portH<=1)
+    {
+        confirmDialog -t $MGPicker_AppName -m `MGP_MultiLanguage "pkr.3dView.notVisible"` -button "OK";
+        return $result;
+    }
+    
+    if($playblastW<0)
+    {
+        $playblastW = $portW;
+    }
+    if($playblastH<0)
+    {
+        $playblastH = $portH;
+    }
+    
+    float $aspectRatio = float($playblastW)/$playblastH;
+    
+    
+    float $xGap = 0,$yGap = 0,$xGapRight = $portW ,$yGapRight = $portH;
+    float $viewToPlayblastMul_x = 1,$viewToPlayblastMul_y = 1;
+    if($playblastW <= $playblastH)  //h is full, but w has gap
+    {
+        float $usedPortWidth = $portH*$aspectRatio;
+        $xGap = ($portW-$usedPortWidth)/2.0;
+        $xGapRight = $portW-$xGap;
+        $viewToPlayblastMul_x = float($playblastW)/$usedPortWidth;
+        $viewToPlayblastMul_y = float($playblastH)/$portH;
+    }
+    else if($playblastW > $playblastH) //w is full, but h has gap
+    {
+        float $usedPortHeight = $portW/$aspectRatio;
+        $yGap = ($portH-$usedPortHeight)/2.0;
+        $yGapRight = $portH-$yGap;
+        $viewToPlayblastMul_x = float($playblastW)/$portW;
+        $viewToPlayblastMul_y = float($playblastH)/$usedPortHeight;
+    }   
+    
+    float $halfViewX = $portW/2.0;
+    float $halfViewY = $portH/2.0;
+    float $halfPlayblastX = $playblastW/2.0;
+    float $halfPlayblastY = $playblastH/2.0;
+    
+    float $wPnt[];
+    int $vPntMin[];
+    int $vPntMax[];
+    int $clipCount = 0;
+    string $cDataStr;
+    int $undoState = `undoInfo -q -state`;
+    int $infinity = `undoInfo -q -infinity`;
+    if(!$undoState || !$infinity)
+    {
+        undoInfo -state 1 -infinity 1;
+    }
+    
+    
+//0 node name
+//1 horizontal attr
+//2 vertical attr
+//3 h min value
+//4 h max value
+//5 h default value
+//6 v min value
+//7 v max value
+//8 v default value
+
+//9 h min screen coord
+//10 v min screen coord
+//11 h max screen coord
+//12 v max screen coord
+
+//13 h has valid Range
+//14 v has valid Range
+    string $leftver[];
+    
+    string $cInfos[];
+    
+    float $progress = 0;
+    int $count = size($sel);
+    float $step = 0.0;
+    if($count)
+    {
+        $step = 50.0 / $count;
+    }
+    int $progressInt = 0;
+    
+    for($obj in $sel)
+    {
+        $progress += $step;
+        $progressInt = $progress;
+        MGPicker -e -progressBar $progressInt;
+        
+        $obj = `MGP_cleanUpNonNamespaceMix $obj`;
+        $cInfos = `mgp_getHorizontalVerticalAttributes $obj`;
+        //print "$cInfos: ";
+        //print $cInfos;
+        //if both h and v are null:
+        if(!size($cInfos[1]) && !size($cInfos[2]))
+        {
+            $leftver[size($leftver)] = $obj;
+            continue;
+        }
+        
+        //map the view coord into panel coordinate:
+        $vPntMin[0] = $cInfos[9];
+        $vPntMin[1] = $cInfos[10];
+        $vPntMin[0] = ($vPntMin[0] -$halfViewX)*$viewToPlayblastMul_x+$halfPlayblastX;
+        $vPntMin[1] = ($vPntMin[1] -$halfViewY)*$viewToPlayblastMul_y+$halfPlayblastY;      
+        $vPntMax[0] = $cInfos[11];
+        $vPntMax[1] = $cInfos[12];
+        $vPntMax[0] = ($vPntMax[0] -$halfViewX)*$viewToPlayblastMul_x+$halfPlayblastX;
+        $vPntMax[1] = ($vPntMax[1] -$halfViewY)*$viewToPlayblastMul_y+$halfPlayblastY;
+        
+        $cInfos[9] = min($vPntMin[0],$vPntMax[0]);
+        $cInfos[10] = min($vPntMin[1],$vPntMax[1]);
+        $cInfos[11] = max($vPntMin[0],$vPntMax[0]);
+        $cInfos[12] = max($vPntMin[1],$vPntMax[1]);
+
+        $cDataStr = `stringArrayToString  $cInfos ","`;     
+        $result[size($result)] = $cDataStr;
+    }
+    if(!$undoState || !$infinity)
+    {
+        undoInfo -state $undoState -infinity $undoState;
+    }
+    $count = size($leftver);
+    if($count)
+    {
+        select $leftver;
+        MGP_ScriptEditorFeedback ($count + " "+`MGP_MultiLanguage "pkr.obj.notMadeSlider.war"`) 0;
+    }
+    else
+    {
+        select -cl;
+    }
+    //print $result;
+    return $result;
+}
+//---------end of create slider via 3d view----------------------------------
+
+//-------------code for picker template----------------------------------------
+
+global proc string MGP_getNativeCommandHelp(string $cmd)
+{
+    if(!size($cmd) || !`exists $cmd`)
+    {
+        return "";
+    }
+    string $doc = `help  $cmd`;
+    string $temps[] = `stringToStringArray $doc "\n"`;
+    string $cmdUsed[];
+    for($s in $temps)
+    {
+        string $l = strip($s);
+        if(!size($l) || `startsWith $l "Command"`)
+        {
+            continue;
+        }
+        $cmdUsed[size($cmdUsed)] = $s;
+    }
+    return (`stringArrayToString $cmdUsed "\n"`);
+}
+//-------------end of code for picker template----------------------------------------
+proc string [] mgp_readSelSet(string $selSetName)
+{
+    string $getData[];
+    string $setFolder = `MGSelSet_getMGSelectionSetFolderFull`;
+    if(!`filetest -d ($setFolder)`)
+    {
+        return $getData;
+    }       
+    $getData= `readSelSetContentViaFileName $setFolder $selSetName`;
+    return $getData;
+}
+
+global proc string [] MGP_getSelectedSelSetInfo(int $makeMultiple)  //the namespace are included.
+{
+    if(!`textScrollList -q -ex selSetTSL`)
+    {
+        MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.selSet.notOpened"` 1;
+        return {};
+    }
+    string $si[]=`textScrollList -q -si selSetTSL`;
+    int $dataSize = size( $si);
+    if(!$dataSize)
+    {
+        MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.selSet.noSel"` 1;
+        return {};
+    }
+    string $datas [];
+    string $cdata [];
+    string $cSet;
+    string $firstSet;
+    for($i=0; $i<$dataSize;$i++)
+    {
+        $cSet = $si[$i];
+        if(!$i)
+        {
+            $firstSet = $cSet;
+        }
+        $cdata = `mgp_readSelSet $cSet`;
+        if($makeMultiple)
+        {
+            $datas[size($datas)] = $cSet+">"+`stringArrayToString $cdata  ";"`;
+        }
+        else
+        {
+            $datas[size($datas)] = `stringArrayToString $cdata  ";"`;
+        }
+    }
+    if(!$makeMultiple)
+    {
+        string $realData = `stringArrayToString $datas ";"`;
+        clear($datas);
+        string $plus = "+";
+        if($dataSize<=1)
+        {
+            $plus = "";
+        }
+        $datas[0] = ($firstSet+$plus+">"+$realData);
+    }
+    //print $datas;
+    return $datas;
+}
+
+global proc string[] MGP_getSelectionNonDuplicateNamespaces (int $deselectNoNS, int $maximum)
+{
+    string $result[];
+    string $selectItem [] = `ls -sl`;
+    if (size($selectItem)==0){select -cl; return $result;}
+    int $index = 0;
+    for($obj in $selectItem)
+    {
+        string $ns = `MGP_GetNamespaceViaObj $obj`;
+        if(size($ns))
+        {
+            if(!`stringArrayContains $ns $result`)
+            {
+                $result[size($result)] = $ns;
+                if($deselectNoNS && $index > $maximum)  //add one more null items so it could be wraned.
+                {
+                    select -d $obj;
+                    break;
+                }
+                $index ++;
+                continue;
+            }
+            else
+            {               
+                    select -d $obj;
+            }
+        }
+        if($deselectNoNS)
+        {
+            select -d $obj;
+        }
+    }
+    return `stringArrayRemoveDuplicates $result`;
+}
+global proc string MGP_getSelectionNamespace ()
+{
+    return `MGPickerService -q -namespaceFromSelection 1`;
+}
+
+proc int mgp_isStringNumber(string $str)
+{
+    return `gmatch $str "[0-9]*"`;
+}
+proc int mgp_namespaceMatch(string $nsToFind, string $nsMatching)
+{
+        //print ("ns to find: "+$nsToFind+", "+$nsMatching+"\n");
+    int $findSize = size($nsToFind);
+    int $matchSize = size($nsMatching);
+    if(!$findSize || !$matchSize)
+    {
+        return 0;
+    }
+    if($nsToFind == $nsMatching)
+    {
+        return 1;
+    }
+    if(!`startsWith $nsToFind $nsMatching`)
+    {
+        return 0;
+    }
+    string $trail = `substring $nsToFind ($matchSize+1) $findSize`;
+    if(`mgp_isStringNumber $trail`)
+    {
+        return 1;
+    }
+    //if ns to find is "ns:ns1" and match ns is "ns:", then we return 2:
+    if(`startsWith $trail ":"`)
+    {
+        return 2;
+    }
+    return 0;
+    
+}
+proc string [] mgp_findMGPickerInScene(string $ns)
+{
+    global string $MGPicker_SceneData_NameAttr;
+    global string $MGPicker_SceneData_NsAttr;    
+    global string $MGPicker_SceneDataNodeType;    
+    string $nodes[]=`ls -type $MGPicker_SceneDataNodeType`;
+    int $nodeSize = size($nodes);
+    if(!$nodeSize)
+    {
+        return {};
+    }
+    string $results[];
+    string $pickerName,$cNamespace,$data;
+    for($n in $nodes)
+    {        
+        //get namespace form node name:
+        $cNamespace = `MGP_GetNamespaceViaObj $n`;
+        if(`mgp_namespaceMatch $ns $cNamespace`)
+        {
+            $results[size($results)] = $n;
+            continue;
+        }
+        //get namespace for node attribute:
+        if(!`attributeExists $MGPicker_SceneData_NsAttr $n`)
+        {
+            continue;
+        }
+        $cNamespace = getAttr ($n+"."+$MGPicker_SceneData_NsAttr);
+        if(`mgp_namespaceMatch $ns $cNamespace`)
+        {
+            $results[size($results)] = $n;
+            continue;
+        }
+        //get picker name attr:
+        if(!`attributeExists $MGPicker_SceneData_NameAttr $n`)
+        {
+            continue;
+        }
+        $pickerName = getAttr ($n+"."+$MGPicker_SceneData_NameAttr);
+        if(`mgp_namespaceMatch $ns $pickerName`)
+        {
+            $results[size($results)] = $n;
+        }
+    }
+    return $results;
+}
+proc string [] mgp_findOtherPickerInSceneFollowedReader(string $ns)
+{
+    string $results[];
+    string $converts[]= `mgp_listAllPkrConverters`;
+    for($converter in $converts)
+    {
+        string $lister = `mgp_getPickerConverterProc_nodeLister $converter`;
+        string $reader = `mgp_getPickerConverterProc_readNode $converter`;
+        string $getNS = `mgp_getPickerConverterProc_getNamespace $converter`;
+        if(!`exists $lister` || !`exists $getNS` || !`exists $reader`)
+        {
+            continue;
+        }
+        string $pkrNodes[]=`eval $lister`;
+        if(!size($pkrNodes))
+        {
+            continue;
+        }       
+        //print $pkrNodes;
+        for($each in $pkrNodes)
+        {
+            string $cmd = ($getNS+" \""+$each+"\"");
+            string $cNamespace = `eval $cmd`;
+            if(`mgp_namespaceMatch $ns $cNamespace`)
+      {
+          $results[size($results)] = $each;
+          $results[size($results)] = $reader;
+          continue;
+      }
+        }
+    }
+    return $results;    
+}
+proc string mgp_readNamespaceFromPickerFile(string $file)
+{
+    int $fileId=`fopen $file "r"`;
+    if(!$fileId)
+    {
+        return "";
+    }
+    string $nextLine = `fgetline $fileId`;
+    string $cLine;
+    int $lineCount = 1;
+    while (!`feof $fileId`) 
+    {
+        if($lineCount >= 7)     //we read 7 lines maximum.
+        {
+            fclose $fileId;
+            return "";
+        }
+        $nextLine = `fgetline $fileId`;
+        $cLine = `strip $nextLine`;
+        if(`startsWith $cLine "<namespace>"`)
+        {
+            string $temp1[]= `stringToStringArray $cLine ">"`;
+            string $temp2[]=`stringToStringArray $temp1[1] "<"`;            
+            fclose $fileId;
+            return `strip $temp2[0]`;
+        }
+        $lineCount ++;
+    }
+    fclose $fileId;
+}
+proc string [] mgp_findPickerInDir_doit(string $dir,string $ns)
+{
+    string $result[];
+    if(!`size $dir` || !`filetest -d $dir`)
+    {
+        return $result;
+    }
+    if(!`endsWith $dir "/"`)
+    {
+        $dir += "/";
+    }
+    string $pkrDirs[]=`mgp_ListAllSubFolders $dir`;
+    if(!size($pkrDirs))
+    {
+        return $result;
+    }
+    string $cDir;
+    string $cNs,$cFilePath;
+    string $pkrFirs[];
+    for($pkrDir in $pkrDirs)
+    {
+        $cDir = $dir+$pkrDir+"/";
+        $pkrFiles = `getFileList -fld $cDir -fs "*.mgpkr"`;
+
+        for($f in $pkrFiles)
+        {
+            string $bn = `basename $f ".mgpkr"`;
+            $cFilePath = ($cDir+$f);
+            $result[size($result)] = $cFilePath;
+            if(`mgp_namespaceMatch $ns $bn`)
+            {
+                $result[size($result)] = $cFilePath;
+                continue;
+            }
+            else
+            {
+                $cNs = `mgp_readNamespaceFromPickerFile  $cFilePath`;
+                if(`mgp_namespaceMatch $ns $cNs`)
+                {
+                    $result[size($result)] = $cFilePath;
+                    continue;
+                }
+            }
+        }
+    }
+    return $result;
+}
+
+proc string [] mgp_findPickerInPickerProject_doit(string $projName,string $ns)
+{
+    string $projDir = `MGP_getPkrDataDirectory`+$projName+"/";
+    return `mgp_findPickerInDir_doit $projDir $ns`;
+}
+proc int mgp_findAndLoadPicker_inScene(string $ns)
+{
+        //print "mgp_findAndLoadPicker_inScene\n";
+        string $matchPkrNodes[] = `mgp_findMGPickerInScene $ns`;
+    int $mgNodeSize = size($matchPkrNodes);
+    if($mgNodeSize)
+    {
+        for($n in $matchPkrNodes)
+        {
+            mgp_readSceneMGPickerNode $n 1;
+        }
+    }
+    //then find other type of picker nodes in scene via converters:
+    string $otherPickerNodesAndReaders[]=`mgp_findOtherPickerInSceneFollowedReader $ns`;
+    //print $otherPickerNodesAndReaders;
+    int $otherSize = size($otherPickerNodesAndReaders);
+    if($otherSize)
+    {
+        for($i=0; $i<$otherSize; $i+=2)
+        {
+            string $cmd = ($otherPickerNodesAndReaders[$i+1]+" \""+$otherPickerNodesAndReaders[$i]+"\"");
+            eval $cmd;
+        }
+    }
+    //if nodes are found, we dont need to continue the files:
+    if($mgNodeSize || $otherSize)
+    { 
+        return 1;
+    }
+    return 0;
+}
+
+proc int mgp_findAndLoadPicker_viaDir(string $dir,string $ns)
+{
+        string $matchPkrFiles[] = `mgp_findPickerInDir_doit $dir  $ns`;
+        //print $ns;
+        //print $matchPkrFiles;
+    if(size($matchPkrFiles))
+    {
+        for($f in $matchPkrFiles)
+        {
+            if(`mgp_loadPickerFileIfNotLoadedAndEditNamespace $f $ns 1`)
+            {
+                    return 1;
+                }
+        }
+    }
+    return 0;
+}
+proc int mgp_findAndLoadPicker_inLocalProject(string $ns)
+{
+        //below we start to search files, but for files, only MG-Picker file is supported.
+    //if not find in scene,find in the default project:
+        string $defaultProj = `mgp_getCurrentProjectName`;
+        
+        string $defaultProjectMatches[] = mgp_findPickerInPickerProject_doit($defaultProj,$ns);
+        if(`size $defaultProjectMatches`)
+        {
+            for($f in $defaultProjectMatches)
+      {
+          if(`mgp_loadPickerFileIfNotLoadedAndEditNamespace $f $ns 1`)
+                {
+                    return 1;
+                }
+      }
+        }
+        return 0;  //no we don't want to search other project:
+}
+proc int mgp_findPickerViaSceneSlashPickersDirViaSelection()
+{   
+    global string $MGPicker_pickerFileExtension;
+    global string $MGPicker_WithScene_Folder;
+    string $sel[]=`ls -sl`;
+    //if nothing selected, we open the picker for current scene:
+    if(!size($sel))
+    {
+        string $sn = `file -q -sn`;
+        //print $sn;
+        if(size($sn))
+        {
+            //string $ns = "";
+            string $dir = `dirname $sn`;
+            string $fn = `basenameEx $sn`;
+            string $pickerPath = $dir + "/" + $MGPicker_WithScene_Folder + "/" + $fn + "/" + $fn + $MGPicker_pickerFileExtension;
+            //print ($pickerPath+"\n");
+            if(`filetest -f $pickerPath`)
+            {
+                    if(`mgp_loadPickerFileIfNotLoadedAndEditNamespace $pickerPath "" 1`)
+            {
+                    return 1;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }   
+    }
+    string $pathes[];
+    int $result = 0;
+    for($node in $sel)
+    {
+        if(!`referenceQuery -isNodeReferenced $node`)
+        {
+            continue;
+        }
+        string $filepath = `referenceQuery  -filename $node`;
+        string $ns = `file -q -rpr $filepath`;
+        string $dir = `dirname $filepath`;
+        string $fn = `basenameEx $filepath`;
+        string $pickerPath = $dir + "/" + $MGPicker_WithScene_Folder + "/" +$fn + "/" + $fn + $MGPicker_pickerFileExtension;
+        if(!`stringArrayContains $dir $pathes`)
+        {
+            //print ($pickerPath+"\n");
+            if(`filetest -f $pickerPath`)
+            {
+                if(`mgp_loadPickerFileIfNotLoadedAndEditNamespace $pickerPath $ns 1`)
+                {                   
+                $result = 1;  
+              }
+            }
+            $pathes[size($pathes)] = $dir;
+        }
+    }
+    return $result;
+}
+proc int mgp_findPickerViaSceneSlashPickersDir(string $ns)
+{
+    if(!`size $ns`)
+    {
+        return 0;
+    }
+    //print "find: mgp_findPickerViaSceneSlashPickersDir\n";
+    global string $MGPicker_pickerFileExtension;
+    global string $MGPicker_WithScene_Folder;
+    string $nodes[] = `ls -dagObjects ($ns+":*")`;
+    string $node = $nodes[0];
+    if(!size($node))
+    {
+        return 0;
+    }
+    int $result = 0;
+    string $filepath = `referenceQuery  -filename $node`;
+    string $fileNS = `file -q -rpr $filepath`;
+    string $dir = `dirname $filepath`;
+    string $fn = `basenameEx $filepath`;
+    string $pickerPath = $dir + "/" + $MGPicker_WithScene_Folder + "/" +$fn + "/" + $fn + $MGPicker_pickerFileExtension;
+
+    if(`filetest -f $pickerPath`)
+    {
+        if(`mgp_loadPickerFileIfNotLoadedAndEditNamespace $pickerPath $fileNS 1`)
+        {
+            $result = 1;
+        }
+    }
+    return $result;
+}
+proc int mgp_findAndLoadPickerUsingPythonAutoLoader(string $ns)
+{
+    string $cmd = "import MGP;MGP.MGP_LoadMGPickerViaPythonAutoLoaders('"+$ns+"')";
+    return `python $cmd`;
+}
+proc int mgp_findAndLoadPicker_doit(string $ns)
+{
+    if(`mgp_findAndLoadPickerUsingPythonAutoLoader $ns`)
+    {
+        return 1;
+    }
+      global string $MGPicker_InScene_DummyName;
+    global string $MGPicker_WithScene_DummyName;
+    global string $MGPicker_Local_DummyName;
+        string $orders[] =`mgp_getSearchingOrder`;
+        //print $orders;
+        for($path in $orders)
+        {
+            if($path == $MGPicker_InScene_DummyName)
+            {
+                if(`mgp_findAndLoadPicker_inScene $ns`)
+                {
+                    MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage "pkr.search.FoundNode"`),0);
+                    return 1;
+                }
+                MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage "pkr.search.canotFindNode"`),0);
+                //print "Not in scene!\n";
+            }
+            else if($path == $MGPicker_WithScene_DummyName)
+            {
+                if(`mgp_findPickerViaSceneSlashPickersDir $ns`)
+                {
+                    MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage "pkr.search.FoundScenePickersDir"`),0);
+                    return 1;
+                }
+                MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage "pkr.search.canotFindScenePickersDir"`),0);
+            }
+            else if($path == $MGPicker_Local_DummyName)
+            {
+                string $project = `mgp_getCurrentProjectName`;
+                if(`size $ns`)
+                {
+                    if(`mgp_findAndLoadPicker_inLocalProject $ns`)
+                    {
+                        MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage_rep1 "pkr.search.foundInProject" $project`) ,0);
+                        return 1;
+                    }
+                    MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage_rep1 "pkr.search.canotFindInProject" $project`) ,0);
+                }   
+                else
+                {
+                    MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage_rep1 "pkr.search.noNSToSearchProj" $project`) ,0);
+                }
+            }
+            else
+            {
+                if(`size $ns`)
+                {                   
+                    if(!`size $path`)
+                    {
+                        continue;
+                    }           
+                    if(!`filetest -d $path`)
+                    {
+                        MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage_rep1 "pkr.search.noExistDirToSearch" $path`),0);  
+                        continue;
+                    }
+                    if(`mgp_findAndLoadPicker_viaDir  $path $ns`)
+                    {
+                        MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage_rep1 "pkr.search.foundInDir" $path`),0);          
+                        return 1;
+                    }
+                    MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage_rep1 "pkr.search.canotFindInDir" $path`),0);                  
+                }
+                else
+                {                   
+                    MGP_ScriptEditorFeedback(("["+$ns+"]:"+`MGP_MultiLanguage_rep1 "pkr.search.noNSToSearchDir" $path`),0);
+                }
+            }
+        }
+        
+        //now check out the failsaved picker:
+        string $fallbackPicker = strip(`MGPicker -q -fallbackPicker`);
+        if(size($fallbackPicker) && $fallbackPicker!=$ns)
+        {
+            int $result = `mgp_findAndLoadPicker_doit $fallbackPicker`;
+            if($result)
+            {
+                MGPickerView -e -ns $ns;
+                MGPickerView -e -tabLabel $ns;
+                return 1;  
+            }
+        }
+        return 0;    
+}
+global proc int MGP_FindAndLoadPickerForName(string $ns)
+{
+    return mgp_findAndLoadPicker_doit($ns);
+}
+global proc MGP_LoadGenericPicker(string $pickerFilePath)
+{
+    string $sel[]=`ls -sl`;
+    
+    int $alreadyOpened = 0;
+    //if mgpicker node is selected:
+    if(size($sel))
+    {
+        global string $MGPicker_SceneDataNodeType;    
+        for($node in $sel)
+        {
+            if(`nodeType $node` == $MGPicker_SceneDataNodeType)
+            {
+                if(`mgp_readSceneMGPickerNode $node 1`)
+                {
+                    select -d $node;
+                    $alreadyOpened ++;
+                }
+            }
+        }
+    }
+    int $maximumCount = 4;
+    string $nss[] = `MGP_getSelectionNonDuplicateNamespaces 0 $maximumCount`;
+    int $count = `MGPicker -q -pickerAreaCount`;
+    int $charSize = size($nss);
+    if(!$charSize)
+    {
+            MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.noSelection.war"` 1;
+            if($alreadyOpened)
+            {
+                print "\n";
+            }
+        return;
+    }
+    int $activeAreaNeeded = $charSize > 1 && $count  > 1;
+    int $cIndex = 0;   
+    for($ns in $nss)
+    {
+        if($cIndex >= $maximumCount)
+        {
+            MGP_ScriptEditorFeedback `MGP_MultiLanguage_rep1 "pkr.search.exceedMaximum.war" $maximumCount` 1;
+            if($alreadyOpened)
+            {
+                print "\n";
+            }
+            return;
+        }
+        if($activeAreaNeeded)
+        {
+            int $activeArea = $cIndex % $count;
+            //print ("Active area: "+$activeArea+"\n");
+            MGPicker -e -activePickerArea $activeArea;
+        }
+        string $viewId = `MGPicker -e -readPickerFile $pickerFilePath 1`;
+        if(!size($viewId))
+        {       
+            MGP_ScriptEditorFeedback ("["+$ns+"]:"+`MGP_MultiLanguage "pkr.noMatchFound.hasNs.war"`) 0;
+        }
+        else
+        {
+            $cIndex ++;
+            MGPickerView -e -ns $ns $viewId;
+            MGPickerView -e -tabLabel $ns $viewId;
+        }
+    }
+}
+global proc MGP_FindAndLoadPicker()
+{
+    string $sel[]=`ls -sl`;
+    
+    int $alreadyOpened = 0;
+    //if mgpicker node is selected:
+    if(size($sel))
+    {
+        global string $MGPicker_SceneDataNodeType;    
+        for($node in $sel)
+        {
+            if(`nodeType $node` == $MGPicker_SceneDataNodeType)
+            {
+                if(`mgp_readSceneMGPickerNode $node 1`)
+                {
+                    select -d $node;
+                    $alreadyOpened ++;
+                }
+            }
+        }
+    }
+    int $maximumCount = 4;
+    string $nss[] = `MGP_getSelectionNonDuplicateNamespaces 0 $maximumCount`;
+    int $count = `MGPicker -q -pickerAreaCount`;
+    int $charSize = size($nss);
+    if(!$charSize)
+    {
+            MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.noMatchFound.noNs.war"` 1;
+            if($alreadyOpened)
+            {
+                print "\n";
+            }
+        return;
+    }
+    int $activeAreaNeeded = $charSize > 1 && $count  > 1;
+    int $cIndex = 0;   
+    for($ns in $nss)
+    {
+        if($cIndex >= $maximumCount)
+        {
+            MGP_ScriptEditorFeedback `MGP_MultiLanguage_rep1 "pkr.search.exceedMaximum.war" $maximumCount` 1;
+            if($alreadyOpened)
+            {
+                print "\n";
+            }
+            return;
+        }
+        if($activeAreaNeeded)
+        {
+            int $activeArea = $cIndex % $count;
+            //print ("Active area: "+$activeArea+"\n");
+            MGPicker -e -activePickerArea $activeArea;
+        }
+        if(!`mgp_findAndLoadPicker_doit $ns`)
+        {       
+            MGP_ScriptEditorFeedback ("["+$ns+"]:"+`MGP_MultiLanguage "pkr.noMatchFound.hasNs.war"`) 0;
+        }
+        else
+        {
+            $cIndex ++;
+        }
+    }
+}
+
+global proc MGP_RefreshAllLoaderMenu(string $menuId)
+{
+    if(!`menu -q -ex $menuId`)
+    {
+        return;
+    }
+    // install temp menu item:
+    menu -e -dai $menuId;
+    menuItem -l "Loading..." -en 0 -p $menuId;
+
+    MGP_RegenerateAllLoaderMenuDeferred  $menuId;
+}
+
+global proc MGP_RegenerateAllLoaderMenuDeferred(string $menuId)
+{    
+    string $cmd = "catch (`python \"import MGP;MGP.loadermanager.MGPickerLoaderManager.refreshAndRebuildLoadAllMenu('"+$menuId+"')\"`)";
+    evalDeferred $cmd;
+}
+
+//config ui codes-------------------------------------------
+
+// !!used!!
+global proc int [] MGP_GetAutoloadSetting()
+{   
+    // result[0]: autoload or Not
+    // result[1]: 0=autoload in designer mode, 1=autoload in animator mode
+    // result[2]: 0=autoload with UserSetup.mel, 1=autoload with UserSetup.py
+    string $scriptPath = `internalVar -usd`;
+    string $userSetupMEL = $scriptPath + "userSetup.mel";
+    string $userSetupPY = $scriptPath + "userSetup.py";
+    int $melExist = `filetest -f $userSetupMEL`;
+    int $pyExist = `filetest -f $userSetupPY`;
+    
+    if(!$melExist && !$pyExist)
+    {
+        return {0,1,0};
+    }
+    int $autoloadInMel = 0;
+    int $uiModeInMel = 1;
+  
+    if($melExist)
+    {
+        string $content=`MGP_ReadFileString $userSetupMEL`;
+        if(`gmatch $content "*MGP_AutoloadMGPickerStudio 1*"`)  
+        {
+            $uiModeInMel = 1;
+            $autoloadInMel = 1;
+        }
+        else if(`gmatch $content "*MGP_AutoloadMGPickerStudio 0*"`)     
+        {
+            $uiModeInMel = 0;
+            $autoloadInMel = 1;
+        }
+    }
+    if($autoloadInMel)
+    {
+        return {1,$uiModeInMel,0};
+    }
+    
+    int $autoloadInPy = 0;
+    int $uiModeInPy = 1;
+    if($pyExist)
+    {
+        string $content=`MGP_ReadFileString $userSetupPY`;
+        if(`gmatch $content "*MGPicker_AutoLoad_Py(*,1)*"`)     
+        {
+            $uiModeInPy = 1;
+            $autoloadInPy = 1;
+        }
+        else if(`gmatch $content "*MGPicker_AutoLoad_Py(*,0)*"`)        
+        {
+            $uiModeInPy = 0;
+            $autoloadInPy = 1;
+        }
+    }
+    if($autoloadInPy)
+    {
+        return {1, $uiModeInPy,1};
+    }
+    else
+    {
+        return {0,1,0};
+    }
+}
+
+global proc MGP_Quit(int $deferred)
+{
+    global string $MGPicker_DockControlName;    
+    if(`workspaceControl -q -ex $MGPicker_DockControlName`)
+    {
+        if($deferred)
+        {
+            string $cmd = "deleteUI -control "+$MGPicker_DockControlName;
+            evalDeferred $cmd;
+        }
+        else
+        {
+            deleteUI -control $MGPicker_DockControlName; 
+        }
+    }
+}
+
+//------------plugin related code----------------------------------
+proc string mgp_getPluginExtension()
+{   
+    global int $MGPKR_OStype;
+    string $sys = ".mll";
+    if($MGPKR_OStype==1)        
+    {
+        $sys = ".bundle";
+    }
+    else if($MGPKR_OStype==2)
+    {
+        $sys = ".so";
+    }
+    return $sys;
+}
+
+proc string mgp_getPluginFileName(string $pluginPrefex)
+{   
+    int $x64Maya_orNot = `about -is64`;
+    string $bigStr = "64";
+    if(!$x64Maya_orNot)
+    {
+      $bigStr = "86";
+    }
+  string $file = $pluginPrefex + "_";
+            
+  $file += (`mgp_getMayaVersionStringForPlugin` + "x");
+  
+  global int $MGPKR_OStype;
+    string $sys = $bigStr+`mgp_getPluginExtension`;
+
+  $file += $sys ;
+    return $file;       
+}
+proc string mgp_returnPluginFilePath (string $pluginPrefex)
+{  
+        string $pluginFileName = `mgp_getPluginFileName $pluginPrefex`;         
+        
+        string $mllName = `MGP_GetDirInProgramfiles ("Plug-ins/"+$pluginFileName)`;
+        
+        return $mllName;
+}
+global proc string MGP_getPluginFileForCurrentMaya()
+{
+    return `mgp_returnPluginFilePath "MGPicker"`;
+}
+
+proc mgp_unloadPluginWithCheck(string $pluginFile)
+{
+    global int $gMGPicker_MayaVerInt;
+    if($gMGPicker_MayaVerInt < 2018)
+    {
+        eval ("unloadPluginWithCheck \""+$pluginFile+"\"");
+    }
+    else
+    {
+        if(catch(`eval ("unloadPluginWithCheck \""+$pluginFile+"\" true")`)){print "\n";}
+    }
+    if(`pluginInfo -q -loaded $pluginFile`)
+    {
+        unloadPlugin -force `basename $pluginFile ""`;
+    }
+}
+proc mgp_loadPluginCallback(string $pluginFile)
+{
+    catch(`loadPluginCallback  $pluginFile "plug-in"`);
+    if(!`pluginInfo -q -loaded $pluginFile`)
+    {
+        loadPlugin -quiet $pluginFile;
+    }
+}
+
+proc int mgp_checkIfDiffrentVersionLoaded(string $legitPluginFile)
+{
+    if(!`exists "MGPicker"`)
+        return 1;
+
+    string $pluginFileName = `mgp_getPluginFileName "MGPicker"`;    
+    string $oldPlugFullPath = `pluginInfo -query -path $pluginFileName`;
+    $oldPlugFullPath = `substituteAllString $oldPlugFullPath "\\" "/"`;
+    $legitPluginFile = `substituteAllString $legitPluginFile "\\" "/"`;
+    if($oldPlugFullPath == $legitPluginFile)
+        return 1;
+    
+    global string $MGPicker_AppName;
+    string $msg = ("An existing but different version of mgpicker plug-in has been loaded:\n\n" + $oldPlugFullPath + "\n\nIf you want to launch the target version, please make sure the picker UI is closed, restart Maya and try again.");
+    confirmDialog -title $MGPicker_AppName -message $msg -button "OK"; 
+    return 0;
+}
+
+global proc int MGP_PluginLoadUnload (int $onOff, int $checkIfDiffrentVersionLoaded)
+{
+    //result 0: not successful
+    //result 1: successful
+    int $result=0;
+    string $pluginFile = `mgp_returnPluginFilePath "MGPicker"`;
+    if(!`exists "loadPluginCallback"`)
+    {
+        string $proName =(`getenv MAYA_LOCATION`+"/scripts/others/pluginWin.mel");
+        eval ("source \""+ $proName+"\"");
+    }   
+    if($onOff)
+    {
+        if(!`pluginInfo -q -loaded $pluginFile`)    
+        {            
+            // unload potentially loaded old version.
+            if($checkIfDiffrentVersionLoaded)
+            {
+                if(!`mgp_checkIfDiffrentVersionLoaded  $pluginFile`)
+                    return 0;
+            }
+
+            catch(`mgp_loadPluginCallback  $pluginFile`);
+            $result=`pluginInfo -q -loaded $pluginFile`;
+            global int $ignoreUpdateCallback;
+            global int $pluginRefreshNeeded;
+            global string $pluginWindowName;
+            int $visible = `window -q -ex $pluginWindowName`;
+            if( $visible )
+            {
+                if( !$ignoreUpdateCallback )  
+                {
+                    updatePluginList();
+                }
+            }
+            else
+            {
+                $pluginRefreshNeeded = true;
+            }
+        }
+        else
+        {
+            return 1;
+        }
+    }
+    else
+    {
+        if(!`pluginInfo -q -loaded $pluginFile`)    
+        {
+            return 1;
+        }
+        catch(`mgp_unloadPluginWithCheck( $pluginFile)`);
+        $result= 1-`pluginInfo -q -loaded $pluginFile`;
+    }
+    return $result;
+}
+proc string mgp_getLoaderMelSourceCode()
+{
+    string $mel = `mgp_getDefaultLoaderMelPath`;
+    global string $MGPicker_LoaderMelFileName;
+    string $cmd = "string $mgpicker_programDir = `getenv \"MGPICKER_PROGRAM_FILE_DIR\"`;";
+    $cmd += "if(`filetest -d $mgpicker_programDir`){eval (\"source \\\"\"+$mgpicker_programDir+\"/"+$MGPicker_LoaderMelFileName+"\"+\"\\\"\");}";
+    $cmd += "else { eval (\"source \\\""+$mel+"\\\"\"); }";
+    return $cmd;
+}
+
+global proc int MGP_InstallMGPickerToCurrentShelf()
+{   
+    global string $gMGPicker_ShelfLabel_anim;
+    global string $gMGPicker_ShelfLabel_designer;
+    string $defaultIcon = "commandButton.png";  
+    string $animIcon = `mgp_icon "Picker_animModeIcon.png"`;    
+    string $designerIcon = `mgp_icon "Picker_designerModeIcon.png"`;
+    string $animLbl = $gMGPicker_ShelfLabel_anim;   
+    string $designerLbl = $gMGPicker_ShelfLabel_designer;
+    string $animShortLbl = "Anim";  
+    string $designerShortLbl = "Designer";
+    string $animAnn = "Click to load MG-Picker Studio in animator mode.";   
+    string $designerAnn = "Click to load MG-Picker Studio in designer mode.";   
+    
+    if(!`filetest -f $animIcon`)$animIcon=$defaultIcon;
+    if(!`filetest -f $designerIcon`)$designerIcon=$defaultIcon;
+    
+    global string $gShelfTopLevel;
+    if (!`tabLayout -exists $gShelfTopLevel`)
+    {
+        MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.mayaShelf.notExist"` 1;
+        return 0;
+    }
+    string $st =`tabLayout -q -st $gShelfTopLevel`;
+        
+    //first delete all the old ones.
+    string $children []=`shelfLayout -q -ca $st`;
+    for ($eachOldSB in $children)
+    {
+        if(!`shelfButton -q -ex $eachOldSB`)
+        {
+            continue;
+        }
+        string $eachOldLabel=`shelfButton -q -l $eachOldSB`;
+        if($animLbl == $eachOldLabel || $designerLbl == $eachOldLabel)
+        {
+            deleteUI -ctl $eachOldSB;
+        }   
+    }   
+    string $mel = `mgp_getLoaderMelSourceCode`;
+    //animator:
+    string $cmd = ($mel+"\nMG_PickerStudio 1;");   
+    string $sb=`shelfButton
+        //-imageOverlayLabel $animShortLbl
+        -label $animLbl
+        -parent ($gShelfTopLevel + "|" +$st )
+        -command $cmd
+        -image $animIcon
+        -highlightImage $animIcon 
+        -annotation $animAnn                    
+    `;   
+    
+  //designer:
+  $cmd = ($mel+"\nMG_PickerStudio 0;"); 
+  $sb=`shelfButton
+        //-imageOverlayLabel $designerShortLbl
+        -label $designerLbl
+        -parent ($gShelfTopLevel + "|" +$st )
+        -command $cmd
+        -image $designerIcon
+        -highlightImage $designerIcon 
+        -annotation $designerAnn                    
+    `;
+  control -e -vis 1 $sb;            
+    
+    return 1;
+}
+
+// now it is only used for cleaning up old autoload code.
+global proc int MGP_CleanUpOldUserSetupAutoloading()
+{             
+    string $obsoleteUserSetupFiles [];
+    string $obsoleteExps [];    
+    string $obsoleteUserSetupFile;
+    string $repExpAbsolete;
+    
+    $obsoleteUserSetupFile = "userSetup.py";
+    $obsoleteUserSetupFiles [size($obsoleteUserSetupFiles)] = $obsoleteUserSetupFile;
+    $repExpAbsolete    ="#MGPickerAutoLoad_start.*#MGPickerAutoLoad_end"; 
+    $obsoleteExps [size($obsoleteExps)] = $repExpAbsolete;
+    $obsoleteUserSetupFile = "userSetup.mel";
+    $obsoleteUserSetupFiles [size($obsoleteUserSetupFiles)] = $obsoleteUserSetupFile;
+    $repExpAbsolete    ="//MGPickerAutoLoad_start.*//MGPickerAutoLoad_end";   
+    $obsoleteExps [size($obsoleteExps)] = $repExpAbsolete;
+  
+    string $scriptPath = `internalVar -usd`;
+
+    //now clean up the obsolete one:
+    int $obsoleteCount = size($obsoleteUserSetupFiles);
+    for($i=0; $i<$obsoleteCount; $i++)
+    {
+        string $conFigFileNameForOpen = ( $scriptPath + $obsoleteUserSetupFiles[$i]);
+        string $repExpAbsolete = $obsoleteExps[$i];
+        //print ("absolette file: "+$conFigFileNameForOpen+"\n");
+        if(`filetest -f $conFigFileNameForOpen`)
+        {
+          $oldContent=`MGP_ReadFileString $conFigFileNameForOpen`;
+          string $newContent = $oldContent;
+          if(size($oldContent))
+          {
+            $newContent=`MGP_substitute $repExpAbsolete $oldContent ""`;
+            }
+            //if not obsolete codes found, we just skip it.
+            if($newContent == $oldContent)
+            {
+                continue;
+            }
+            
+          //print ("---------------------------\nnewContent: "+$newContent+"\n");
+          string $stripContent = strip($newContent);
+          //print ("---------------------------\nnewContent: "+$stripContent+"\n");
+          if(!size($stripContent))
+          {
+            sysFile -del $conFigFileNameForOpen;
+          }
+          else
+          {
+          $fileId=`fopen $conFigFileNameForOpen "w"`;
+            fprint $fileId $newContent;
+            fflush $fileId;
+            fclose $fileId; 
+        }
+        }
+    }
+    return 1;
+}
+
+//uninstall MG-Picker Studio --------------------------------------
+proc uninstallMGPicker_doneReport ()
+{
+    global string $MGPicker_AppName;
+    if (`window -exists MGPicker_UninstallationUI`)
+    {
+        deleteUI MGPicker_UninstallationUI;
+    }
+    global string $MGPicker_UninstallDone_Rep;
+    confirmDialog -title $MGPicker_AppName -message $MGPicker_UninstallDone_Rep -button "OK"; 
+}
+proc uninstallAllMGPickerShelves()
+{   
+    global string $gMGPicker_ShelfLabel_anim;
+    global string $gMGPicker_ShelfLabel_designer;
+    
+  global string $gShelfTopLevel;
+  if(!`control -q -ex $gShelfTopLevel`)
+  {
+      MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.uninstall.mayaShelfNoExist"` 1;
+      return;
+  }
+    
+    string $tabs[] =`tabLayout -q -childArray $gShelfTopLevel`;
+    string $cTab;
+    int $clearCount;
+    for($cTab in $tabs)
+    {
+        string $children []=`shelfLayout -q -ca $cTab`;
+        for ($eachOldSB in $children)
+        {
+            if(!`shelfButton -q -ex $eachOldSB`)
+            {
+                continue;
+            }
+            string $lbl = `shelfButton -q -l $eachOldSB`;
+            if($lbl == $gMGPicker_ShelfLabel_anim || $lbl == $gMGPicker_ShelfLabel_designer)
+            {
+                deleteUI -ctl $eachOldSB;
+                $clearCount ++;
+            }
+        }        
+   }
+  
+  if($clearCount)
+  {
+    saveAllShelves $gShelfTopLevel;
+  }
+  
+  MGP_ScriptEditorFeedback `MGP_MultiLanguage_rep1 "pkr.uninstall.shelf.rep" $clearCount` 0;
+}
+
+proc int mgp_isLocalInstalled()
+{
+      global string $MGPicker_FolderName;
+    string $folderInScriptEditor = (`internalVar -usd`+$MGPicker_FolderName+"/");
+    return `filetest -d $folderInScriptEditor`;
+}
+global proc MGP_UninstallMGPicker_doit ()
+{
+    global string $MGPicker_AppName;
+    
+  //get options:-------------------------------------------------------
+  int $program = `checkBox -q -v  uninstallMGPicker_ClearPrgramCB`;
+  //int $registry = `checkBox -q -v  uninstallMGPicker_ClearRegistryCB`;
+  int $config = `checkBox -q -v  uninstallMGPicker_ClearConfigCB`;
+  int $data = `checkBox -q -v  uninstallMGPicker_ClearPickerDataCB`;
+  int $template = `checkBox -q -v  uninstallMGPicker_ClearPickerTemplatesCB`;
+  int $operation = ($program + $config + $data + $template);
+  if(!$operation)
+  {
+    confirmDialog -title $MGPicker_AppName
+                                  -message `MGP_MultiLanguage "pkr.uninstall.noActionDone"`
+                                  -button "OK"
+                                  -defaultButton "OK"
+                                  -dismissString "OK";
+    return;
+  }
+  string $uninstall = `MGP_MultiLanguage "pkr.uninstall"`;
+  string $cancel = `MGP_MultiLanguage "pkr.cancel"`;
+  string $msg = `MGP_MultiLanguage "pkr.uninstall.confirm"`;
+  string $answer = `confirmDialog -title $MGPicker_AppName
+                                  -message $msg
+                                  -button $uninstall 
+                                  -button $cancel 
+                                  -defaultButton $cancel
+                                  -dismissString $cancel`;
+  if($answer != $uninstall)
+  {
+    if (`window -exists MGPicker_UninstallationUI`)
+    {
+        deleteUI MGPicker_UninstallationUI;
+    }
+    return;
+  }
+       
+     
+    layout -e -en 0 uninstallMGPicker_OptionCL;
+    layout -e -en 0 uninstallMGPicker_BtmRL;
+      
+    separator -e -vis 0 uninstallMGPicker_MidSep;
+    progressBar -e -vis 1 uninstallMGPicker_ProgressBar;    
+    
+    //clear the registry first:    
+    //if($registry)
+    //{
+    //  MGPicker -drg;
+    //  MGP_ScriptEditorFeedback `MG_DualLan "MGtools.uninstall.dereg.done.rep"` 1;
+    //}  
+    
+    int $percentage;
+    
+    //first clean up program related issues:
+    if($program)
+    {      
+        //unload plugin which will close ui as well:
+        MGP_PluginLoadUnload 0 0;
+        
+      //remove shelves--------------------
+      uninstallAllMGPickerShelves; 
+             
+      //remove userSetups --------------------
+      MGP_CleanUpOldUserSetupAutoloading;
+      MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.uninstall.autoload"` 0;       
+    }
+    
+    
+    global string $MGPicker_FolderName;
+    string $folderInScriptEditor = (`internalVar -usd`+$MGPicker_FolderName+"/");
+    int $localExists = `filetest -d $folderInScriptEditor`;
+    
+    int $removeAllFiles = ($program * $config);
+    //if remove all the files:
+    if($removeAllFiles)
+    {
+            if($localExists)
+            {
+                    MGP_DeleteFolder_Ex $folderInScriptEditor uninstallMGPicker_ProgressBar "" 0 0;
+                    MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.uninstall.program"` 0; 
+                    MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.uninstall.userCfg"` 0; 
+                }
+    }
+    else
+    {
+        if($program && $localExists)
+        {
+                MGP_DeleteFolder_Ex ($folderInScriptEditor+"MGPicker_Program") uninstallMGPicker_ProgressBar "" 0 0;
+                
+                //delete all files inside root dir:
+            string $subFolders[]=`getFileList -fld $folderInScriptEditor`;
+            for($each in $subFolders)
+            {
+                if($each == "." || $each == "..")
+                    continue;
+                if(`filetest -f ($folderInScriptEditor+$each)`)
+                {
+                    sysFile -del ($folderInScriptEditor+$each);
+                }
+            }
+        MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.uninstall.program"` 0; 
+        }
+        if($config  && $localExists)
+        {
+                MGP_DeleteFolder_Ex ($folderInScriptEditor+"MGPicker_UserConfig") uninstallMGPicker_ProgressBar "" 0 0;
+        MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.uninstall.userCfg"` 0; 
+        }
+    }    
+    //user data
+    if($data)
+    {
+            MGP_DeleteFolder_Ex `MGP_getPkrDataDirectory` uninstallMGPicker_ProgressBar "" 0 0;
+            MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.uninstall.userData"` 0; 
+        }
+        
+    //user template
+    if($template)
+    {
+            MGP_DeleteFolder_Ex `MGP_getPickerUserTamplateDirectory` uninstallMGPicker_ProgressBar "" 0 0;
+            MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.uninstall.userTemplates"` 0; 
+        }
+        
+    uninstallMGPicker_doneReport;      
+}
+global proc MGP_UninstallOptionCC()
+{
+    int $program = `checkBox -q -v  uninstallMGPicker_ClearPrgramCB`;
+  //int $registry = `checkBox -q -v  uninstallMGPicker_ClearRegistryCB`;
+  int $config = `checkBox -q -v  uninstallMGPicker_ClearConfigCB`;
+  int $data = `checkBox -q -v  uninstallMGPicker_ClearPickerDataCB`;
+  int $template = `checkBox -q -v  uninstallMGPicker_ClearPickerTemplatesCB`;
+  int $operation = ($program + $config + $data + $template);
+  button -e -en $operation uninstallMGPicker_DoitBtn;
+}
+global proc MGP_UninstallWizard()
+{
+        global string $MGPicker_AppName;
+        string $title = (`MGP_MultiLanguage "pkr.uninstall.lbl"`+" "+$MGPicker_AppName);
+        if (`window -exists MGPicker_UninstallationUI`)
+    {
+        deleteUI MGPicker_UninstallationUI;
+    }
+    window -title $title  MGPicker_UninstallationUI;
+    string $form = `formLayout`;
+    string $cl = `columnLayout -adjustableColumn 1 -rowSpacing 3 uninstallMGPicker_OptionCL`;
+        
+    //test if it is locally installed:  
+    int $localExists = `mgp_isLocalInstalled`;
+    
+    checkBox -align "left" -l `MGP_MultiLanguage "pkr.uninstallUi.program"` -cc "MGP_UninstallOptionCC" -v 1 uninstallMGPicker_ClearPrgramCB;
+    
+    //checkBox -align "left" -l "Earse Registry Information" -v 0 uninstallMGPicker_ClearRegistryCB;    
+    checkBox -align "left" -l `MGP_MultiLanguage "pkr.uninstallUi.config"` -vis $localExists -v 0 -cc "MGP_UninstallOptionCC" uninstallMGPicker_ClearConfigCB;
+    
+    separator -st "in";
+    checkBox -align "left" -l ("!! "+`MGP_MultiLanguage "pkr.uninstallUi.templates"`) -v 0 -cc "MGP_UninstallOptionCC" uninstallMGPicker_ClearPickerTemplatesCB;
+    checkBox -align "left" -l ("!! "+`MGP_MultiLanguage "pkr.uninstallUi.data"`) -v 0 -cc "MGP_UninstallOptionCC" uninstallMGPicker_ClearPickerDataCB;
+    
+    text -en 0 -vis (1-$localExists) -l `MGP_MultiLanguage "pkr.uninstall.server.tip"` -align "left";
+    setParent $form;
+    
+    string $sep = `separator -st "in" uninstallMGPicker_MidSep`;
+    string $progressBar = `progressBar -vis 0 -h 15 -min 0 -max 100 -progress 0 uninstallMGPicker_ProgressBar`;
+    string $btnRL = `rowLayout -nc 3 -cw3 1 100 100 -cl3 "center" "center" "center"  -adj 1 uninstallMGPicker_BtmRL`;
+        text -l "";
+        button -align "center" -l `MGP_MultiLanguage "pkr.cancel"` -w 100 -c "deleteUI MGPicker_UninstallationUI" uninstallMGPicker_CancelBtn;
+        button -align "center" -l `MGP_MultiLanguage "pkr.uninstall"` -w 100 -c "MGP_UninstallMGPicker_doit" uninstallMGPicker_DoitBtn;
+    formLayout -e  
+                -af $cl "top" 10
+                -af $cl "left" 10
+                -af $cl "right" 10
+                -ac $cl "bottom" 10 $sep
+                
+                -af $sep "left" 5
+                -af $sep "right" 5
+                -ac $sep "bottom" 5 $btnRL
+                
+                -af $progressBar "left" 5
+                -af $progressBar "right" 5
+                -ac $progressBar "bottom" 5 $btnRL
+                
+                -af $btnRL "left" 5
+                -af $btnRL "right" 5
+                -af $btnRL "bottom" 5
+             $form;
+    showWindow MGPicker_UninstallationUI;
+     //window -q -wh MGPicker_UninstallationUI;   
+    window -e -wh 450 200 MGPicker_UninstallationUI;  
+    
+    //eval the done report string before the plugin been unloaded:
+    global string $MGPicker_UninstallDone_Rep;
+    $MGPicker_UninstallDone_Rep = `MGP_MultiLanguage "pkr.uninstall.done"`; 
+}
+
+global proc string MGP_getWindowName()
+{
+    global string $MGPicker_DockControlName;
+    return $MGPicker_DockControlName;
+}
+
+global proc MGP_atPickerUiModeSwitchedFromCPP( int $mode )
+{
+    global string $MGPicker_Config_UiMode;
+    optionVar -iv $MGPicker_Config_UiMode $mode;
+}
+
+global proc MGP_InitUiMode(int $mode)
+{
+    global string $MGPicker_Config_UiMode;
+    if(`optionVar -ex $MGPicker_Config_UiMode`)
+    {
+        $mode = `optionVar -q $MGPicker_Config_UiMode`;
+    }
+    mgp_switchUIMode $mode;
+}
+
+
+global proc MPG_UiContent()
+{
+    global string $MGPicker_AppName;
+    global string $MGPicker_ControlName;
+    global string $MGPicker_WindowName; 
+    //global string $MGPicker_RestoreButton;        
+    if(!`exists MGPicker`)
+    {
+        MGP_PluginLoadUnload 1 0;
+    }
+    global string $MGPicker_FrameFormLayout;
+    string $frameL = `formLayout $MGPicker_FrameFormLayout`;
+    global int $MGPKR_OStype;
+    int $mayaV = `mgp_getMayaVersionNumForPlugin`;
+    MGPicker $MGPicker_ControlName;
+    
+    // for the visibility trick below, maybe it does not matter since we hide the MGPicker widget before
+    // we add it to parent layout widget.
+    // but we keep the code in case it still helps:
+    if($MGPKR_OStype==1) // if it is macosx:
+    {
+        int $dock = `mgp_wasDocking`;
+        if($dock)
+        {
+            // here not sure why we need to do evalDeferred.
+            evalDeferred ("MGPicker -e -vis 1 \""+$MGPicker_ControlName+"\"");
+        }
+        else
+        {
+            MGPicker -vis 1 $MGPicker_ControlName;
+        }
+    }
+    else
+    {
+        // it seemed a must to call -e -vis 1 here:
+        MGPicker -e -vis 1 $MGPicker_ControlName;
+
+        // here not sure why we did evalDeferred before:
+        // evalDeferred ("MGPicker -e -vis 1 \""+$MGPicker_ControlName+"\"");
+    }
+    formLayout -e        
+        -af $MGPicker_ControlName "top" 0 
+        -af $MGPicker_ControlName "left" 0
+        -af $MGPicker_ControlName "right" 0
+        -af $MGPicker_ControlName "bottom" 0
+        $frameL;
+    
+    MGP_InitUiMode 1; //This 1 is default init ui mode, if it is in optionvar, it will use value in optionvar.    
+    // here not sure why we did evalDeferred before:
+    // evalDeferred ("MGP_InitUiMode 1"); //This 1 is default init ui mode, if it is in optionvar, it will use value in optionvar.
+  
+}
+    
+proc mgp_cleanUpAutoloading()
+{
+    global string $MGPIcker_AutoloadingCleaned_Maya2017;
+    if(!`optionVar -ex $MGPIcker_AutoloadingCleaned_Maya2017` || !`optionVar -q $MGPIcker_AutoloadingCleaned_Maya2017`)
+    {
+        MGP_CleanUpOldUserSetupAutoloading;
+    }
+    optionVar -iv $MGPIcker_AutoloadingCleaned_Maya2017 1;
+}
+
+global proc MGP_WorkspaceUI()
+{
+    MPG_UiContent;  
+}
+
+
+
+global proc MG_PickerStudio(int $mode)
+//$mode 0: designer mode;
+//$mode 1: animator mode;
+// the workspaceControl feature is available since Maya2017, as now we don't support Maya2016, we can safely 
+// remove all the autoload via usersetup.mel/usersetup.py code.
+{   
+    global string $MGPicker_AppName;
+    global string $MGPicker_DockControlName;
+    global string $MGPicker_ControlName;
+    global string $MGPicker_WindowName; 
+    if(!`MGP_PluginLoadUnload 1 1`)
+    {
+        return;
+    }
+    
+    
+    string $uiScript = `mgp_getLoaderMelSourceCode`+"MGP_WorkspaceUI;";
+    if(`workspaceControl -q -ex $MGPicker_DockControlName`)
+    {
+        workspaceControl -e -vis 1 -raise $MGPicker_DockControlName;
+        if(catchQuiet (`workspaceControl -e -restore $MGPicker_DockControlName`))
+        {
+            print "\n";
+        }
+        // -ui $uiScript better not be here for editing since that will crash maya.     
+    }  
+    else
+    {          
+        global int $MGPicker_AvoidSourceAgain;
+        $MGPicker_AvoidSourceAgain = 1;
+        workspaceControl -ui $uiScript 
+                        -label `MGPicker -q -windowTitle` 
+                        -minimumWidth 140
+                        -loadImmediately 1
+                        $MGPicker_DockControlName;
+        mgp_cleanUpAutoloading;
+    }        
+    if(`mgp_getPickerDesignerOrAnimatorMode` != $mode)
+    {
+        mgp_switchUIMode $mode;
+    }
+}
+
+//translation -------------------------------------------
+global proc MGP_AtLanguageChanged(string $languageName)
+{
+    //translate the app name first:
+    global string $MGPicker_AppName;
+    $MGPicker_AppName = `MGP_MultiLanguage "pkr.app"`;
+    
+    //3d model panel--------------------------------------
+    if(`optionMenu -q -ex MGPicker_3DModelView_camOM`)
+    {
+        string $camLbl = `MGP_MultiLanguage "pkr.Cam"`;
+        optionMenu -e -l $camLbl MGPicker_3DModelView_camOM;
+        string $ann = `MGP_MultiLanguage "pkr.texture.ann"`;                
+      iconTextButton -e -ann $ann MGP_ShowTex_ITCB;
+      $ann = `MGP_MultiLanguage "pkr.fieldChart.ann"`;
+      iconTextButton -e -ann $ann MGP_WireOnShaded_ITCB; 
+      string $text = `MGP_MultiLanguage "pkr.isolateSelRig.lbl"`;
+      menuItem -e -l $text MGP_IsolateRig_MI;
+      $text = `MGP_MultiLanguage "pkr.isolateSelObj.lbl"`;
+      menuItem -e  -l $text MGP_IsolateObj_MI;
+      $text = `MGP_MultiLanguage "pkr.isolateCancel.lbl"`;
+      menuItem -e  -l $text MGP_IsolateCancel_MI;
+  }
+  if(`menuItem -q -ex MGP_UpdateStyleMenuMI`)
+  {
+    menuItem -e -l `MGP_MultiLanguage "pkr.updateMenu.lbl"`  MGP_UpdateStyleMenuMI;
+  }
+  if(`menuItem -q -ex MGP_UpdateCameraMenuMI`)
+  {
+    menuItem -e -l `MGP_MultiLanguage "pkr.updateMenu.lbl"`  MGP_UpdateCameraMenuMI;
+  }
+        
+    //uninstall UI-----------------------------------------------------------
+    if(`checkBox -q -ex uninstallMGPicker_ClearPrgramCB`)
+    {
+        checkBox -e -l `MGP_MultiLanguage "pkr.uninstallUi.program"` uninstallMGPicker_ClearPrgramCB;
+        checkBox -e -l `MGP_MultiLanguage "pkr.uninstallUi.config"` uninstallMGPicker_ClearConfigCB;
+        checkBox -e -l `MGP_MultiLanguage "pkr.data.program"` uninstallMGPicker_ClearPickerDataCB;
+    
+        button -e -l `MGP_MultiLanguage "pkr.cancel"` uninstallMGPicker_CancelBtn;
+        button -e -l `MGP_MultiLanguage "pkr.uninstall"` uninstallMGPicker_DoitBtn;
+    }
+}
+//MG_PickerStudio;

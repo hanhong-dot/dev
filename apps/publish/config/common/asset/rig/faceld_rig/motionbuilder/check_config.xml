@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<check name="check" project="">
+    <!-- check_page 属性说明 name    检查分页的名称
+                           project  继承的项目
+
+    属性说明
+                  order_id       表示检查的顺序
+                  projectType    表示这个item是这类项目的类型才显示  类型有：TV,FILM,AD,all
+                  item_name      表示该item的名字
+                  toolTip        表示提示文字
+                  check_command  表示调用的检测命令,需传个固定的参数TaskData_Class给方法或类，这样无需重新初始化task_data，这样速度会快很多
+                  fix_command    表示修复的命令 表示修复的命令 当为False时候不进行修复
+                  except_project 表示排除的项目名
+                  except_projectType 表示排除的项目类型  建议当projectType为all时候进行排除
+                  ignore         表示忽略按钮的开启，当为True被开启，当为False被关闭
+
+
+    -->
+    <check_tab tab_name="通用检查">
+<!--        <checkItem order_id="1" projectType="all"-->
+<!--                   item_name="检查项目当前motionbuilder的相关版本"-->
+<!--                   toolTip="检查motionbuilder版本信息"-->
+<!--                   check_command="import apps.publish.check.mobu.check_mobu_verion as check_mobu_verion;check_mobu_verion.Check().checkinfo()"-->
+<!--                   fix_command=""-->
+<!--                   except_project=""-->
+<!--                   except_projectType=""-->
+<!--                   ignore="False"/>-->
+
+
+<!--        <checkItem order_id="2" projectType="all"-->
+<!--                   item_name="检查当前文件Take"-->
+<!--                   toolTip="检查当前文件Take"-->
+<!--                   check_command="import apps.publish.check.mobu.shot.check_take as check_take;check_take.Check().checkinfo()"-->
+<!--                   fix_command=""-->
+<!--                   except_project=""-->
+<!--                   except_projectType=""-->
+<!--                   ignore="False"/>-->
+
+
+    </check_tab>
+</check>

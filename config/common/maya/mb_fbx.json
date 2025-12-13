@@ -1,0 +1,713 @@
+{
+  "Asset.body.rig.drama_rig": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*001H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*001H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*001H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD",
+      "*001H_New_LD",
+      "*001F_New_LD",
+      "*001B_New_LD"
+    ]
+  },
+  "Asset.body.outsource.out_rig": {
+    "fbx_file": "{entity_name}_out_MB.fbx",
+    "fbx_objs": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*001H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*001H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*001H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD",
+      "*001H_New_LD",
+      "*001F_New_LD",
+      "*001B_New_LD"
+    ]
+  },
+  "Asset.body.outsource.out_rig_rm": {
+    "fbx_file": "{entity_name}_out_rm.fbx",
+    "fbx_objs": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*001H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*001H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*001H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD",
+      "*001H_New_LD",
+      "*001F_New_LD",
+      "*001B_New_LD"
+    ]
+  },
+  "Asset.role.rig.drama_rig": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.role.outsource.out_rig": {
+    "fbx_file": "{entity_name}_out_MB.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_FX_LD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.role.outsource.out_rig_rm": {
+    "fbx_file": "{entity_name}_out_rm.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_FX_LD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.role.rbf.rbf": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_FX_LD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.role.rbf.rbf_rm": {
+    "fbx_file": "{entity_name}_rm_MB.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_FX_LD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.cartoon_body.rig.drama_rig": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*001H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*001H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*001H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.cartoon_body.outsource.out_rig": {
+    "fbx_file": "{entity_name}_out_MB.fbx",
+    "fbx_objs": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*001H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*001H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.cartoon_body.outsource.out_rig_rm": {
+    "fbx_file": "{entity_name}_out_rm.fbx",
+    "fbx_objs": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "*001H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*001H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*001H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.cartoon_role.rig.drama_rig": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_UP_HD",
+      "{entity_name}_DN_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_FX_LD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_UP_HD",
+      "{entity_name}_DN_HD",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.cartoon_role.outsource.out_rig": {
+    "fbx_file": "{entity_name}_out_MB.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_FX_LD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.cartoon_role.outsource.out_rig_rm": {
+    "fbx_file": "{entity_name}_out_rm.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_FX_LD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.cartoon_role.rbf.rbf": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_UP_HD",
+      "{entity_name}_DN_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_FX_LD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_UP_HD",
+      "{entity_name}_DN_HD",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.npc.rig.drama_rig": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*_Rig"
+    ],
+    "model_grp": [
+      "*_Rig"
+    ]
+  },
+  "Asset.npc.outsource.out_rig": {
+    "fbx_file": "{entity_name}_out_MB.fbx",
+    "fbx_objs": [
+      "*_Rig"
+    ],
+    "model_grp": [
+      "*_Rig"
+    ]
+  },
+  "Asset.npc.rbf.rbf": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*_Rig"
+    ],
+    "model_grp": [
+      "*_Rig"
+    ]
+  },
+  "Asset.cartoon_npc.rig.drama_rig": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*_Rig"
+    ],
+    "model_grp": [
+      "*_Rig"
+    ]
+  },
+  "Asset.npc.outsource.out_rig_rm": {
+    "fbx_file": "{entity_name}_out.fbx",
+    "fbx_objs": [
+      "*_Rig"
+    ],
+    "model_grp": [
+      "*_Rig"
+    ]
+  },
+  "Asset.cartoon_npc.outsource.out_rig": {
+    "fbx_file": "{entity_name}_out_MB.fbx",
+    "fbx_objs": [
+      "*_Rig"
+    ],
+    "model_grp": [
+      "*_Rig"
+    ]
+  },
+  "Asset.cartoon_npc.outsource.out_rig_rm": {
+    "fbx_file": "{entity_name}_out_rm.fbx",
+    "fbx_objs": [
+      "*_Rig"
+    ],
+    "model_grp": [
+      "*_Rig"
+    ]
+  },
+  "Asset.cartoon_npc.rbf.rbf": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*_Rig"
+    ],
+    "model_grp": [
+      "*_Rig"
+    ]
+  },
+  "Asset.enemy.rig.drama_rig": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*_Rig"
+    ],
+    "model_grp": [
+      "*_Rig"
+    ]
+  },
+  "Asset.hair.rbf.rbf": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_FX_LD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  },
+  "Asset.hair.rig.drama_rig": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*_HD",
+      "*_Tails_HD",
+      "*_EA_HD",
+      "*_FA_HD",
+      "*_EA_LD",
+      "*_FA_LD",
+      "*_HE_LD ",
+      "{entity_name}_HD",
+      "Roots"
+    ],
+    "model_grp": [
+      "*_HD",
+      "*_LD",
+      "*_H_HD",
+      "*_H_LD",
+      "*_FA_HD",
+      "*_FX_HD",
+      "*_FX_LD",
+      "*_Tails_HD",
+      "*_EA_HD",
+      "*_FA_HD",
+      "*_EA_LD",
+      "*_FA_LD",
+      "*_HE_LD ",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD",
+      "{entity_name}_HD"
+    ]
+  },
+  "Asset.hair.outsource.out_rig": {
+    "fbx_file": "{entity_name}_MB.fbx",
+    "fbx_objs": [
+      "*001F_HD",
+      "*H_HD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "{entity_name}_HD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "Roots"
+    ],
+    "model_grp": [
+      "{entity_name}_HD",
+      "{entity_name}_LD",
+      "{entity_name}_H_HD",
+      "{entity_name}_H_LD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_FX_HD",
+      "{entity_name}_FX_LD",
+      "{entity_name}_Tails_HD",
+      "{entity_name}_EA_HD",
+      "{entity_name}_FA_HD",
+      "{entity_name}_EA_LD",
+      "{entity_name}_FA_LD",
+      "{entity_name}_HE_LD ",
+      "*H_HD",
+      "*001F_HD",
+      "*001B_HD",
+      "*H_LD",
+      "*001F_LD",
+      "*001B_LD",
+      "*H_New_HD",
+      "*001F_New_HD",
+      "*001B_New_HD"
+    ]
+  }
+}

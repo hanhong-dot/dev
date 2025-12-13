@@ -1,0 +1,34 @@
+[
+    [
+        "jawLeft",
+        "jawRight"
+    ],
+    [
+        "mouthLeft",
+        "mouthRight"
+    ],
+    [
+        "eyeBlinkL",
+        "eyeWidenL"
+    ],
+    [
+        "eyeBlinkR",
+        "eyeWidenR"
+    ],
+    [
+        "eyeLookLeftL",
+        "eyeLookRightL"
+    ],
+    [
+        "eyeLookDownL",
+        "eyeLookUpL"
+    ],
+    [
+        "eyeLookLeftR",
+        "eyeLookRightR"
+    ],
+    [
+        "eyeLookDownR",
+        "eyeLookUpR"
+    ]
+]

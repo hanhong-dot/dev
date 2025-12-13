@@ -1,0 +1,204 @@
+///////////////////////////////////////////
+// BRUTE FORCE TRAIL 1.3		 //
+// --------------------------------------//
+// + vertex trail			 //
+// + selected timerage			 //
+// + empty selection check		 //
+///////////////////////////////////////////
+//delete
+proc BF_trail_delete()
+{
+    if(`objExists "BF_trail"`) {delete BF_trail;}
+    if(`objExists "locatorForTrail*"`) {delete "locatorForTrail*";}
+}
+//vertex/object selection check
+proc BF_trail_init()
+{
+    global string $BF_selected[];
+    global string $lssl[];
+    global int $Obj_vs_Vertex;
+    global string $AmountOfValues[];
+    print $BF_selected[0];
+    int $Obj_vs_Vertexs = `tokenize $lssl[0] "[" $AmountOfValues`;
+    BF_trail_delete;
+    if ($Obj_vs_Vertexs == 2)
+    {
+        //create locator
+        spaceLocator -n locatorForTrail_vertex;
+        setAttr "locatorForTrail_vertex.visibility" 0;
+        select -r $BF_selected[0] locatorForTrail_vertex;
+        doCreatePointOnPolyConstraintArgList 1 { "0","0","0","1","","1" }; $BF_selected[0] = "locatorForTrail_vertex"; toggleSelMode;
+        BF_trail;
+    }
+    if ($Obj_vs_Vertexs == 1) {BF_trail;}
+
+}
+
+
+//delete_panel
+proc BF_trail_delete_panel()
+{
+    if(`objExists "BF_trail"`) {delete BF_trail;}
+
+    if ((`window -ex BF_Trail`)==true)
+    deleteUI BF_Trail;
+}
+global proc anim_trail2_process()
+{
+
+    global string $BF_selected[];
+    global string $lssl[];
+    global string $AmountOfValues[];
+    global int $Obj_vs_Vertex;
+    global int $currentLeft;
+    global int $currentRight;
+
+    if(`objExists "BF_trail"`) {delete BF_trail;}
+    if(`objExists "*locatorForTrail*"`) {delete "*locatorForTrail*";}
+    if(`objExists "*locatorForTrail_update*"`) {delete "*locatorForTrail_update*";}
+
+    //time range
+    global string $gPlayBackSlider;
+
+
+    float $Range[] = `timeControl -q -ra $gPlayBackSlider`;
+    $RangeStart = $Range[1] - $Range[0];
+
+    if($RangeStart == 1)
+    {$currentLeft = `playbackOptions -q -min`;$currentRight = `playbackOptions -q -max`;}
+    else
+    {$currentLeft = $Range[0]; $currentRight = $Range[1];}
+
+    //empty selection check
+    $lssl = `ls -sl`;
+    $SelectionAmount = size($lssl);
+    if ($SelectionAmount >= 1) {$BF_selected[0] = $lssl[0]; BF_trail_init;}
+    }
+
+
+
+
+
+
+//////////////////////////////////_____BRUTE FORCE TRAIL______/////////////////////////////////////
+
+
+//Create panel
+proc BF_trail_panel()
+{
+    if ((`window -ex BF_Trail`)==true)
+    deleteUI BF_Trail;
+    string $window = `window -toolbox 1 -t "BFtrail v1.3" -wh 100 100 -s 1 BF_Trail`;
+    rowColumnLayout;
+    rowLayout -nc 2 -cw 30 30 ;
+    setParent..;
+    columnLayout -adj 1;
+    rowColumnLayout -nc 2;
+    button -l "Update" -command "BF_update_button" -bgc .8 .8 .8 -w 80 -h 50;
+    button -l "Delete" -c "source \"Z:/dev/tools/x3_P4/scripts/bf_delete.mel\"" -h 40 -w 80 -bgc .22 .22 .22;
+    setParent..;
+    setParent..;
+    setParent..;
+    showWindow BF_Trail;
+
+
+    scriptJob -p BF_Trail -cu true -e "idle" "source \"Z:/dev/tools/x3_P4/scripts/bf_update.mel\"";
+}
+global proc BF_trail()
+{
+    global string $BF_selected[];
+    global int $currentLeft;
+    global int $currentRight;
+    BF_trail_panel;
+
+
+    // create null
+    spaceLocator -n locatorForTrail;
+
+    // create null for update
+    spaceLocator -n locatorForTrail_update;
+    select -r $BF_selected[0] locatorForTrail_update;
+    pointConstraint -n BFtrailConstrain_update -offset 0 0 0 -weight 1;
+
+    //hide nulls
+    setAttr "locatorForTrail.visibility" 0;
+    setAttr "locatorForTrail_update.visibility" 0;
+
+    //select null and object
+    select -r $BF_selected[0] locatorForTrail;
+    pointConstraint -n BFtrailConstrain -offset 0 0 0 -weight 1;
+
+    //isolate
+    string $panelAr[]=`getPanel -type modelPanel`;
+    for($i=0;$i<size($panelAr);$i++)
+    {isolateSelect -state 1 $panelAr[$i];}
+
+    bakeResults
+    -simulation true
+    -t ($currentRight+":"+$currentLeft)
+    -sampleBy 1
+    -disableImplicitControl true
+    -preserveOutsideKeys true
+    -sparseAnimCurveBake false
+    -removeBakedAttributeFromLayer
+    false -bakeOnOverrideLayer false
+    -minimizeRotation true
+    -at "tx"
+    -at "ty"
+    -at "tz"
+    locatorForTrail;
+
+    //unisolate
+    string $panelArs[]=`getPanel -type modelPanel`;
+    for($i=0;$i<size($panelArs);$i++)
+    {isolateSelect -state 0 $panelArs[$i];}
+
+    //// select null
+    select -r locatorForTrail;
+
+    //unhide motiontrails
+    string $currentPanels = `getPanel -wf`;
+    if ($currentPanels != "graphEditor1" && $currentPanels != "outlinerPanel1" && $currentPanels != "scriptEditorPanel1") {modelEditor -e -motionTrails 1 $currentPanels;}
+
+    // motion trail
+    snapshot -name "BruteForceTrail" -motionTrail 1 -increment 1 -startTime $currentLeft -endTime $currentRight;
+
+    //create group
+    if(`objExists "locatorForTrail_vertex"`) {select -r locatorForTrail locatorForTrail_update BruteForceTrailHandle locatorForTrail_vertex; group -n BF_trail;}
+
+    else {select -r locatorForTrail locatorForTrail_update BruteForceTrailHandle; group -n BF_trail;}
+
+    // trail options
+    setAttr "BruteForceTrailHandleShape.trailColor" -type double3 0.509804 0.101961 0.130053 ;
+    setAttr "BruteForceTrailHandleShape.keyframeColor" -type double3 1 1 1 ;
+    setAttr "BruteForceTrailHandleShape.pinned" 1;
+    setAttr "BruteForceTrailHandleShape.showFrames" 1;
+    setAttr "BruteForceTrailHandleShape.xrayDraw" 1;
+    setAttr "BruteForceTrailHandleShape.showFrameMarkers" 0;
+    setAttr "BruteForceTrailHandleShape.showFrameMarkerFrames" 0;
+    setAttr "BruteForceTrailHandleShape.showInTangent" 0;
+    setAttr "BruteForceTrailHandleShape.showOutTangent" 0;
+    setAttr "BruteForceTrailHandleShape.showInBead" 0;
+    setAttr "BruteForceTrailHandleShape.showOutBead" 0;
+    setAttr "BruteForceTrailHandleShape.modifyKeys" 0;
+
+    select -r $BF_selected[0];
+}
+
+
+
+
+//Update_button
+global proc BF_update_button()
+{
+    string $TempSelect[]=`ls -sl`;
+    global string $lssl[];
+    global string $BF_selected[];
+    global int $Obj_vs_Vertex;
+    source "Z:/dev/tools/x3_P4/scripts/bf_delete.mel";
+
+    if ($Obj_vs_Vertex==2){$BF_selected[0] = $lssl[0]; select -r $lssl[0]; toggleSelMode; BF_trail_init; select -r $TempSelect;}
+    if ($Obj_vs_Vertex==1){select -r $lssl[0]; BF_trail_init; select -r $TempSelect;}
+}
+
+

@@ -1,0 +1,522 @@
+[
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_16_lod", 
+        "weight": 0.4678226113319397
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_17", 
+        "weight": 0.2287124280439679
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_18_lod", 
+        "weight": 0.019974984675086693
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_20", 
+        "weight": 0.10427790212838278
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_21", 
+        "weight": 0.13018696204106453
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_22", 
+        "weight": 0.07332187200577461
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_35", 
+        "weight": 0.5456305146217346
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_36", 
+        "weight": 0.7000064849853516
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_37", 
+        "weight": 0.8000257134882027
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_38", 
+        "weight": 0.8616279512471594
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_40", 
+        "weight": 0.4804254034224058
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_41", 
+        "weight": 0.711349061176188
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_42", 
+        "weight": 0.9977184395032025
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_45", 
+        "weight": 0.33596621035522534
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_50", 
+        "weight": 0.6562832593917847
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_51_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_52_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_53", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_54_lod", 
+        "weight": 0.7999534249222442
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_55", 
+        "weight": 0.8001250624749856
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_56_lod", 
+        "weight": 0.8008165996307266
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_57_lod", 
+        "weight": 0.8072899618021945
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_59_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_60_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_61", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_62_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_63_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_64", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_65", 
+        "weight": 0.799732541966226
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_66", 
+        "weight": 0.7998040077792496
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_67", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_68", 
+        "weight": 0.8000000119209298
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_73_lod", 
+        "weight": 0.8000000119209298
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_80", 
+        "weight": 0.6874456814871183
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_81_lod", 
+        "weight": 0.3467934520963757
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_82", 
+        "weight": 0.6307658351328006
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_96", 
+        "weight": 0.9428982256005065
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_97", 
+        "weight": 0.9999701502780222
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_98_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_99_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_100_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_101_lod", 
+        "weight": 0.8023825917593571
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_104_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_105_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_106_lod", 
+        "weight": 0.8000011920940324
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_107_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_108_lod", 
+        "weight": 0.8396510146468449
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_109_lod", 
+        "weight": 0.7415172711405678
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_110_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_111", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_112", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_113", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_114", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_115", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_116", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_117", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_120_lod", 
+        "weight": 1.0
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_L_121_lod", 
+        "weight": 0.7795090467596405
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_3_lod", 
+        "weight": 0.24192572769633341
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_4_lod", 
+        "weight": 0.6469348669052124
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_7_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_8_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_9_lod", 
+        "weight": 0.8079961068626738
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_10_lod", 
+        "weight": 0.8655302950152763
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_11_lod", 
+        "weight": 1.0
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_15_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_16", 
+        "weight": 0.474753602586794
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_18", 
+        "weight": 0.016709137894687854
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_19_lod", 
+        "weight": 1.0
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_20", 
+        "weight": 1.0
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_21", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_M_22", 
+        "weight": 1.0
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_16_lod", 
+        "weight": 0.4678226113319397
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_17", 
+        "weight": 0.2287124280439679
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_18_lod", 
+        "weight": 0.019974984675086693
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_20", 
+        "weight": 0.10427790212838278
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_21", 
+        "weight": 0.13018696204106453
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_22", 
+        "weight": 0.07332187200577461
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_35", 
+        "weight": 0.5456305146217346
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_36", 
+        "weight": 0.7000064849853516
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_37", 
+        "weight": 0.8000257134882027
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_38", 
+        "weight": 0.8616279512471594
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_40", 
+        "weight": 0.4804254034224058
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_41", 
+        "weight": 0.711349061176188
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_42", 
+        "weight": 0.9977184401428292
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_45", 
+        "weight": 0.33596622450148766
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_50", 
+        "weight": 0.6562832593917847
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_51_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_52_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_53", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_54_lod", 
+        "weight": 0.7999534249679207
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_55", 
+        "weight": 0.8001250624749856
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_56_lod", 
+        "weight": 0.8008165996307266
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_57_lod", 
+        "weight": 0.8072899618021945
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_59_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_60_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_61", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_62_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_63_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_64", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_65", 
+        "weight": 0.799732541966226
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_66", 
+        "weight": 0.7998040077792496
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_67", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_68", 
+        "weight": 0.8000000119209298
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_73_lod", 
+        "weight": 0.8000000119209298
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_80", 
+        "weight": 0.6874456814871183
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_81_lod", 
+        "weight": 0.3467934520963757
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_82", 
+        "weight": 0.6307658476488835
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_96", 
+        "weight": 0.9428982256005065
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_97", 
+        "weight": 0.9999701514647366
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_98_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_99_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_100_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_101_lod", 
+        "weight": 0.8023825917593571
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_104_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_105_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_106_lod", 
+        "weight": 0.8000011920940324
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_107_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_108_lod", 
+        "weight": 0.8396510146468449
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_109_lod", 
+        "weight": 0.7415172711405678
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_110_lod", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_111", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_112", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_113", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_114", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_115", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_116", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_117", 
+        "weight": 0.800000011920929
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_120_lod", 
+        "weight": 1.0
+    }, 
+    {
+        "name": "RY_Rig/Roots/Root_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/NeckPart1_M/Head_M/Head_M_spare/Head_rivet_R_121_lod", 
+        "weight": 0.7795090467596405
+    }
+]

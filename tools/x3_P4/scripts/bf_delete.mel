@@ -1,0 +1,11 @@
+
+
+//delete_panel
+proc BF_trail_delete_panel()
+{
+    if(`objExists "BF_trail"`) {delete BF_trail;}
+
+    if ((`window -ex BF_Trail`)==true)
+    deleteUI BF_Trail;
+}
+BF_trail_delete_panel;

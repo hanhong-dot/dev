@@ -1,0 +1,228 @@
+{
+  "1_common_change": {
+    "name": "refresh",
+    "label": "Refresh",
+    "icon": "Z:\\dev\\ico\\sq32\\step\\refresh.png",
+    "ann": "Refresh",
+    "command": "import apps.launch.maya.interface.maya_launch as maya_launch;maya_launch.load_maya_2023_shelf()",
+    "cmdrepeat": 1
+  },
+  "2_common_Uni": {
+    "name": "uni",
+    "label": "Uni",
+    "icon": "Z:\\dev\\ico\\sq32\\step\\common.png",
+    "ann": "通用工具",
+    "command": "import apps.launch.maya.interface.shelf_common as shelf_common;shelf_common.change_shelf(\"uni\")",
+    "cmdrepeat": 1,
+    "1_common_MGTools": {
+      "name": "MGTools",
+      "docTag": "uni",
+      "label": "MGTools",
+      "icon": "Z:\\dev\\tools\\plug-ins\\maya\\MGTools\\MGTools\\icon\\MGtoolIcon.bmp",
+      "ann": "MGTools",
+      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/plug-ins/maya/MGTools/MGTools/MGTools_LocalData/userSetup.mel\\\"')",
+      "cmdrepeat": 1
+    }
+  },
+  "3_common_rig": {
+    "name": "rig",
+    "label": "Rig",
+    "icon": "Z:\\dev\\ico\\sq32\\step\\riging.png",
+    "ann": "Rig",
+    "command": "import apps.launch.maya.interface.shelf_common as shelf_common;shelf_common.change_shelf(\"rig\")",
+    "cmdrepeat": 1,
+    "2_common_advancedskeleton": {
+      "name": "advancedskeleton",
+      "docTag": "rig",
+      "label": "advancedskeleton",
+      "icon": "Z:\\dev\\tools\\plug-ins\\maya\\AdvancedSkeleton\\AdvancedSkeletonFiles\\icons\\AS.png",
+      "ann": "advancedskeleton",
+      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/maya2023/AdvancedSkeleton/AdvancedSkeleton.mel\\\";AdvancedSkeleton;')",
+      "cmdrepeat": 1
+    }
+  },
+  "4_common_anim": {
+    "name": "anim",
+    "label": "Anim",
+    "icon": "Z:\\dev\\ico\\sq32\\step\\animation.png",
+    "ann": "动画工具",
+    "command": "import apps.launch.maya.interface.shelf_common as shelf_common;shelf_common.change_shelf(\"anim\")",
+    "cmdrepeat": 1,
+    "1_common_MGPickerStudio_AnimatorMode": {
+      "name": "MGPickerStudio_AnimatorMode",
+      "docTag": "anim",
+      "label": "MP_Ani",
+      "icon": "Z:/dev/tools/plug-ins/maya/MG-PickerStudio/MG-PickerStudio/MGPicker_Program/Icons/Colored/Picker_animModeIcon.png",
+      "ann": "MGPickerStudio AnimatorMode",
+      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/plug-ins/maya/MG-PickerStudiov2/MG-PickerStudio/MGPicker_Program/MGPicker_WrittenByMiguel.mel\\\";MG_PickerStudio 1;')",
+      "cmdrepeat": 1
+    },
+    "2_common_MGPickerStudio_DesignerMode": {
+      "name": "MGPickerStudio_DesignerMode",
+      "docTag": "anim",
+      "label": "MP_Des",
+      "icon": "Z:/dev/tools/plug-ins/maya/MG-PickerStudio/MG-PickerStudio/MGPicker_Program/Icons/Colored/Picker_designerModeIcon.png",
+      "ann": "MGPickerStudio DesignerMode",
+      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/plug-ins/maya/MG-PickerStudiov2/MG-PickerStudio/MGPicker_Program/MGPicker_WrittenByMiguel.mel\\\";MG_PickerStudio 0;')",
+      "cmdrepeat": 1
+    },
+    "3_common_fbx_exporter": {
+      "name": "fbx_exporter",
+      "docTag": "anim",
+      "label": "",
+      "icon": "Z:\\dev\\tools\\x3_P4\\icons\\EXP.png",
+      "ann": "Mfbx_exporter_single_person",
+      "command": "import sys;sys.path.append('Z:/dev/tools/x3_P4/wsy_scripts_2023');import fbx_exporter_single_person as fbx_exporter_single_person;fbx_exporter_single_person.show_ui()",
+      "cmdrepeat": 1
+    },
+    "4_common_maxBake": {
+      "name": "maxBaker",
+      "docTag": "anim",
+      "label": "",
+      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\3toM.png",
+      "ann": "maxBake",
+      "command": "import MaxToMaya_kami.main;MaxToMaya_kami.main.load_ui()",
+      "cmdrepeat": 1
+    },
+    "5_common_ikfk": {
+      "name": "ikfk",
+      "docTag": "anim",
+      "label": "",
+      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\ikfk.png",
+      "ann": "ikfk",
+      "command": "import ikfk as x3_ikfk;x3_ikfk.show()",
+      "cmdrepeat": 1
+    },
+    "6_common_animBot": {
+      "name": "animBot",
+      "docTag": "anim",
+      "label": "",
+      "icon": "Z:/dev/ico/sq32/tools/create_toggle_button_on_shelf_shelf.png",
+      "ann": "animBot Tools",
+      "command": "import animbot_setup as animbot_setup;animbot_setup.load_animbot()",
+      "cmdrepeat": 1
+    },
+    "7_common_spring": {
+      "name": "spring",
+      "docTag": "anim",
+      "label": "",
+      "icon": "Z:\\dev\\tools\\maya\\maya2023\\springmagic_py3\\springmagic\\icons\\spring.png",
+      "ann": "spring",
+      "command": "import sys;sys.path.append('Z:/dev/tools/maya2023/springmagic_py3');import springmagic;springmagic.main()",
+      "cmdrepeat": 1
+    },
+    "8_common_sticon": {
+      "name": "sticon",
+      "docTag": "anim",
+      "label": "",
+      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\sticon.png",
+      "ann": "sticon",
+      "command": "import sys;sys.path.append('Z:/dev/tools/maya2023/studiolibrary-main/src');import studiolibrary;studiolibrary.main()",
+      "cmdrepeat": 1
+    },
+    "9_common_X3SendMB": {
+      "name": "X3SendMB",
+      "docTag": "anim",
+      "label": "SendMB",
+      "icon": "Z:/dev/ico/sq32/send_to_mb.png",
+      "ann": "x3_cahr_to_mb",
+      "command": "import send_x3_cahr_to_mb;send_x3_cahr_to_mb.show()",
+      "cmdrepeat": 1
+    },
+    "10_common_rig_parent_switch": {
+      "name": "ParentSwitch",
+      "docTag": "anim",
+      "label": "ParentSwitch",
+      "icon": "pythonFamily.png",
+      "ann": "ParentSwitch",
+      "command": "from apps.tools.maya import parent_switch;parent_switch.parent_switch()",
+      "cmdrepeat": 1
+    },
+    "11_common_rig_x3_follow_switch": {
+      "name": "X3FollowSwitch",
+      "docTag": "anim",
+      "label": "X3FollowSwitch",
+      "icon": "pythonFamily.png",
+      "ann": "X3FollowSwitch",
+      "command": "import x3_follow_switch;x3_follow_switch.create_follow()",
+      "cmdrepeat": 1
+    },
+    "12_common_sasBiped": {
+      "name": "asBiped",
+      "docTag": "anim",
+      "label": "asBiped",
+      "icon": "Z:\\dev\\tools\\maya2023\\AdvancedSkeleton\\AdvancedSkeletonFiles\\icons\\asBiped.png",
+      "ann": "asBiped",
+      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/maya2023/AdvancedSkeleton/AdvancedSkeletonFiles/Selector/biped.mel\\\"')",
+      "cmdrepeat": 1
+    },
+    "13_common_asFace": {
+      "name": "asFace",
+      "docTag": "anim",
+      "label": "asFace",
+      "icon": "Z:\\dev\\tools\\maya2023\\AdvancedSkeleton\\AdvancedSkeletonFiles\\icons\\asFace.png",
+      "ann": "asFace",
+      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/maya2023/AdvancedSkeleton/AdvancedSkeletonFiles/Selector/face.mel\\\"')",
+      "cmdrepeat": 1
+    },
+    "14_common_animschool_picker": {
+      "name": "animschool_picker",
+      "docTag": "anim",
+      "label": "",
+      "icon": "Z:\\dev\\tools\\AnimSchool_2024\\maya2023\\AnimSchoolIcon.png",
+      "ann": "animschool_picker",
+      "command": "from load_animschool_picker_2023 import load_animschool_picker_2023;load_animschool_picker_2023()",
+      "cmdrepeat": 1
+    },
+    "15_common_anim_aiMetaTool": {
+      "name": "ParentSwitch",
+      "docTag": "anim",
+      "label": "AiMetaTool",
+      "icon": "pythonFamily.png",
+      "ann": "ParentSwitch",
+      "command": "import aiMetaTool;aiMetaTool.ui.show()",
+      "cmdrepeat": 1
+    },
+    "16_common_anim_metahuman": {
+      "name": "Metahuman",
+      "docTag": "anim",
+      "label": "Metahuman",
+      "icon": "pythonFamily.png",
+      "ann": "ParentSwitch",
+      "command": "import sys;sys.path.append('Z:/dev/tools/maya/metahuman_facial_transfer-main');import metahuman_facial_transfer;metahuman_facial_transfer.UI()",
+      "cmdrepeat": 1
+    },
+    "17_common_MeshSynMaya": {
+      "name": "MeshSynMaya",
+      "docTag": "anim",
+      "label": "MeshSynMaya",
+      "icon": "pythonFamily.png",
+      "ann": "MeshSynMaya",
+      "command": "import meshsynmaya_load;meshsynmaya_load.load_meshsynmaya()",
+      "cmdrepeat": 1
+    },
+    "18_common_abcexr": {
+      "name": "abcexr",
+      "docTag": "anim",
+      "label": "abcexr",
+      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\abcexp.png",
+      "ann": "abc_exr",
+      "command": "import pv_pipe.maya_ui as lush_pv;lush_pv.show()",
+      "cmdrepeat": 1
+    },
+    "19_common_MayaUnrealLiveLink": {
+      "name": "MayaUnrealLiveLink",
+      "docTag": "anim",
+      "label": "livelink",
+      "icon": "commandButton.png",
+      "ann": "MayaUnrealLiveLink",
+      "command": "import load_maya_unreal_live_link;load_maya_unreal_live_link.load_maya_unreal_live_link()",
+      "cmdrepeat": 1
+    }
+  }
+}
+
+
+
+
+

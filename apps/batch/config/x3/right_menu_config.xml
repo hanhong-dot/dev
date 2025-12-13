@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--process name="process" project = "common"-->
+<process name="process" project="">
+
+<!--    <process_tab tab_name="上传Version">-->
+<!--        <processItem order_id="1" projectType="all"-->
+<!--                     item_name="Demo1"-->
+<!--                     toolTip="Demo"-->
+<!--                     process_command="import tools.desktop.v2_0.windows.batch.process.batch_process_demo as batch_process_demo;batch_process_demo.BatchProcessDemo(entity_list).get_value()"-->
+<!--                     except_project=""-->
+<!--                     except_projectType=""-->
+<!--        />-->
+<!--        <processItem order_id="2" projectType="all"-->
+<!--                     item_name="Demo2"-->
+<!--                     toolTip="Demo"-->
+<!--                     process_command="import tools.desktop.v2_0.windows.batch.process.batch_process_demo as batch_process_demo;batch_process_demo.BatchProcessDemo(entity_list).get_value()"-->
+<!--                     except_project=""-->
+<!--                     except_projectType=""-->
+<!--        />-->
+<!--        <processItem order_id="3" projectType="all"-->
+<!--                     item_name="Demo3"-->
+<!--                     toolTip="Demo"-->
+<!--                     process_command="import tools.desktop.v2_0.windows.batch.process.batch_process_demo as batch_process_demo;batch_process_demo.BatchProcessDemo(entity_list).get_value()"-->
+<!--                     except_project=""-->
+<!--                     except_projectType=""-->
+<!--        />-->
+<!--    </process_tab>-->
+    <process_tab tab_name="上传PublishFiles">
+        <processItem order_id="1" projectType="all"
+                     item_name="批量检测上传[item][drama_mdl]文件(maya)"
+                     toolTip="批量上传item drama_mdl 文件(maya)"
+                     process_command="import apps.batch.process.batch_process as batch_process;batch_process.BatchProcessPublish(entity_list).get_value('item_mdl_batch_publish')"
+                     except_project=""
+                     except_projectType=""
+        />
+        <processItem order_id="2" projectType="all"
+                     item_name="批量转换fbx为ma文件,并上传[whitebox]"
+                     toolTip="批量转换fbx为ma文件,并上传白盒任务(maya)"
+                     process_command="import apps.batch.process.batch_process as batch_process;batch_process.BatchProcessPublish(entity_list).get_value('item_fbx_cover_wbx_publish')"
+                     except_project=""
+                     except_projectType=""
+        />
+
+    </process_tab>
+</process>

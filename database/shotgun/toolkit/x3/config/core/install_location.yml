@@ -1,0 +1,10 @@
+# SG Pipeline Toolkit configuration file
+# This file was automatically created by setup_project
+# This file reflects the paths in the primary pipeline
+# configuration defined for this project.
+
+Windows: 'Z:\dev\database\shotgun\toolkit\x3'
+Darwin: ''
+Linux: ''
+
+# End of file.

@@ -1,0 +1,150 @@
+{
+  "FILE_SUFFIX": {
+    ".ma": "mayaAscii",
+    ".mb": "mayaBinary",
+    ".abc": "alembic"
+  },
+  "FILE_ATTR": {
+    "RedshiftDomeLight": ".tex0",
+    "file": ".fileTextureName",
+    "dx11Shader": ".shader",
+    "aiImage": ".filename",
+    "aiStandIn": ".dso",
+    "RedshiftProxyMesh": ".fileName",
+    "AlembicNode": ".abc_File",
+    "aiVolume": ".filename",
+    "gpuCache": ".cacheFileName",
+    "Camera01_2Plane": ".imageName"
+  },
+  "TEXTURE_ATTR": {
+    "file": ".fileTextureName",
+    "aiImage": ".filename"
+
+  },
+  "FILE_ATTR_PATH": {
+    "RedshiftDomeLight": "tex",
+    "file": "tex",
+    "aiImage": "tex",
+    "dx11Shader": "shader",
+    "aiStandIn": "agent",
+    "RedshiftProxyMesh": "agent",
+    "AlembicNode": "abc",
+    "aiVolume": "vdb",
+    "gpuCache": "abc",
+    "Camera01_2Plane": "tex",
+    "yeti_texture": "tex"
+  },
+  "RENDER_ATTR": {
+    "deafult": [
+      ".castsShadows",
+      ".receiveShadows",
+      ".primaryVisibility",
+      ".visibleInReflections",
+      ".visibleInRefractions"
+    ],
+    "arnold": [
+      ".primaryVisibility",
+      ".castsShadows",
+      ".aiVisibleInDiffuseReflection",
+      ".aiVisibleInSpecularReflection",
+      ".aiVisibleInDiffuseTransmission",
+      ".aiVisibleInSpecularTransmission",
+      ".aiVisibleInVolume",
+      ".aiSelfShadows",
+      ".receiveShadows"
+    ]
+  },
+  "RENDER_SHADER_TYPE": {
+    "deafult": [
+      "lambert1",
+      "particleCloud1",
+      "standardSurface1"
+    ],
+    "redshift": [
+      "RedshiftArchitectural",
+      "RedshiftCarPaint",
+      "RedshiftHair",
+      "RedshiftIncandescent",
+      "RedshiftMaterial",
+      "RedshiftMaterialBlender",
+      "RedshiftMatteShadowCatcher",
+      "RedshiftShaderSwitch",
+      "RedshiftSkin",
+      "RedshiftSprite",
+      "RedshiftSubSurfaceScatter",
+      "RedshiftVolumeScattering"
+    ],
+    "arnold": [
+      "aiAmbientOcclusion",
+      "aiCarPaint",
+      "aiFlat",
+      "aiLayerShader",
+      "aiMatte",
+      "aiMixShader",
+      "aiPassthrough",
+      "aiRaySwitch",
+      "aiShadowMatte",
+      "aiStandardHair",
+      "aiStandardSurface",
+      "aiSwitch",
+      "aiToon",
+      "aiTwoSided",
+      "aiUtility",
+      "aiWireframe",
+      "aiStandardVolume",
+      "layeredShader",
+      "fluidShape",
+      "displacementShader",
+      "aiAtmosphereVolume",
+      "lambert",
+      "aiNormalMap",
+      "aiRange",
+      "standardSurface"
+    ]
+  },
+  "ABC_CURVER_TYPE": {
+    "xgencv": "Xgen_curves",
+    "yeticv": "Yeti_curves",
+    "nhaircv": "nHair_curves",
+    "cv_type": "furcurveRig"
+  },
+  "PROXY_SUFFIX": {
+    "redshift": ".rs",
+    "arnold": ".ass"
+  },
+  "ARNOLDSTANDIN_MODEL": {
+    "BBX": 0,
+    "Shade": 6,
+    "ShadedPolyWire": 5,
+    "Wireframe": 3,
+    "PointCloud": 4,
+    "Polywire": 2
+  },
+  "RIG_MASTER_CTRL": [
+    "MASTER",
+    "MASTER_INNER",
+    "MAIN_Ctrl",
+    "MAIN_Inner_Ctrl",
+    "HQFT_Master",
+    "Main",
+    "HQFT_Main"
+  ],
+  "OUTLINE_TOP_NAME": {
+    "chr": "CHR",
+    "Chr": "CHR",
+    "prp": "PRO",
+    "Prp": "PRO",
+    "crd": "CHR",
+    "Crd": "CHR"
+  },
+  "GRP_TYPE": {
+    "mod":"MODEL",
+    "mod_hig":"Model_Hight",
+    "mod_mid":"Model_Mid",
+    "mod_low":"Model_Low",
+    "other":"Other",
+    "ctrl_rig":"HQFT",
+    "fx":"FX",
+    "grp":["PRO","CHR"]
+  }
+}

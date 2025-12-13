@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<publish name="publish" status_list="[(u'ip【正在制作的临时文件】'), (u'pub【下游环节可使用文件】')]"
+         media_suffix="[('.jpeg', '.jpg', '.png', '.gif', '.tif'),
+                        (u'.mov', u'.avi', u'.mp4')]">
+    <!-- publish_page 属性说明
+    status_list  列表 （状态名，状态解释）
+    media_suffix 列表  （图片格式，媒体格式） 也可以统一一个列表
+    widget_command：加载子部件代码，需传个固定的参数TaskData_Class给方法或类，这样无需重新初始化task_data，这样速度会快很多
+    projectType  all代表全部，TV代表剧集，FLIM代表电影   加载子部件(如果不加载去掉子widget)
+     -->
+
+    <sub_widget widget_name='rig mb fbx 上传面板'
+                widget_command=
+                        "import apps.publish.launch.maya.layout.rig_panel as _rig_panel;reload(_rig_panel);_rig_panel.return_widget(TaskData)"
+                projectType="all">
+
+    </sub_widget>
+
+</publish>

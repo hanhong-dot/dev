@@ -1,0 +1,30 @@
+{
+  "task": "fit_part",
+  "bs_name": "test_data/11_1/bs_name.json",
+  "bs_path": "test_data/11_1/targets",
+  "anim_is_np": true,
+  "anim_obj": "test_data/11_1/debug_01.npy",
+  "anim_json": "test_data/11_1/debug_01.json",
+  "bs_mutex": "test_data/11_1/bs_mutex.json",
+  "mutex_bs_eps": 0.005,
+  "out_bs_path": "test_data/11_1/out_debug_01.json",
+  "save_debug_info": false,
+  "vert_mask": "test_data/10_18/lip_mask.json",
+  "vert_mask_w": [1.5, 1.5, 3],
+  "vary_range": {
+    "mouthLeft": [3, 0.01],
+    "mouthRight": [3, 0.01]
+  },
+  "choose": {
+    "del_name": "script/delete_facs_02.txt"
+  },
+  "fix": {
+    "learning_rate": 0.01,
+    "max_iter": 10000
+  },
+  "finetune_mh": {
+    "learning_rate": 0.001,
+    "max_iter": 500,
+    "norm_w": 0.0001
+  }
+}

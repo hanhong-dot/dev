@@ -1,0 +1,10 @@
+//update_proc
+proc BF_trail_update()
+{
+    float $WorldTr[];
+    $WorldTr = `xform -q -ws -t locatorForTrail_update`;
+    setAttr "locatorForTrail.translateX" $WorldTr[0];
+    setAttr "locatorForTrail.translateY" $WorldTr[1];
+    setAttr "locatorForTrail.translateZ" $WorldTr[2];
+}
+BF_trail_update;

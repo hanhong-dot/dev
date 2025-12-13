@@ -1,0 +1,431 @@
+# Copyright (c) 2017 Shotgun Software Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Shotgun Software Inc.
+
+################################################################################
+
+includes:
+- ../app_locations.yml
+
+################################################################################
+
+# 3dsmaxplus
+settings.tk-multi-loader2.3dsmaxplus: &settings_tk-multi-loader2_3dsmaxplus
+  action_mappings:
+    3dsmax Scene: [import, reference]
+    Alembic Cache: [import]
+    Image: [texture_node]
+    Rendered Image: [texture_node]
+    Texture: [texture_node]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+  location: "@apps.tk-multi-loader2.location"
+
+# 3dsmax
+# Uses the same settings, but a different hook.
+settings.tk-multi-loader2.3dsmax:
+  <<: *settings_tk-multi-loader2_3dsmaxplus
+  actions_hook: "{engine}/tk-multi-loader2/basic/scene_actions.py"
+
+
+# flame
+settings.tk-multi-loader2.flame:
+  actions_hook: '{engine}/tk-multi-loader2/flame_loader_actions.py'
+  action_mappings:
+    Flame Batch File: [load_setup]
+    Flame Quicktime: [load_clip]
+    Flame Render: [load_clip]
+    Flame OpenClip: [load_clip]
+    Photoshop Image: [load_clip]
+    Rendered Image: [load_clip]
+    Image: [load_clip]
+    Movie: [load_clip]
+    Texture: [load_clip]
+  entity_mappings:
+    Shot: [load_batch]
+    CutItem: [load_batch]
+  location: "@apps.tk-multi-loader2.location"
+
+# houdini
+settings.tk-multi-loader2.houdini:
+  action_mappings:
+    Alembic Cache: [import]
+    Houdini Scene: [merge]
+    Image: [file_cop]
+    Photoshop Image: [file_cop]
+    Rendered Image: [file_cop]
+    Texture: [file_cop]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+  publish_filters: [["sg_status_list", "is_not", null]]
+  location: "@apps.tk-multi-loader2.location"
+
+# mari
+settings.tk-multi-loader2.mari:
+  action_mappings:
+    Alembic Cache: [geometry_import]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+    publish_filters: []
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+    publish_filters: []
+  title_name: Import
+  location: '@apps.tk-multi-loader2.location'
+
+# maya
+settings.tk-multi-loader2.maya:
+  action_mappings:
+#    Alembic Cache: [reference, import]
+#    Image: [texture_node, image_plane]
+    Maya Scene: [reference, import,open,fbx_dir,tex_dir,import_no,reference_no,replace_reference,publish_dir]
+    Mocap Scene: [reference, import,open,fbx_dir,tex_dir,import_no,reference_no,replace_reference,publish_dir]
+    UE Scene: [reference, import,open,fbx_dir,tex_dir,import_no,reference_no,replace_reference,publish_dir]
+
+#    Maya FBX: [import,open_fbx_dir]
+
+#    Photoshop Image: [texture_node, image_plane]
+#    Rendered Image: [texture_node, image_plane]
+#    Texture: [texture_node, image_plane]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, "{context.project}"]
+    - [sg_asset_type,in,["body","role","rolaccesory","weapon","hair","fx","npc","item","cartoon_body","cartoon_role","cartoon_fx","cartoon_hair","cartoon_rolaccesory","cartoon_npc","enemy","plant","environment","envmodel","envprop","plant","background","light","vfx","texture"]]
+#    - [task_status, is_not, "Omit"]
+    hierarchy: [sg_asset_type, code]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, "{context.project}"]
+    hierarchy: [sg_sequence, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, "{context.user}"]
+    - [project, is, "{context.project}"]
+    - [sg_prent_task, is, null]
+    hierarchy: [entity, content]
+  publish_filters: [["sg_status_list", "is_not", null],["path_cache", "is_not", "unload"]]
+  location: "@apps.tk-multi-loader2.location"
+
+# nuke
+settings.tk-multi-loader2.nuke:
+  action_mappings:
+    Alembic Cache: [read_node]
+    Flame Render: [read_node]
+    Flame Quicktime: [read_node]
+    Image: [read_node]
+    Movie: [read_node]
+    Nuke Script: [script_import]
+    Photoshop Image: [read_node]
+    Rendered Image: [read_node]
+    Texture: [read_node]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+  publish_filters: [["sg_status_list", "is_not", null]]
+  location: "@apps.tk-multi-loader2.location"
+
+# nuke studio (actions hook)
+settings.tk-multi-loader2.nukestudio.project:
+  actions_hook: '{self}/tk-nuke_actions.py'
+  action_mappings:
+    Image: [clip_import]
+    Movie: [clip_import]
+    Rendered Image: [clip_import]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+  publish_filters: [["sg_status_list", "is_not", null]]
+  location: "@apps.tk-multi-loader2.location"
+
+settings.tk-multi-loader2.nukestudio:
+  actions_hook: '{self}/tk-nuke_actions.py'
+  action_mappings:
+    Alembic Cache: [read_node]
+    Image: [read_node]
+    Movie: [read_node]
+    Nuke Script: [script_import]
+    NukeStudio Project: [open_project]
+    Photoshop Image: [read_node]
+    Rendered Image: [read_node]
+    Texture: [read_node]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+  publish_filters: [["sg_status_list", "is_not", null]]
+  location: "@apps.tk-multi-loader2.location"
+
+# photoshop
+settings.tk-multi-loader2.photoshop:
+  action_mappings:
+    Photoshop Image: [add_as_a_layer, open_file]
+    Rendered Image: [add_as_a_layer, open_file]
+    Image: [add_as_a_layer, open_file]
+    Texture: [add_as_a_layer, open_file]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+  publish_filters: [["sg_status_list", "is_not", null]]
+  location: "@apps.tk-multi-loader2.location"
+
+# after effects
+settings.tk-multi-loader2.aftereffects:
+  action_mappings:
+    After Effects Project: [add_to_project, add_to_comp]
+    Maya Scene: [add_to_project, add_to_comp]
+    Photoshop Image: [add_to_project, add_to_comp]
+    Rendered Image: [add_to_project, add_to_comp]
+    Image: [add_to_project, add_to_comp]
+    Movie: [add_to_project, add_to_comp]
+    Texture: [add_to_project, add_to_comp]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+  actions_hook: "{engine}/tk-multi-loader2/basic/scene_actions.py"
+  publish_filters: [["sg_status_list", "is_not", null]]
+  location: "@apps.tk-multi-loader2.location"
+
+# motion builder
+settings.tk-multi-loader2.motionbuilder:
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    - [sg_asset_type,in,["body","role","rolaccesory","weapon","hair","fx","npc","item","cartoon_body","cartoon_role","cartoon_fx","cartoon_hair","cartoon_rolaccesory","enemy","plant","environment","envmodel","envprop","plant","background","light","vfx","texture"]]
+    hierarchy: [sg_asset_type, code]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    - [sg_prent_task, is, null]
+    hierarchy: [entity, content]
+  location: "@apps.tk-multi-loader2.location"
+
+# blender
+
+settings.tk-multi-loader2.blender:
+  action_mappings:
+    #    Alembic Cache: [reference, import]
+    #    Image: [texture_node, image_plane]
+    Unity_FBX: [import]
+
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    - [sg_asset_type,in,["background","battle","bat_core","bat_court","bat_deepsea","bat_forest","bat_inworkshop","bat_rogue","bat_train","bat_valley","environment","envmodel","envprop","item","plant"]]
+    hierarchy: [sg_asset_type, code]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_sequence, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+  location: "@apps.tk-multi-loader2.location"
+
+
+# alias
+settings.tk-multi-loader2.alias:
+  action_mappings:
+    Alias File: [import, import_as_reference]
+    Wref File: [reference]
+    Igs File: [import, import_as_reference]
+    Stp File: [import, import_as_reference]
+    Stl File: [import, import_as_reference]
+    Jt File: [import, import_as_reference]
+    Catpart File: [import, import_as_reference]
+    Fbx File: [import]
+    Image: [texture_node]
+    Photoshop Image: [texture_node]
+    Tif File: [texture_node]
+    Bmp File: [texture_node]
+    Obj File: [import_subdiv]
+    Tsm File: [import_subdiv]
+    F3d File: [import_subdiv]
+    Sf3d File: [import_subdiv]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+  - caption: Assets - Linked
+    entity_type: Asset
+    filters:
+      - [linked_projects, is, "{context.project}"]
+    hierarchy: [project.Project.name, sg_asset_type, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+  actions_hook: "{engine}/tk-multi-loader2/basic/scene_actions.py"
+  publish_filters: [["sg_status_list", "is_not", null]]
+  location: "@apps.tk-multi-loader2.location"
+
+# VRED
+settings.tk-multi-loader2.vred:
+  action_mappings:
+    Alias File: [import, import_with_options, smart_reference]
+    Igs File: [import, import_with_options, smart_reference]
+    Iges File: [ import, import_with_options, smart_reference ]
+    Stp File: [import, import_with_options, smart_reference]
+    Stl File: [import, import_with_options, smart_reference]
+    Jt File: [import, import_with_options, smart_reference]
+    Catpart File: [import, import_with_options, smart_reference]
+    Fbx File: [import, import_with_options, smart_reference]
+    VRED Scene: [import, import_with_options, smart_reference]
+    Osb File: [import, import_with_options, smart_reference]
+    Image: [import_sceneplate]
+    Rendered Image: [import_sceneplate]
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    filters:
+    - [project, is, '{context.project}']
+    hierarchy: [sg_asset_type, code]
+  - caption: Assets - Linked
+    entity_type: Asset
+    filters:
+      - [linked_projects, is, "{context.project}"]
+    hierarchy: [project.Project.name, sg_asset_type, code]
+  - caption: My Tasks
+    entity_type: Task
+    filters:
+    - [task_assignees, is, '{context.user}']
+    - [project, is, '{context.project}']
+    hierarchy: [entity, content]
+  actions_hook: "{engine}/tk-multi-loader2/basic/scene_actions.py"
+  publish_filters: [["sg_status_list", "is_not", null]]
+  location: "@apps.tk-multi-loader2.location"

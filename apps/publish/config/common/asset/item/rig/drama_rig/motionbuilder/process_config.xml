@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--process name="process" project = "common"-->
+<process name="process" project="">
+    <!-- 属性说明  name    检查页的名称
+                 project  继承的项目
+
+    属性说明
+                  order_id       表示检查的顺序
+                  item_name      表示该item的名字
+                  toolTip        表示提示文字
+                  process_command 表示调用的处理命令，需传个固定的参数TaskData_Class给方法或类，这样无需重新初始化task_data，这样速度会快很多
+    -->
+    <process_tab tab_name="文件处理">
+        <processItem order_id="1" projectType="all"
+                     item_name="保存work文件"
+                     toolTip="保存work文件"
+                     process_command="import apps.publish.process.mobu.process_sgfile as mb_process_sgfile;reload(mb_process_sgfile);mb_process_sgfile.save_work(TaskData_Class)"
+        />
+        <processItem order_id="2" projectType="all"
+                     item_name="生成备份publish文件"
+                     toolTip="备份publish文件"
+                     process_command="import apps.publish.process.mobu.process_sgfile as mb_process_sgfile;reload(mb_process_sgfile);mb_process_sgfile.back_publish(TaskData_Class)"
+        />
+        <processItem order_id="3" projectType="all"
+                     item_name="生成publish文件"
+                     toolTip="保存文件到本地"
+                     process_command="import apps.publish.process.mobu.process_sgfile as mb_process_sgfile;reload(mb_process_sgfile);mb_process_sgfile.processPublish(TaskData_Class)"
+        />
+
+
+
+        <processItem order_id="5" projectType="all"
+                     item_name="打开work文件"
+                     toolTip="打开work文件"
+                     process_command="import apps.publish.process.mobu.process_sgfile as mb_process_sgfile;reload(mb_process_sgfile);mb_process_sgfile.open_work(TaskData_Class)"
+        />
+
+
+
+
+    </process_tab>
+</process>

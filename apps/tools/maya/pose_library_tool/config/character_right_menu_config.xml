@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<process name="process">
+    <processItem order_id="1" projectType="all"
+                 item_name="添加Pose库资产"
+                 toolTip="选择当前角色添加Pose库资产"
+                 process_command="from apps.tools.maya.pose_library_tool import pose_libary_tools;reload(pose_libary_tools);pose_libary_tools.creat_pose_library_ui(CharacterName)"
+                 except_project=""
+                 except_projectType=""
+    />
+    <processItem order_id="2" projectType="all"
+                 item_name="添加Camera库资产"
+                 toolTip="选择当前角色创建Camera库"
+                 process_command=""
+                 except_project=""
+                 except_projectType=""
+    />
+
+</process>

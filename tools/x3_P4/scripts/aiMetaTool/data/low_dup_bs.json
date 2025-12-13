@@ -1,0 +1,244 @@
+{
+    "browDownL": {
+        "browDownL": 1
+    },
+    "browDownR": {
+        "browDownR": 1
+    },
+    "browLateralL": {
+        "browLateralL": 1
+    },
+    "browLateralR": {
+        "browLateralR": 1
+    },
+    "browRaiseInL": {
+        "browRaiseInL": 1
+    },
+    "browRaiseInR": {
+        "browRaiseInR": 1
+    },
+    "browRaiseOuterL": {
+        "browRaiseOuterL": 1
+    },
+    "browRaiseOuterR": {
+        "browRaiseOuterR": 1
+    },
+    "eyeLookDownL": {
+        "eyeLookDownL": 1
+    },
+    "eyeLookDownR": {
+        "eyeLookDownR": 1
+    },
+    "eyeLookLeftL": {
+        "eyeLookLeftL": 1
+    },
+    "eyeLookLeftR": {
+        "eyeLookLeftR": 1
+    },
+    "eyeLookRightL": {
+        "eyeLookRightL": 1
+    },
+    "eyeLookRightR": {
+        "eyeLookRightR": 1
+    },
+    "eyeLookUpL": {
+        "eyeLookUpL": 1
+    },
+    "eyeLookUpR": {
+        "eyeLookUpR": 1
+    },
+    "eyeBlinkL": {
+        "eyeBlinkL": 1
+    },
+    "eyeBlinkR": {
+        "eyeBlinkR": 1
+    },
+    "eyeCheekRaiseL": {
+        "eyeCheekRaiseL": 1
+    },
+    "eyeCheekRaiseR": {
+        "eyeCheekRaiseR": 1
+    },
+    "eyeSquintInnerL": {
+        "eyeSquintInnerL": 1
+    },
+    "eyeSquintInnerR": {
+        "eyeSquintInnerR": 1
+    },
+    "eyeWidenL": {
+        "eyeWidenL": 1
+    },
+    "eyeWidenR": {
+        "eyeWidenR": 1
+    },
+    "noseNostrilDilate": {
+        "noseNostrilDilate": 1
+    },
+    "noseNostrilCompress": {
+        "noseNostrilCompress": 1
+    },
+    "noseWrinkleL": {
+        "noseWrinkleL": 1
+    },
+    "noseWrinkleR": {
+        "noseWrinkleR": 1
+    },
+    "jawLeft": {
+        "jawLeft": 1
+    },
+    "jawRight": {
+        "jawRight": 1
+    },
+    "jawFwd": {
+        "jawFwd": 1
+    },
+    "jawOpen": {
+        "jawOpen": 1
+    },
+    "mouthLipsTogetherU": {
+        "mouthLipsTogetherU": 1,
+        "jawOpen": -1
+    },
+    "mouthLipsTogetherD": {
+        "mouthLipsTogetherD": 1,
+        "jawOpen": -1
+    },
+    "mouthLeft": {
+        "mouthLeft": 1
+    },
+    "mouthRight": {
+        "mouthRight": 1
+    },
+    "mouthCheekBlow": {
+        "mouthCheekBlow": 1
+    },
+    "jawChinRaise": {
+        "jawChinRaise": 1
+    },
+    "mouthStretch": {
+        "mouthStretch": 1
+    },
+    "mouthPucker": {
+        "mouthPucker": 1
+    },
+    "mouthLipsPurse": {
+        "mouthLipsPurse": 1
+    },
+    "mouthFunnel": {
+        "mouthFunnel": 1
+    },
+    "mouthSticky": {
+        "mouthSticky": 1
+    },
+    "mouthStickyC": {
+        "mouthStickyC": 1
+    },
+    "mouthCornerDepressL": {
+        "mouthCornerDepressL": 1
+    },
+    "mouthCornerDepressR": {
+        "mouthCornerDepressR": 1
+    },
+    "mouthCornerPullL": {
+        "mouthCornerPullL": 1
+    },
+    "mouthCornerPullR": {
+        "mouthCornerPullR": 1
+    },
+    "mouthDimpleL": {
+        "mouthDimpleL": 1
+    },
+    "mouthDimpleR": {
+        "mouthDimpleR": 1
+    },
+    "mouthLipsTowardsU": {
+        "mouthLipsTowardsU": 1
+    },
+    "mouthLipsTowardsD": {
+        "mouthLipsTowardsD": 1
+    },
+    "mouthLowerLipBite": {
+        "mouthLowerLipBite": 1
+    },
+    "mouthUpperLipBite": {
+        "mouthUpperLipBite": 1
+    },
+    "mouthLowerLipDepress": {
+        "mouthLowerLipDepress": 1
+    },
+    "mouthUpperLipRaise": {
+        "mouthUpperLipRaise": 1
+    },
+    "tongueDown": {
+        "tongueDown": 1
+    },
+    "tonguePress": {
+        "tonguePress": 1
+    },
+    "tongueTipDown": {
+        "tongueTipDown": 1
+    },
+    "tongueTipUp": {
+        "tongueTipUp": 1
+    },
+    "browDownL_browRaiseInL": {
+        "browDownL": -1,
+        "browRaiseInL": -1,
+        "browDownL_browRaiseInL": 1
+    },
+    "browDownL_browRaiseOuterL": {
+        "browDownL": -1,
+        "browRaiseOuterL": -1,
+        "browDownL_browRaiseOuterL": 1
+    },
+    "browDownR_browRaiseInR": {
+        "browDownR": -1,
+        "browRaiseInR": -1,
+        "browDownR_browRaiseInR": 1
+    },
+    "browDownR_browRaiseOuterR": {
+        "browDownR": -1,
+        "browRaiseOuterR": -1,
+        "browDownR_browRaiseOuterR": 1
+    },
+    "eyeLookLeftL_eyeLookUpL": {
+        "eyeLookLeftL": -1,
+        "eyeLookUpL": -1,
+        "eyeLookLeftL_eyeLookUpL": 1
+    },
+    "eyeLookLeftR_eyeLookUpR": {
+        "eyeLookLeftR": -1,
+        "eyeLookUpR": -1,
+        "eyeLookLeftR_eyeLookUpR": 1
+    },
+    "eyeLookRightL_eyeLookUpL": {
+        "eyeLookRightL": -1,
+        "eyeLookUpL": -1,
+        "eyeLookRightL_eyeLookUpL": 1
+    },
+    "eyeLookRightR_eyeLookUpR": {
+        "eyeLookRightR": -1,
+        "eyeLookUpR": -1,
+        "eyeLookRightR_eyeLookUpR": 1
+    },
+    "eyeLookDownL_eyeLookLeftL": {
+        "eyeLookDownL": -1,
+        "eyeLookLeftL": -1,
+        "eyeLookDownL_eyeLookLeftL": 1
+    },
+    "eyeLookDownR_eyeLookLeftR": {
+        "eyeLookDownR": -1,
+        "eyeLookLeftR": -1,
+        "eyeLookDownR_eyeLookLeftR": 1
+    },
+    "eyeLookDownL_eyeLookRightL": {
+        "eyeLookDownL": -1,
+        "eyeLookRightL": -1,
+        "eyeLookDownL_eyeLookRightL": 1
+    },
+    "eyeLookDownR_eyeLookRightR": {
+        "eyeLookDownR": -1,
+        "eyeLookRightR": -1,
+        "eyeLookDownR_eyeLookRightR": 1
+    }
+}
