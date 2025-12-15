@@ -63,7 +63,7 @@ def load_auto_copy_skin_tool():
 
     auto_copy_skin_tool.set_central_widget(win_handle)
 
-    # auto_copy_skin_tool.set_help("https://papergames.feishu.cn/wiki/DeJPwQWH9igIMNkjUs4ciFusnYV")
+    auto_copy_skin_tool.set_help("https://papergames.feishu.cn/wiki/IxoNw1IjPiahBAkyaBAcDbP2nwc?from=from_copylink")
 
     auto_copy_skin_tool.setMinimumSize(200, 200)
     auto_copy_skin_tool.show()
