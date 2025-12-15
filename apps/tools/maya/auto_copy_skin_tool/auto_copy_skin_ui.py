@@ -74,6 +74,7 @@ class AutoCopySkinUI(QWidget):
 
         self.__group_box_layout.addLayout(self.__target_asset_layout)
         self.__copy_skin_button = QPushButton(u"自动蒙皮绑定")
+        self.__copy_skin_button.setFixedHeight(25)
         main_layout.addWidget(self.__group_box)
         main_layout.addWidget(self.__copy_skin_button)
         self.setLayout(main_layout)
