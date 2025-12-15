@@ -45,7 +45,6 @@ class AutoCopySkinUI(QWidget):
         self.__task_name = self.__task_data.task_name
         self.__init_ui()
         self.__connect_signals()
-
     def __init_ui(self):
         main_layout = QVBoxLayout(self)
         self.__title_layout = QHBoxLayout()
