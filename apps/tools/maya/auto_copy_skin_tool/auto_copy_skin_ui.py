@@ -50,7 +50,9 @@ class AutoCopySkinUI(QWidget):
         main_layout = QVBoxLayout(self)
         self.__title_layout = QHBoxLayout()
 
-        self.__group_box = QGroupBox(u"自动蒙皮工具")
+
+        self.__group_box = QGroupBox()
+
         self.__label = QLabel(
             u"当前资产: {0}  类型: {1}  任务: {2}".format(self.__asset_name, self.__asset_type, self.__task_name))
         self.__label.setAlignment(Qt.AlignCenter)
