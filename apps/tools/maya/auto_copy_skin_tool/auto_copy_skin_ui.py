@@ -50,7 +50,6 @@ class AutoCopySkinUI(QWidget):
         main_layout = QVBoxLayout(self)
         self.__title_layout = QHBoxLayout()
 
-
         self.__group_box = QGroupBox()
 
         self.__label = QLabel(
