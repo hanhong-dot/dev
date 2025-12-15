@@ -8,7 +8,8 @@ import sys
 from apps.publish.ui.message.messagebox import msgview
 import maya.cmds as cmds
 import apps.publish.ui.basewindow.basewiondow as basewindow
-from apps.tools.maya.auto_copy_skin_tool.auto_copy_skin_ui import AutoCopySkinUI
+from apps.tools.maya.auto_copy_skin_tool import auto_copy_skin_ui
+reload(auto_copy_skin_ui)
 import method.shotgun.get_task as get_task
 import apps.launch.maya.interface.mayaview as _mayaview
 from database.shotgun.core.sg_analysis import Config
@@ -57,7 +58,7 @@ def load_auto_copy_skin_tool():
         return
     sg = Config().login()
 
-    win_handle = AutoCopySkinUI(sg, task_data)
+    win_handle = auto_copy_skin_ui.AutoCopySkinUI(sg, task_data)
     auto_copy_skin_tool = basewindow.BaseWindow(_mayaview.get_maya_window(), u"自动蒙皮工具", "自动蒙皮工具")
 
     auto_copy_skin_tool.set_central_widget(win_handle)
