@@ -27,6 +27,8 @@ reload(process_media)
 
 import getpass
 
+BRANCHES = ['1030-stage', 'obt-251202']
+
 
 class AIVideoMatchUI(QWidget):
     def __init__(self, frame_out=10, fps=30):
@@ -54,16 +56,38 @@ class AIVideoMatchUI(QWidget):
 
         self._modle_layout = QHBoxLayout()
 
-
-
         self._process_layout = QVBoxLayout()
+
         self.__select_group = QGroupBox('视频对比匹配')
+
         self.__select_group.setStyleSheet("QGroupBox { border: 1px solid #555555; border-radius: 5px; padding: 10px; }")
+
+        self.__model_layout = QHBoxLayout()
+
         self.__select_layout = QVBoxLayout()
+
         self.__select_group.setLayout(self.__select_layout)
         self._process_layout.addWidget(self.__select_group)
         self.__select_layout.setContentsMargins(10, 10, 10, 10)
         self.__select_layout.setSpacing(10)
+
+        self.__model_lable = QLabel(u'选择模式:')
+        self.__model_combo = QComboBox()
+        self.__model_combo.addItems([u'SG最新视频', u'UnityEdit自动录制视频', u'真机录屏视频'])
+        self.__model_layout.addWidget(self.__model_lable)
+        self.__model_layout.addWidget(self.__model_combo)
+        self.__select_layout.addLayout(self.__model_layout)
+
+        self.__select_branch_widget = QWidget()
+        self.__select_branch_layout = QHBoxLayout()
+        self.__select_branch_label = QLabel(u'选择分支:')
+        self.__select_branch_combo = QComboBox()
+        self.__select_branch_combo.addItems(BRANCHES)
+        self.__select_branch_layout.addWidget(self.__select_branch_label)
+        self.__select_branch_layout.addWidget(self.__select_branch_combo)
+        self.__select_branch_widget.setLayout(self.__select_branch_layout)
+        self.__select_layout.addWidget(self.__select_branch_widget)
+        self.__select_branch_widget.setVisible(False)
 
         self.__long_video_layout = QHBoxLayout()
         self.__long_video_layout.setAlignment(Qt.AlignTop)
@@ -86,6 +110,7 @@ class AIVideoMatchUI(QWidget):
         self.__sequence_layout.addWidget(self.__sequence_input)
         self.__select_layout.addLayout(self.__sequence_layout)
 
+        self.__task_check_widget = QWidget()
         self.__task_check_layout = QHBoxLayout()
         self.__task_check_label = QLabel(u'包含任务:')
         self.__cts_final_check = QCheckBox(u'cts_final')
@@ -100,6 +125,7 @@ class AIVideoMatchUI(QWidget):
         self.__hair_all_check.setChecked(True)
         self.__final_check_check = QCheckBox(u'check')
         self.__final_check_check.setChecked(True)
+        self.__task_check_widget.setLayout(self.__task_check_layout)
 
         self.__task_check_layout.addWidget(self.__task_check_label)
         self.__task_check_layout.addWidget(self.__cts_final_check)
@@ -108,7 +134,7 @@ class AIVideoMatchUI(QWidget):
         self.__task_check_layout.addWidget(self.__sfx_final_check)
         self.__task_check_layout.addWidget(self.__hair_all_check)
         self.__task_check_layout.addWidget(self.__final_check_check)
-        self.__select_layout.addLayout(self.__task_check_layout)
+        self.__select_layout.addWidget(self.__task_check_widget)
 
         self.__match_button = QPushButton(u'开始对比视频')
         self.__match_button.setFixedHeight(35)
@@ -168,6 +194,24 @@ class AIVideoMatchUI(QWidget):
     def __connect_signals(self):
         self.__long_video_button.clicked.connect(self.__select_long_video_clicked)
         self.__match_button.clicked.connect(self.__start_video_match_clicked)
+        self.__model_combo.currentIndexChanged.connect(self.__model_changed)
+        self.__select_branch_combo.currentIndexChanged.connect(self.__branch_changed)
+
+    def __branch_changed(self, index):
+        pass
+
+    def __model_changed(self, index):
+        if index == 0:
+            print('index==0')
+            self.__task_check_widget.setVisible(True)
+            self.__select_branch_widget.setVisible(False)
+
+        elif index == 1:
+            self.__task_check_widget.setVisible(False)
+            self.__select_branch_widget.setVisible(True)
+        elif index == 2:
+            self.__task_check_widget.setVisible(False)
+            self.__select_branch_widget.setVisible(True)
 
     def __select_long_video_clicked(self):
         video_path, _ = QFileDialog.getOpenFileName(self, '选择宣发视频', '', '视频文件 (*.mp4)')
@@ -624,7 +668,6 @@ class AIVideoMatchUI(QWidget):
         print(u'AI计算相似度请求结果:', result)
         return True, result
 
-
     def __get_video_list_from_lib_data(self, video_lib_versions):
         __video_list = []
         if not video_lib_versions:
@@ -723,8 +766,9 @@ class AIVideoMatchUI(QWidget):
                     'sg_path_to_frames'] if 'sg_path_to_frames' in __laster_version else None
 
                 if not __version_path or not os.path.exists(__version_path):
-                    self.__log_handle.error(u'场次:{}-镜头:{}-版本:{} 视频路径不存在,请检查'.format(__squence_name, __shot_name,
-                                                                                   __version_name))
+                    self.__log_handle.error(
+                        u'场次:{}-镜头:{}-版本:{} 视频路径不存在,请检查'.format(__squence_name, __shot_name,
+                                                                                __version_name))
                     continue
 
                 result = ai_video_match_fun.copy_file(__version_path, __local_shot_path)
@@ -875,8 +919,8 @@ class Worker(QThread):
             msgview(u'没有找到有效的场次版本npy文件，请检查', 1)
             return
 
-
-        ok, result = ai_video_match_fun.get_ai_compute_similarity_request(__long_npz_file ,__shot_npz_list, frame_out,fps,log_handle)
+        ok, result = ai_video_match_fun.get_ai_compute_similarity_request(__long_npz_file, __shot_npz_list, frame_out,
+                                                                          fps, log_handle)
 
         if not ok:
             msgview(result, 1)
@@ -921,6 +965,7 @@ class Worker(QThread):
             __video_list = list(set(__video_list))
 
         return __video_list
+
 
 # class AIVideoMatch(QWidget):
 #     def __init_ui(self):
