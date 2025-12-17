@@ -67,6 +67,15 @@ class AutoCopySkinUI(QWidget):
                 self.__target_asset_line_edit = QLineEdit(mapping_body_asset)
             else:
                 self.__target_asset_line_edit = QLineEdit(u"未找到对应body资产，请手动输入")
+        self.__out_put_layout = QHBoxLayout()
+        self.__out_pub_label = QLabel(u"输出路径:")
+        self.__out_put_line_edit = QLineEdit()
+        self.__out_put_button = QPushButton(u"选择路径")
+        self.__out_put_layout.addWidget(self.__out_pub_label)
+        self.__out_put_layout.addWidget(self.__out_put_line_edit)
+        self.__out_put_layout.addWidget(self.__out_put_button)
+        self.__group_box_layout.addLayout(self.__out_put_layout)
+
         self.__target_asset_layout.addWidget(self.__target_asset_label)
         self.__target_asset_layout.addWidget(self.__target_asset_line_edit)
         self.__target_asset_layout.addStretch()
@@ -80,7 +89,9 @@ class AutoCopySkinUI(QWidget):
         self.setLayout(main_layout)
 
     def __connect_signals(self):
+        self.__out_put_button.clicked.connect(lambda: self.__out_put_line_edit.setText(QFileDialog.getExistingDirectory(self, u"选择输出路径", "")))
         self.__copy_skin_button.clicked.connect(self.__on_copy_skin_clicked)
+
 
     def __on_copy_skin_clicked(self):
         __target_asset_name = self.__target_asset_line_edit.text().strip()
