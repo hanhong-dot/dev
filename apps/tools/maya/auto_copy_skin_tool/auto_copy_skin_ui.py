@@ -69,6 +69,14 @@ class AutoCopySkinUI(QWidget):
                 self.__target_asset_line_edit = QLineEdit(mapping_body_asset)
             else:
                 self.__target_asset_line_edit = QLineEdit(u"未找到对应body资产，请手动输入")
+
+
+        self.__target_asset_layout.addWidget(self.__target_asset_label)
+        self.__target_asset_layout.addWidget(self.__target_asset_line_edit)
+        self.__target_asset_layout.addStretch()
+        self.__target_asset_layout.addSpacing(40)
+
+        self.__group_box_layout.addLayout(self.__target_asset_layout)
         self.__out_put_layout = QHBoxLayout()
         self.__out_pub_label = QLabel(u"输出路径:")
         self.__out_put_line_edit = QLineEdit()
@@ -78,12 +86,6 @@ class AutoCopySkinUI(QWidget):
         self.__out_put_layout.addWidget(self.__out_put_button)
         self.__group_box_layout.addLayout(self.__out_put_layout)
 
-        self.__target_asset_layout.addWidget(self.__target_asset_label)
-        self.__target_asset_layout.addWidget(self.__target_asset_line_edit)
-        self.__target_asset_layout.addStretch()
-        self.__target_asset_layout.addSpacing(40)
-
-        self.__group_box_layout.addLayout(self.__target_asset_layout)
         self.__copy_skin_button = QPushButton(u"确定自动蒙皮")
         self.__copy_skin_button.setFixedHeight(25)
         main_layout.addWidget(self.__group_box)

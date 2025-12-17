@@ -65,7 +65,7 @@ def load_auto_copy_skin_tool():
 
     auto_copy_skin_tool.set_help("https://papergames.feishu.cn/wiki/IxoNw1IjPiahBAkyaBAcDbP2nwc?from=from_copylink")
 
-    auto_copy_skin_tool.setMinimumSize(200, 200)
+    auto_copy_skin_tool.setMinimumSize(350, 200)
     auto_copy_skin_tool.show()
     # win_handle.CloseSignal.connect(load_asset_screen_tool_ui)
     app.exec_()
