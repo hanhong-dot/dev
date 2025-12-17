@@ -3,6 +3,7 @@
 # file: auto_copy_skin_ui.py
 # time: 2025/12/13 11:49
 # description:
+import os.path
 import sys
 
 try:
@@ -45,6 +46,7 @@ class AutoCopySkinUI(QWidget):
         self.__task_name = self.__task_data.task_name
         self.__init_ui()
         self.__connect_signals()
+
     def __init_ui(self):
         main_layout = QVBoxLayout(self)
         self.__title_layout = QHBoxLayout()
@@ -89,12 +91,22 @@ class AutoCopySkinUI(QWidget):
         self.setLayout(main_layout)
 
     def __connect_signals(self):
-        self.__out_put_button.clicked.connect(lambda: self.__out_put_line_edit.setText(QFileDialog.getExistingDirectory(self, u"选择输出路径", "")))
+        self.__out_put_button.clicked.connect(
+            lambda: self.__out_put_line_edit.setText(QFileDialog.getExistingDirectory(self, u"选择输出路径", "")))
         self.__copy_skin_button.clicked.connect(self.__on_copy_skin_clicked)
-
 
     def __on_copy_skin_clicked(self):
         __target_asset_name = self.__target_asset_line_edit.text().strip()
+        __out_put_path = self.__out_put_line_edit.text().strip()
+        if not __out_put_path:
+            msgview(u"请填写输出路径！", 0)
+            return
+        if not os.path.exists(__out_put_path):
+            try:
+                os.makedirs(__out_put_path)
+            except Exception as e:
+                msgview(u"输出路径创建失败，请检查路径是否正确！", 0)
+                return
         if not __target_asset_name:
             msgview(u"请填写目标body资产名称！", 0)
             return
@@ -106,8 +118,9 @@ class AutoCopySkinUI(QWidget):
         if not ok:
             msgview(result, 0)
             return
+
         body_rig_publish_file = result
-        ok, result = auto_copy_skin(__target_asset_name, self.__asset_type, self.__asset_abb, body_rig_publish_file)
+        ok, result = auto_copy_skin(__target_asset_name, self.__asset_type, self.__asset_abb, body_rig_publish_file,self.__asset_name,__out_put_path)
         if not ok:
             msgview(result, 0)
             return

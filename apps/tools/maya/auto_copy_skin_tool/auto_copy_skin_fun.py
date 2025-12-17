@@ -9,6 +9,7 @@ import maya.cmds as cmds
 
 import maya.mel as mel
 import maya.OpenMaya as om
+import lib.maya.process.export_fbx as _fbx_common
 
 
 def copy_skin_weights(source_mesh, target_mesh_list):
@@ -34,8 +35,13 @@ def copy_skin_weights(source_mesh, target_mesh_list):
     return True, 'copy skin weights success'
 
 
-def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file):
-    scene_meshs = get_all_meshs_in_scene()
+def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file,asset_name, out_dir):
+    ok, result = get_select_meshs()
+    if not ok:
+        return False, u'请先选择需要复制蒙皮的模型mesh！'
+    scene_meshs = result
+    if not scene_meshs:
+        return False, u'请选择需要复制蒙皮的模型mesh！'
 
     result = import_file(body_asset_name, body_publish_file)
     if not result:
@@ -48,7 +54,17 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file):
     ok, result = copy_skin_weights(body_process_mesh, scene_meshs)
     if not ok:
         return False, result
+    out_path='{}/{}_AutoSkin.fbx'.format(out_dir, asset_name)
+    ok=export_fbx_file(scene_meshs, out_path)
+    if not ok:
+        return False, u'自动蒙皮FBX导出失败，请检查！'
     return True, u'自动蒙皮完成！'
+
+
+def export_fbx_file(export_meshs, out_fbx_file):
+    if not export_meshs:
+        return False, u'没有可导出的mesh！'
+    return _fbx_common.export_fbx(export_meshs, out_fbx_file, hi=1, triangulate=1, warning=0)
 
 
 def get_process_meshs_by_asset(body_asset_name, asset_type, asset_add):
@@ -97,6 +113,21 @@ def import_file(asset_name, file_path):
 
 def get_current_groups():
     return BaseGroup().get_root_groups()
+
+
+def get_select_meshs():
+    select_objs = cmds.ls(sl=1, l=1)
+    meshs = []
+    if not select_objs:
+        return False, meshs
+    for obj in select_objs:
+        shape_nodes = cmds.listRelatives(obj, s=1, type='mesh', f=1)
+        if not shape_nodes:
+            continue
+        meshs.append(obj)
+    if not meshs:
+        return False, meshs
+    return True, meshs
 
 
 def get_all_meshs_in_scene():
