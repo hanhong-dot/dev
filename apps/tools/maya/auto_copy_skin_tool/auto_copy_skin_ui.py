@@ -50,14 +50,12 @@ class AutoCopySkinUI(QWidget):
     def __init_ui(self):
         main_layout = QVBoxLayout(self)
         self.__title_layout = QHBoxLayout()
+        self.__title_txt = u"当前资产: {0}  类型: {1}  任务: {2}".format(self.__asset_name, self.__asset_type,
+                                                                         self.__task_name)
 
-        self.__group_box = QGroupBox()
+        self.__group_box = QGroupBox(self.__title_txt)
 
-        self.__label = QLabel(
-            u"当前资产: {0}  类型: {1}  任务: {2}".format(self.__asset_name, self.__asset_type, self.__task_name))
-        self.__label.setAlignment(Qt.AlignCenter)
         self.__group_box_layout = QVBoxLayout()
-        self.__group_box_layout.addWidget(self.__label)
         self.__group_box.setLayout(self.__group_box_layout)
 
         self.__target_asset_layout = QHBoxLayout()
@@ -69,7 +67,6 @@ class AutoCopySkinUI(QWidget):
                 self.__target_asset_line_edit = QLineEdit(mapping_body_asset)
             else:
                 self.__target_asset_line_edit = QLineEdit(u"未找到对应body资产，请手动输入")
-
 
         self.__target_asset_layout.addWidget(self.__target_asset_label)
         self.__target_asset_layout.addWidget(self.__target_asset_line_edit)
@@ -122,7 +119,8 @@ class AutoCopySkinUI(QWidget):
             return
 
         body_rig_publish_file = result
-        ok, result = auto_copy_skin(__target_asset_name, self.__asset_type, self.__asset_abb, body_rig_publish_file,self.__asset_name,__out_put_path)
+        ok, result = auto_copy_skin(__target_asset_name, self.__asset_type, self.__asset_abb, body_rig_publish_file,
+                                    self.__asset_name, __out_put_path)
         if not ok:
             msgview(result, 0)
             return
