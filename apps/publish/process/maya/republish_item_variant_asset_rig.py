@@ -87,7 +87,7 @@ class RepublishItemVariantAssetRig(object):
         if work_file and os.path.exists(work_file):
             BaseFile().open_file(work_file)
             result01, result02 = BatchPublish(rig_task_data, version_file, DES, statu='pub').do_batch_publish(
-                user='linhuan', send_jenkins=True,source_asset=parent_asset_name)
+                user='linhuan', send_jenkins=True,cover_thumbnail=True,parent_asset=parent_asset_name)
             if result01 and result02:
                 return True, u'publish successful'
         return False, u'publish failed'

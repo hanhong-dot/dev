@@ -148,7 +148,7 @@ class BatchPublish(object):
                 return True, True
         return False, False
 
-    def do_batch_publish(self, user=None, send_jenkins=False, cover_thumbnail=True,source_asset=''):
+    def do_batch_publish(self, user=None, send_jenkins=False, cover_thumbnail=True,parent_asset=''):
         infolist = []
 
         # 处理缩略图字典
@@ -185,7 +185,7 @@ class BatchPublish(object):
                 file_link_type='upload',
                 tags='version',
                 relationship=0,
-                source_asset=source_asset
+                parent_asset=parent_asset
             ))
 
         # 获取process的字典
@@ -248,7 +248,7 @@ class BatchPublish(object):
                                     work_file=obj_dic['work_file'] if 'work_file' in obj_dic.keys() else '',
                                     ref_info=obj_dic['ref_info'] if 'ref_info' in obj_dic.keys() else '',
                                     send_jenkins=send_jenkins,
-                                    source_asset=source_asset
+                                    parent_asset=source_asset
 
                                 ))
 
