@@ -248,7 +248,7 @@ class BatchPublish(object):
                                     work_file=obj_dic['work_file'] if 'work_file' in obj_dic.keys() else '',
                                     ref_info=obj_dic['ref_info'] if 'ref_info' in obj_dic.keys() else '',
                                     send_jenkins=send_jenkins,
-                                    parent_asset=source_asset
+                                    parent_asset=parent_asset
 
                                 ))
 
