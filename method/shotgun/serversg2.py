@@ -580,7 +580,7 @@ class ServerSG(object):
                                     _status = obj['status']
                                     _description = obj['description']
                                     _entity_type = obj['task_type']
-                                    __parent_asset = obj.get('parent_asset', '')
+                                    __parent_asset = obj['parent_asset'] if 'parent_asset' in obj else ''
                                 except Exception as e:
                                     self.errorInfo.append(e)
                                     result_list.append(False)
