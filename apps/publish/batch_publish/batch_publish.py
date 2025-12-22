@@ -42,7 +42,7 @@ class BatchPublish(object):
         self._analyse_data = _get_data.GetXLMData(self._task_data)
         self._info_data = []
 
-    def do_batch_publish_dict(self, process_dict, user=None, send_jenkins=False, cover_thumbnail=True):
+    def do_batch_publish_dict(self, process_dict, user=None, send_jenkins=False, cover_thumbnail=True,parent_asset=''):
         infolist = []
         info1 = {}
         if self._version_src:
@@ -62,6 +62,7 @@ class BatchPublish(object):
                 file_link_type='upload',
                 tags='version',
                 relationship=0,
+                parent_asset=parent_asset
             ))
 
         if process_dict:
@@ -86,7 +87,8 @@ class BatchPublish(object):
                                 self._task_data.project_name,
                                 file_link_type='upload',
                                 tags='version',
-                                relationship=obj_dic['relationship']
+                                relationship=obj_dic['relationship'],
+                                parent_asset=parent_asset
 
                             ))
 
@@ -119,7 +121,8 @@ class BatchPublish(object):
                                             info1 and 'thumbnail' in info1 and 'des_path' in info1) else '',
                                 work_file=obj_dic['work_file'] if 'work_file' in obj_dic.keys() else '',
                                 ref_info=obj_dic['ref_info'] if 'ref_info' in obj_dic.keys() else '',
-                                send_jenkins=send_jenkins
+                                send_jenkins=send_jenkins,
+                                parent_asset=parent_asset
 
                             ))
 
