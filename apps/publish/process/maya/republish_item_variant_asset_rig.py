@@ -219,6 +219,6 @@ class RepublishItemVariantAssetRig(object):
 
 
 if __name__ == '__main__':
-    asset_id = 20658
+    asset_id = 55783
     handle = RepublishItemVariantAssetRig(asset_id)
     handle.run()
