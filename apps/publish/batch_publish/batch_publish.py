@@ -214,7 +214,8 @@ class BatchPublish(object):
                                     self._task_data.project_name,
                                     file_link_type='upload',
                                     tags='version',
-                                    relationship=obj_dic['relationship']
+                                    relationship=obj_dic['relationship'],
+                                    parent_asset=parent_asset
 
                                 ))
 
