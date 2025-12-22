@@ -57,11 +57,16 @@ class RepublishItemVariantAssetRig(object):
         if not parent_ok:
             return False, u'not parent asset'
 
-
+        ok,result = self._get_parent_asset_name(parent_asset_id)
+        if not ok:
+            return False, u'not parent asset name'
+        parent_asset_name = result
 
         ok, result = self._get_asset_rig_task_id(parent_asset_id)
         if not ok:
             return False, u'not parent rig task'
+
+
         task_id = result
 
         __parent_ok, __parent_work_file = self._get_parent_work_file(task_id)
@@ -81,10 +86,22 @@ class RepublishItemVariantAssetRig(object):
         copy_ok, copy_result = self._copy_file(__parent_work_file, work_file)
         if work_file and os.path.exists(work_file):
             BaseFile().open_file(work_file)
-            result01, result02 = BatchPublish(rig_task_data, version_file, DES, statu='ip').do_batch_publish()
+            result01, result02 = BatchPublish(rig_task_data, version_file, DES, statu='pub').do_batch_publish(
+                user='linhuan', send_jenkins=True,source_asset=parent_asset_name)
             if result01 and result02:
                 return True, u'publish successful'
         return False, u'publish failed'
+
+
+    def _get_parent_asset_name(self,parent_asset_id):
+        fields = ['code']
+        filters = [
+            ['id', 'is', parent_asset_id]
+        ]
+        asset = self._sg.find_one('Asset', filters, fields)
+        if not asset or 'code' not in asset:
+            return False, u'not parent asset name'
+        return True, asset['code']
 
     def _copy_file(self, src, dst):
         if not os.path.exists(src):
@@ -171,10 +188,6 @@ class RepublishItemVariantAssetRig(object):
             return False, u'more than one item parent asset'
         return True, item_parent_id[0]
 
-
-
-
-
     def _get_rig_task_data_by_asset(self, asset_id):
         asset_ok, asset_name = self._get_asset_name_from_id(asset_id)
         if not asset_ok:
@@ -207,6 +220,5 @@ class RepublishItemVariantAssetRig(object):
 
 if __name__ == '__main__':
     asset_id = 20658
-    handle=RepublishItemVariantAssetRig(asset_id)
+    handle = RepublishItemVariantAssetRig(asset_id)
     handle.run()
-

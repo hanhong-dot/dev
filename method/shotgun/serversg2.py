@@ -467,6 +467,7 @@ class ServerSG(object):
         _publish_files = []
         _description = ''
         _send_jenkins = ''
+        _source_asset = ''
         _wbx = ''
         for first_k, first_v in self._dict_data.items():
             if first_k == 'shotgun':
@@ -579,6 +580,7 @@ class ServerSG(object):
                                     _status = obj['status']
                                     _description = obj['description']
                                     _entity_type = obj['task_type']
+                                    __source_asset = obj.get('source_asset', '')
                                 except Exception as e:
                                     self.errorInfo.append(e)
                                     result_list.append(False)
@@ -650,7 +652,7 @@ class ServerSG(object):
                 data_dic['task_name'] = u'{}'.format(_task_name)
                 if asset_type.lower() in ['item']:
                     __asset_level = self.__get_asset_level(_entity_id)
-                    if __asset_level and int(__asset_level)==5:
+                    if __asset_level and int(__asset_level) == 5:
                         __asset_level = 5
                     else:
                         __asset_level = 0
@@ -672,6 +674,8 @@ class ServerSG(object):
                     data_dic['upstream_step'] = 'wbx'
                 else:
                     data_dic['upstream_step'] = 'mod'
+                if _source_asset:
+                    data_dic['source_asset'] = _source_asset
                 send_jenkins_ok = False
                 count = 0
                 while count <= 100:
