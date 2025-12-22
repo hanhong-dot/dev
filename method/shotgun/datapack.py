@@ -54,7 +54,7 @@ class Pack(object):
 
     # 预设类型字段映射，发布一下类型标签的文件才会进入数据库
     __link_type__ = {
-        "publish": ["publish", "master", "fbx", "mbfbx","mocap","ue",'unityfbx','unityxml'],
+        "publish": ["publish", "master", "fbx", "mbfbx", "mocap", "ue", 'unityfbx', 'unityxml'],
         "version": ["version", "attachment"]
     }
 
@@ -89,9 +89,9 @@ class Pack(object):
                     return 'Mocap Scene'
                 if tag == 'ue':
                     return 'UE Scene'
-                if tag=='unityfbx':
+                if tag == 'unityfbx':
                     return 'Unity_FBX'
-                if tag=='unityxml':
+                if tag == 'unityxml':
                     return 'Unity_XML'
 
     @classmethod
@@ -117,7 +117,8 @@ class Pack(object):
                  work_file=None,
                  ref_info=None,
                  send_jenkins=None,
-                 wbx=None
+                 wbx=None,
+                 source_asset=None
                  ):
         '''
 
@@ -166,6 +167,7 @@ class Pack(object):
         _basedict["ref_info"] = ref_info
         _basedict["send_jenkins"] = send_jenkins
         _basedict["wbx"] = wbx
+        _basedict["source_asset"] = source_asset
         return _basedict
 
     @classmethod
