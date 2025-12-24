@@ -199,9 +199,13 @@ class Check(object):
         _num = 0
         if mesh:
             _num_normal = meshcommon.Mesh(mesh).get_normals_num()
-            _num_numUV = meshcommon.Mesh(mesh).numUVs
-            _num = max(int(_num_normal), int(_num_numUV))
+            # _num_numUV = meshcommon.Mesh(mesh).numUVs
+            _num_ver_unity = meshcommon.Mesh(mesh).maya_to_unity_mesh_num()
+            _num = max(int(_num_normal), int(_num_ver_unity))
         return _num
+
+
+
 
     @property
     def root_group(self):
@@ -231,17 +235,17 @@ class Check(object):
                                 _meshs.extend(tr)
         return _meshs
 
-# if __name__ == '__main__':
-#     # 测试代码
-#     import method.shotgun.get_task as get_task
-#
-#     reload(get_task)
-#     _filename = cmds.file(q=1, exn=1)
-#
-#     test_task_data = get_task.TaskInfo(_filename, 'X3', 'maya', 'publish')
-#
-#     #
-#     #     # print test_task_data.project_soft
-#     _handle = Check(test_task_data)
-#
-#     _handle.checkinfo()
+if __name__ == '__main__':
+    # 测试代码
+    import method.shotgun.get_task as get_task
+
+    reload(get_task)
+    _filename = cmds.file(q=1, exn=1)
+
+    test_task_data = get_task.TaskInfo(_filename, 'X3', 'maya', 'publish')
+
+    #
+    #     # print test_task_data.project_soft
+    _handle = Check(test_task_data)
+
+    _handle.get_verts_data()
