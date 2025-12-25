@@ -231,18 +231,39 @@ class ServerSG(object):
                 cmd = cmd + '\n'
             else:
                 if os.path.isfile(src) and '.' in os.path.basename(des):
-                    base_name = os.path.basename(des)
+                    base_name = os.path.basename(src)
                     __dir, __file = os.path.split(src)
                     target_path = os.path.join(__dir, base_name)
                     try:
                         shutil.copy2(src, target_path)
                     except Exception as e:
                         raise Exception('copy file error:{}'.format(str(e)))
-                    time.sleep(2)
                     if not os.path.exists(target_path):
                         raise Exception('copy file error:{} to {}'.format(src, target_path))
                     cmd = u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,
                                                                                      base_name, _log)
+                    cmd = cmd + '\n'
+                    cmd = "set RC=%ERRORLEVEL%" + '\n'
+                    src_name = os.path.basename(src)
+                    des_name = os.path.basename(des)
+                    cmd += (
+                        u'if %RC% GEQ 1 if %RC% LEQ 7 (\n'
+                        u'  if exist "{}\\{}" (\n'
+                        u'    ren "{}\\{}" "{}"\n'
+                        u'    echo "------{} => {} update success------%date:~0,-3% %time%" >> {}\n'
+                        u'  ) else (\n'
+                        u'    echo "++++++copy success but file missing for rename++++++" >> {}\n'
+                        u'  )\n'
+                        u') else (\n'
+                        u'  echo "++++++{} update failed RC=%RC%++++++" >> {}\n'
+                        u')\n'
+                    ).format(
+                        _ip_des_dir, src_name,
+                        _ip_des_dir, src_name, des_name,
+                        src, des, _log,
+                        _log,
+                        src, _log
+                    )
                 elif os.path.isfile(src) and '.' not in os.path.basename(des):
 
                     base_name = os.path.basename(src)
@@ -251,8 +272,9 @@ class ServerSG(object):
                 else:
                     cmd = u'robocopy "{}" "{}"  /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir, _log)
                 cmd = cmd + '\n'
-                cmd=cmd+"set RC=%ERRORLEVEL%"+'\n'
-                cmd=cmd+"if %RC% GEQ 1 if %RC% LEQ 7( echo \"------{} to ===> {} update success------%date:~0,-3% %time%\" >> {} )else ( echo \"++++++{} update failed++++++\" >> {} )".format(src, des, _log, src, _log)
+                cmd = cmd + "set RC=%ERRORLEVEL%" + '\n'
+                cmd = cmd + "if %RC% GEQ 1 if %RC% LEQ 7( echo \"------{} to ===> {} update success------%date:~0,-3% %time%\" >> {} )else ( echo \"++++++{} update failed++++++\" >> {} )".format(
+                    src, des, _log, src, _log)
 
                 cmd = cmd + '\n'
         return cmd
