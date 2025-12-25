@@ -39,7 +39,7 @@ class Check(object):
         self.structure = self.analyze_handle.get_structure()
         self._structure = self._get_structure
         self.__tooltip = u'开始检测pl配饰骨骼权重'
-        self.__err = u"以下骨骼无蒙皮权重,请检查"
+        self.__err = u"以下骨骼与女主模型没有有效蒙皮权重,请检查"
         self.__end = u'已检测pl配饰骨骼权重'
 
     def checkinfo(self):
