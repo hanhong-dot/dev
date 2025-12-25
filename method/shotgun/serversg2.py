@@ -238,6 +238,9 @@ class ServerSG(object):
                         shutil.copy2(src, target_path)
                     except Exception as e:
                         raise Exception('copy file error:{}'.format(str(e)))
+                    time.sleep(2)
+                    if not os.path.exists(target_path):
+                        raise Exception('copy file error:{} to {}'.format(src, target_path))
                     cmd = u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,
                                                                                      base_name, _log)
                 elif os.path.isfile(src) and '.' not in os.path.basename(des):
