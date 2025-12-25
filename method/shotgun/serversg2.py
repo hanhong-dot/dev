@@ -232,7 +232,8 @@ class ServerSG(object):
             else:
                 if os.path.isfile(src) and '.' in os.path.basename(des):
                     base_name = os.path.basename(des)
-                    target_path = os.path.join(_ip_des_dir, base_name)
+                    __dir, __file = os.path.split(src)
+                    target_path = os.path.join(__dir, base_name)
                     try:
                         shutil.copy2(src, target_path)
                     except Exception as e:
