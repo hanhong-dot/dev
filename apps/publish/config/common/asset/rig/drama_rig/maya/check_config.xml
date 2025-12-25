@@ -156,7 +156,17 @@
                    except_projectType=""
                    ignore="False"/>
 
+
         <checkItem order_id="16" projectType="all"
+                   item_name="检测配饰Head_M_spare以下骨骼是否有效蒙皮(PL捏脸)"
+                   toolTip="检测配饰Head_M_spare以下骨骼是否有效蒙皮(PL捏脸)"
+                   check_command="from apps.publish.check.maya.asset import check_pl_rolaccesory_joint_weight;reload(check_pl_rolaccesory_joint_weight);check_pl_rolaccesory_joint_weight.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="17" projectType="all"
                    item_name="检测Smooth模型(按'3'键)"
                    toolTip="检测Smooth模型(按'3'键)"
                    check_command="import apps.publish.check.maya.asset.check_exist_smooth_3 as check_exist_smooth_3;reload(check_exist_smooth_3);check_exist_smooth_3.Check().checkinfo()"
