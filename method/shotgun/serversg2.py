@@ -249,7 +249,7 @@ class ServerSG(object):
                     cmd = u'robocopy "{}" "{}"  /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir, _log)
                 cmd = cmd + '\n'
                 cmd=cmd+"set RC=%ERRORLEVEL%"+'\n'
-                cmd=cmd+"if %RC% LEQ 7( echo \"------{} to ===> {} update success------%date:~0,-3% %time%\" >> {} )else ( echo \"++++++{} update failed++++++\" >> {} )".format(src, des, _log, src, _log)
+                cmd=cmd+"if %RC% GEQ 1 if %RC% LEQ 7( echo \"------{} to ===> {} update success------%date:~0,-3% %time%\" >> {} )else ( echo \"++++++{} update failed++++++\" >> {} )".format(src, des, _log, src, _log)
 
                 cmd = cmd + '\n'
         return cmd
