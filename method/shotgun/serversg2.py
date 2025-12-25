@@ -233,16 +233,7 @@ class ServerSG(object):
                 if os.path.isfile(src) and '.' in os.path.basename(des):
                     base_name = os.path.basename(src)
                     __dir, __file = os.path.split(src)
-                    target_path = os.path.join(__dir, base_name)
-                    try:
-                        shutil.copy2(src, target_path)
-                    except Exception as e:
-                        raise Exception('copy file error:{}'.format(str(e)))
-                    if not os.path.exists(target_path):
-                        raise Exception('copy file error:{} to {}'.format(src, target_path))
-                    cmd = u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,
-                                                                                     base_name, _log)
-                    cmd = cmd + '\n'
+                    cmd =cmd+ u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,base_name, _log)+ '\n'
                     cmd = "set RC=%ERRORLEVEL%" + '\n'
                     src_name = os.path.basename(src)
                     des_name = os.path.basename(des)
@@ -308,7 +299,17 @@ class ServerSG(object):
                             for obj in third_list:
                                 src_path = obj['src_path']
                                 des_path = obj['des_path']
-
+                                if os.path.basename(src_path) != os.path.basename(des_path):
+                                    __scr_dir, __scr_file = os.path.split(src_path)
+                                    __des_dir, __des_file = os.path.split(des_path)
+                                    if '.' in __des_file:
+                                        __target_path = __scr_dir + '/' + __des_file
+                                        try:
+                                            shutil.copy2(src_path, __target_path)
+                                        except Exception as e:
+                                            traceback.print_exc()
+                                        if os.path.exists(__target_path):
+                                            src_path = __target_path
                                 infos = self._set_batinfo(src_path, des_path)
                                 self.files.append(infos)
         return self.files
