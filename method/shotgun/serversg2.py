@@ -308,6 +308,7 @@ class ServerSG(object):
                             for obj in third_list:
                                 src_path = obj['src_path']
                                 des_path = obj['des_path']
+
                                 infos = self._set_batinfo(src_path, des_path)
                                 self.files.append(infos)
         return self.files
