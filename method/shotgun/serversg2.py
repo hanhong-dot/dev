@@ -236,7 +236,7 @@ class ServerSG(object):
                     try:
                         shutil.copy2(src, target_path)
                     except Exception as e:
-                        raise Exception('copy2 file error:{}'.format(str(e)))
+                        raise Exception('copy file error:{}'.format(str(e)))
                     cmd = u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,
                                                                                      base_name, _log)
                 elif os.path.isfile(src) and '.' not in os.path.basename(des):
@@ -247,9 +247,9 @@ class ServerSG(object):
                 else:
                     cmd = u'robocopy "{}" "{}"  /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir, _log)
                 cmd = cmd + '\n'
-                cmd = cmd + u'if %%errorlevel%%==0 (echo "------%s to ===> %s update success------%%date:~0,-3%% %%time%%" >> %s\n' % (
-                    ip_src, ip_des, _log)
-                cmd = cmd + u')else (echo "++++++%s update failed++++++" >> %s)\n' % (ip_src, _log)
+                cmd=cmd+"set RC=%ERRORLEVEL%"+'\n'
+                cmd=cmd+"if %RC% LEQ 7( echo \"------{} to ===> {} update success------%date:~0,-3% %time%\" >> {} )else ( echo \"++++++{} update failed++++++\" >> {} )".format(src, des, _log, src, _log)
+
                 cmd = cmd + '\n'
         return cmd
 
