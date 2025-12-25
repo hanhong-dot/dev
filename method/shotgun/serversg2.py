@@ -197,15 +197,12 @@ class ServerSG(object):
         ip_src = self._trans_path(src)
         _log = self._trans_path(self.log)
         _base_file = os.path.basename(des)
-        if os.path.isfile(ip_src):
-            _ip_src_dir=os.path.dirname(ip_src)
+        if os.path.isfile(src):
+            _ip_src_dir = os.path.dirname(ip_src)
         else:
-            _ip_src_dir=ip_src
-        if os.path.isfile(ip_des):
-            _ip_des_dir=os.path.dirname(ip_des)
-        else:
-            _ip_des_dir=ip_des
+            _ip_src_dir = ip_src
 
+        _ip_des_dir = _des_dir
 
         # if os.path.exists(src):
         #     if os.path.basename(src) == os.path.basename(des):
@@ -229,23 +226,26 @@ class ServerSG(object):
             if os.path.basename(src) == os.path.basename(des):
                 # cmd = '{} /no_ui /cmd=diff /auto_close /balloon=FAlSE /filelog="{}" "{}" /to="{}"'.format(
                 # 		self._set_ippath(FASTCOPY_CMD), _log, self._set_ippath(_src), self._set_ippath(_des_dir))
-                cmd = u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir, os.path.basename(src), _log)
+                cmd = u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,
+                                                                                 os.path.basename(src), _log)
                 cmd = cmd + '\n'
             else:
-                if os.path.isfile(src) and os.path.isfile(des):
-                    base_name= os.path.basename(des)
-                    target_path=os.path.join(_ip_des_dir,base_name)
+                if os.path.isfile(src) and '.' in os.path.basename(des):
+                    base_name = os.path.basename(des)
+                    target_path = os.path.join(_ip_des_dir, base_name)
                     try:
-                        shutil.copy2(src,target_path)
+                        shutil.copy2(src, target_path)
                     except Exception as e:
                         raise Exception('copy2 file error:{}'.format(str(e)))
-                    cmd = u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir, base_name, _log)
-                elif os.path.isfile(src) and not os.path.isfile(des):
+                    cmd = u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,
+                                                                                     base_name, _log)
+                elif os.path.isfile(src) and '.' not in os.path.basename(des):
 
                     base_name = os.path.basename(src)
-                    cmd = u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,base_name, _log)
+                    cmd = u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,
+                                                                                     base_name, _log)
                 else:
-                    cmd =  u'robocopy "{}" "{}"  /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir, _log)
+                    cmd = u'robocopy "{}" "{}"  /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir, _log)
                 cmd = cmd + '\n'
                 cmd = cmd + u'if %%errorlevel%%==0 (echo "------%s to ===> %s update success------%%date:~0,-3%% %%time%%" >> %s\n' % (
                     ip_src, ip_des, _log)
