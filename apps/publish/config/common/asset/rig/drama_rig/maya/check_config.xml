@@ -165,8 +165,16 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
+         <checkItem order_id="17" projectType="all"
+                   item_name="检测配饰bs target列表中包含捏脸关键字(PL捏脸)"
+                   toolTip="检测配饰bs target列表中包含捏脸关键字(PL捏脸)"
+                   check_command="from apps.publish.check.maya.asset import check_pl_rolaccesory_bs;reload(check_pl_rolaccesory_bs);check_pl_rolaccesory_bs.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
 
-        <checkItem order_id="17" projectType="all"
+        <checkItem order_id="18" projectType="all"
                    item_name="检测Smooth模型(按'3'键)"
                    toolTip="检测Smooth模型(按'3'键)"
                    check_command="import apps.publish.check.maya.asset.check_exist_smooth_3 as check_exist_smooth_3;reload(check_exist_smooth_3);check_exist_smooth_3.Check().checkinfo()"
@@ -184,7 +192,7 @@
         <!--           except_projectType=""-->
         <!--           ignore="False"/>-->
 
-        <checkItem order_id="18" projectType="all"
+        <checkItem order_id="19" projectType="all"
                    item_name="检测白盒BS(超过80000面白盒,不需要BS)"
                    toolTip="检测白盒BS(超过80000面白盒,不需要BS)"
                    check_command="import apps.publish.check.maya.asset.check_rig_bs_face as check_rig_bs_face;reload(check_rig_bs_face);check_rig_bs_face.Check(TaskData_Class).checkinfo()"
@@ -193,7 +201,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="19" projectType="all"
+        <checkItem order_id="20" projectType="all"
                    item_name="检测DB骨骼命名(可修复)"
                    toolTip="检测DB骨骼命名(可修复)"
                    check_command="import apps.publish.check.maya.asset.check_is_db_joint_name as check_is_db_joint_name;reload(check_is_db_joint_name);check_is_db_joint_name.Check(TaskData_Class).checkinfo()"
@@ -201,7 +209,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="True"/>
-        <checkItem order_id="20" projectType="all"
+        <checkItem order_id="21" projectType="all"
                    item_name="检测文件中是否存在蒙皮AP骨骼"
                    toolTip="检测文件中是否存在蒙皮AP骨骼"
                    check_command="import apps.publish.check.maya.asset.check_exist_ap_joint as check_exist_ap_joint;reload(check_exist_ap_joint);check_exist_ap_joint.Check(TaskData_Class).checkinfo()"
@@ -210,7 +218,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="21" projectType="all"
+        <checkItem order_id="22" projectType="all"
                    item_name="检测文件Head_M_spare及以下骨骼与衣服,配饰，武器是否有蒙皮"
                    toolTip="检测文件Head_M_spare及以下骨骼与衣服,配饰，武器是否有蒙皮"
                    check_command="import apps.publish.check.maya.asset.check_exist_jont_skin as check_exist_jont_skin;reload(check_exist_jont_skin);check_exist_jont_skin.Check(TaskData_Class).checkinfo()"
@@ -220,7 +228,7 @@
                    ignore="True"/>
 
 
-        <checkItem order_id="22" projectType="all"
+        <checkItem order_id="23" projectType="all"
                    item_name="检测文件是否可以正常创建SG节点(可修复)"
                    toolTip="检测文件是否可以正常创建SG节点"
                    check_command="import apps.publish.check.maya.asset.check_rig_sg as check_rig_sg;reload(check_rig_sg);check_rig_sg.Check().checkinfo()"
@@ -228,7 +236,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-         <checkItem order_id="23" projectType="all"
+         <checkItem order_id="24" projectType="all"
                    item_name="检测输出asis fbx对应模型组材质命名是否正确"
                    toolTip="检测输出asis fbx对应模型组材质命名是否正确"
                    check_command="import apps.publish.check.maya.asset.check_asis_shader as check_asis_shader;reload(check_asis_shader);check_asis_shader.Check(TaskData_Class).checkinfo()"
@@ -237,7 +245,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="24" projectType="all"
+        <checkItem order_id="25" projectType="all"
                    item_name="检测PL头发是否有骨骼蒙皮"
                    toolTip="测PL头发是否有骨骼蒙皮"
                    check_command="import apps.publish.check.maya.asset.check_hair_joint_skin as check_hair_joint_skin;reload(check_hair_joint_skin);check_hair_joint_skin.Check(TaskData_Class).checkinfo()"
