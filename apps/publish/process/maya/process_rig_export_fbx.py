@@ -48,7 +48,8 @@ reload(get_entity)
 import database.shotgun.core.sg_analysis as sg_analysis
 
 EXASSETS = ['M3011_Puppet01', 'M3111_Obsidian01', 'M3013_Puppet05', 'M3017_Puppet09', 'M3011_Puppet01_test',
-            'M3011_Puppet01_Card', 'M3451_STCardSkeleton01','M3451_STCardSkeleton01_Card','M3121_DirewolfCard01']
+            'M3011_Puppet01_Card', 'M3451_STCardSkeleton01', 'M3451_STCardSkeleton01_Card', 'M3121_DirewolfCard01',
+            'M3121_DirewolfCard02']
 
 
 # log_file=r'Z:\TD\0812\test.log'
@@ -575,17 +576,16 @@ class Porcess_RigFbx_Export(Porcess_Export):
         # 导出fbx
         if self._asset_type.lower() in ['npc'] and self._asset_level == 3:
 
-            rig_grp=cmds.ls('*_Rig',type='transform',l=1)
+            rig_grp = cmds.ls('*_Rig', type='transform', l=1)
             if rig_grp:
-                rig_grp=rig_grp[0].split('|')[-1]
-                if rig_grp!='{}_Rig'.format(self._entity_name):
-                    cmds.rename(rig_grp,'{}_Rig'.format(self._entity_name))
-            _exportobjs = cmds.ls('Roots',type='joint')
+                rig_grp = rig_grp[0].split('|')[-1]
+                if rig_grp != '{}_Rig'.format(self._entity_name):
+                    cmds.rename(rig_grp, '{}_Rig'.format(self._entity_name))
+            _exportobjs = cmds.ls('Roots', type='joint')
             for _grp in ['BaseHead', 'BaseBody', 'BaseHair']:
                 __obj = cmds.ls('{}_{}'.format(self._entity_name, _grp), l=1)
                 if __obj:
                     _exportobjs.append(__obj[0])
-
 
         if "_GuaranteedAnim" in _exportfile:
             # 保存下文件

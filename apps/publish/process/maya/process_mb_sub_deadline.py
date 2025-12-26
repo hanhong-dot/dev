@@ -16,8 +16,9 @@ reload(maya_submission)
 import os
 
 ADASSETS = ['M3011_Puppet01', 'M3111_Obsidian01', 'M3013_Puppet05', 'M3017_Puppet09', 'M3011_Puppet01_test',
-            'M3011_Puppet01_Card', 'M3451_STCardSkeleton01','M3451_STCardSkeleton01_Card','M3121_DirewolfCard01']
-EXASSETTYPE = ['item', 'enemy', 'weapon', 'rolaccesory','hair']
+            'M3011_Puppet01_Card', 'M3451_STCardSkeleton01', 'M3451_STCardSkeleton01_Card', 'M3121_DirewolfCard01',
+            'M3121_DirewolfCard02']
+EXASSETTYPE = ['item', 'enemy', 'weapon', 'rolaccesory', 'hair']
 
 
 def process_mb_sub_deadline(TaskData, mb_export=True):
