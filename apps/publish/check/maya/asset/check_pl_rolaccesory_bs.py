@@ -190,12 +190,3 @@ class Check(object):
         else:
             return structure
 
-if __name__ == '__main__':
-    import method.shotgun.get_task as get_task
-
-    _filename =cmds.file(q=1, sn=1)
-
-    taskdata = get_task.TaskInfo(_filename, 'X3', 'maya', 'version')
-    handle = Check(taskdata)
-
-    print(handle.run())
