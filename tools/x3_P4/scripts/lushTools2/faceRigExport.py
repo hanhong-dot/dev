@@ -23,7 +23,6 @@ def find_index(ctrls, name):
             return i
 
 
-
 def check_same_ctrl(data):
     bs_names = set([ctrl["name"] for ctrl in data["blendControllers"]])
     se_names = set([ctrl["name"] for ctrl in data["secondaryControllers"]])
