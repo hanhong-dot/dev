@@ -17,6 +17,22 @@ transfromAttr = {'translateX': 0, 'translateY': 1, 'translateZ': 2,
                  'scaleX': 6, 'scaleY': 7, 'scaleZ': 8}
 
 
+def find_index(ctrls, name):
+    for i, ctrl in enumerate(ctrls):
+        if ctrl["name"] == name:
+            return i
+
+
+def check_same_ctrl(data):
+    bs_names = set([ctrl["name"] for ctrl in data["blendControllers"]])
+    se_names = set([ctrl["name"] for ctrl in data["secondaryControllers"]])
+    same_ctrls = bs_names.intersection(se_names)
+    for name in same_ctrls:
+        i = find_index(data["blendControllers"], name)
+        ctrl = data["blendControllers"][i]
+        ctrl["controllerInfo"]["shape"] = [{k: v*0.8 for k, v in p.items()} for p in ctrl["controllerInfo"]["shape"]]
+        ctrl["position"]["y"] += 0.001
+
 def get_bs_info(bs_node_name=""):
     bsInfo = []
     if not cmds.objExists(bs_node_name):
@@ -339,7 +355,6 @@ def face_rig_export(path, typ, faceJoints, bs_node_name):
         eyeMasterControllerStr = "AimEye_M"
         defaultLookAtLocalPosition = [1,0,0]
         defaultEyeFollow = 1
-
     transformAttrs = ['t','tx','ty','tz','r','rx','ry','rz','s','sx','sy','sz']
     EyeParameterDict = {}
     for v in eyeJointCtlMap.values():
@@ -957,6 +972,7 @@ def face_rig_export(path, typ, faceJoints, bs_node_name):
     add_default(FaceParameter)
     add_switch_map(FaceParameter)
     dir_path = os.path.dirname(path)
+    check_same_ctrl(FaceParameter)
     if not os.path.isdir(dir_path):
         os.makedirs(dir_path)
     with open(path, "wb") as f:
