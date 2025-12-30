@@ -36,7 +36,6 @@ def check_asset_from_name(asset_name):
         return False, u'资产:{} 资产类型不是Body或Role或npc，请检查'.format(asset_name)
     return True, asset
 
-
 def get_rig_task_by_asset_name(asset_name):
     ok, asset = check_asset_from_name(asset_name)
     if not ok:
