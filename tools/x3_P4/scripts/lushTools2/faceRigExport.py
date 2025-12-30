@@ -355,7 +355,6 @@ def face_rig_export(path, typ, faceJoints, bs_node_name):
         eyeMasterControllerStr = "AimEye_M"
         defaultLookAtLocalPosition = [1,0,0]
         defaultEyeFollow = 1
-
     transformAttrs = ['t','tx','ty','tz','r','rx','ry','rz','s','sx','sy','sz']
     EyeParameterDict = {}
     for v in eyeJointCtlMap.values():
