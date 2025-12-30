@@ -14,8 +14,6 @@ import maya.mel as mel
 import maya.OpenMaya as om
 
 from . import bk, reference
-
-
 class ProcessFile(object):
     def __init__(self, startframe, endframe, name_space='', _bake=True):
         self._bake = _bake
