@@ -95,11 +95,8 @@ class Check(object):
             return False, error_bs
         for bs in bs_nodes:
             judge = True
-            target_names = cmds.blendShape(bs, q=1, t=1)
-            if not target_names:
-                continue
             for check in CHECKS:
-                if check not in target_names:
+                if not cmds.ls('{}.{}'.format(bs, check)):
                     judge = False
                     break
             if judge:
@@ -193,3 +190,12 @@ class Check(object):
         else:
             return structure
 
+if __name__ == '__main__':
+    import method.shotgun.get_task as get_task
+
+    _filename =cmds.file(q=1, sn=1)
+
+    taskdata = get_task.TaskInfo(_filename, 'X3', 'maya', 'version')
+    handle = Check(taskdata)
+
+    print(handle.run())
