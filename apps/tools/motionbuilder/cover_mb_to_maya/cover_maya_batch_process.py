@@ -8,7 +8,6 @@ LOCAL_PYTHON_PATH = r"z:\dev"
 
 
 CREATE_NO_WINDOW = 0x08000000
-
 def run_process_cover_to_maya2018(json_path):
     py = r"z:\dev\apps\tools\motionbuilder\cover_mb_to_maya\batch_cover_maya.py"
     cmd = [PYTHONPATH, py, json_path]
