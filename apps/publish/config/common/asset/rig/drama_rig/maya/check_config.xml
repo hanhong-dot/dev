@@ -190,6 +190,15 @@
                    except_projectType=""
                    ignore="False"/>
 
+              <checkItem order_id="21" projectType="all"
+                   item_name="检测配饰眼镜有效蒙皮(眼镜标记)"
+                   toolTip="检测配饰眼镜有效蒙皮(眼镜标记)"
+                   check_command="from apps.publish.check.maya.asset import check_glass_skin_weight;reload(check_glass_skin_weight);check_glass_skin_weight.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
         <checkItem order_id="23" projectType="all"
                    item_name="检测Smooth模型(按'3'键)"
                    toolTip="检测Smooth模型(按'3'键)"
