@@ -33,9 +33,9 @@ class Check(object):
         self.analyze_handle = structure.AnalyStrue(self._taskdata)
         self.structure = self.analyze_handle.get_structure()
         self._structure = self._get_structure
-        self.__tooltip = u'开始检测pl配饰骨骼权重'
-        self.__err = u"以下骨骼与配饰模型没有有效蒙皮权重,请检查"
-        self.__end = u'已检测pl配饰骨骼权重'
+        self.__tooltip = u'开始检测pl配饰骨骼权重【眼镜标记】'
+        self.__err = u"请检查以下问题"
+        self.__end = u'已检测pl配饰骨骼权重【眼镜标记】'
 
     def checkinfo(self):
         __errors = self.run()
