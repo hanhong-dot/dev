@@ -181,7 +181,14 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-
+             <checkItem order_id="20" projectType="all"
+                   item_name="检测配饰AP拆分骨骼(AP拆分)"
+                   toolTip="检测配饰AP拆分骨骼(AP拆分)"
+                   check_command="from apps.publish.check.maya.asset import check_rolaccesory_ap_joint;reload(check_rolaccesory_ap_joint);check_rolaccesory_ap_joint.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
 
         <checkItem order_id="23" projectType="all"
                    item_name="检测Smooth模型(按'3'键)"
