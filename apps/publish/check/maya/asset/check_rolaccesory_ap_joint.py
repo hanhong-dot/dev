@@ -60,7 +60,7 @@ class Check(object):
         if u'AP拆分' not in __task_text:
             return __error
         __jnt = 'AP_{}_jnt'.format(self.__entity_name)
-        __collider_jnt = 'AP_{}_Collider_jnt'.format(self.__entity_name)
+        __collider_jnt = 'AP_{}_Collider_*'.format(self.__entity_name)
         __db_jnt = 'AP_{}_DB_jnt'.format(self.__entity_name)
         if not cmds.ls(__jnt):
             __not_exit_errors.append(__jnt)
