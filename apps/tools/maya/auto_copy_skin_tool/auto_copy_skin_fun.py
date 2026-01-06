@@ -70,7 +70,7 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, as
     if not ok:
         return False, result
     # out_path = '{}/{}_AutoSkin.fbx'.format(out_dir, asset_name)
-    ok = export_fbx_file(selct_grps, out_dir, asset_name)
+    ok, result = export_fbx_file(selct_grps, out_dir, asset_name)
     if not ok:
         return False, u'自动蒙皮FBX导出失败，请检查！'
     return True, u'自动蒙皮完成！'
