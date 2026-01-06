@@ -12,36 +12,51 @@ import maya.OpenMaya as om
 import lib.maya.process.export_fbx as _fbx_common
 
 
-def copy_skin_weights(source_mesh, target_mesh_list):
-    if not source_mesh or not target_mesh_list:
-        return False, 'source_mesh or target_mesh_list is None'
+def copy_skin_weights(source_mesh, select_grps):
+    if not source_mesh or not select_grps:
+        return False, 'source_mesh or select groups is None'
     if not cmds.objExists(source_mesh):
         return False, 'source_mesh {} is not exists'.format(source_mesh)
-    for target_mesh in target_mesh_list:
-        if not cmds.objExists(target_mesh):
-            return False, 'target_mesh {} is not exists'.format(target_mesh)
 
     sskin = mel.eval('findRelatedSkinCluster {0}'.format(source_mesh))
     if not sskin:
         return False, 'source_mesh {} has no skincluster'.format(source_mesh)
     bone = cmds.skinCluster(sskin, q=True, inf=True)
-    for mesh in target_mesh_list:
-        dskin = cmds.skinCluster(bone, mesh, tsb=True, mi=20)[0]
-        cmds.copySkinWeights(ss=sskin, ds=dskin, nm=True, sa='closestPoint')
-        cmds.select(mesh, r=True)
-        mel.eval('removeUnusedInfluences')
-        cmds.select(cl=True)
-        om.MGlobal.displayInfo('Skincluster tansfer over')
+    for grp in select_grps:
+        target_mesh_list = get_meshs_from_groups(grp)
+        if not target_mesh_list:
+            return False, u'{} 组下没有模型,请检查'.format(grp)
+        for mesh in target_mesh_list:
+            dskin = cmds.skinCluster(bone, mesh, tsb=True, mi=20)[0]
+            cmds.copySkinWeights(ss=sskin, ds=dskin, nm=True, sa='closestPoint')
+            cmds.select(mesh, r=True)
+            mel.eval('removeUnusedInfluences')
+            cmds.select(cl=True)
+            om.MGlobal.displayInfo('Skincluster tansfer over')
     return True, 'copy skin weights success'
 
 
-def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file,asset_name, out_dir):
-    ok, result = get_select_meshs()
+def get_meshs_from_groups(group):
+    meshs = []
+    if not cmds.objExists(group):
+        return meshs
+    children = cmds.listRelatives(group, ad=True, type='mesh', f=True)
+    if not children:
+        return meshs
+    for child in children:
+        tr = cmds.listRelatives(child, p=True, f=True, type='transform')
+        if tr and tr[0] not in meshs:
+            meshs.append(tr[0])
+    return meshs
+
+
+def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, asset_name, out_dir):
+    ok, result = get_select_grps()
     if not ok:
-        return False, u'请先选择需要复制蒙皮的模型mesh！'
-    scene_meshs = result
-    if not scene_meshs:
-        return False, u'请选择需要复制蒙皮的模型mesh！'
+        return False, result
+    selct_grps = result
+    if not selct_grps:
+        return False, u'请选择需要复制蒙皮的模型组！'
 
     result = import_file(body_asset_name, body_publish_file)
     if not result:
@@ -51,20 +66,66 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file,ass
     if not ok:
         return False, result
     body_process_mesh = result
-    ok, result = copy_skin_weights(body_process_mesh, scene_meshs)
+    ok, result = copy_skin_weights(body_process_mesh, selct_grps)
     if not ok:
         return False, result
-    out_path='{}/{}_AutoSkin.fbx'.format(out_dir, asset_name)
-    ok=export_fbx_file(scene_meshs, out_path)
+    # out_path = '{}/{}_AutoSkin.fbx'.format(out_dir, asset_name)
+    ok = export_fbx_file(selct_grps, out_dir, asset_name)
     if not ok:
         return False, u'自动蒙皮FBX导出失败，请检查！'
     return True, u'自动蒙皮完成！'
 
 
-def export_fbx_file(export_meshs, out_fbx_file):
-    if not export_meshs:
+def get_select_grps():
+    select_objs = cmds.ls(sl=1, l=1)
+    groups = []
+    if not select_objs:
+        return False, u'未选择组,请选择需要处理的组！'
+    for obj in select_objs:
+        if cmds.nodeType(obj) != 'transform':
+            continue
+        shape_nodes = cmds.listRelatives(obj, s=1, f=1)
+        if shape_nodes:
+            continue
+        meshs = cmds.listRelatives(obj, ad=True, type='mesh', f=True)
+        if not meshs:
+            continue
+        if obj not in groups:
+            groups.append(obj)
+    if not groups:
+        return False, u'没有选择模型组，所选物体不是组，或者组下没有mesh，请检查！'
+        # children = cmds.listRelatives(obj, c=1, f=1)
+        # if not children:
+        #     continue
+    #     shape_nodes = cmds.listRelatives(obj, s=1, type='mesh', f=1)
+    #     if shape_nodes:
+    #         continue
+    #     groups.append(obj)
+    # if not groups:
+    #     return False, groups
+    # return True, groups
+    return True, groups
+
+
+def export_fbx_file(export_groups, out_dir, asset_name):
+    __export_path_list = []
+    __error_msgs = []
+    if not export_groups:
         return False, u'没有可导出的mesh！'
-    return _fbx_common.export_fbx(export_meshs, out_fbx_file, hi=1, triangulate=1, warning=0)
+    for grp in export_groups:
+        if not cmds.objExists(grp):
+            return False, u'导出组{}不存在，请检查！'.format(grp)
+        __out_path = u'{}/{}.{}.fbx'.format(out_dir, asset_name, grp.split('|')[-1])
+        cmds.selct(cl=True)
+        cmds.select(grp)
+        try:
+            _fbx_common.export_fbx(grp, __out_path, hi=1, triangulate=1, warning=0)
+            __export_path_list.append(__out_path)
+        except:
+            __error_msgs.append(u'组{}导出FBX失败，请检查！'.format(grp))
+    if __error_msgs:
+        return False, '\n'.join(__error_msgs)
+    return True, __export_path_list
 
 
 def get_process_meshs_by_asset(body_asset_name, asset_type, asset_add):
