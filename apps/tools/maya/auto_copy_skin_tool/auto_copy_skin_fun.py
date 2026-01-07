@@ -117,7 +117,7 @@ def export_fbx_file(export_groups, out_dir):
     for grp in export_groups:
         if not cmds.objExists(grp):
             return False, u'导出组{}不存在，请检查！'.format(grp)
-        __out_path = u'{}_AutoSkin/{}.fbx'.format(out_dir, grp.split('|')[-1])
+        __out_path = u'{}/{}_AutoSkin.fbx'.format(out_dir, grp.split('|')[-1])
         __out_path = __out_path.replace('\\', '/')
         cmds.select(cl=True)
         cmds.select(grp)
