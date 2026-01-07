@@ -62,6 +62,9 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, ou
     if not selct_grps:
         return False, u'请选择需要复制蒙皮的模型组！'
     new_mesh_name = '{}_Process_Mesh'.format(str(body_asset_name))
+    parent_grp = '{}_Rig'.format(asset_add)
+    if not cmds.objExists(parent_grp):
+        return False, u'场景中不存在Rig组{}，请检查！'.format(parent_grp)
 
     if cmds.objExists(new_mesh_name):
         body_process_mesh = new_mesh_name
@@ -77,9 +80,8 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, ou
     if not ok:
         return False, result
     # out_path = '{}/{}_AutoSkin.fbx'.format(out_dir, asset_name)
-    parent_grp = '{}_Rig'.format(asset_add)
-    if not cmds.objExists(parent_grp):
-        return False, u'场景中不存在Rig组{}，请检查！'.format(parent_grp)
+
+
     ok, result = parent_group(selct_grps, parent_grp)
     if not ok:
         return False, result
@@ -135,8 +137,10 @@ def export_fbx_file(export_groups, out_dir):
     if not export_groups:
         return False, u'没有可导出的mesh！'
     for grp in export_groups:
-        if not cmds.objExists(grp):
-            return False, u'导出组{}不存在，请检查！'.format(grp)
+        grp_short=grp.split('|')[-1]
+        if not cmds.ls(grp_short):
+            return False, u'导出组{}不存在，请检查！'.format(grp_short)
+        grp=cmds.ls(grp_short, l=1)[0]
         __out_path = u'{}/{}.fbx'.format(out_dir, grp.split('|')[-1])
         __out_path = __out_path.replace('\\', '/')
         cmds.select(cl=True)
