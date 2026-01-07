@@ -17,7 +17,9 @@ except:
 
 from apps.publish.ui.message.messagebox import msgview
 from apps.tools.maya.auto_copy_skin_tool import sg_fun as copy_skin_sg_fun
-from apps.tools.maya.auto_copy_skin_tool.auto_copy_skin_fun import auto_copy_skin
+from apps.tools.maya.auto_copy_skin_tool import auto_copy_skin_fun
+
+reload(copy_skin_sg_fun)
 
 MAPINGDATA = {
     'PL': 'PL_Body',
@@ -119,15 +121,16 @@ class AutoCopySkinUI(QWidget):
             return
 
         body_rig_publish_file = result
-        ok, result = auto_copy_skin(__target_asset_name, self.__asset_type, self.__asset_abb, body_rig_publish_file, __out_put_path)
+        ok, result = copy_skin_sg_fun.auto_copy_skin(__target_asset_name, self.__asset_type, self.__asset_abb,
+                                                     body_rig_publish_file, __out_put_path)
         if not ok:
             msgview(result, 0)
             return
         else:
-            __add_path_list, __over_path_list= result
-            __msg= u"蒙皮复制完成！\n"
+            __add_path_list, __over_path_list = result
+            __msg = u"蒙皮复制完成！\n"
             if __add_path_list:
-                __msg =  __msg+u"新增文件:\n"
+                __msg = __msg + u"新增文件:\n"
                 for path in __add_path_list:
                     __msg += u"{}\n".format(path)
             if __over_path_list:
