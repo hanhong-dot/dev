@@ -59,14 +59,19 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, ou
     if not selct_grps:
         return False, u'请选择需要复制蒙皮的模型组！'
 
-    result = import_file(body_asset_name, body_publish_file)
-    if not result:
-        return False, u'导入body资产{}上传文件失败，请检查！'.format(body_asset_name)
+    new_mesh_name = '{}_Process_Mesh'.format(body_asset_name)
+    if not cmds.ls(new_mesh_name):
 
-    ok, result = get_process_meshs_by_asset(body_asset_name, asset_type, asset_add)
-    if not ok:
-        return False, result
-    body_process_mesh = result
+        result = import_file(body_asset_name, body_publish_file)
+        if not result:
+            return False, u'导入body资产{}上传文件失败，请检查！'.format(body_asset_name)
+
+        ok, result = get_process_meshs_by_asset(body_asset_name, asset_type, asset_add)
+        if not ok:
+            return False, result
+        body_process_mesh = result
+    else:
+        body_process_mesh = cmds.ls(new_mesh_name)[0]
     ok, result = copy_skin_weights(body_process_mesh, selct_grps)
     if not ok:
         return False, result
