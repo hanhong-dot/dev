@@ -69,7 +69,6 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, ou
         result = import_file(body_asset_name, body_publish_file)
         if not result:
             return False, u'导入body资产{}上传文件失败，请检查！'.format(body_asset_name)
-
         ok, result = get_process_meshs_by_asset(body_asset_name, asset_type, asset_add)
         if not ok:
             return False, result
