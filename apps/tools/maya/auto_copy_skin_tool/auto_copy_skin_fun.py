@@ -51,7 +51,7 @@ def get_meshs_from_groups(group):
     return meshs
 
 
-def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, asset_name, out_dir):
+def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, out_dir):
     ok, result = get_select_grps()
     if not ok:
         return False, result
