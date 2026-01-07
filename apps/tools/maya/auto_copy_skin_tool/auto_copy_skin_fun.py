@@ -51,17 +51,17 @@ def get_meshs_from_groups(group):
     return meshs
 
 
-def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, out_dir):
+def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, asset_name, out_dir):
     ok, result = get_select_grps()
     if not ok:
         return False, result
     selct_grps = result
     if not selct_grps:
         return False, u'请选择需要复制蒙皮的模型组！'
-
     new_mesh_name = '{}_Process_Mesh'.format(body_asset_name)
-    if not cmds.ls(new_mesh_name):
-
+    if cmds.objExists(new_mesh_name):
+        body_process_mesh = new_mesh_name
+    else:
         result = import_file(body_asset_name, body_publish_file)
         if not result:
             return False, u'导入body资产{}上传文件失败，请检查！'.format(body_asset_name)
@@ -70,8 +70,6 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, ou
         if not ok:
             return False, result
         body_process_mesh = result
-    else:
-        body_process_mesh = cmds.ls(new_mesh_name)[0]
     ok, result = copy_skin_weights(body_process_mesh, selct_grps)
     if not ok:
         return False, result
@@ -122,7 +120,7 @@ def export_fbx_file(export_groups, out_dir):
     for grp in export_groups:
         if not cmds.objExists(grp):
             return False, u'导出组{}不存在，请检查！'.format(grp)
-        __out_path = u'{}/{}_AutoSkin.fbx'.format(out_dir, grp.split('|')[-1])
+        __out_path = u'{}_AutoSkin/{}.fbx'.format(out_dir, grp.split('|')[-1])
         __out_path = __out_path.replace('\\', '/')
         cmds.select(cl=True)
         cmds.select(grp)
