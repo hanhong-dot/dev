@@ -164,13 +164,13 @@ def export_fbx_file(export_groups, out_dir):
 def get_process_meshs_by_asset(body_asset_name, asset_type, asset_add):
     body_group = ''
     if asset_type == 'hair' and not body_asset_name.endswith('_New'):
-        body_group = '*:{}001H_HD'.format(asset_add)
+        body_group = '{}001H_HD'.format(asset_add)
     elif asset_type == 'role' and not body_asset_name.endswith('_New'):
-        body_group = '*:{}001B_HD'.format(asset_add)
+        body_group = '{}001B_HD'.format(asset_add)
     elif asset_type == 'hair' and body_asset_name.endswith('_New'):
-        body_group = '*:{}001H_New_HD'.format(asset_add)
+        body_group = '{}001H_New_HD'.format(asset_add)
     elif asset_type == 'role' and body_asset_name.endswith('_New'):
-        body_group = '*:{}001B_New_HD'.format(asset_add)
+        body_group = '{}001B_New_HD'.format(asset_add)
     if not body_group:
         return False, u'不支持该类型资产的蒙皮复制操作！'
     if not cmds.ls(body_group):
