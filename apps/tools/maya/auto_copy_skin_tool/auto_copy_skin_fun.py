@@ -61,7 +61,8 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, ou
     selct_grps = result
     if not selct_grps:
         return False, u'请选择需要复制蒙皮的模型组！'
-    new_mesh_name = '{}_Process_Mesh'.format(body_asset_name)
+    new_mesh_name = '{}_Process_Mesh'.format(str(body_asset_name))
+
     if cmds.objExists(new_mesh_name):
         body_process_mesh = new_mesh_name
     else:
