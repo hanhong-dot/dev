@@ -77,10 +77,24 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, ou
     if not ok:
         return False, result
     # out_path = '{}/{}_AutoSkin.fbx'.format(out_dir, asset_name)
+    parent_grp = '{}_Rig'.format(asset_add)
+    if not cmds.objExists(parent_grp):
+        return False, u'场景中不存在Rig组{}，请检查！'.format(parent_grp)
+    ok, result = parent_group(selct_grps, parent_grp)
+    if not ok:
+        return False, result
     ok, result = export_fbx_file(selct_grps, out_dir)
     if not ok:
         return False, result
     return True, result
+
+
+def parent_group(grps, parent_grp):
+    try:
+        cmds.parent(grps, parent_grp)
+    except Exception as e:
+        return False, u'组{}绑定到父组{}失败，请检查！'.format(grps, parent_grp)
+    return True, ''
 
 
 def get_select_grps():
@@ -188,7 +202,7 @@ def combine_meshs(mesh_list, new_mesh_name):
 
 
 def import_file(asset_name, file_path):
-    return BaseFile().import_file(file_path, namespace=asset_name)
+    return BaseFile().import_file(file_path, namespace=':')
 
 
 def get_current_groups():
