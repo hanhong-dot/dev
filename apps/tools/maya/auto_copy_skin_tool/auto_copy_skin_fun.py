@@ -10,6 +10,7 @@ import maya.cmds as cmds
 import maya.mel as mel
 import maya.OpenMaya as om
 import lib.maya.process.export_fbx as _fbx_common
+import os
 
 
 def copy_skin_weights(source_mesh, select_grps):
@@ -73,7 +74,7 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, as
     ok, result = export_fbx_file(selct_grps, out_dir)
     if not ok:
         return False, u'自动蒙皮FBX导出失败，请检查！'
-    return True, u'自动蒙皮完成！'
+    return True, result
 
 
 def get_select_grps():
@@ -108,25 +109,36 @@ def get_select_grps():
 
 
 def export_fbx_file(export_groups, out_dir):
-    __export_path_list = []
+    __add_path_list = []
+    __over_path_list = []
     __error_msgs = []
     if not export_groups:
         return False, u'没有可导出的mesh！'
     for grp in export_groups:
         if not cmds.objExists(grp):
             return False, u'导出组{}不存在，请检查！'.format(grp)
-        __out_path = u'{}/{}.fbx'.format(out_dir, grp.split('|')[-1])
-        __out_path=__out_path.replace('\\', '/')
+        __out_path = u'{}_AutoSkin/{}.fbx'.format(out_dir, grp.split('|')[-1])
+        __out_path = __out_path.replace('\\', '/')
         cmds.select(cl=True)
         cmds.select(grp)
-        try:
-            _fbx_common.export_fbx(grp, __out_path, hi=1, triangulate=1, warning=0)
-            __export_path_list.append(__out_path)
-        except:
-            __error_msgs.append(u'组{}导出FBX失败，请检查！'.format(grp))
+        if os.path.exists(__out_path):
+            try:
+                _fbx_common.export_fbx(grp, __out_path, hi=1, triangulate=1, warning=0)
+                __over_path_list.append(__out_path)
+            except:
+                __error_msgs.append(u'组{}导出FBX失败，请检查！'.format(grp))
+        else:
+            out_dir_path = os.path.dirname(__out_path)
+            if not os.path.exists(out_dir_path):
+                os.makedirs(out_dir_path)
+            try:
+                _fbx_common.export_fbx(grp, __out_path, hi=1, triangulate=1, warning=0)
+                __add_path_list.append(__out_path)
+            except:
+                __error_msgs.append(u'组{}导出FBX失败，请检查！'.format(grp))
     if __error_msgs:
         return False, '\n'.join(__error_msgs)
-    return True, __export_path_list
+    return True, (__add_path_list, __over_path_list)
 
 
 def get_process_meshs_by_asset(body_asset_name, asset_type, asset_add):
