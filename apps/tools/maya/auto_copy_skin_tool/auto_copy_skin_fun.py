@@ -62,9 +62,6 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, ou
     if not selct_grps:
         return False, u'请选择需要复制蒙皮的模型组！'
     new_mesh_name = '{}_Process_Mesh'.format(str(body_asset_name))
-    parent_grp = '{}_Rig'.format(asset_add)
-    if not cmds.objExists(parent_grp):
-        return False, u'场景中不存在Rig组{}，请检查！'.format(parent_grp)
 
     if cmds.objExists(new_mesh_name):
         body_process_mesh = new_mesh_name
@@ -76,11 +73,14 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, ou
         if not ok:
             return False, result
         body_process_mesh = result
+
     ok, result = copy_skin_weights(body_process_mesh, selct_grps)
     if not ok:
         return False, result
     # out_path = '{}/{}_AutoSkin.fbx'.format(out_dir, asset_name)
-
+    parent_grp = '{}_Rig'.format(asset_add)
+    if not cmds.objExists(parent_grp):
+        return False, u'场景中不存在Rig组{}，请检查！'.format(parent_grp)
 
     ok, result = parent_group(selct_grps, parent_grp)
     if not ok:
@@ -137,10 +137,10 @@ def export_fbx_file(export_groups, out_dir):
     if not export_groups:
         return False, u'没有可导出的mesh！'
     for grp in export_groups:
-        grp_short=grp.split('|')[-1]
+        grp_short = grp.split('|')[-1]
         if not cmds.ls(grp_short):
             return False, u'导出组{}不存在，请检查！'.format(grp_short)
-        grp=cmds.ls(grp_short, l=1)[0]
+        grp = cmds.ls(grp_short, l=1)[0]
         __out_path = u'{}/{}.fbx'.format(out_dir, grp.split('|')[-1])
         __out_path = __out_path.replace('\\', '/')
         cmds.select(cl=True)
@@ -178,7 +178,7 @@ def get_process_meshs_by_asset(body_asset_name, asset_type, asset_add):
     if not body_group:
         return False, u'不支持该类型资产的蒙皮复制操作！'
     if not cmds.ls(body_group):
-        return False, u'{}资产文件中缺少{}组，请检查！'.format(body_asset_name,body_group)
+        return False, u'{}资产文件中缺少{}组，请检查！'.format(body_asset_name, body_group)
     body_group = cmds.ls(body_group)[0]
 
     meshs = get_dis_meshs_from_group(body_group)
