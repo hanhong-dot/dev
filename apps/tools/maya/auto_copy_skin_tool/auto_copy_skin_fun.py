@@ -28,12 +28,15 @@ def copy_skin_weights(source_mesh, select_grps):
         if not target_mesh_list:
             return False, u'{} 组下没有模型,请检查'.format(grp)
         for mesh in target_mesh_list:
-            dskin = cmds.skinCluster(bone, mesh, tsb=True, mi=20)[0]
-            cmds.copySkinWeights(ss=sskin, ds=dskin, nm=True, sa='closestPoint')
-            cmds.select(mesh, r=True)
-            mel.eval('removeUnusedInfluences')
-            cmds.select(cl=True)
-            om.MGlobal.displayInfo('Skincluster tansfer over')
+            try:
+                dskin = cmds.skinCluster(bone, mesh, tsb=True, mi=20)[0]
+                cmds.copySkinWeights(ss=sskin, ds=dskin, nm=True, sa='closestPoint')
+                cmds.select(mesh, r=True)
+                mel.eval('removeUnusedInfluences')
+                cmds.select(cl=True)
+                om.MGlobal.displayInfo('Skincluster tansfer over')
+            except Exception as e:
+                pass
     return True, 'copy skin weights success'
 
 
