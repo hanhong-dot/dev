@@ -174,7 +174,7 @@ def get_process_meshs_by_asset(body_asset_name, asset_type, asset_add):
     if not body_group:
         return False, u'不支持该类型资产的蒙皮复制操作！'
     if not cmds.ls(body_group):
-        return False, u'{}资产文件中缺少{}组，请检查！'.format(body_asset_name, body_group.split(':')[-1])
+        return False, u'{}资产文件中缺少{}组，请检查！'.format(body_asset_name,body_group)
     body_group = cmds.ls(body_group)[0]
 
     meshs = get_dis_meshs_from_group(body_group)
