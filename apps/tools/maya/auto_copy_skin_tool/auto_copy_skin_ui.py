@@ -135,6 +135,7 @@ class AutoCopySkinUI(QWidget):
                 __msg = __msg + u"覆盖文件:\n"
                 for path in __over_path_list:
                     __msg += u"{}\n".format(path)
+            msgview(__msg, 2)
 
     def __get_asset_abb(self):
         if self.__entity_type != "Asset":
