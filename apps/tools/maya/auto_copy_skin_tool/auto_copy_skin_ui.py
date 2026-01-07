@@ -124,7 +124,17 @@ class AutoCopySkinUI(QWidget):
         if not ok:
             msgview(result, 0)
             return
-        msgview(u"蒙皮复制完成！", 2)
+        else:
+            __add_path_list, __over_path_list= result
+            __msg= u"蒙皮复制完成！\n"
+            if __add_path_list:
+                __msg =  __msg+u"新增文件:\n"
+                for path in __add_path_list:
+                    __msg += u"{}\n".format(path)
+            if __over_path_list:
+                __msg = __msg + u"覆盖文件:\n"
+                for path in __over_path_list:
+                    __msg += u"{}\n".format(path)
 
     def __get_asset_abb(self):
         if self.__entity_type != "Asset":
