@@ -19,8 +19,7 @@ from apps.publish.ui.message.messagebox import msgview
 from apps.tools.maya.auto_copy_skin_tool import sg_fun as copy_skin_sg_fun
 from apps.tools.maya.auto_copy_skin_tool import auto_copy_skin_fun
 
-reload(copy_skin_sg_fun)
-
+reload(auto_copy_skin_fun)
 MAPINGDATA = {
     'PL': 'PL_Body',
     'ST': 'ST_Body',
@@ -121,8 +120,8 @@ class AutoCopySkinUI(QWidget):
             return
 
         body_rig_publish_file = result
-        ok, result = copy_skin_sg_fun.auto_copy_skin(__target_asset_name, self.__asset_type, self.__asset_abb,
-                                                     body_rig_publish_file, __out_put_path)
+        ok, result = auto_copy_skin_fun.auto_copy_skin(__target_asset_name, self.__asset_type, self.__asset_abb, body_rig_publish_file,
+                                    __out_put_path)
         if not ok:
             msgview(result, 0)
             return
