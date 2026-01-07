@@ -119,8 +119,7 @@ class AutoCopySkinUI(QWidget):
             return
 
         body_rig_publish_file = result
-        ok, result = auto_copy_skin(__target_asset_name, self.__asset_type, self.__asset_abb, body_rig_publish_file,
-                                    self.__asset_name, __out_put_path)
+        ok, result = auto_copy_skin(__target_asset_name, self.__asset_type, self.__asset_abb, body_rig_publish_file, __out_put_path)
         if not ok:
             msgview(result, 0)
             return
