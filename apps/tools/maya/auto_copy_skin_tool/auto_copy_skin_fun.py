@@ -70,7 +70,7 @@ def auto_copy_skin(body_asset_name, asset_type, asset_add, body_publish_file, as
     if not ok:
         return False, result
     # out_path = '{}/{}_AutoSkin.fbx'.format(out_dir, asset_name)
-    ok, result = export_fbx_file(selct_grps, out_dir, asset_name)
+    ok, result = export_fbx_file(selct_grps, out_dir)
     if not ok:
         return False, u'自动蒙皮FBX导出失败，请检查！'
     return True, u'自动蒙皮完成！'
@@ -107,7 +107,7 @@ def get_select_grps():
     return True, groups
 
 
-def export_fbx_file(export_groups, out_dir, asset_name):
+def export_fbx_file(export_groups, out_dir):
     __export_path_list = []
     __error_msgs = []
     if not export_groups:
@@ -115,8 +115,9 @@ def export_fbx_file(export_groups, out_dir, asset_name):
     for grp in export_groups:
         if not cmds.objExists(grp):
             return False, u'导出组{}不存在，请检查！'.format(grp)
-        __out_path = u'{}/{}.{}.fbx'.format(out_dir, asset_name, grp.split('|')[-1])
-        cmds.selct(cl=True)
+        __out_path = u'{}/{}.fbx'.format(out_dir, grp.split('|')[-1])
+        __out_path=__out_path.replace('\\', '/')
+        cmds.select(cl=True)
         cmds.select(grp)
         try:
             _fbx_common.export_fbx(grp, __out_path, hi=1, triangulate=1, warning=0)
