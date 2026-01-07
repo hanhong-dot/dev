@@ -87,7 +87,7 @@ def get_select_grps():
     select_objs = cmds.ls(sl=1, l=1)
     groups = []
     if not select_objs:
-        return False, u'未选择组,请选择需要处理的组！'
+        return False, u'未选择组,请选择需要蒙皮的模型组！'
     for obj in select_objs:
         if cmds.nodeType(obj) != 'transform':
             continue
