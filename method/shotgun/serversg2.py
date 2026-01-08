@@ -747,8 +747,8 @@ class ServerSG(object):
                     data_dic['upstream_step'] = 'mod'
                 if __parent_asset:
                     data_dic['parent_asset'] = __parent_asset
-
-                data_dic['update_model'] = __update_model
+                if __update_model:
+                    data_dic['update_model'] = __update_model
                 print('data_dic={}'.format(data_dic))
                 send_jenkins_ok = False
                 count = 0
@@ -1167,25 +1167,24 @@ def event_publish_send_jenkins(data_dic):
 
 if __name__ == '__main__':
     data_dic = {'shotgun': {'version': [{'entity_name': 'PL008S', 'episode_name': None,
-                                         'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.v012.png',
+                                         'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.v013.png',
                                          'task_type': 'Asset', 'ref_info': None, 'thumbnail': None, 'down_path': None,
                                          'status': u'pub', 'send_jenkins': None, 'project_name': 'X3',
-                                         'description': u'test',
-                                         'relationship': 0, 'tags': 'version', 'sequence_name': None,
-                                         'src_path': u'M:/projects/x3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.v011.png',
+                                         'description': u'test', 'relationship': 0, 'tags': 'version',
+                                         'sequence_name': None,
+                                         'src_path': u'M:/projects/x3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.v012.png',
                                          'dcc': None, 'upload_type': 'version', 'file_link_type': 'upload',
-                                         'work_file': None,
-                                         'task_thumbnail': None, 'up_path': None, 'wbx': None, 'updata_model': None,
-                                         'task_name': 'rbf', 'parent_asset': None}], 'publish': [
+                                         'work_file': None, 'task_thumbnail': None, 'up_path': None, 'wbx': None,
+                                         'updata_model': None, 'task_name': 'rbf', 'parent_asset': None}], 'publish': [
         {'entity_name': 'PL008S', 'episode_name': None,
          'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.ma', 'task_type': 'Asset',
          'ref_info': 'None', 'publish_file_type': 'Maya Scene',
          'thumbnail': u'M:/projects/X3/publish/assets/role/PL008S/rbf/thumbnail/PL008S.jpg', 'down_path': False,
-         'status': u'pub', 'send_jenkins': False, 'project_name': 'X3', 'description': u'test', 'relationship': 0,
+         'status': u'pub', 'send_jenkins': True, 'project_name': 'X3', 'description': u'test', 'relationship': 0,
          'tags': 'publish', 'sequence_name': None,
          'src_path': 'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.rbf.ma', 'dcc': 'maya',
          'upload_type': 'publish', 'file_link_type': 'local',
-         'work_file': u'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.drama_mdl.v013.ma',
+         'work_file': u'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.drama_mdl.v014.ma',
          'task_thumbnail': None, 'up_path': True, 'wbx': False, 'updata_model': '2', 'task_name': 'rbf',
          'parent_asset': None}]}, 'collecter': {'thumbnail': [{'send_jenkins': None, 'ref_info': None,
                                                                'src_path': 'D:/temp_info/X3/assets/role/PL008S/rbf/rbf/maya/work/thumbnail/PL008S.jpg',
@@ -1195,9 +1194,9 @@ if __name__ == '__main__':
                                                                'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/thumbnail/PL008S.jpg',
                                                                'thumbnail': None}], 'back': [
         {'send_jenkins': None, 'ref_info': None,
-         'src_path': 'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.drama_mdl.v012.ma', 'wbx': None,
+         'src_path': 'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.drama_mdl.v013.ma', 'wbx': None,
          'parent_asset': None, 'upload_type': 'back', 'updata_model': None, 'work_file': None,
-         'des_path': 'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/back/2026-1-8-18-38-7/PL008S.drama_mdl.v012.ma',
+         'des_path': 'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/back/2026-1-8-18-55-7/PL008S.drama_mdl.v013.ma',
          'thumbnail': None}]}}
 
     handle = ServerSG(data_dic, 'linhuan', '2026-01-08_18-38-07')
