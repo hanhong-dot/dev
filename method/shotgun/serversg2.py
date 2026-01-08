@@ -534,6 +534,7 @@ class ServerSG(object):
         _description = ''
         _send_jenkins = ''
         __parent_asset = ''
+        __update_model=''
         _wbx = ''
         for first_k, first_v in self._dict_data.items():
             if first_k == 'shotgun':
@@ -647,6 +648,7 @@ class ServerSG(object):
                                     _description = obj['description']
                                     _entity_type = obj['task_type']
                                     __parent_asset = obj['parent_asset'] if 'parent_asset' in obj else ''
+                                    __update_model = obj['updata_model'] if 'update_model' in obj else ''
                                 except Exception as e:
                                     self.errorInfo.append(e)
                                     result_list.append(False)
@@ -742,6 +744,8 @@ class ServerSG(object):
                     data_dic['upstream_step'] = 'mod'
                 if __parent_asset:
                     data_dic['parent_asset'] = __parent_asset
+                if __update_model:
+                    data_dic['update_model'] = __update_model
                 send_jenkins_ok = False
                 count = 0
                 while count <= 100:

@@ -67,7 +67,7 @@ import database.shotgun.core.sg_analysis as sg_analysis
 
 sg = sg_analysis.Config().login()
 
-Rig_Tasks = ['drama_rig', 'rbf', 'out_rig','fight_rig']
+Rig_Tasks = ['drama_rig', 'rbf', 'out_rig', 'fight_rig']
 
 
 class Append_Signal(QObject):
@@ -84,6 +84,7 @@ class PublishWidget(QFrame):
         self._project_name = self._task_data.project_name
         self._entity_name = self._task_data.entity_name
         self._task_launch_soft = self._task_data.task_launch_soft
+        self._asset_type = self._task_data.asset_type
         self.time = timedate.get_currenttime()
         self._analyse_data = _get_data.GetXLMData(self._task_data)
         self.__task_name = self._task_data.task_name
@@ -91,7 +92,9 @@ class PublishWidget(QFrame):
         self._status_name = u'任务提交状态选择 : '
         self._special_name = u'文件特殊处理选择:'
         self.__rig_export_fbx_grp_name = u'输出FBX组选择:'
-        self._rig_export_fbx_grp_list=[]
+        self._rig_export_fbx_grp_list = []
+        self._role_rbf_update_list = [u'模型迭代', u'DB修型迭代']
+        self._role_rbf_updata_label = u'Role Rbf 绑定更新类型选择:'
 
         if self.__task_name not in Rig_Tasks:
             self._specila_list = [('RigExportMB', u'绑定文件是否输出MB文件'),
@@ -122,6 +125,7 @@ class PublishWidget(QFrame):
         self._statusWidget = _radioitem.RadioItemWidget(self._status_name, self._status_list)
 
         self._mbexistWidget = _checkitem.CheckItemWidget(self._special_name, self._specila_list)
+
         self._rigexoprtgrpWidget = None
         if self._rig_export_fbx_grp_list:
             self._rigexoprtgrpWidget = _checkitem.CheckItemWidget(self.__rig_export_fbx_grp_name,
@@ -136,6 +140,11 @@ class PublishWidget(QFrame):
                 _mbexist.setChecked(False)
             elif str(_mbexist.text()) == 'Wbx':
                 _mbexist.setChecked(False)
+        self._role_rbf_updata_Widget = _radioitem.RadioItemWidget(self._role_rbf_updata_label,
+                                                                  self._role_rbf_update_list)
+        for _radio in self._role_rbf_updata_Widget._radio_grp.buttons():
+            if _radio.text() == u'DB修型迭代':
+                _radio.setChecked(True)
         self._listwidget = _list.ListWidget()
 
         self._mb_export = self._get_mb_export()
@@ -167,6 +176,9 @@ class PublishWidget(QFrame):
         self._layout.addWidget(self._mbexistWidget)
         if self._rigexoprtgrpWidget:
             self._layout.addWidget(self._rigexoprtgrpWidget)
+
+        if self._asset_type and self._asset_type.lower() == 'role' and self.__task_name == 'rbf':
+            self._layout.addWidget(self._role_rbf_updata_Widget)
         self._layout.addWidget(self._publsih_tab)
         self._layout.addWidget(self._listwidget)
         self._layout.addStretch(0)
@@ -423,6 +435,16 @@ class PublishWidget(QFrame):
                     return _mbexist.isChecked()
         return False
 
+    def _get_role_rbf_updata_model(self):
+        result = None
+        if self._asset_type and self._asset_type == 'role' and self.__task_name in ['rbf']:
+            check_name = self._role_rbf_updata_Widget._get_checkName()
+            if check_name == u'DB修型迭代':
+                result = 2
+            elif check_name == u'模型迭代':
+                result = 1
+        return result
+
     def _get_wbx(self):
         if self._mbexistWidget.check_list:
             for _mbexist in self._mbexistWidget.check_list:
@@ -468,6 +490,8 @@ class PublishWidget(QFrame):
             raise Exception(u"输入信息不完整,请重新输入".encode('gbk'))
 
         self._special_process = self._mbexistWidget._get_checkName()
+
+        self._role_rbf_udpate_type =self._get_role_rbf_updata_model()
         # __log.info(u'publish special process:{}'.format(self._special_process))
 
         self._version_file = _version_src
@@ -481,7 +505,7 @@ class PublishWidget(QFrame):
 
         self._wbx = self._get_wbx()
 
-        self._rig_export_fbx_grp_list= self._get_rig_export_fbx_grps()
+        self._rig_export_fbx_grp_list = self._get_rig_export_fbx_grps()
 
         self.appendSignal = Append_Signal()
         # 获取version的字典
@@ -535,7 +559,8 @@ class PublishWidget(QFrame):
                                     self._task_data.project_name,
                                     file_link_type='upload',
                                     tags='version',
-                                    relationship=obj_dic['relationship']
+                                    relationship=obj_dic['relationship'],
+                                    updata_model=self._role_rbf_udpate_type
                                 ))
 
                         # elif key in ['publish', 'fbx']:
@@ -599,7 +624,8 @@ class PublishWidget(QFrame):
                                     work_file=obj_dic['work_file'] if 'work_file' in obj_dic.keys() else '',
                                     ref_info=obj_dic['ref_info'] if 'ref_info' in obj_dic.keys() else '',
                                     send_jenkins=self._send_jenkins,
-                                    wbx=self._wbx
+                                    wbx=self._wbx,
+                                    updata_model=self._role_rbf_udpate_type
 
                                 ))
                         else:
@@ -629,7 +655,6 @@ class PublishWidget(QFrame):
         # 获取process的字典
         for script_obj in self._analyse_data.get_processcmds():
             _process_dict = self._do_processcmd(script_obj)
-            print('process_dict', _process_dict)
             if _process_dict:
                 if isinstance(_process_dict, dict):
                     for key, value in _process_dict.items():
@@ -688,7 +713,8 @@ class PublishWidget(QFrame):
                                     work_file=obj_dic['work_file'] if 'work_file' in obj_dic.keys() else '',
                                     ref_info=obj_dic['ref_info'] if 'ref_info' in obj_dic.keys() else '',
                                     send_jenkins=self._send_jenkins,
-                                    wbx=self._wbx
+                                    wbx=self._wbx,
+                                    updata_model = self._role_rbf_udpate_type
 
                                 ))
 
@@ -815,7 +841,7 @@ class PublishWidget(QFrame):
             _getInfo = re.findall(r'[(](.*?)[)]', _command)[0]
             _command_new = _command.replace('TaskData_Class', 'self._task_data').replace('mb_export',
                                                                                          'self._mb_export').replace(
-                'version_file', 'self._version_file').replace('export_fbx_grp_list','self._rig_export_fbx_grp_list')
+                'version_file', 'self._version_file').replace('export_fbx_grp_list', 'self._rig_export_fbx_grp_list')
             exec (cmd[0:len(cmd) - len(_command)])
             return eval(_command_new)
 
