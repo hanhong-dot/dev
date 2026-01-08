@@ -436,6 +436,7 @@ class PublishWidget(QFrame):
         return False
 
     def _get_role_rbf_updata_model(self):
+        # type: () -> object
         result = None
         if self._asset_type and self._asset_type == 'role' and self.__task_name in ['rbf']:
             check_name = self._role_rbf_updata_Widget._get_checkName()
@@ -491,7 +492,7 @@ class PublishWidget(QFrame):
 
         self._special_process = self._mbexistWidget._get_checkName()
 
-        self._role_rbf_udpate_type =self._get_role_rbf_updata_model()
+        self._role_rbf_udpate_type = self._get_role_rbf_updata_model()
         # __log.info(u'publish special process:{}'.format(self._special_process))
 
         self._version_file = _version_src
@@ -560,7 +561,7 @@ class PublishWidget(QFrame):
                                     file_link_type='upload',
                                     tags='version',
                                     relationship=obj_dic['relationship'],
-                                    updata_model=self._role_rbf_udpate_type
+                                    updata_model=obj_dic['updata_model'] if 'updata_model' in obj_dic.keys() else 0
                                 ))
 
                         # elif key in ['publish', 'fbx']:
@@ -625,7 +626,7 @@ class PublishWidget(QFrame):
                                     ref_info=obj_dic['ref_info'] if 'ref_info' in obj_dic.keys() else '',
                                     send_jenkins=self._send_jenkins,
                                     wbx=self._wbx,
-                                    updata_model=self._role_rbf_udpate_type
+                                    updata_model=obj_dic['updata_model'] if 'updata_model' in obj_dic.keys() else 0
 
                                 ))
                         else:
@@ -714,7 +715,7 @@ class PublishWidget(QFrame):
                                     ref_info=obj_dic['ref_info'] if 'ref_info' in obj_dic.keys() else '',
                                     send_jenkins=self._send_jenkins,
                                     wbx=self._wbx,
-                                    updata_model = self._role_rbf_udpate_type
+                                    updata_model=obj_dic['updata_model'] if 'updata_model' in obj_dic.keys() else 0
 
                                 ))
 
