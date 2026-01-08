@@ -648,7 +648,7 @@ class ServerSG(object):
                                     _description = obj['description']
                                     _entity_type = obj['task_type']
                                     __parent_asset = obj['parent_asset'] if 'parent_asset' in obj else ''
-                                    __update_model = obj['updata_model'] if 'update_model' in obj else ''
+                                    __update_model = obj['updata_model'] if 'updata_model' in obj else ''
                                 except Exception as e:
                                     self.errorInfo.append(e)
                                     result_list.append(False)
@@ -744,8 +744,8 @@ class ServerSG(object):
                     data_dic['upstream_step'] = 'mod'
                 if __parent_asset:
                     data_dic['parent_asset'] = __parent_asset
-                if __update_model:
-                    data_dic['update_model'] = __update_model
+
+                data_dic['update_model'] = __update_model
                 send_jenkins_ok = False
                 count = 0
                 while count <= 100:
@@ -1160,7 +1160,8 @@ def event_publish_send_jenkins(data_dic):
 
     return send_xmla_jenkins.ReadShotEvent(str(data_dic))
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
+    data_dict={'files': ['M:/projects/X3/publish/assets/role/PL008S/rbf/maya/data/fbx/PL008S_HD.fbx'], 'description': u'\u6d4b\u8bd5', 'upstream_step': 'mod', 'asset_name': u'PL008S', 'person': u'linhuan', 'entity_R': u'obt-260710', 'task_name': u'rbf', 'upstream_created_by': 'luopanpan@papegames.net'}
 #     data_dic={'files': ['M:/projects/X3/publish/assets/role/XL011C/rbf/maya/data/bs/XL011C_HD_asis_Rig.json'], 'description': u'\u7ed1\u5b9a\u66f4\u65b0\u4e0a\u4f20 @Danny @\u5c0f\u6ee1 @\u5c0f\u675c @\u535a\u5ca9', 'upstream_step': 'mod', 'asset_name': u'XL011C', 'person': u'v-xuqing', 'entity_R': u'\u56e4\u8d27', 'task_name': u'rbf'}
 #     print(event_publish_send_jenkins(data_dic))
 
