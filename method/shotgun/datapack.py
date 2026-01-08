@@ -119,7 +119,7 @@ class Pack(object):
                  send_jenkins=None,
                  wbx=None,
                  parent_asset=None,
-                 updata_mode = None
+                 updata_model=None
                  ):
         '''
 
@@ -169,7 +169,7 @@ class Pack(object):
         _basedict["send_jenkins"] = send_jenkins
         _basedict["wbx"] = wbx
         _basedict["parent_asset"] = parent_asset
-        _basedict["updata_mode"] = updata_mode
+        _basedict["updata_model"] = updata_model
         return _basedict
 
     @classmethod
