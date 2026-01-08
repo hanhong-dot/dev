@@ -94,7 +94,7 @@ class PublishWidget(QFrame):
         self.__rig_export_fbx_grp_name = u'输出FBX组选择:'
         self._rig_export_fbx_grp_list = []
         self._role_rbf_update_list = [(u'模型迭代'), (u'DB修型迭代')]
-        self._role_rbf_updata_label = u'Role Rbf 绑定更新类型选择:'
+        self._role_rbf_updata_label = u'绑定更新类型选择:'
 
         if self.__task_name not in Rig_Tasks:
             self._specila_list = [('RigExportMB', u'绑定文件是否输出MB文件'),
