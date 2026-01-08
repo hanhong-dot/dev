@@ -233,7 +233,8 @@ class ServerSG(object):
                 if os.path.isfile(src) and '.' in os.path.basename(des):
                     base_name = os.path.basename(src)
                     __dir, __file = os.path.split(src)
-                    cmd =cmd+ u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,base_name, _log)+ '\n'
+                    cmd = cmd + u'robocopy "{}" "{}" "{}" /R:3 /W:2 /NP /LOG+:"{}"'.format(_ip_src_dir, _ip_des_dir,
+                                                                                           base_name, _log) + '\n'
                     cmd = "set RC=%ERRORLEVEL%" + '\n'
                     src_name = os.path.basename(src)
                     des_name = os.path.basename(des)
@@ -534,7 +535,7 @@ class ServerSG(object):
         _description = ''
         _send_jenkins = ''
         __parent_asset = ''
-        __update_model=''
+        __update_model = ''
         _wbx = ''
         for first_k, first_v in self._dict_data.items():
             if first_k == 'shotgun':
@@ -593,7 +594,7 @@ class ServerSG(object):
                     if second_k == 'publish':
                         if second_v:
                             for obj in second_v:
-
+                                __update_model = obj['updata_model'] if 'updata_model' in obj else ''
                                 try:
                                     publish_dict = self._dbfile_create(db_type='publish',
                                                                        db_file=self._set_sgpath(obj['des_path']),
@@ -648,11 +649,13 @@ class ServerSG(object):
                                     _description = obj['description']
                                     _entity_type = obj['task_type']
                                     __parent_asset = obj['parent_asset'] if 'parent_asset' in obj else ''
-                                    __update_model = obj['updata_model'] if 'updata_model' in obj else ''
+
+
                                 except Exception as e:
                                     self.errorInfo.append(e)
                                     result_list.append(False)
 
+        print('__update_model ={}'.format(__update_model))
         # publish 更新上下游上传文件
         if publish_updown_dict:
             self.publish_uddata(publish_updown_dict)
@@ -746,6 +749,7 @@ class ServerSG(object):
                     data_dic['parent_asset'] = __parent_asset
 
                 data_dic['update_model'] = __update_model
+                print('data_dic={}'.format(data_dic))
                 send_jenkins_ok = False
                 count = 0
                 while count <= 100:
@@ -1160,8 +1164,45 @@ def event_publish_send_jenkins(data_dic):
 
     return send_xmla_jenkins.ReadShotEvent(str(data_dic))
 
+
 if __name__ == '__main__':
-    data_dict={'files': ['M:/projects/X3/publish/assets/role/PL008S/rbf/maya/data/fbx/PL008S_HD.fbx'], 'description': u'\u6d4b\u8bd5', 'upstream_step': 'mod', 'asset_name': u'PL008S', 'person': u'linhuan', 'entity_R': u'obt-260710', 'task_name': u'rbf', 'upstream_created_by': 'luopanpan@papegames.net'}
+    data_dic = {'shotgun': {'version': [{'entity_name': 'PL008S', 'episode_name': None,
+                                         'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.v012.png',
+                                         'task_type': 'Asset', 'ref_info': None, 'thumbnail': None, 'down_path': None,
+                                         'status': u'pub', 'send_jenkins': None, 'project_name': 'X3',
+                                         'description': u'test',
+                                         'relationship': 0, 'tags': 'version', 'sequence_name': None,
+                                         'src_path': u'M:/projects/x3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.v011.png',
+                                         'dcc': None, 'upload_type': 'version', 'file_link_type': 'upload',
+                                         'work_file': None,
+                                         'task_thumbnail': None, 'up_path': None, 'wbx': None, 'updata_model': None,
+                                         'task_name': 'rbf', 'parent_asset': None}], 'publish': [
+        {'entity_name': 'PL008S', 'episode_name': None,
+         'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.ma', 'task_type': 'Asset',
+         'ref_info': 'None', 'publish_file_type': 'Maya Scene',
+         'thumbnail': u'M:/projects/X3/publish/assets/role/PL008S/rbf/thumbnail/PL008S.jpg', 'down_path': False,
+         'status': u'pub', 'send_jenkins': False, 'project_name': 'X3', 'description': u'test', 'relationship': 0,
+         'tags': 'publish', 'sequence_name': None,
+         'src_path': 'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.rbf.ma', 'dcc': 'maya',
+         'upload_type': 'publish', 'file_link_type': 'local',
+         'work_file': u'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.drama_mdl.v013.ma',
+         'task_thumbnail': None, 'up_path': True, 'wbx': False, 'updata_model': '2', 'task_name': 'rbf',
+         'parent_asset': None}]}, 'collecter': {'thumbnail': [{'send_jenkins': None, 'ref_info': None,
+                                                               'src_path': 'D:/temp_info/X3/assets/role/PL008S/rbf/rbf/maya/work/thumbnail/PL008S.jpg',
+                                                               'wbx': None, 'parent_asset': None,
+                                                               'upload_type': 'thumbnail', 'updata_model': None,
+                                                               'work_file': None,
+                                                               'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/thumbnail/PL008S.jpg',
+                                                               'thumbnail': None}], 'back': [
+        {'send_jenkins': None, 'ref_info': None,
+         'src_path': 'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.drama_mdl.v012.ma', 'wbx': None,
+         'parent_asset': None, 'upload_type': 'back', 'updata_model': None, 'work_file': None,
+         'des_path': 'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/back/2026-1-8-18-38-7/PL008S.drama_mdl.v012.ma',
+         'thumbnail': None}]}}
+
+    handle = ServerSG(data_dic, 'linhuan', '2026-01-08_18-38-07')
+    print(handle.dbinfo_upload())
+
 #     data_dic={'files': ['M:/projects/X3/publish/assets/role/XL011C/rbf/maya/data/bs/XL011C_HD_asis_Rig.json'], 'description': u'\u7ed1\u5b9a\u66f4\u65b0\u4e0a\u4f20 @Danny @\u5c0f\u6ee1 @\u5c0f\u675c @\u535a\u5ca9', 'upstream_step': 'mod', 'asset_name': u'XL011C', 'person': u'v-xuqing', 'entity_R': u'\u56e4\u8d27', 'task_name': u'rbf'}
 #     print(event_publish_send_jenkins(data_dic))
 
