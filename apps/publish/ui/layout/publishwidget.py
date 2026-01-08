@@ -175,7 +175,7 @@ class PublishWidget(QFrame):
         if self._rigexoprtgrpWidget:
             self._layout.addWidget(self._rigexoprtgrpWidget)
 
-        if self._asset_type and self._asset_type.lower() == 'role' and self.__task_name == 'rbf':
+        if self._asset_type and ((self._asset_type.lower() == 'role' and self.__task_name == 'rbf') or (self._asset_type.lower() == 'hair' and self.__task_name == 'drama_rig')):
             self._layout.addWidget(self._role_rbf_updata_Widget)
             for _radio in self._role_rbf_updata_Widget._radio_grp.buttons():
                 if _radio.text() == u'DB修型迭代':
@@ -438,7 +438,7 @@ class PublishWidget(QFrame):
         return False
 
     def _get_role_rbf_updata_model(self):
-        if self._asset_type and self._asset_type == 'role' and self.__task_name in ['rbf']:
+        if self._asset_type and ((self._asset_type.lower() == 'role' and self.__task_name == 'rbf') or (self._asset_type.lower() == 'hair' and self.__task_name == 'drama_rig')):
             check_name = self._role_rbf_updata_Widget._get_checkName()
             if check_name == u'DB修型迭代':
                 return '2'
