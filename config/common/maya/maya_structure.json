@@ -200,6 +200,7 @@
       "{entity_name}_LD",
       "{entity_name}_FA_LD",
       "{entity_name}_EA_LD",
+      "{entity_name}_Tails_LD",
       "{entity_name}_HE_LD"
     ]
   },
@@ -225,6 +226,7 @@
       "{entity_name}_HD",
       "{entity_name}_FA_HD",
       "{entity_name}_EA_HD",
+      "{entity_name}_Tails_HD",
       "{entity_name}_HE_HD"
     ]
   },
