@@ -1165,42 +1165,42 @@ def event_publish_send_jenkins(data_dic):
     return send_xmla_jenkins.ReadShotEvent(str(data_dic))
 
 
-if __name__ == '__main__':
-    data_dic = {'shotgun': {'version': [{'entity_name': 'PL008S', 'episode_name': None,
-                                         'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.v013.png',
-                                         'task_type': 'Asset', 'ref_info': None, 'thumbnail': None, 'down_path': None,
-                                         'status': u'pub', 'send_jenkins': None, 'project_name': 'X3',
-                                         'description': u'test', 'relationship': 0, 'tags': 'version',
-                                         'sequence_name': None,
-                                         'src_path': u'M:/projects/x3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.v012.png',
-                                         'dcc': None, 'upload_type': 'version', 'file_link_type': 'upload',
-                                         'work_file': None, 'task_thumbnail': None, 'up_path': None, 'wbx': None,
-                                         'updata_model': None, 'task_name': 'rbf', 'parent_asset': None}], 'publish': [
-        {'entity_name': 'PL008S', 'episode_name': None,
-         'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.ma', 'task_type': 'Asset',
-         'ref_info': 'None', 'publish_file_type': 'Maya Scene',
-         'thumbnail': u'M:/projects/X3/publish/assets/role/PL008S/rbf/thumbnail/PL008S.jpg', 'down_path': False,
-         'status': u'pub', 'send_jenkins': True, 'project_name': 'X3', 'description': u'test', 'relationship': 0,
-         'tags': 'publish', 'sequence_name': None,
-         'src_path': 'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.rbf.ma', 'dcc': 'maya',
-         'upload_type': 'publish', 'file_link_type': 'local',
-         'work_file': u'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.drama_mdl.v014.ma',
-         'task_thumbnail': None, 'up_path': True, 'wbx': False, 'updata_model': '2', 'task_name': 'rbf',
-         'parent_asset': None}]}, 'collecter': {'thumbnail': [{'send_jenkins': None, 'ref_info': None,
-                                                               'src_path': 'D:/temp_info/X3/assets/role/PL008S/rbf/rbf/maya/work/thumbnail/PL008S.jpg',
-                                                               'wbx': None, 'parent_asset': None,
-                                                               'upload_type': 'thumbnail', 'updata_model': None,
-                                                               'work_file': None,
-                                                               'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/thumbnail/PL008S.jpg',
-                                                               'thumbnail': None}], 'back': [
-        {'send_jenkins': None, 'ref_info': None,
-         'src_path': 'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.drama_mdl.v013.ma', 'wbx': None,
-         'parent_asset': None, 'upload_type': 'back', 'updata_model': None, 'work_file': None,
-         'des_path': 'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/back/2026-1-8-18-55-7/PL008S.drama_mdl.v013.ma',
-         'thumbnail': None}]}}
-
-    handle = ServerSG(data_dic, 'linhuan', '2026-01-08_18-38-07')
-    print(handle.dbinfo_upload())
+# if __name__ == '__main__':
+#     data_dic = {'shotgun': {'version': [{'entity_name': 'PL008S', 'episode_name': None,
+#                                          'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.v013.png',
+#                                          'task_type': 'Asset', 'ref_info': None, 'thumbnail': None, 'down_path': None,
+#                                          'status': u'pub', 'send_jenkins': None, 'project_name': 'X3',
+#                                          'description': u'test', 'relationship': 0, 'tags': 'version',
+#                                          'sequence_name': None,
+#                                          'src_path': u'M:/projects/x3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.v012.png',
+#                                          'dcc': None, 'upload_type': 'version', 'file_link_type': 'upload',
+#                                          'work_file': None, 'task_thumbnail': None, 'up_path': None, 'wbx': None,
+#                                          'updata_model': None, 'task_name': 'rbf', 'parent_asset': None}], 'publish': [
+#         {'entity_name': 'PL008S', 'episode_name': None,
+#          'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/PL008S.rbf.ma', 'task_type': 'Asset',
+#          'ref_info': 'None', 'publish_file_type': 'Maya Scene',
+#          'thumbnail': u'M:/projects/X3/publish/assets/role/PL008S/rbf/thumbnail/PL008S.jpg', 'down_path': False,
+#          'status': u'pub', 'send_jenkins': True, 'project_name': 'X3', 'description': u'test', 'relationship': 0,
+#          'tags': 'publish', 'sequence_name': None,
+#          'src_path': 'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.rbf.ma', 'dcc': 'maya',
+#          'upload_type': 'publish', 'file_link_type': 'local',
+#          'work_file': u'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.drama_mdl.v014.ma',
+#          'task_thumbnail': None, 'up_path': True, 'wbx': False, 'updata_model': '2', 'task_name': 'rbf',
+#          'parent_asset': None}]}, 'collecter': {'thumbnail': [{'send_jenkins': None, 'ref_info': None,
+#                                                                'src_path': 'D:/temp_info/X3/assets/role/PL008S/rbf/rbf/maya/work/thumbnail/PL008S.jpg',
+#                                                                'wbx': None, 'parent_asset': None,
+#                                                                'upload_type': 'thumbnail', 'updata_model': None,
+#                                                                'work_file': None,
+#                                                                'des_path': u'M:/projects/X3/publish/assets/role/PL008S/rbf/thumbnail/PL008S.jpg',
+#                                                                'thumbnail': None}], 'back': [
+#         {'send_jenkins': None, 'ref_info': None,
+#          'src_path': 'M:/projects/X3/work/assets/role/PL008S/rbf/maya/PL008S.drama_mdl.v013.ma', 'wbx': None,
+#          'parent_asset': None, 'upload_type': 'back', 'updata_model': None, 'work_file': None,
+#          'des_path': 'M:/projects/X3/publish/assets/role/PL008S/rbf/maya/back/2026-1-8-18-55-7/PL008S.drama_mdl.v013.ma',
+#          'thumbnail': None}]}}
+#
+#     handle = ServerSG(data_dic, 'linhuan', '2026-01-08_18-38-07')
+#     print(handle.dbinfo_upload())
 
 #     data_dic={'files': ['M:/projects/X3/publish/assets/role/XL011C/rbf/maya/data/bs/XL011C_HD_asis_Rig.json'], 'description': u'\u7ed1\u5b9a\u66f4\u65b0\u4e0a\u4f20 @Danny @\u5c0f\u6ee1 @\u5c0f\u675c @\u535a\u5ca9', 'upstream_step': 'mod', 'asset_name': u'XL011C', 'person': u'v-xuqing', 'entity_R': u'\u56e4\u8d27', 'task_name': u'rbf'}
 #     print(event_publish_send_jenkins(data_dic))
