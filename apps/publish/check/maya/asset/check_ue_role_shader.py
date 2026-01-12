@@ -84,14 +84,17 @@ class Check(object):
         if not meshs:
             return False, (__sg_error_dict, __shader_error_dict)
         for mesh in meshs:
-            mesh_short=mesh.split('|')[-1]
+            tr=self._get_mesh_by_mesh_shape([mesh])
+            if not tr:
+                continue
+            mesh_short=tr[0].split('|')[-1]
             sg_list = cmds.listConnections(mesh, type='shadingEngine')
             if not sg_list:
                 continue
             sg=sg_list[0]
             if sg!='{}_mat_sg'.format(mesh_short):
                 __sg_error_dict[sg]='{}_mat_sg'.format(mesh_short)
-            shader_list = self._select_sg_surfaceshaderlist(__sg)
+            shader_list = self._select_sg_surfaceshaderlist(sg)
             if not shader_list:
                 continue
             shader=shader_list[0]
@@ -114,7 +117,7 @@ class Check(object):
             mesh_list = list(set(mesh_list))
         return mesh_list
 
-    def __get_mesh_by_mesh_shape(self, mesh_shapes):
+    def _get_mesh_by_mesh_shape(self, mesh_shapes):
         if not mesh_shapes:
             return []
         __trs = []
@@ -307,12 +310,5 @@ class Check(object):
         import re
         return re.match(r'[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?', s) is not None
 
-if __name__ == "__main__":
-    import method.shotgun.get_task as get_task
-
-    _filename = cmds.file(q=1, exn=1)
-
-    taskdata = get_task.TaskInfo(_filename, 'X3', 'maya', 'version')
-    check = Check(taskdata)
 
 
