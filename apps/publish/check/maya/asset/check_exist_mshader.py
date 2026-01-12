@@ -123,7 +123,7 @@ class Check(object):
             return {}
         for k, v in __shader_dict.items():
             if v and len(v) > 1:
-                _merror.extend(v)
+                _merror.extend(k)
         if _merror:
             return {self._multiple_mesh_error_key: list(set(_merror))}
 
