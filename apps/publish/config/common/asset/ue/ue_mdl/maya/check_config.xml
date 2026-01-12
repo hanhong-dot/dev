@@ -79,7 +79,16 @@
                    except_projectType=""
                    ignore="True"/>
 
-        <checkItem order_id="7" projectType="all"
+         <checkItem order_id="7" projectType="all"
+                   item_name="检测模型材质连接（一个模型需要连接且只连接一个材质节点,一个材质节点只能连接一个模型)"
+                   toolTip="检测模型材质连接（一个模型需要连接且只连接一个材质节点,一个材质节点只能连接一个模型)"
+                   check_command="import apps.publish.check.maya.asset.check_exist_mshader as check_exist_mshader;reload(check_exist_mshader);check_exist_mshader.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="8" projectType="all"
                    item_name="检查UE任务材质节点命名(body,role)"
                    toolTip="检查UE任务材质节点命名(body,role)"
                    check_command="import apps.publish.check.maya.asset.check_ue_role_shader as check_ue_role_shader;reload(check_ue_role_shader);check_ue_role_shader.Check(TaskData_Class).checkinfo()"
@@ -107,7 +116,7 @@
         <!--                   ignore="False"/>-->
 
 
-        <checkItem order_id="8" projectType="all"
+        <checkItem order_id="9" projectType="all"
                    item_name="形节点mesh/shape(不修复无用shape节点,请手动修复)"
                    toolTip="检测shape节点(不修复无用shape节点,请手动修复)"
                    check_command="import apps.publish.check.maya.asset.check_modelShape as check_modelShape;reload(check_modelShape);check_modelShape.Check(TaskData_Class).checkinfo()"
@@ -116,14 +125,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="9" projectType="all"
-                   item_name="检测模型材质连接（一个模型需要连接且只连接一个材质节点)"
-                   toolTip="检测模型材质连接（一个模型需要连接且只连接一个材质节点)"
-                   check_command="import apps.publish.check.maya.asset.check_exist_mshader as check_exist_mshader;reload(check_exist_mshader);check_exist_mshader.Check().checkinfo()"
-                   fix_command=""
-                   except_project=""
-                   except_projectType=""
-                   ignore="False"/>
+
 
 
         <checkItem order_id="10" projectType="all"
