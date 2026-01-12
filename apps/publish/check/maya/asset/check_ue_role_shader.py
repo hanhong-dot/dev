@@ -35,7 +35,8 @@ class Check(object):
         if _error:
             for k, v in _error.items():
                 _error_list.append(k)
-                _error_list.extend(v)
+                for k,v in v.items():
+                    _error_list.append('     "{}" 正确命名应为 "{}"'.format(k,v))
             return False, info.displayErrorInfo(title=self.error_info, objList=_error_list)
         else:
             return True, info.displayInfo(title=self.tooltip)
@@ -49,14 +50,14 @@ class Check(object):
             __meshs = self._get_meshs_from_group_list(mode_group_list)
             if not __meshs:
                 return None
-            ok, result = self.__get_error_list(__meshs)
+            ok, result = self.__get_error_data(__meshs)
             if not ok:
                 return None
-            __sg_error_list, __shader_error_list = result
-            if __sg_error_list:
-                __error[u"以下SG节点命名不正确,需要为'_mat_sg'结尾"] = __sg_error_list
-            if __shader_error_list:
-                __error[u"以下材质球节点命名不正确,需要为'_mat'结尾"] = __shader_error_list
+            __sg_error_dict, __shader_error_dict = result
+            if __sg_error_dict:
+                __error[u"以下SG节点命名不正确,请检查"] = __sg_error_dict
+            if __shader_error_dict :
+                __error[u"以下材质球节点命名不正确,请检查"] = __shader_error_dict
         return __error
 
     def _get_check_mod_group_list(self):
@@ -76,31 +77,28 @@ class Check(object):
             __grp_list = list(set(__grp_list))
         return __grp_list
 
-    def __get_error_list(self, meshs):
-        __sg_error_list = []
-        __shader_error_list = []
+    def __get_error_data(self, meshs):
+
+        __sg_error_dict={}
+        __shader_error_dict = {}
         if not meshs:
-            return None
+            return False, (__sg_error_dict, __shader_error_dict)
         for mesh in meshs:
+            mesh_short=mesh.split('|')[-1]
             sg_list = cmds.listConnections(mesh, type='shadingEngine')
             if not sg_list:
                 continue
-            for __sg in sg_list:
-                if not __sg.endswith('_mat_sg'):
-                    __sg_error_list.append(__sg)
-                shader_list = self._select_sg_surfaceshaderlist(__sg)
-                if not shader_list:
-                    continue
-                for __shader in shader_list:
-                    if not __shader.endswith('_mat'):
-                        __shader_error_list.append(__shader)
-        if not __sg_error_list and not __shader_error_list:
-            return False, (__sg_error_list, __shader_error_list)
-        if __sg_error_list:
-            __sg_error_list = list(set(__sg_error_list))
-        if __shader_error_list:
-            __shader_error_list = list(set(__shader_error_list))
-        return True, (__sg_error_list, __shader_error_list)
+            sg=sg_list[0]
+            if sg!='{}_mat_sg'.format(mesh_short):
+                __sg_error_dict[sg]='{}_mat_sg'.format(mesh_short)
+            shader_list = self._select_sg_surfaceshaderlist(__sg)
+            if not shader_list:
+                continue
+            shader=shader_list[0]
+            shader_name='{}_mat'.format(mesh_short)
+            if shader!=shader_name:
+                __shader_error_dict[shader]=shader_name
+        return True, (__sg_error_dict, __shader_error_dict )
 
     def _select_sg_surfaceshaderlist(self, sgname):
         _sgattrlist = ['{}.surfaceShader'.format(sgname), '{}.aiSurfaceShader'.format(sgname)]
@@ -308,5 +306,13 @@ class Check(object):
     def is_valid_number(self, s):
         import re
         return re.match(r'[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?', s) is not None
+
+if __name__ == "__main__":
+    import method.shotgun.get_task as get_task
+
+    _filename = cmds.file(q=1, exn=1)
+
+    taskdata = get_task.TaskInfo(_filename, 'X3', 'maya', 'version')
+    check = Check(taskdata)
 
 
