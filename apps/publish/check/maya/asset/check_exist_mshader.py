@@ -31,6 +31,7 @@ class Check(object):
         self._multiple_mesh_error_key = u'■以下材质球连接多个模型,请检查:'
         self._zero_error_key = u'■以下模型未连接材质球,请检查:'
         # </editor-fold>
+        self._tooltip_true=u'已检测，未发现一个模型连接多个材质球,一个材质球连接多个模型情况'
 
         self._grp = grp
         self._errorInfoDict = self.run()
@@ -50,7 +51,7 @@ class Check(object):
         if _error_lists:
             return False, info.displayErrorInfo(objList=_error_lists)
         else:
-            return True, None
+            return True, info.displayInfo(title=self._tooltip_true )
 
     def run(self):
         '''
