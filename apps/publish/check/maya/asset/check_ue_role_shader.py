@@ -12,6 +12,8 @@ import database.shotgun.core.sg_analysis as sg_analysis
 import maya.cmds as cmds
 
 from lib.maya.analysis.analyze_config import AnalyDatas
+
+
 class Check(object):
 
     def __init__(self, TaskData):
@@ -35,15 +37,15 @@ class Check(object):
         if _error:
             for k, v in _error.items():
                 _error_list.append(k)
-                for k,v in v.items():
-                    _error_list.append('     "{}" 正确命名应为 "{}"'.format(k,v))
+                for k, v in v.items():
+                    _error_list.append('     "{}" 正确命名应为 "{}"'.format(k, v))
             return False, info.displayErrorInfo(title=self.error_info, objList=_error_list)
         else:
             return True, info.displayInfo(title=self.tooltip)
 
     def run(self):
         __error = {}
-        if self.asset_type.lower() in ['role', 'body','npc']:
+        if self.asset_type.lower() in ['role', 'body', 'npc']:
             mode_group_list = self._get_check_mod_group_list()
             if not mode_group_list:
                 return None
@@ -56,7 +58,7 @@ class Check(object):
             __sg_error_dict, __shader_error_dict = result
             if __sg_error_dict:
                 __error[u"以下SG节点命名不正确,请检查"] = __sg_error_dict
-            if __shader_error_dict :
+            if __shader_error_dict:
                 __error[u"以下材质球节点命名不正确,请检查"] = __shader_error_dict
         return __error
 
@@ -79,29 +81,29 @@ class Check(object):
 
     def __get_error_data(self, meshs):
 
-        __sg_error_dict={}
+        __sg_error_dict = {}
         __shader_error_dict = {}
         if not meshs:
             return False, (__sg_error_dict, __shader_error_dict)
         for mesh in meshs:
-            tr=self._get_mesh_by_mesh_shape([mesh])
+            tr = self._get_mesh_by_mesh_shape([mesh])
             if not tr:
                 continue
-            mesh_short=tr[0].split('|')[-1]
+            mesh_short = tr[0].split('|')[-1]
             sg_list = cmds.listConnections(mesh, type='shadingEngine')
             if not sg_list:
                 continue
-            sg=sg_list[0]
-            if sg!='{}_mat_sg'.format(mesh_short):
-                __sg_error_dict[sg]='{}_mat_sg'.format(mesh_short)
+            sg = sg_list[0]
+            if sg != '{}_mat_sg'.format(mesh_short):
+                __sg_error_dict[sg] = '{}_mat_sg'.format(mesh_short)
             shader_list = self._select_sg_surfaceshaderlist(sg)
             if not shader_list:
                 continue
-            shader=shader_list[0]
-            shader_name='{}_mat'.format(mesh_short)
-            if shader!=shader_name:
-                __shader_error_dict[shader]=shader_name
-        return True, (__sg_error_dict, __shader_error_dict )
+            shader = shader_list[0]
+            shader_name = '{}_mat'.format(mesh_short)
+            if shader != shader_name:
+                __shader_error_dict[shader] = shader_name
+        return True, (__sg_error_dict, __shader_error_dict)
 
     def _select_sg_surfaceshaderlist(self, sgname):
         _sgattrlist = ['{}.surfaceShader'.format(sgname), '{}.aiSurfaceShader'.format(sgname)]
@@ -186,17 +188,28 @@ class Check(object):
         errors = self.run()
         if errors:
             for k, v in errors.items():
-                if k == u"以下材质球节点命名不正确,需要为'_mat'结尾":
-                    shader_errors = v
-                    for __shader_name in shader_errors:
-                        __shader_name_new = self._get_fix_shade_name(__shader_name)
-                        result = self.__rename(__shader_name, __shader_name_new)
-                if k == u"以下SG节点命名不正确,需要为'_mat_sg'结尾":
-                    sg_errors = v
-                    for __sg_name in sg_errors:
-                        __sg_name_new = self._get_fix_sg_name(__sg_name)
-                        result = self.__rename(__sg_name, __sg_name_new)
+                if k == u"以下材质球节点命名不正确,请检查" and v:
+                    for __shader, __correct_name in v.items():
+                        __shader_new_name = self._fix_node_name(__shader, __correct_name)
+
+                if k == u"以下SG节点命名不正确,请检查":
+                    for __sg, __sg_correct_name in v.items():
+                        __sg_name_new = self._fix_node_name(__sg, __sg_correct_name)
         return True
+
+    def _fix_node_name(self, shader_name, correct_name):
+        if cmds.ls(correct_name):
+            __count = 1
+            __other_name = '{}_01'.format(correct_name)
+            while cmds.objExists(__other_name):
+                __count = __count + 1
+                __other_name = '{}_0{}'.format(correct_name, __count)
+                if not cmds.objExists(__other_name):
+                    break
+            self.__rename(correct_name, __other_name)
+        self.__rename(shader_name, correct_name)
+
+        return correct_name
 
     def __rename(self, source_name, target_name):
         try:
@@ -311,4 +324,11 @@ class Check(object):
         return re.match(r'[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?', s) is not None
 
 
+if __name__ == "__main__":
+    import method.shotgun.get_task as get_task
 
+    _filename = cmds.file(q=1, exn=1)
+
+    taskdata = get_task.TaskInfo(_filename, 'X3', 'maya', 'version')
+    check = Check(taskdata)
+    check.run()
