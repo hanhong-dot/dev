@@ -77,7 +77,6 @@ def getControllerInfo(controllerName,headInverseMat,isLookAt = False,lookAtLocal
                         limit[1] = limitMax * 0.01
     localPivot = cmds.xform(controllerName, q=True, rp=True, os=True)
     curveShape = []
-
     if cmds.listRelatives(controllerName, s=True, f=True) == None:
         print controllerName + "  has not shape"
     for shape in cmds.listRelatives(controllerName, s=True, f=True):
@@ -249,9 +248,12 @@ def get_all_bs_info(bs_nodes):
 
 
 def get_plane_ctrls(head_inverse):
-    ctrls = cmds.ls("*faceFrame*", type="transform")
-    ctrls = [ctrl for ctrl in ctrls if is_shape(ctrl, Shape.nurbsCurve)]
+    # ctrls = cmds.ls("*faceFrame*", type="transform")
+    ctrls = build_planes()
+    # ctrls = [ctrl for ctrl in ctrls if is_shape(ctrl, Shape.nurbsCurve)]
     ctrls = [getControllerInfo(ctrl, head_inverse) for ctrl in ctrls]
+    if cmds.objExists("lush_temp_face_plane"):
+        cmds.delete("lush_temp_face_plane")
     return ctrls
 
 
@@ -281,15 +283,14 @@ def export_npc_55_bs_rig(path):
             for value in get_max_min_value(attr):
                 cmds.setAttr(attr, value)
                 bs_info = get_all_bs_info(bs_nodes)
+                cmds.setAttr(attr, 0)
                 if not bs_info:
                     continue
-                cmds.setAttr(attr, 0)
                 face_elements.append(dict(bsInfo=bs_info))
                 if attr.split(".")[-1] == "translateX":
                     value *= -1
                 value_weight_map.append(dict(id=weight_ctrl_map_id, a=1.0/value, b=0))
     plane_ctrls = get_plane_ctrls(head_inverse)
-    print plane_ctrls
     face_parameter = dict(
         headJoint=node_name(head_joint),
         blendControllers=blend_controls,
@@ -303,11 +304,59 @@ def export_npc_55_bs_rig(path):
         json.dump(face_parameter, f, indent=4)
 
 
+def build_planes():
+    group = "lush_temp_face_plane"
+    if cmds.objExists(group):
+        cmds.delete(group)
+    group = cmds.group(n=group, em=1)
+    if not cmds.objExists("CTRL_faceGUI"):
+        return []
+    meshes = cmds.listRelatives("CTRL_faceGUI", ad=1, type="mesh", f=1)
+    polygons = [cmds.listRelatives(mesh, p=1, f=1)[0] for mesh in meshes]
+    polygons = list(set(polygons))
+    i = 0
+    curves = []
+    for polygon in polygons:
+        cmds.select(polygon)
+        edges = cmds.polyEvaluate(e=True)
+        edges = set(range(edges))
+        polygon_name = polygon.split("|")[-1]
+        if "TEXT" in polygon_name:
+            continue
+        if "CTRL" in polygon_name:
+            continue
+        for _ in range(len(edges)):
+            if not edges:
+                break
+            edge_name = "{polygon}.e[{e}]".format(polygon=polygon, e=edges.pop())
+            cmds.select(edge_name)
+            cmds.polySelectSp(loop=True)
+            loops = cmds.ls(sl=1, fl=1)
+            if len(loops) == 1:
+                continue
+            edges -= set([int(e.split("[")[-1].split("]")[0]) for e in loops])
+            i += 1
+            curve_name = "MH_GUI_{polygon}_{i}_curve".format(polygon=polygon_name, i=i)
+            curve_name = cmds.polyToCurve(name=curve_name, form=2, degree=1)[0]
+            if cmds.getAttr(curve_name+".f") == 0:
+                cmds.delete(curve_name)
+            else:
+                points = cmds.xform(curve_name+".cv[*]", q=1, ws=1, t=1)
+                points += points[:3]
+                cmds.delete(curve_name)
+                points = [points[i:i+3] for i in range(0, len(points), 3)]
+                curve_name = cmds.curve(n=curve_name, p=points, d=1)
+                cmds.parent(curve_name, group)
+                curves.append(curve_name)
+    return curves
+
+
 def doit():
     # , u'QST_Head_01', u'QST_Head_02', u'QST_Head_03'
     # cmds.select([u'QRY_Head'])
     # cmds.select([u'NPC_EM03_Head', u'NPC_EM03_Eyelashes', u'NPC_EM03_Eyeshell', u'NPC_EM03_Eyes', u'NPC_EM03_Teeth'])
-    export_npc_55_bs_rig("D:/work/x3_npc_auto_55/rig_export/NPC_EF07.rbf.json")
+    export_npc_55_bs_rig("D:/work/x3_npc_auto_55/rig_export/NPC_EM03_add_plane.rbf.json")
+    # build_planes()
 
 
 if __name__ == '__main__':
