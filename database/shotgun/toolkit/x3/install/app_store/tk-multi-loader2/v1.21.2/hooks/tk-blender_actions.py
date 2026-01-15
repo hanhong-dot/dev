@@ -534,7 +534,7 @@ class BlenderActions(HookBaseClass):
         if not imported_objects:
             raise TankError("File not found import objects")
 
-        blender_dict = self._import_mat_blend(imported_objects)
+        blender_dict = self._import_mat_blend( xml_file,imported_objects)
 
         self._builder_pre_mesh(xml_file, blender_dict)
         self._remove_cube()
@@ -556,8 +556,8 @@ class BlenderActions(HookBaseClass):
             bpy.data.objects.remove(bpy.data.objects['Cube'])
 
     def _builder_pre_mesh(self, xml_file, blender_dict):
-        self._root = self._get_xml_root(xml_file)
         self.texsPath = self.get_texs_path()
+        self._root = self._get_xml_root(xml_file)
 
         objects = self._root.find("ObjectPart")
         for mesh in objects.findall("Mesh"):
@@ -1200,7 +1200,7 @@ class BlenderActions(HookBaseClass):
                         group.inputs["EmissionColor"].default_value = (
                             float(EmisRGBA[0]), float(EmisRGBA[1]), float(EmisRGBA[2]), float(EmisRGBA[3]))
 
-    def _import_mat_blend(self, imported_objects):
+    def _import_mat_blend(self, xml_file, imported_objects):
 
         X3BASEMAT = r'Z:\dev\apps\tools\blender\X3BaseMat.blend'
         X3BaseMatVeg = r'Z:\dev\apps\tools\blender\X3BaseMatVeg.blend'
@@ -1210,7 +1210,7 @@ class BlenderActions(HookBaseClass):
 
         for imported_object in imported_objects:
             object_name = imported_object.name
-            shader_names = self.get_shader_name_by_mesh(object_name)
+            shader_names = self.get_shader_name_by_mesh(object_name, xml_file)
 
             if shader_names and shader_names[0] == "Papegame/NewVegetation":
                 node_path = X3BaseMatVeg
@@ -1246,8 +1246,9 @@ class BlenderActions(HookBaseClass):
 
         return mesh_grp_dict
 
-    def get_shader_name_by_mesh(self, mesh_name):
-        objects = self._root.find("ObjectPart")
+    def get_shader_name_by_mesh(self, mesh_name, xml_file):
+        root = self._get_xml_root(xml_file)
+        objects = root.find("ObjectPart")
         shader_names = []
         for mesh in objects.findall("Mesh"):
             if mesh.attrib['objname'] == mesh_name:
