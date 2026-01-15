@@ -12,7 +12,6 @@ import os
 # import bpy
 import sys
 
-sys.path.append('z:/')
 import bpy
 
 import xml.etree.ElementTree as ET
