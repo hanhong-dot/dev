@@ -116,7 +116,11 @@ class Tool(QDialog):
                 self.export_et_frame,
                 q_button(u"<<<", self.load_frame_range),
             ),
-            q_button(u"导出动画", self.export_anim_data),
+            q_add(
+                QHBoxLayout(),
+                q_button(u"导入x3表情动画", self.load_x3_anim_data),
+                q_button(u"导出x3表情动画", self.export_x3_anim_data),
+            ),
             q_button(u"视频转图片", self.mov_to_jpg),
         ))
 
@@ -127,13 +131,20 @@ class Tool(QDialog):
         self.export_st_frame.setValue(st)
         self.export_et_frame.setValue(et)
 
-    def export_anim_data(self):
-        from .export_unity_anim import export_unity_anim
+    def export_x3_anim_data(self):
+        from .x3_unity_anim import export_unity_anim
         path = get_save_path("", "json")
         st = self.export_st_frame.value()
         et = self.export_et_frame.value()
         export_unity_anim(path, st, et)
 
+    def load_x3_anim_data(self):
+        from .x3_unity_anim import load_unity_anim
+        path = get_open_path("", "json")
+        if not path:
+            return
+        st = self.export_st_frame.value()
+        load_unity_anim(path, st)
 
     def convert_blend_shape(self):
         action_config[self.typ.currentText()]["convert_bs"]()
