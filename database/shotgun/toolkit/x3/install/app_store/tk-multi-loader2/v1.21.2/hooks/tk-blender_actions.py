@@ -351,6 +351,7 @@ class BlenderActions(HookBaseClass):
         if not os.path.exists(path):
             raise TankError("File not found on disk - '%s'" % path)
 
+
         self.blender_import_with_mat(path)
         # result=self._batch_import(path)
 
@@ -526,6 +527,7 @@ class BlenderActions(HookBaseClass):
 
     def blender_import_with_mat(self, path):
         xml_file = path.replace(".fbx", ".xml")
+        self._root = self._get_xml_root(xml_file)
 
         imported_objects = self._import_fbx(path)
 
