@@ -10,16 +10,14 @@
 # -------------------------------------------------------
 import lib.common.loginfo as info
 
+
 class Check(object):
-    """
-    检查项目当前使用maya软件的相关信息
-    """
 
     def __init__(self):
         super(Check, self).__init__()
 
         self.tooltip = u'已检测重名节点'
-        self.error=u'以下节点为重名节点,请修改'
+        self.error = u'以下节点为重名节点,请修改'
 
     def checkinfo(self):
         """
@@ -29,6 +27,11 @@ class Check(object):
         _error = self.run()
         _error_list = []
         if _error:
+            for _name, _nodes in _error.items():
+                _error_list.append(u'请检查以下节点,有重名【{}】'.format(_name))
+                _error_list.extend(_nodes)
+
+        if _error:
             _error_list.extend(_error)
             return False, info.displayErrorInfo(title=self.error, objList=_error_list)
         else:
@@ -36,11 +39,24 @@ class Check(object):
 
     def run(self):
         import maya.cmds as cmds
-        _error = []
-        _nodes = cmds.ls()
-        if _nodes:
-            _error = [node for node in _nodes if '|' in node]
-        return _error
+        _nodes = cmds.ls(dagObjects=True, l=1)
+        return self.__get_same_name_nodes(_nodes)
 
-
+    def __get_same_name_nodes(self, nodes):
+        import maya.cmds as cmds
+        _same_name_dict = {}
+        _list = []
+        if not nodes:
+            return _same_name_dict
+        for _node in nodes:
+            _short_name = _node.split('|')[-1]
+            if _short_name not in _list:
+                _list.append(_short_name)
+        if not _list:
+            return _same_name_dict
+        for _name in _list:
+            _same_nodes = cmds.ls(_name, long=True)
+            if _same_nodes and len(_same_nodes) > 1:
+                _same_name_dict[_name] = _same_nodes
+        return _same_name_dict
 
