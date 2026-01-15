@@ -583,7 +583,7 @@ class BlenderActions(HookBaseClass):
                 mat.name = '{}__{}'.format(mesh_name.replace('.', '_'), mat_name)
                 print('mat_name:', mat.name)
                 mesh_obj = bpy.data.objects[mesh_name]
-                uv_judge= False
+                uv_judge = False
                 try:
                     for uv_map in mesh_obj.data.uv_layers:
                         if uv_map.name == "1u":
@@ -591,7 +591,6 @@ class BlenderActions(HookBaseClass):
                             break
                 except:
                     pass
-
 
                 mat.use_nodes = True
                 matnodes = mat.node_tree.nodes
@@ -603,6 +602,8 @@ class BlenderActions(HookBaseClass):
                     self.setSceneUnlitNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
                 elif "SceneBlend" in mat_shader_name:
                     self.setSceneBlendNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
+                elif "NewVegetation" in mat_shader_name:
+                    self.setVegetationNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
                 else:
                     self.setSceneNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
 
@@ -626,6 +627,240 @@ class BlenderActions(HookBaseClass):
                     blends = v
                     break
         return mesh_name, blends, suffix
+
+    def setVegetationNode(self, i, matnodes, mat, matShaderName, material_datas, suffix, blends, uv_judge):
+        group = matnodes.new(type='ShaderNodeGroup')
+
+        group.node_tree = bpy.data.node_groups[blends[0]]
+        group.location = (-500, 0)
+        out = matnodes.new(type='ShaderNodeOutputMaterial')
+
+        group_random = matnodes.new(type='ShaderNodeGroup')
+        group_random.node_tree = bpy.data.node_groups[blends[1]]
+        group_random.location = (-800, -200)
+
+        mat.node_tree.links.new(group.outputs['BSDF'], out.inputs['Surface'])
+        for node in matnodes:
+            node.select = False
+        group.select = True
+        attr = material_datas[i].find("Attribute").attrib
+        if float(attr["AlphaClip"]) > 0.5:
+            mat.blend_method = 'CLIP'
+            mat.alpha_threshold = float(attr["Cutoff"])
+        else:
+            mat.blend_method = 'OPAQUE'
+        Roughness = float(attr["Roughness"])
+        RoughnessMin = float(attr.get("RoughnessMin", "0.0"))
+        EmissionUvChoose = int(attr.get("EmissionUvChoose", "0"))
+        RampOFF = int(attr.get("RampOFF", "0"))
+        randomOffset = float(attr.get("randomOffset", "0.0"))
+        unhealthySoft = float(attr.get("unhealthySoft", "0.0"))
+        unhealthyStep = float(attr.get("unhealthyStep", "0.0"))
+        topLeaveAOSoft = float(attr.get("topLeaveAOSoft", "0.0"))
+        topLeaveAOStep = float(attr.get("topLeaveAOStep", "0.0"))
+        thicknessRemapX = float(attr.get("thicknessRemapX", "0.0"))
+        thicknessRemapY = float(attr.get("thicknessRemapY", "0.0"))
+        GRADIENTIDCOUNT = int(attr.get("GRADIENTIDCOUNT", "0")) - 1
+        variantBlend = float(attr.get("variantBlend", "0.0"))
+        variantID0 = int(attr.get("variantID0", "0"))
+        variantID1 = int(attr.get("variantID1", "0"))
+        BkgRGBA = attr["RGBA"].split(",")
+        # BkgRGBA = attr["RGBA"].split(",")
+        TexRGBA = attr["TexRGBA"].split(",")
+        EmiRGBA = attr["EmiRGBA"].split(",")
+        unhealthyColorRGBA = attr.get("unhealthyColorRGBA", "1,1,1,1").split(",")
+        rampBaseColor0RGBA = attr.get("rampBaseColor0RGBA", "1,1,1,1").split(",")
+        rampBaseColor1RGBA = attr.get("rampBaseColor1RGBA", "1,1,1,1").split(",")
+        rampBaseColor2RGBA = attr.get("rampBaseColor2RGBA", "1,1,1,1").split(",")
+        rampBaseColor3RGBA = attr.get("rampBaseColor3RGBA", "1,1,1,1").split(",")
+        rampBaseColor4RGBA = attr.get("rampBaseColor4RGBA", "1,1,1,1").split(",")
+        RampTex_TexelSize = attr.get("RampTex_TexelSize", "0,0,0,0").split(",")
+
+        # MainTex_ST = attr["MainTex_ST"].split(",")
+        TexAlbedoMap_ST = attr["TexAlbedoMap_ST"].split(",")
+        TexNormalMap_ST = attr["TexNormalMap_ST"].split(",")
+        # MainTexEmi_ST = attr["MainTexEmi_ST"].split(",")
+        group.inputs["Cutoff"].default_value = float(attr["Cutoff"])
+        group.inputs['RampOFF'].default_value = RampOFF
+        group.inputs['UnhealthySoft'].default_value = unhealthySoft
+        group.inputs['UnhealthyStep'].default_value = unhealthyStep
+
+        group.inputs["Color"].default_value = (
+            float(BkgRGBA[0]), float(BkgRGBA[1]), float(BkgRGBA[2]), float(BkgRGBA[3]))
+        group.inputs["ColorAlpha"].default_value = float(BkgRGBA[3])  # alpha
+
+        group.inputs["TexColor"].default_value = (
+            float(TexRGBA[0]), float(TexRGBA[1]), float(TexRGBA[2]), float(TexRGBA[3]))
+        group.inputs["TexColorAlpha"].default_value = float(TexRGBA[3])  # alpha
+
+        group.inputs["EmissionColor"].default_value = (
+            float(EmiRGBA[0]), float(EmiRGBA[1]), float(EmiRGBA[2]), float(EmiRGBA[3]))
+
+        group.inputs["UnhealthyColor"].default_value = (
+            float(unhealthyColorRGBA[0]), float(unhealthyColorRGBA[1]), float(unhealthyColorRGBA[2]),
+            float(unhealthyColorRGBA[3]))
+        group.inputs["RampBaseColor0"].default_value = (
+            float(rampBaseColor0RGBA[0]), float(rampBaseColor0RGBA[1]), float(rampBaseColor0RGBA[2]),
+            float(rampBaseColor0RGBA[3]))
+        group.inputs["RampBaseColor1"].default_value = (
+            float(rampBaseColor1RGBA[0]), float(rampBaseColor1RGBA[1]), float(rampBaseColor1RGBA[2]),
+            float(rampBaseColor1RGBA[3]))
+        group.inputs["RampBaseColor2"].default_value = (
+            float(rampBaseColor2RGBA[0]), float(rampBaseColor2RGBA[1]), float(rampBaseColor2RGBA[2]),
+            float(rampBaseColor2RGBA[3]))
+        group.inputs["RampBaseColor3"].default_value = (
+            float(rampBaseColor3RGBA[0]), float(rampBaseColor3RGBA[1]), float(rampBaseColor3RGBA[2]),
+            float(rampBaseColor3RGBA[3]))
+        group.inputs["RampBaseColor4"].default_value = (
+            float(rampBaseColor4RGBA[0]), float(rampBaseColor4RGBA[1]), float(rampBaseColor4RGBA[2]),
+            float(rampBaseColor4RGBA[3]))
+
+        group.inputs['Roughness'].default_value = Roughness
+        group.inputs['RoughnessMin'].default_value = RoughnessMin
+        group.inputs['ThicknessRemapX'].default_value = thicknessRemapX
+        group.inputs['ThicknessRemapY'].default_value = thicknessRemapY
+        group.inputs['GRADIENTIDCOUNT-1'].default_value = GRADIENTIDCOUNT
+        group.inputs['VariantBlend'].default_value = variantBlend
+
+        group_random.inputs['RandomOffset'].default_value = randomOffset
+        group_random.inputs['TopLeaveAOSoft'].default_value = topLeaveAOSoft
+        group_random.inputs['TopLeaveAOStep'].default_value = topLeaveAOStep
+        group_random.inputs['VariantID0'].default_value = variantID0
+        group_random.inputs['VariantID1'].default_value = variantID1
+
+        group_random.inputs['_RampTex_TexelSize'].default_value[0] = float(RampTex_TexelSize[0])
+        group_random.inputs['_RampTex_TexelSize'].default_value[1] = float(RampTex_TexelSize[1])
+        group_random.inputs['_RampTex_TexelSize'].default_value[2] = float(RampTex_TexelSize[2])
+
+        if float(attr["TexBlendMode"]) < 0.5:  # 0
+            group.inputs['isColorMode1'].default_value = 0.0
+            group.inputs['isColorMode2'].default_value = 0.0
+        elif float(attr["TexBlendMode"]) < 1.5:  # 1
+            group.inputs['isColorMode1'].default_value = 1.0
+            group.inputs['isColorMode2'].default_value = 0.0
+        else:  # 2
+            group.inputs['isColorMode1'].default_value = 0.0
+            group.inputs['isColorMode2'].default_value = 1.0
+
+        if float(attr["NmlBlendMode"]) < 0.5:  # 0
+            group.inputs['isNormalMode1'].default_value = 0.0
+            group.inputs['isNormalMode2'].default_value = 0.0
+        elif float(attr["NmlBlendMode"]) < 1.5:  # 1
+            group.inputs['isNormalMode1'].default_value = 1.0
+            group.inputs['isNormalMode2'].default_value = 0.0
+        else:  # 2
+            group.inputs['isNormalMode1'].default_value = 0
+            group.inputs['isNormalMode2'].default_value = 1
+
+        hasBkgTex, hasBkgNormal, hasTexTex, hasTexNormal = False, False, False, False
+
+        for tex in material_datas[i].findall("Texture"):
+            texName = tex.attrib["Name"]
+
+            texShaderName = tex.attrib["ShaderName"]
+
+            if (texShaderName == "_MainTex"):
+                if (texName != "null"):
+                    bkgtex_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False, [], uv_judge)
+                    if bkgtex_node is not None:
+                        mat.node_tree.links.new(bkgtex_node.outputs['Color'], group.inputs["MainTex"])
+                        mat.node_tree.links.new(bkgtex_node.outputs['Alpha'], group.inputs['MainTexAlpha'])
+                        hasBkgTex = True
+            if (texShaderName == "_NormalMap"):
+                if (texName != "null"):
+                    bkgnormal_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False, [], uv_judge)
+                    if bkgnormal_node is not None:
+                        bkgnormal_node.image.colorspace_settings.name = "Linear Rec.709"
+                        mat.node_tree.links.new(bkgnormal_node.outputs['Color'], group.inputs['NormalTex'])
+                        mat.node_tree.links.new(bkgnormal_node.outputs['Alpha'], group.inputs['NormalTexAlpha'])
+                        hasBkgNormal = True
+
+            if (texShaderName == "_VegMaskTex"):
+                if (texName != "null"):
+                    vegmaskl_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False, [], uv_judge)
+                    if vegmaskl_node is not None:
+                        vegmaskl_node.image.colorspace_settings.name = "Linear Rec.709"
+                        mat.node_tree.links.new(vegmaskl_node.outputs['Color'], group.inputs['MaskTex'])
+                        mat.node_tree.links.new(vegmaskl_node.outputs['Color'], group_random.inputs['MaskTex'])
+                        mat.node_tree.links.new(vegmaskl_node.outputs['Alpha'], group_random.inputs['MaskTexAlpha'])
+
+            if (texShaderName == "_TexAlbedoMap"):
+                if (texName != "null"):
+                    textex_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], True, TexAlbedoMap_ST,
+                                                        uv_judge)
+                    if textex_node is not None:
+                        mat.node_tree.links.new(textex_node.outputs['Color'], group.inputs['TexTex'])
+                        mat.node_tree.links.new(textex_node.outputs['Alpha'], group.inputs['TexTexAlpha'])
+                        hasTexTex = True
+            if (texShaderName == "_EmissionMap"):
+                if (texName != "null"):
+                    if EmissionUvChoose == 0:
+                        emimap_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,
+                                                            TexAlbedoMap_ST, uv_judge)
+                    else:
+
+                        emimap_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], True,
+                                                            TexAlbedoMap_ST, uv_judge)
+                    if emimap_node is not None:
+                        mat.node_tree.links.new(emimap_node.outputs['Color'], group.inputs['EmissionMap'])
+            if (texShaderName == "_TexNmlMatMap"):
+                if (texName != "null"):
+                    texnormal_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], True, TexNormalMap_ST,
+                                                           uv_judge)
+                    if texnormal_node is not None:
+                        texnormal_node.image.colorspace_settings.name = "Linear Rec.709"
+                        mat.node_tree.links.new(texnormal_node.outputs['Color'], group.inputs['TexNormal'])
+                        mat.node_tree.links.new(texnormal_node.outputs['Alpha'], group.inputs['TexNormalAlpha'])
+                        hasTexNormal = True
+            if (texShaderName == "_AlbedoRampTex"):
+
+                if (texName != "null"):
+
+                    abedo_node01 = self.buildTextureNodeWithoutUV(mat.node_tree, self.texsPath[texName], [])
+                    abedo_node02 = self.buildTextureNodeWithoutUV(mat.node_tree, self.texsPath[texName], [])
+                    # textex_node02= self.buildTextureNode(mat.node_tree, self.texsPath[texName], True, [])
+                    if abedo_node01 is not None:
+                        mat.node_tree.links.new(abedo_node01.outputs['Color'], group.inputs['RampTexResult0'])
+                        mat.node_tree.links.new(group_random.outputs['RampTexUV0'], abedo_node01.inputs['Vector'])
+                        hasBkgNormal = True
+                    if abedo_node02 is not None:
+                        mat.node_tree.links.new(abedo_node02.outputs['Color'], group.inputs['RampTexResult1'])
+                        mat.node_tree.links.new(group_random.outputs['RampTexUV1'], abedo_node02.inputs['Vector'])
+                        hasBkgNormal = True
+        if not hasTexTex:  # 1
+            group.inputs['isColorMode1'].default_value = 1.0
+            group.inputs['isColorMode2'].default_value = 0.0
+            group.inputs['TexTexAlpha'].default_value = 0.0
+        elif not hasBkgTex:  # 2
+            group.inputs['isColorMode1'].default_value = 0.0
+            group.inputs['isColorMode2'].default_value = 1.0
+            group.inputs['BkgTexAlpha'].default_value = 0.0
+
+        if not hasTexNormal:
+            group.inputs['isNormalMode1'].default_value = 1.0
+            group.inputs['isNormalMode2'].default_value = 0.0
+            group.inputs['BlendNormal'].default_value = 0.0
+        elif not hasBkgNormal:
+            group.inputs['isNormalMode1'].default_value = 0.0
+            group.inputs['isNormalMode2'].default_value = 1.0
+            group.inputs['BlendNormal'].default_value = 0.0
+
+    def buildTextureNodeWithoutUV(self, mat_nodetree, texPath, tex_ST=[]):
+        if os.path.exists(texPath):
+            tex = mat_nodetree.nodes.new(type='ShaderNodeTexImage')
+            tex.image = bpy.data.images.load(filepath=texPath)
+
+            if len(tex_ST) > 0:
+                vectMath_node = mat_nodetree.nodes.new(type='ShaderNodeVectorMath')
+                vectMath_node.operation = 'MULTIPLY_ADD'
+                vectMath_node.inputs[1].default_value[0] = float(tex_ST[0])
+                vectMath_node.inputs[1].default_value[1] = float(tex_ST[1])
+                vectMath_node.inputs[2].default_value[0] = float(tex_ST[2])
+                vectMath_node.inputs[2].default_value[1] = float(tex_ST[3])
+                mat_nodetree.links.new(vectMath_node.outputs[0], tex.inputs['Vector'])
+            return tex
+        else:
+            return None
 
     def get_texs_path(self):
         texsPath = {}
@@ -966,20 +1201,26 @@ class BlenderActions(HookBaseClass):
     def _import_mat_blend(self, imported_objects):
 
         X3BASEMAT = r'Z:\dev\apps\tools\blender\X3BaseMat.blend'
+        X3BaseMatVeg = r'Z:\dev\apps\tools\blender\X3BaseMatVeg.blend'
         inner_path = "NodeTree"
         mesh_grp_dict = {}
         context_override = get_view3d_operator_context()
 
         for imported_object in imported_objects:
-
             object_name = imported_object.name
-            append_names = ["X3NodeGroup", "X3SceneBlend", "UVScaleOffset"]
-            node_path = X3BASEMAT
+            shader_names = self.get_shader_name_by_mesh(object_name)
+
+            if shader_names and shader_names[0] == "Papegame/NewVegetation":
+                node_path = X3BaseMatVeg
+                append_names = ["X3Vegetation", "X3VegetationRampTexUV", "UVScaleOffset"]
+
+            else:
+                node_path = X3BASEMAT
+                append_names = ["X3NodeGroup", "X3SceneBlend", "UVScaleOffset"]
             grps = []
 
             original_group_names = [group.name for group in bpy.data.node_groups]
             before_names = list(original_group_names)
-
 
             for append_name in append_names:
                 with bpy.context.temp_override(**context_override):
@@ -1002,6 +1243,18 @@ class BlenderActions(HookBaseClass):
             mesh_grp_dict[imported_object] = grps
 
         return mesh_grp_dict
+
+    def get_shader_name_by_mesh(self, mesh_name):
+        objects = self._root.find("ObjectPart")
+        shader_names = []
+        for mesh in objects.findall("Mesh"):
+            if mesh.attrib['objname'] == mesh_name:
+                material_datas = mesh.findall("Material")
+                for i in range(len(material_datas)):
+                    mat_shader_name = material_datas[i].attrib["shaderName"]
+                    shader_names.append(mat_shader_name)
+                break
+        return shader_names
 
     def get_group_names(self):
         return [grp.name for grp in bpy.data.node_groups]
