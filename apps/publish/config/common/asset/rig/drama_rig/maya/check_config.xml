@@ -50,7 +50,16 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="5" projectType="all"
+         <checkItem order_id="5" projectType="all"
+                   item_name="检测重碰撞模型三角面数(_Collider后缀模型,三角面数不超过512)"
+                   toolTip="检测重碰撞模型三角面数(_Collider后缀模型,三角面数不超过512)"
+                   check_command="import apps.publish.check.maya.asset.check_collider_triangle_count as check_collider_triangle_count;reload(check_collider_triangle_count);check_collider_triangle_count.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="6" projectType="all"
                    item_name="检测Roots 是否freeze(是否在原点,或空间坐标轴向是否正确)"
                    toolTip="检查骨骼链根是否freeze"
                    check_command="import apps.publish.check.maya.asset.check_freeze as check_freeze;reload(check_freeze);check_freeze.Check(TaskData_Class,grpsname=['Roots', 'RootMotion'], is_checkobjs=False).checkinfo()"
@@ -58,7 +67,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="6" projectType="all"
+        <checkItem order_id="7" projectType="all"
                    item_name="检测控制器是否归零"
                    toolTip="检测控制器是否归零"
                    check_command="import apps.publish.check.maya.asset.check_exist_ctrl_not_zero as check_exist_ctrl_not_zero;reload(check_exist_ctrl_not_zero);check_exist_ctrl_not_zero.Check().checkinfo()"
@@ -66,7 +75,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="7" projectType="all"
+        <checkItem order_id="8" projectType="all"
                    item_name="检测动画关键帧"
                    toolTip="检查文件中是否有关键帧数"
                    check_command="import apps.publish.check.maya.asset.check_exist_key as check_exist_key;reload(check_exist_key);check_exist_key.Check().checkinfo()"
@@ -75,7 +84,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="8" projectType="all"
+        <checkItem order_id="9" projectType="all"
                    item_name="检测显示层"
                    toolTip="检查文件中是否有显示层"
                    check_command="import apps.publish.check.maya.asset.check_exist_dis as check_exist_dis;reload(check_exist_dis);check_exist_dis.Check(TaskData_Class).checkinfo()"
@@ -84,7 +93,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="9" projectType="all"
+        <checkItem order_id="10" projectType="all"
                    item_name="检测BindPose"
                    toolTip="检查文件中是否有BindPose节点"
                    check_command="import apps.publish.check.maya.asset.check_exist_binpose as check_exist_binpose;reload(check_exist_binpose);check_exist_binpose.Check().checkinfo()"
@@ -92,7 +101,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="10" projectType="all"
+        <checkItem order_id="11" projectType="all"
                    item_name="检测绑定无用节点(blindDataTemplate)"
                    toolTip="检测绑定无用节点(blindDataTemplate)"
                    check_command="import apps.publish.check.maya.asset.check_rig_unused_node as check_rig_unused_node;reload(check_rig_unused_node);check_rig_unused_node.Check().checkinfo()"
@@ -110,7 +119,7 @@
         <!--                   except_projectType=""-->
         <!--                   ignore="False"/>-->
 
-        <checkItem order_id="11" projectType="all"
+        <checkItem order_id="12" projectType="all"
                    item_name="检测材质命名"
                    toolTip="检测材质命名"
                    check_command="import apps.publish.check.maya.asset.check_rig_shader as check_rig_shader;reload(check_rig_shader);check_rig_shader.Check(TaskData_Class).checkinfo()"
@@ -120,7 +129,7 @@
                    ignore="False"/>
 
 
-        <checkItem order_id="12" projectType="all"
+        <checkItem order_id="13" projectType="all"
                    item_name="检查缺失贴图"
                    toolTip="缺失贴图检查"
                    check_command="import apps.publish.check.maya.asset.check_missing_map as check_missing_map;reload(check_missing_map);check_missing_map.Check().checkinfo()"
@@ -129,7 +138,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="13" projectType="all"
+        <checkItem order_id="14" projectType="all"
                    item_name="检查npc 手部挂点"
                    toolTip="检查npc 手部挂点"
                    check_command="import apps.publish.check.maya.asset.check_exist_Hpoin as check_exist_Hpoin;reload(check_exist_Hpoin);check_exist_Hpoin.Check(TaskData_Class).checkinfo()"
@@ -138,7 +147,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="14" projectType="all"
+        <checkItem order_id="15" projectType="all"
                    item_name="检测绑定文件中bs target列表中包含Finger关键字"
                    toolTip="检测绑定文件中bs target列表中包含Finger关键字"
                    check_command="import apps.publish.check.maya.asset.check_rig_bstarge as check_rig_bstarge;reload(check_rig_bstarge);check_rig_bstarge.Check(TaskData_Class).checkinfo()"
@@ -147,7 +156,7 @@
                    except_projectType=""
                    ignore="True"/>
 
-        <checkItem order_id="15" projectType="all"
+        <checkItem order_id="16" projectType="all"
                    item_name="检测面部骨骼"
                    toolTip="检测面部骨骼"
                    check_command="import apps.publish.check.maya.asset.check_face_joins as check_face_joins;reload(check_face_joins);check_face_joins.Check(TaskData_Class).checkinfo()"
@@ -157,7 +166,7 @@
                    ignore="False"/>
 
 
-        <checkItem order_id="16" projectType="all"
+        <checkItem order_id="17" projectType="all"
                    item_name="检测配饰Head_M_spare以下骨骼是否有效蒙皮(PL捏脸)"
                    toolTip="检测配饰Head_M_spare以下骨骼是否有效蒙皮(PL捏脸)"
                    check_command="from apps.publish.check.maya.asset import check_pl_rolaccesory_joint_weight;reload(check_pl_rolaccesory_joint_weight);check_pl_rolaccesory_joint_weight.Check(TaskData_Class).checkinfo()"
@@ -165,7 +174,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-         <checkItem order_id="17" projectType="all"
+         <checkItem order_id="18" projectType="all"
                    item_name="检测配饰bs target列表中包含捏脸关键字(PL捏脸)"
                    toolTip="检测配饰bs target列表中包含捏脸关键字(PL捏脸)"
                    check_command="from apps.publish.check.maya.asset import check_pl_rolaccesory_bs;reload(check_pl_rolaccesory_bs);check_pl_rolaccesory_bs.Check(TaskData_Class).checkinfo()"

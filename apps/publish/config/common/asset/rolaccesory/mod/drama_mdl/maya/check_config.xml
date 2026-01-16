@@ -60,7 +60,16 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="5" projectType="all"
+            <checkItem order_id="5" projectType="all"
+                   item_name="检测碰撞模型三角面数(_Collider后缀模型,三角面数不超过512)"
+                   toolTip="检测碰撞模型三角面数(_Collider后缀模型,三角面数不超过512)"
+                   check_command="import apps.publish.check.maya.asset.check_collider_triangle_count as check_collider_triangle_count;reload(check_collider_triangle_count);check_collider_triangle_count.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+        <checkItem order_id="6" projectType="all"
                    item_name="检测非模型节点"
                    toolTip="检查文件中是否存在非模型节点"
                    check_command="import apps.publish.check.maya.check_exist_cleanumnode as check_exist_cleanumnode;reload(check_exist_cleanumnode);check_exist_cleanumnode.Check(TaskData_Class).checkinfo()"
@@ -69,7 +78,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="6" projectType="all"
+        <checkItem order_id="7" projectType="all"
                    item_name="清理模型历史记录(检测时直接清理,请慎点)"
                    toolTip="清理模型Non_Deformer历史"
                    check_command="import apps.publish.check.maya.asset.check_exist_history as check_exist_history;reload(check_exist_history);check_exist_history.Check().checkinfo()"
