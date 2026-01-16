@@ -11,7 +11,7 @@ import lib.maya.analysis.analyze_structure as structure
 
 MAXCOUNT = 512
 UVSETNUM = 1
-EXEASSET=['PL811C','PL811C_Card','PL804C','PL019S']
+EXEASSET=['PL811C','PL811C_Card','PL804C','PL019S','PL108C']
 
 
 class Check(object):
