@@ -69,6 +69,7 @@
                    except_projectType=""
                    ignore="False"/>
 
+
         <checkItem order_id="6" projectType="all"
                    item_name="检测Hair模型(hair类型资产检测该项)"
                    toolTip="检测Hair模型(hair类型资产检测该项)"
@@ -144,8 +145,17 @@
                    except_projectType=""
                    ignore="False"/>
 
-
         <checkItem order_id="12" projectType="all"
+                   item_name="检测碰撞模型三角面数(三角面数不超过512)"
+                   toolTip="检测重碰撞模型三角面数(三角面数不超过512)"
+                   check_command="import apps.publish.check.maya.asset.check_collider_triangle_count as check_collider_triangle_count;reload(check_collider_triangle_count);check_collider_triangle_count.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
+
+        <checkItem order_id="13" projectType="all"
                    item_name="镜像检查"
                    toolTip="检查模型不对称点"
                    check_command="import apps.publish.check.maya.asset.check_is_mirror as check_is_mirror;reload(check_is_mirror);check_is_mirror.Check().checkinfo()"
@@ -155,7 +165,7 @@
                    ignore="True"/>
 
 
-        <checkItem order_id="13" projectType="all"
+        <checkItem order_id="14" projectType="all"
                    item_name="重叠模型"
                    toolTip="检查文件中是否存在重叠模型"
                    check_command="import apps.publish.check.maya.asset.check_exist_laminaface as check_exist_laminaface;reload(check_exist_laminaface);check_exist_laminaface.Check().checkinfo()"
@@ -163,7 +173,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="True"/>
-        <checkItem order_id="14" projectType="all"
+        <checkItem order_id="15" projectType="all"
                    item_name="检查零距离边"
                    toolTip="检查文件中是否存在零距离边"
                    check_command="import apps.publish.check.maya.asset.check_exist_zeroedge as check_exist_zeroedge;reload(check_exist_zeroedge);check_exist_zeroedge.Check().checkinfo()"

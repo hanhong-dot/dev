@@ -78,23 +78,22 @@
                    except_projectType=""
                    ignore="False"/>
 
-<!--        <checkItem order_id="7" projectType="all"-->
-<!--                   item_name="检测组下模型命名"-->
-<!--                   toolTip="检查组下模型命名"-->
-<!--                   check_command="import apps.publish.check.maya.asset.check_group_objects as check_group_objects;reload(check_group_objects);check_group_objects.Check(TaskData_Class).checkinfo()"-->
-<!--                   fix_command=""-->
-<!--                   except_project=""-->
-<!--                   except_projectType=""-->
-<!--                   ignore="False"/>-->
-<!--        <checkItem order_id="8" projectType="all"-->
-<!--                   item_name="强制清理模型文件"-->
-<!--                   toolTip="强制清理模型文件"-->
-<!--                   check_command="import apps.publish.check.maya.asset.check_clean_mod_force as check_clean_mod_force;reload(check_clean_mod_force);check_clean_mod_force.Check().checkinfo()"-->
-<!--                   fix_command=""-->
-<!--                   except_project=""-->
-<!--                   except_projectType=""-->
-<!--                   ignore="False"/>-->
-
+        <!--        <checkItem order_id="7" projectType="all"-->
+        <!--                   item_name="检测组下模型命名"-->
+        <!--                   toolTip="检查组下模型命名"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_group_objects as check_group_objects;reload(check_group_objects);check_group_objects.Check(TaskData_Class).checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="False"/>-->
+        <!--        <checkItem order_id="8" projectType="all"-->
+        <!--                   item_name="强制清理模型文件"-->
+        <!--                   toolTip="强制清理模型文件"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_clean_mod_force as check_clean_mod_force;reload(check_clean_mod_force);check_clean_mod_force.Check().checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="False"/>-->
 
 
         <checkItem order_id="9" projectType="all"
@@ -106,14 +105,14 @@
                    except_projectType=""
                    ignore="False"/>
 
-<!--        <checkItem order_id="9" projectType="all"-->
-<!--                   item_name="检测模型材质连接（一个模型需要连接且只连接一个材质节点)"-->
-<!--                   toolTip="检测模型材质连接（一个模型需要连接且只连接一个材质节点)"-->
-<!--                   check_command="import apps.publish.check.maya.asset.check_exist_mshader as check_exist_mshader;reload(check_exist_mshader);check_exist_mshader.Check().checkinfo()"-->
-<!--                   fix_command=""-->
-<!--                   except_project=""-->
-<!--                   except_projectType=""-->
-<!--                   ignore="False"/>-->
+        <!--        <checkItem order_id="9" projectType="all"-->
+        <!--                   item_name="检测模型材质连接（一个模型需要连接且只连接一个材质节点)"-->
+        <!--                   toolTip="检测模型材质连接（一个模型需要连接且只连接一个材质节点)"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_exist_mshader as check_exist_mshader;reload(check_exist_mshader);check_exist_mshader.Check().checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="False"/>-->
 
 
         <checkItem order_id="10" projectType="all"
@@ -133,16 +132,24 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
+        <checkItem order_id="12" projectType="all"
+                   item_name="检测碰撞模型三角面数(三角面数不超过512)"
+                   toolTip="检测重碰撞模型三角面数(三角面数不超过512)"
+                   check_command="import apps.publish.check.maya.asset.check_collider_triangle_count as check_collider_triangle_count;reload(check_collider_triangle_count);check_collider_triangle_count.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
 
 
-<!--        <checkItem order_id="12" projectType="all"-->
-<!--                   item_name="镜像检查"-->
-<!--                   toolTip="检查模型不对称点"-->
-<!--                   check_command="import apps.publish.check.maya.asset.check_is_mirror as check_is_mirror;reload(check_is_mirror);check_is_mirror.Check().checkinfo()"-->
-<!--                   fix_command=""-->
-<!--                   except_project=""-->
-<!--                   except_projectType=""-->
-<!--                   ignore="True"/>-->
+        <!--        <checkItem order_id="12" projectType="all"-->
+        <!--                   item_name="镜像检查"-->
+        <!--                   toolTip="检查模型不对称点"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_is_mirror as check_is_mirror;reload(check_is_mirror);check_is_mirror.Check().checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="True"/>-->
 
         <checkItem order_id="13" projectType="all"
                    item_name="重叠模型"
@@ -161,49 +168,49 @@
                    except_projectType=""
                    ignore="False"/>
 
-<!--        <checkItem order_id="15" projectType="all"-->
-<!--                   item_name="检查重点"-->
-<!--                   toolTip="检查文件中是否存在重点"-->
-<!--                   check_command="import apps.publish.check.maya.asset.check_exist_closingpoint as check_exist_closingpoint;reload(check_exist_closingpoint);check_exist_closingpoint.Check().checkinfo()"-->
-<!--                   fix_command=""-->
-<!--                   except_project=""-->
-<!--                   except_projectType=""-->
-<!--                   ignore="True"/>-->
+        <!--        <checkItem order_id="15" projectType="all"-->
+        <!--                   item_name="检查重点"-->
+        <!--                   toolTip="检查文件中是否存在重点"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_exist_closingpoint as check_exist_closingpoint;reload(check_exist_closingpoint);check_exist_closingpoint.Check().checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="True"/>-->
 
-<!--        <checkItem order_id="16" projectType="all"-->
-<!--                   item_name="检查重叠面"-->
-<!--                   toolTip="检查文件中是否存在重叠面"-->
-<!--                   check_command="import apps.publish.check.maya.asset.check_exist_closing_face as check_exist_closing_face;reload(check_exist_closing_face);check_exist_closing_face.Check().checkinfo()"-->
-<!--                   fix_command=""-->
-<!--                   except_project=""-->
-<!--                   except_projectType=""-->
-<!--                   ignore="True"/>-->
+        <!--        <checkItem order_id="16" projectType="all"-->
+        <!--                   item_name="检查重叠面"-->
+        <!--                   toolTip="检查文件中是否存在重叠面"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_exist_closing_face as check_exist_closing_face;reload(check_exist_closing_face);check_exist_closing_face.Check().checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="True"/>-->
 
-<!--        <checkItem order_id="17" projectType="all"-->
-<!--                   item_name="检查多边面"-->
-<!--                   toolTip="检查多边面"-->
-<!--                   check_command="import apps.publish.check.maya.asset.check_exist_fiveedge as check_exist_fiveedge;reload(check_exist_fiveedge);check_exist_fiveedge.Check().checkinfo()"-->
-<!--                   fix_command=""-->
-<!--                   except_project=""-->
-<!--                   except_projectType=""-->
-<!--                   ignore="False"/>-->
+        <!--        <checkItem order_id="17" projectType="all"-->
+        <!--                   item_name="检查多边面"-->
+        <!--                   toolTip="检查多边面"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_exist_fiveedge as check_exist_fiveedge;reload(check_exist_fiveedge);check_exist_fiveedge.Check().checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="False"/>-->
 
-<!--        <checkItem order_id="17" projectType="all"-->
-<!--                   item_name="检查面数(三角面)"-->
-<!--                   toolTip="检查面数(三角面)"-->
-<!--                   check_command="import apps.publish.check.maya.asset.check_exist_triexceed as check_exist_triexceed;reload(check_exist_triexceed);check_exist_triexceed.Check(TaskData_Class).checkinfo()"-->
-<!--                   fix_command=""-->
-<!--                   except_project=""-->
-<!--                   except_projectType=""-->
-<!--                   ignore="False"/>-->
+        <!--        <checkItem order_id="17" projectType="all"-->
+        <!--                   item_name="检查面数(三角面)"-->
+        <!--                   toolTip="检查面数(三角面)"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_exist_triexceed as check_exist_triexceed;reload(check_exist_triexceed);check_exist_triexceed.Check(TaskData_Class).checkinfo()"-->
+        <!--                   fix_command=""-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="False"/>-->
         <checkItem order_id="18" projectType="all"
-               item_name="检查顶点数"
-               toolTip="检查顶点数"
-               check_command="import apps.publish.check.maya.asset.check_exist_unityverts as check_exist_unityverts;reload(check_exist_unityverts);check_exist_unityverts.Check(TaskData_Class).checkinfo()"
-               fix_command=""
-               except_project=""
-               except_projectType=""
-               ignore="False"/>
+                   item_name="检查顶点数"
+                   toolTip="检查顶点数"
+                   check_command="import apps.publish.check.maya.asset.check_exist_unityverts as check_exist_unityverts;reload(check_exist_unityverts);check_exist_unityverts.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
 
         <checkItem order_id="19" projectType="all"
                    item_name="检测同模型重叠点(不可忽略)"
@@ -271,16 +278,13 @@
                    ignore="False"/>
 
         <checkItem order_id="25" projectType="all"
-           item_name="检测Smooth模型(按'3'键)"
-           toolTip="检测Smooth模型(按'3'键)"
-           check_command="import apps.publish.check.maya.asset.check_exist_smooth_3 as check_exist_smooth_3;reload(check_exist_smooth_3);check_exist_smooth_3.Check().checkinfo()"
-           fix_command="import apps.publish.check.maya.asset.check_exist_smooth_3 as check_exist_smooth_3;reload(check_exist_smooth_3);check_exist_smooth_3.Check().fix()"
-           except_project=""
-           except_projectType=""
-           ignore="False"/>
-
-
-
+                   item_name="检测Smooth模型(按'3'键)"
+                   toolTip="检测Smooth模型(按'3'键)"
+                   check_command="import apps.publish.check.maya.asset.check_exist_smooth_3 as check_exist_smooth_3;reload(check_exist_smooth_3);check_exist_smooth_3.Check().checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_exist_smooth_3 as check_exist_smooth_3;reload(check_exist_smooth_3);check_exist_smooth_3.Check().fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
 
 
     </check_tab>
