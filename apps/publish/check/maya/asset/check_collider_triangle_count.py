@@ -10,6 +10,7 @@ import database.shotgun.fun.get_entity as get_entity
 import lib.maya.analysis.analyze_structure as structure
 
 MAXCOUNT = 512
+UVSETNUM = 1
 
 
 class Check(object):
@@ -41,7 +42,9 @@ class Check(object):
         self.structure = self.analyze_handle.get_structure()
         self._structure = self._get_structure
         self.tooltip = u'开始检测碰撞体模型三角面数量是否超标'
-        self._err = u'以下模型三角面数量超出{}，请检查：'.format(MAXCOUNT)
+        self.__error_info = u'请检查以下碰接体问题:'
+        self._triangle_err = u'以下碰撞模型三角面数量超出{}，请检查：'.format(MAXCOUNT)
+        self._uvset_error = u'以下碰撞模型UVSET数量不为{}，请检查：'.format(UVSETNUM)
 
         self.end = u"已检测完成，未发现碰撞体模型三角面数量超标情况。"
         if not self._structure:
@@ -111,24 +114,40 @@ class Check(object):
 
         _error_list = []
         if _error:
-            _error_list.append(self._err)
-            _error_list.extend(_error)
+            _error_list.append(self.__error_info)
+            for k, v in _error.items():
+                _error_list.append(k)
+                for obj in v:
+                    _error_list.append('    {}'.format(obj))
+                _error_list.append('===========')
+
             return False, info.displayErrorInfo(title=self.tooltip, objList=_error_list)
         else:
             return True, info.displayInfo(title=self.end)
 
     def run(self):
-        error_meshs = []
+        error_triangle_meshs = []
+        error_uvset_meshs = []
+        error = {}
         collider_meshs = self._get_mod_grps_cllicder_meshs()
         if not collider_meshs:
             return
         for mesh in collider_meshs:
             triangle_num = self.get_mesh_triangle_num(mesh)
             if triangle_num > MAXCOUNT:
-                error_meshs.append(mesh)
-        if error_meshs:
-            error_meshs = list(set(error_meshs))
-        return error_meshs
+                error_triangle_meshs.append(mesh)
+            uvset_num = self.get_meshs_uv_set_num(mesh)
+            if not uvset_num or uvset_num != UVSETNUM:
+                error_uvset_meshs.append(mesh)
+
+        if error_triangle_meshs:
+            error_triangle_meshs = list(set(error_triangle_meshs))
+            error[self._triangle_err] = error_triangle_meshs
+        if error_uvset_meshs:
+            error_uvset_meshs = list(set(error_uvset_meshs))
+            error[self._uvset_error] = error_uvset_meshs
+
+        return error
 
     def _get_mod_grps_cllicder_meshs(self):
         mesh_list = []
@@ -144,6 +163,16 @@ class Check(object):
                                 if tr and tr not in mesh_list and tr.split('|')[-1].endswith('_Collider'):
                                     mesh_list.append(tr)
         return mesh_list
+
+    def get_meshs_uv_set_num(self, mesh):
+        """
+        获取mesh的uv集数量
+        :param mesh:
+        :return:
+        """
+        if not mesh or not cmds.ls(mesh, type='transform'):
+            return 0
+        return cmds.polyUVSet(mesh, query=True, allUVSets=True).__len__()
 
     def get_mesh_triangle_num(self, mesh):
         """
