@@ -11,6 +11,7 @@ import lib.maya.analysis.analyze_structure as structure
 
 MAXCOUNT = 512
 UVSETNUM = 1
+EXEASSET=['PL811C','PL811C_Card']
 
 
 class Check(object):
@@ -126,6 +127,8 @@ class Check(object):
             return True, info.displayInfo(title=self.end)
 
     def run(self):
+        if self.entity_name in EXEASSET:
+            return
         error_triangle_meshs = []
         error_uvset_meshs = []
         error = {}
