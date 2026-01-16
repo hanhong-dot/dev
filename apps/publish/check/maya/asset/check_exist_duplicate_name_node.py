@@ -39,7 +39,7 @@ class Check(object):
 
     def run(self):
         import maya.cmds as cmds
-        _nodes = cmds.ls(dagObjects=True, l=1)
+        _nodes = cmds.ls(tr=1, l=1)
         return self.__get_same_name_nodes(_nodes)
 
     def __get_same_name_nodes(self, nodes):
@@ -49,6 +49,10 @@ class Check(object):
         if not nodes:
             return _same_name_dict
         for _node in nodes:
+            # 判断节点未引用
+            if cmds.referenceQuery(_node, isNodeReferenced=True):
+                continue
+
             _short_name = _node.split('|')[-1]
             if _short_name not in _list:
                 _list.append(_short_name)
@@ -59,4 +63,3 @@ class Check(object):
             if _same_nodes and len(_same_nodes) > 1:
                 _same_name_dict[_name] = _same_nodes
         return _same_name_dict
-
