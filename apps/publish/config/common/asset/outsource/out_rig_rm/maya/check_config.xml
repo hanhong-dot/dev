@@ -51,6 +51,15 @@
                    except_projectType=""
                    ignore="False"/>
 
+         <checkItem order_id="5" projectType="all"
+                   item_name="检测碰撞模型三角面数(三角面数不超过512)"
+                   toolTip="检测重碰撞模型三角面数(三角面数不超过512)"
+                   check_command="import apps.publish.check.maya.asset.check_collider_triangle_count as check_collider_triangle_count;reload(check_collider_triangle_count);check_collider_triangle_count.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+
         <checkItem order_id="5" projectType="all"
                    item_name="检测Roots 是否freeze(是否在原点,或空间坐标轴向是否正确)"
                    toolTip="检查骨骼链根是否freeze"
