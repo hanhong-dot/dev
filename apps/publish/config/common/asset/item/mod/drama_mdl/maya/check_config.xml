@@ -143,14 +143,14 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="12" projectType="all"
-                   item_name="检测碰撞体模型(后缀为_Collider)模型"
-                   toolTip="检测碰撞体模型(后缀为_Collider)模型"
-                   check_command="import apps.publish.check.maya.asset.check_collider_triangle_count as check_collider_triangle_count;reload(check_collider_triangle_count);check_collider_triangle_count.Check(TaskData_Class).checkinfo()"
-                   fix_command=""
-                   except_project=""
-                   except_projectType=""
-                   ignore="False"/>
+<!--        <checkItem order_id="12" projectType="all"-->
+<!--                   item_name="检测碰撞体模型(后缀为_Collider)模型"-->
+<!--                   toolTip="检测碰撞体模型(后缀为_Collider)模型"-->
+<!--                   check_command="import apps.publish.check.maya.asset.check_collider_triangle_count as check_collider_triangle_count;reload(check_collider_triangle_count);check_collider_triangle_count.Check(TaskData_Class).checkinfo()"-->
+<!--                   fix_command=""-->
+<!--                   except_project=""-->
+<!--                   except_projectType=""-->
+<!--                   ignore="False"/>-->
 
 <!--        <checkItem order_id="12" projectType="all"-->
 <!--                   item_name="镜像检查"-->
