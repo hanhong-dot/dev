@@ -56,10 +56,5 @@ if "%RET%"=="0" (
     echo Install Failed! Error Code: %RET%
 )
 
-if exist "%MAX_EXE%" (
-    echo 3ds Max EXE Found!
-) else (
-    echo 3ds Max EXE NOT Found!
-)
 
 pause
