@@ -71,25 +71,34 @@ class Check(object):
         return meshs
 
     def fix(self):
-        if self._asset_type in ['item']:
-            _shader, _sg = self._creat_com_shader()
-            grp_list = [k for k in self.structure.keys() if k]
-            meshs = self._get_meshs_from_grps(grp_list)
-            all_meshs = cmds.ls(type='mesh', l=1)
-            clear_meshs = []
-            for mesh in all_meshs:
-                if mesh not in meshs:
-                    trs = cmds.listRelatives(mesh, p=1, type='transform', f=1)
-                    if trs:
-                        clear_meshs.extend(trs)
-            if clear_meshs:
-                cmds.sets(clear_meshs, e=1, forceElement=_sg)
-            print clear_meshs
-            self._clear_unused_nodes()
-            for i in range(3):
-                for _mesh in meshs:
-                    self._rename_mesh_shader(_mesh)
+        error= self.run()
+        if error:
+            self. fix_shader()
+        error= self.run()
+        court = 0
+        while error and court <10:
+            self. fix_shader()
+            error= self.run()
+            court +=1
 
+
+    def fix_shader(self):
+        _shader, _sg = self._creat_com_shader()
+        grp_list = [k for k in self.structure.keys() if k]
+        meshs = self._get_meshs_from_grps(grp_list)
+        all_meshs = cmds.ls(type='mesh', l=1)
+        clear_meshs = []
+        for mesh in all_meshs:
+            if mesh not in meshs:
+                trs = cmds.listRelatives(mesh, p=1, type='transform', f=1)
+                if trs:
+                    clear_meshs.extend(trs)
+        if clear_meshs:
+            cmds.sets(clear_meshs, e=1, forceElement=_sg)
+        print clear_meshs
+        self._clear_unused_nodes()
+        for _mesh in meshs:
+            self._rename_mesh_shader(_mesh)
 
     def _rename_mesh_shader(self, mesh):
         sgs = cmds.listConnections(mesh, type='shadingEngine')
