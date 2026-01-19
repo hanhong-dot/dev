@@ -105,7 +105,7 @@ class Check(object):
                             shader_new = shader_
                         else:
                             count = 0
-                            while cmds.objExists(shader_):
+                            while count < 1000:
                                 shader_new = '{}_{}_mat'.format(mesh.split('|')[-1], count)
                                 count += 1
                                 if not cmds.objExists(shader_new):
