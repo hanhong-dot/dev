@@ -17,7 +17,7 @@ timeout /t 5 /nobreak >nul
 cd /d "%MaxInstallPath%"
 
 REM 执行安装（等待完成）
-"%MaxInstallPath%\Img\Setup.exe" /W /q /I "%MaxInstallPath%\Img\3dmax2020.ini" /language zh-cn
+"Z:\software\dcc\3dmax2020\Img\Setup.exe" /W /q /I "Z:\software\dcc\3dmax2020\Img\3dmax2020.ini" /language zh-cn
 
 REM 获取返回码
 set RET=%ERRORLEVEL%
