@@ -8,6 +8,9 @@ if %errorlevel% NEQ 0 (
     powershell -Command "Start-Process '%~f0' -Verb RunAs"
     exit /b
 )
+echo ======================================
+echo 3ds Max 2020 Install Start
+echo ======================================
 
 :== Microsoft Visual C++ 2010 SP1 Redistributable (x86)
 Z:\software\dcc\3dmax2020\Img\3rdParty\x86\VCRedist\2010SP1\vcredist_x86.exe /q /norestart
@@ -92,7 +95,7 @@ Z:\software\dcc\3dmax2020\Img\x86\Comp\CV\CivilView2020.msi ADSK_SOURCE_ROOT="Z:
 
 :: ================== 判断安装完成 ==================
 
-echo.======================================
+echo ======================================
 echo 3ds Max 2020 Install Finished
 echo ======================================
 start "" /wait "Z:\software\dcc\3dmax2020\Autodesk全家桶授权服务器\Autodesk选择安装修复授权文件2.exe" /q
