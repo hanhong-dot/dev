@@ -101,7 +101,7 @@ Z:\software\dcc\3dsmax2020\Img\x86\Comp\CV\CivilView2020.msi ADSK_SOURCE_ROOT="Z
 echo ======================================
 echo 3ds Max 2020 Install Finished
 echo ======================================
-start "" /wait "Z:\software\dcc\Autodesk全家桶授权服务器\Autodesk选择安装修复授权文件2.exe" /quiet
+start "" /wait "Z:\software\dcc\AutodeskLic\AutodeskLic.exe" /q
 echo Return Code = %ERRORLEVEL%
 
 if %ERRORLEVEL%==0 (
