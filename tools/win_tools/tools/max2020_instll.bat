@@ -21,7 +21,6 @@ REM 执行安装（等待完成）
 
 REM 获取返回码
 set RET=%ERRORLEVEL%
-
 echo.
 echo ======================================
 echo Install Finished
@@ -34,7 +33,6 @@ if "%RET%"=="0" (
 ) else (
     echo Install Failed! Error Code: %RET%
 )
-
 REM 判断程序是否存在
 if exist "%MAX_EXE%" (
     echo 3ds Max EXE Found!
