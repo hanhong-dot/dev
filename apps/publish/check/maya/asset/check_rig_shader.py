@@ -104,10 +104,11 @@ class Check(object):
         sgs = cmds.listConnections(mesh, type='shadingEngine')
         if sgs:
             for sg_ in sgs:
+                if not cmds.ls(sg_ ):
+                    continue
                 shaders = cmds.listConnections('{}.surfaceShader'.format(sg_), s=1, d=0)
                 if shaders:
                     shader = shaders[0]
-
                     if not shader.endswith('_mat'):
                         shader_ = '{}_mat'.format(mesh.split('|')[-1])
                         shader_new = shader_
@@ -144,15 +145,15 @@ class Check(object):
             sg = shader_name + 'SG'
         return shader, sg
 
-# if __name__ == '__main__':
-#     import maya.cmds as cmds
-#
-#     import method.shotgun.get_task as get_task
-#
-#     reload(get_task)
-#     _filename = cmds.file(q=1, exn=1)
-#
-#     test_task_data = get_task.TaskInfo(_filename, 'X3', 'maya', 'publish')
-#
-#     _handle = Check(test_task_data)
+if __name__ == '__main__':
+    import maya.cmds as cmds
+
+    import method.shotgun.get_task as get_task
+
+    reload(get_task)
+    _filename = cmds.file(q=1, exn=1)
+
+    test_task_data = get_task.TaskInfo(_filename, 'X3', 'maya', 'publish')
+
+    _handle = Check(test_task_data)
 #     print _handle.structure
