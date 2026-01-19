@@ -86,9 +86,10 @@ class Check(object):
                 cmds.sets(clear_meshs, e=1, forceElement=_sg)
             print clear_meshs
             self._clear_unused_nodes()
-            for _mesh in meshs:
-                for i in range(2):
+            for i in range(3):
+                for _mesh in meshs:
                     self._rename_mesh_shader(_mesh)
+
 
     def _rename_mesh_shader(self, mesh):
         sgs = cmds.listConnections(mesh, type='shadingEngine')
