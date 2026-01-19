@@ -1,47 +1,61 @@
-:: 请求管理员权限
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-if '%errorlevel%' NEQ '0' (
+@echo off
+setlocal EnableDelayedExpansion
+
+:: ================== 管理员权限 ==================
+net session >nul 2>&1
+if %errorlevel% NEQ 0 (
     echo Requesting admin privilege...
     powershell -Command "Start-Process '%~f0' -Verb RunAs"
     exit /b
 )
 
-@echo off
-setlocal
+:: ================== 路径配置 ==================
 
-REM ================== 路径配置 ==================
-
-set MaxInstallPath=Z:\software\dcc\3dmax2020
+set SRC=D:\3dmax2020
+set SETUP=%SRC%\Img\Setup.exe
+set INI=%SRC%\Img\3dmax2020.ini
+set LOG=%TEMP%\Max2020_install.log
+set MAX_EXE=C:\Program Files\Autodesk\3ds Max 2020\3dsmax.exe
 
 echo ======================================
-echo Start Install, Please Wait...
+echo Start Install 3ds Max 2020
 echo ======================================
 
+timeout /t 3 >nul
 
+:: ================== 路径检查 ==================
 
-REM 等待5秒
-timeout /t 5 /nobreak >nul
+if not exist "%SETUP%" (
+    echo ERROR: Setup.exe not found
+    pause
+    exit /b 1
+)
 
-cd /d "%MaxInstallPath%"
+if not exist "%INI%" (
+    echo ERROR: ini file not found
+    pause
+    exit /b 1
+)
 
-REM 执行安装（等待完成）
-"Z:\software\dcc\3dmax2020\Img\Setup.exe" /W /q /I "Z:\software\dcc\3dmax2020\Img\3dmax2020.ini" /language zh-cn
+:: ================== 执行安装 ==================
 
-REM 获取返回码
+"%SETUP%" /W /Q /I "%INI%" /language zh-cn /log "%LOG%"
+
 set RET=%ERRORLEVEL%
+
 echo.
 echo ======================================
 echo Install Finished
 echo Return Code: %RET%
+echo Log: %LOG%
 echo ======================================
 
-REM 判断结果
 if "%RET%"=="0" (
     echo Install Success!
 ) else (
     echo Install Failed! Error Code: %RET%
 )
-REM 判断程序是否存在
+
 if exist "%MAX_EXE%" (
     echo 3ds Max EXE Found!
 ) else (
