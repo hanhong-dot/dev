@@ -42,7 +42,16 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="4" projectType="all"
+
+         <checkItem order_id="4" projectType="all"
+                   item_name="检测重名节点"
+                   toolTip="检查文件中是否存在重名节点"
+                   check_command="import apps.publish.check.maya.asset.check_exist_duplicate_name_node as check_exist_duplicate_name_node;reload(check_exist_duplicate_name_node);check_exist_duplicate_name_node.Check().checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
+        <checkItem order_id="5" projectType="all"
                    item_name="检测骨骼链Roots"
                    toolTip="检查骨骼链根部命名是否为Roots"
                    check_command="import apps.publish.check.maya.asset.check_joint_root as check_joint_root;reload(check_joint_root);check_joint_root.Check(TaskData_Class).checkinfo()"
@@ -50,7 +59,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="5" projectType="all"
+        <checkItem order_id="6" projectType="all"
                    item_name="检测Roots 是否freeze(是否在原点,或空间坐标轴向是否正确)"
                    toolTip="检查骨骼链根是否freeze"
                    check_command="import apps.publish.check.maya.asset.check_freeze as check_freeze;reload(check_freeze);check_freeze.Check(TaskData_Class,grpsname=['Roots', 'RootMotion'], is_checkobjs=False).checkinfo()"
@@ -58,7 +67,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="6" projectType="all"
+        <checkItem order_id="7" projectType="all"
                    item_name="检测控制器是否归零"
                    toolTip="检测控制器是否归零"
                    check_command="import apps.publish.check.maya.asset.check_exist_ctrl_not_zero as check_exist_ctrl_not_zero;reload(check_exist_ctrl_not_zero);check_exist_ctrl_not_zero.Check().checkinfo()"
@@ -66,7 +75,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="7" projectType="all"
+        <checkItem order_id="8" projectType="all"
                    item_name="检测动画关键帧"
                    toolTip="检查文件中是否有关键帧数"
                    check_command="import apps.publish.check.maya.asset.check_exist_key as check_exist_key;reload(check_exist_key);check_exist_key.Check().checkinfo()"
@@ -75,7 +84,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="8" projectType="all"
+        <checkItem order_id="9" projectType="all"
                    item_name="检测显示层"
                    toolTip="检查文件中是否有显示层"
                    check_command="import apps.publish.check.maya.asset.check_exist_dis as check_exist_dis;reload(check_exist_dis);check_exist_dis.Check(TaskData_Class).checkinfo()"
@@ -84,7 +93,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-        <checkItem order_id="9" projectType="all"
+        <checkItem order_id="10" projectType="all"
                    item_name="检测BindPose"
                    toolTip="检查文件中是否有BindPose节点"
                    check_command="import apps.publish.check.maya.asset.check_exist_binpose as check_exist_binpose;reload(check_exist_binpose);check_exist_binpose.Check().checkinfo()"
@@ -92,7 +101,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="10" projectType="all"
+        <checkItem order_id="11" projectType="all"
                    item_name="检测绑定无用节点(blindDataTemplate)"
                    toolTip="检测绑定无用节点(blindDataTemplate)"
                    check_command="import apps.publish.check.maya.asset.check_rig_unused_node as check_rig_unused_node;reload(check_rig_unused_node);check_rig_unused_node.Check().checkinfo()"
@@ -100,6 +109,8 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
+
+
 <!--        <checkItem order_id="11" projectType="all"-->
 <!--                   item_name="检测碰撞体模型(后缀为_Collider)模型"-->
 <!--                   toolTip="检测碰撞体模型(后缀为_Collider)模型"-->
