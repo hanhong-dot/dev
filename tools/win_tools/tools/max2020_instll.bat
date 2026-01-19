@@ -105,9 +105,9 @@ start "" /wait "Z:\software\dcc\AutodeskLic\AutodeskLic.exe" /q
 echo Return Code = %ERRORLEVEL%
 
 if %ERRORLEVEL%==0 (
-    echo 授权工具执行成功
+    echo lic ok
 ) else (
-    echo 授权工具执行失败
+    echo lic failed
 )
 
 
