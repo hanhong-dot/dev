@@ -11,11 +11,11 @@ if %errorlevel% NEQ 0 (
 
 :: ================== 路径配置 ==================
 
-set SRC=D:\3dmax2020
+set SRC=Z:\software\dcc\3dmax2020
 set SETUP=%SRC%\Img\Setup.exe
 set INI=%SRC%\Img\3dmax2020.ini
 set LOG=%TEMP%\Max2020_install.log
-set MAX_EXE=C:\Program Files\Autodesk\3ds Max 2020\3dsmax.exe
+
 
 echo ======================================
 echo Start Install 3ds Max 2020
@@ -38,8 +38,9 @@ if not exist "%INI%" (
 )
 
 :: ================== 执行安装 ==================
+cd /d "%SRC%"
 
-"%SETUP%" /W /Q /I "%INI%" /language zh-cn /log "%LOG%"
+"%SETUP%"  /Q /I "%INI%" /language zh-cn
 
 set RET=%ERRORLEVEL%
 
