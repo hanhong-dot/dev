@@ -3,7 +3,7 @@ setlocal
 
 REM ================== 路径配置 ==================
 
-set MaxInstallPath=Z:\dev\dcc\max2020
+set MaxInstallPath=Z:\software\dcc\3dmax2020
 
 echo ======================================
 echo Start Install, Please Wait...
@@ -17,7 +17,7 @@ timeout /t 5 /nobreak >nul
 cd /d "%MaxInstallPath%"
 
 REM 执行安装（等待完成）
-"%MaxInstallPath%\Img\Setup.exe" /W /q /I "%MaxInstallPath%\Img\3dsmax2020.ini" /language zh-cn
+"%MaxInstallPath%\Img\Setup.exe" /W /q /I "%MaxInstallPath%\Img\3dmax2020.ini" /language zh-cn
 
 REM 获取返回码
 set RET=%ERRORLEVEL%
