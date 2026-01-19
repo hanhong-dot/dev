@@ -48,7 +48,6 @@ echo.
 echo ======================================
 echo Install Finished
 echo Return Code: %RET%
-echo Log: %LOG%
 echo ======================================
 
 if "%RET%"=="0" (
