@@ -96,10 +96,20 @@ class Check(object):
                 shaders = cmds.listConnections('{}.surfaceShader'.format(sg_), s=1, d=0)
                 if shaders:
                     shader = shaders[0]
+
                     if not shader.endswith('_mat'):
-                        shader_ = shader.replace(shader.split('_')[-1], 'mat')
-                        shander_n = cmds.rename(shader, shader_)
-                        print 'shander_n', shander_n
+                        shader_ = '{}_mat'.format(mesh.split('|')[-1])
+                        shader_new = shader_
+                        if not cmds.objExists(shader_):
+                            shader_new = shader_
+                        else:
+                            count = 0
+                            while cmds.objExists(shader_):
+                                shader_new = '{}_{}_mat'.format(mesh.split('|')[-1], count)
+                                count += 1
+                                if not cmds.objExists(shader_new):
+                                    break
+                        shander_n = cmds.rename(shader, shader_new)
                         sg = cmds.listConnections(shander_n, type='shadingEngine')
                         if shander_n.endswith('_mat') and sg:
                             cmds.rename(sg[0], shander_n + 'SG')
