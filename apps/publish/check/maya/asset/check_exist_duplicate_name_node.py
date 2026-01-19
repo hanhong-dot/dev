@@ -13,11 +13,13 @@ import lib.common.loginfo as info
 
 class Check(object):
 
-    def __init__(self):
+    def __init__(self, TaskData):
         super(Check, self).__init__()
 
         self.tooltip = u'已检测重名节点'
         self.error = u'以下节点为重名节点,请修改'
+        self.taskdata = TaskData
+        self.asset_type = self.taskdata.asset_type
 
     def checkinfo(self):
         """
@@ -39,6 +41,8 @@ class Check(object):
 
     def run(self):
         import maya.cmds as cmds
+        if self.asset_type in ['body']:
+            return
         _nodes = cmds.ls(tr=1, l=1)
         return self.__get_same_name_nodes(_nodes)
 
