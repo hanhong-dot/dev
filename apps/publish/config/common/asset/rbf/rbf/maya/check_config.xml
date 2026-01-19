@@ -46,7 +46,7 @@
         <checkItem order_id="4" projectType="all"
                    item_name="检测重名节点"
                    toolTip="检查文件中是否存在重名节点"
-                   check_command="import apps.publish.check.maya.asset.check_exist_duplicate_name_node as check_exist_duplicate_name_node;reload(check_exist_duplicate_name_node);check_exist_duplicate_name_node.Check().checkinfo()"
+                   check_command="import apps.publish.check.maya.asset.check_exist_duplicate_name_node as check_exist_duplicate_name_node;reload(check_exist_duplicate_name_node);check_exist_duplicate_name_node.Check(TaskData_Class).checkinfo()"
                    fix_command=""
                    except_project=""
                    except_projectType=""
