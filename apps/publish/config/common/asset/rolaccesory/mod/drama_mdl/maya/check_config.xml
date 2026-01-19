@@ -291,14 +291,14 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-        <checkItem order_id="28" projectType="all"
-                   item_name="节点重名检测"
-                   toolTip="节点重名检测"
-                   check_command="import apps.publish.check.maya.asset.check_exist_duplicate_name_node as check_exist_duplicate_name_node;reload(check_exist_duplicate_name_node);check_exist_duplicate_name_node.Check().checkinfo()"
-                   fix_command=""
-                   except_project=""
-                   except_projectType=""
-                   ignore="False"/>
+<!--        <checkItem order_id="28" projectType="all"-->
+<!--                   item_name="节点重名检测"-->
+<!--                   toolTip="节点重名检测"-->
+<!--                   check_command="import apps.publish.check.maya.asset.check_exist_duplicate_name_node as check_exist_duplicate_name_node;reload(check_exist_duplicate_name_node);check_exist_duplicate_name_node.Check(TaskData_Class).checkinfo()"-->
+<!--                   fix_command=""-->
+<!--                   except_project=""-->
+<!--                   except_projectType=""-->
+<!--                   ignore="False"/>-->
 
         <checkItem order_id="29" projectType="all"
                    item_name="检测Smooth模型(按'3'键)"
