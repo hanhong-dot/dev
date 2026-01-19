@@ -40,7 +40,7 @@ if not exist "%INI%" (
 :: ================== 执行安装 ==================
 cd /d "%SRC%"
 
-"%SETUP%"  /Q /I "%INI%" /language zh-cn
+"%SETUP%"  /Q /I "%INI%"
 
 set RET=%ERRORLEVEL%
 
