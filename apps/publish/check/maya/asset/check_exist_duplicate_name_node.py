@@ -67,3 +67,4 @@ class Check(object):
             if _same_nodes and len(_same_nodes) > 1:
                 _same_name_dict[_name] = _same_nodes
         return _same_name_dict
+
