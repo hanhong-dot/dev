@@ -16,7 +16,7 @@ echo 3ds Max 2020 Install Start
 echo ======================================
 cd /d "Z:\software\dcc\install\3dsmax2020\Img"
 :: ================== 安装主程序 ==================
-"Setup.exe" /W /q /I "3dsmax2020.ini" /language zh-cn
+"Z:\software\dcc\install\3dsmax2020\Img\Setup.exe" /W /q /I "Z:\software\dcc\install\3dsmax2020\Img\3dsmax2020.ini" /language zh-cn
 
 echo Return Code = %ERRORLEVEL%
 if %ERRORLEVEL% NEQ 0 (
