@@ -80,6 +80,9 @@ class PapeGameBlenderImport(object):
             obj.select_set(state=False)
         material_datas = mesh.findall("Material")
         mesh_name, blends, suffix = self.get_mesh_grps_from_mesh_dict(mesh, blender_dict)
+        self.log_handle.info('mesh_name:{}'.format(mesh_name))
+        self.log_handle.info('blends:{}'.format(blends))
+        self.log_handle.info('suffix:{}'.format(suffix))
 
         if material_datas:
             for i in range(len(material_datas)):
@@ -101,10 +104,14 @@ class PapeGameBlenderImport(object):
                 matnodes.clear()
                 uv_judge = False
                 mesh_obj = bpy.data.objects[mesh_name]
-                for uv_map in mesh_obj.data.uv_layers:
-                    if uv_map.name == "1u":
-                        uv_judge = True
-                        break
+                if  mesh_obj and mesh_obj.data:
+                    for uv_map in mesh_obj.data.uv_layers:
+                        if uv_map.name == "1u":
+                            uv_judge = True
+                            break
+                else:
+                    self.log_handle.error('mesh_obj or mesh_obj.data is None, mesh_name:{}'.format(mesh_name))
+                    continue
 
                 if "SceneDecal" in mat_shader_name:
                     self.setBattleDecalNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
@@ -112,7 +119,7 @@ class PapeGameBlenderImport(object):
                     self.setSceneUnlitNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
                 elif "SceneBlend" in mat_shader_name:
                     self.setSceneBlendNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
-                elif "NewVegetation" in mat_shader_name:
+                elif "NewVegetation" in mat_shader_name or "GIVegetation" in mat_shader_name:
                     self.setVegetationNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
                 else:
                     self.setSceneNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
@@ -745,7 +752,7 @@ class PapeGameBlenderImport(object):
             self.log_handle.info('object_name:{}'.format(object_name))
             self.log_handle.info('shader_names:{}'.format(str(shader_names)))
 
-            if shader_names and shader_names[0] == "Papegame/NewVegetation":
+            if shader_names and ("Vegetation" in  shader_names[0] == "Papegame/NewVegetation" or  "Vegetation" in  shader_names[0] == "Papegame/GIVegetation"):
                 node_path = X3BaseMatVeg
                 append_names = ["X3Vegetation", "X3VegetationRampTexUV", "UVScaleOffset"]
 
@@ -890,7 +897,7 @@ def main(fbx_file, context):
 
 
 if __name__ == '__main__':
-    fbx_file = r'E:\blender_test\20260109\tree_ygd0024_002.fbx'
+    fbx_file = r'E:\blender_test\20260120\R01.fbx'
     # local_log_dir = common_dir.get_localtemppath('blender_import/log')
     # log_file = '{}/{}.log'.format(local_log_dir, uuid.uuid4())
     #
