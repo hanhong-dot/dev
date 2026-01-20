@@ -196,14 +196,14 @@
 <!--                   except_projectType=""-->
 <!--                   ignore="True"/>-->
 
-        <checkItem order_id="17" projectType="all"
-                   item_name="检查三角面"
-                   toolTip="检查场景文件中是否存在三角面"
-                   check_command="import apps.publish.check.maya.asset.check_scn_triexexists as check_scn_triexexists;reload(check_scn_triexexists);check_scn_triexexists.Check(TaskData_Class).checkinfo()"
-                   fix_command=""
-                   except_project=""
-                   except_projectType=""
-                   ignore="True"/>
+<!--        <checkItem order_id="17" projectType="all"-->
+<!--                   item_name="检查三角面"-->
+<!--                   toolTip="检查场景文件中是否存在三角面"-->
+<!--                   check_command="import apps.publish.check.maya.asset.check_scn_triexexists as check_scn_triexexists;reload(check_scn_triexexists);check_scn_triexexists.Check(TaskData_Class).checkinfo()"-->
+<!--                   fix_command=""-->
+<!--                   except_project=""-->
+<!--                   except_projectType=""-->
+<!--                   ignore="True"/>-->
 <!--        <checkItem order_id="18" projectType="all"-->
 <!--                   item_name="检查多边面"-->
 <!--                   toolTip="检查多边面"-->
