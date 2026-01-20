@@ -13,6 +13,9 @@ set ROOT=Z:\software\dcc\install\3dsmax2020
 set IMG=%ROOT%\Img
 
 pushd "%IMG%"
+echo ===============================
+echo Install Max 2020 Start
+echo ===============================
 
 echo ===============================
 echo Install VC Runtime
@@ -72,7 +75,7 @@ msiexec /i "%IMG%\x64\Inventor_Server\Inventor_Engine_Max.msi" /qn
 msiexec /i "%IMG%\x86\Comp\CV\CivilView2020.msi" /qn
 
 echo ===============================
-echo Install Finished
+echo Install max2020 Finished
 echo ===============================
 
 popd
