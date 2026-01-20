@@ -27,7 +27,7 @@ __contact__ = "https://www.linkedin.com/in/diegogh/"
 
 HookBaseClass = sgtk.get_hook_baseclass()
 
-
+VEGSHADERLIST = ["Papegame/NewVegetation", "Papegame/GIVegetation"]
 def get_view3d_operator_context():
     """
     Adapted from several sources, it seems like  io ops needs a
@@ -583,7 +583,6 @@ class BlenderActions(HookBaseClass):
                 if mat is None:
                     continue
                 mat.name = '{}__{}'.format(mesh_name.replace('.', '_'), mat_name)
-                print('mat_name:', mat.name)
                 mesh_obj = bpy.data.objects[mesh_name]
                 uv_judge = False
                 try:
@@ -592,7 +591,7 @@ class BlenderActions(HookBaseClass):
                             uv_judge = True
                             break
                 except:
-                    pass
+                    continue
 
                 mat.use_nodes = True
                 matnodes = mat.node_tree.nodes
@@ -604,7 +603,7 @@ class BlenderActions(HookBaseClass):
                     self.setSceneUnlitNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
                 elif "SceneBlend" in mat_shader_name:
                     self.setSceneBlendNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
-                elif "NewVegetation" in mat_shader_name:
+                elif mat_shader_name in VEGSHADERLIST:
                     self.setVegetationNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
                 else:
                     self.setSceneNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
@@ -1212,7 +1211,7 @@ class BlenderActions(HookBaseClass):
             object_name = imported_object.name
             shader_names = self.get_shader_name_by_mesh(object_name, xml_file)
 
-            if shader_names and shader_names[0] == "Papegame/NewVegetation":
+            if shader_names and shader_names[0] in VEGSHADERLIST:
                 node_path = X3BaseMatVeg
                 append_names = ["X3Vegetation", "X3VegetationRampTexUV", "UVScaleOffset"]
 
