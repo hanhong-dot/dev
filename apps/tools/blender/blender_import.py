@@ -23,6 +23,8 @@ import lib.common.log as log
 import method.common.dir as common_dir
 import uuid
 
+VEGSHADERLIST = ["Papegame/NewVegetation", "Papegame/GIVegetation"]
+
 
 class PapeGameBlenderImport(object):
 
@@ -104,7 +106,7 @@ class PapeGameBlenderImport(object):
                 matnodes.clear()
                 uv_judge = False
                 mesh_obj = bpy.data.objects[mesh_name]
-                if  mesh_obj and mesh_obj.data:
+                if mesh_obj and mesh_obj.data:
                     for uv_map in mesh_obj.data.uv_layers:
                         if uv_map.name == "1u":
                             uv_judge = True
@@ -119,7 +121,7 @@ class PapeGameBlenderImport(object):
                     self.setSceneUnlitNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
                 elif "SceneBlend" in mat_shader_name:
                     self.setSceneBlendNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
-                elif "NewVegetation" in mat_shader_name or "GIVegetation" in mat_shader_name:
+                elif mat_shader_name in VEGSHADERLIST:
                     self.setVegetationNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
                 else:
                     self.setSceneNode(i, matnodes, mat, mat_shader_name, material_datas, suffix, blends, uv_judge)
@@ -346,8 +348,8 @@ class PapeGameBlenderImport(object):
 
                 if (texName != "null"):
 
-                    abedo_node01 = self.buildTextureNodeWithoutUV(mat.node_tree, self.texsPath[texName],[])
-                    abedo_node02 = self.buildTextureNodeWithoutUV(mat.node_tree, self.texsPath[texName],[])
+                    abedo_node01 = self.buildTextureNodeWithoutUV(mat.node_tree, self.texsPath[texName], [])
+                    abedo_node02 = self.buildTextureNodeWithoutUV(mat.node_tree, self.texsPath[texName], [])
                     # textex_node02= self.buildTextureNode(mat.node_tree, self.texsPath[texName], True, [])
                     if abedo_node01 is not None:
                         mat.node_tree.links.new(abedo_node01.outputs['Color'], group.inputs['RampTexResult0'])
@@ -752,7 +754,7 @@ class PapeGameBlenderImport(object):
             self.log_handle.info('object_name:{}'.format(object_name))
             self.log_handle.info('shader_names:{}'.format(str(shader_names)))
 
-            if shader_names and ("Vegetation" in  shader_names[0] == "Papegame/NewVegetation" or  "Vegetation" in  shader_names[0] == "Papegame/GIVegetation"):
+            if shader_names and shader_names[0] in VEGSHADERLIST:
                 node_path = X3BaseMatVeg
                 append_names = ["X3Vegetation", "X3VegetationRampTexUV", "UVScaleOffset"]
 
@@ -844,7 +846,7 @@ class PapeGameBlenderImport(object):
         else:
             return None
 
-    def buildTextureNodeWithoutUV(self, mat_nodetree, texPath,tex_ST=[]):
+    def buildTextureNodeWithoutUV(self, mat_nodetree, texPath, tex_ST=[]):
         if os.path.exists(texPath):
             tex = mat_nodetree.nodes.new(type='ShaderNodeTexImage')
             tex.image = bpy.data.images.load(filepath=texPath)
