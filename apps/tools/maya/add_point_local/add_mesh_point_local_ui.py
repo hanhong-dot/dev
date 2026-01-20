@@ -71,6 +71,14 @@ class LocalPointUI(QWidget):
         self._start_num_spinbox.setMinimum(0)
         self._start_num_spinbox.setMaximum(1000000)
         self._start_num_spinbox.setValue(1000)
+
+        self._auto_uv_layout = QHBoxLayout()
+        self._auto_uv_lable=QLabel(u'是否自动生成UV:')
+        self._auto_uv_combobox=QComboBox()
+        self._auto_uv_combobox.addItems([u'是',u'否'])
+        self._auto_uv_layout.addWidget(self._auto_uv_lable)
+        self._auto_uv_layout.addWidget(self._auto_uv_combobox)
+        self.__main_layout.addLayout(self._auto_uv_layout)
         self.__start_layout.addWidget(self.__start_num_label)
         self.__start_layout.addWidget(self._start_num_spinbox)
 
