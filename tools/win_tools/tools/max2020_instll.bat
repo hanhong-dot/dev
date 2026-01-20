@@ -14,6 +14,7 @@ if %errorlevel% NEQ 0 (
 echo ======================================
 echo 3ds Max 2020 Install Start
 echo ======================================
+cd /D Z:\software\dcc\install\3dsmax2020
 
 rem == Microsoft Visual C++ 2010 SP1 Redistributable (x86)
 Z:\software\dcc\install\3dsmax2020\Img\3rdParty\x86\VCRedist\2010SP1\vcredist_x86.exe /q /norestart
