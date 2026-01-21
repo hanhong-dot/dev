@@ -30,7 +30,7 @@ echo ======================================
 echo 3ds Max 2020 Install Finished
 echo ======================================
 
-robocopy "Z:\dev\dcc\3dsmax2020" "D:\Autodesk\3ds Max 2020\bin" 3dsmax.exe /R:0 /W:0 /NFL /NDL
+robocopy "Z:\dev\dcc\3dsmax2020" "D:\Autodesk\3ds Max 2020" 3dsmax.exe /R:0 /W:0 /NFL /NDL
 echo 3ds Max 2020 破解文件复制完成
 :: ================== 设置环境变量 ==================
 
