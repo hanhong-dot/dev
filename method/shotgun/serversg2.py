@@ -537,6 +537,9 @@ class ServerSG(object):
         __parent_asset = ''
         __update_model = ''
         _wbx = ''
+        __pl_face = ''
+        __add_tangent = ''
+        __bs_setting = ''
         for first_k, first_v in self._dict_data.items():
             if first_k == 'shotgun':
                 for second_k, second_v in first_v.items():
@@ -612,7 +615,6 @@ class ServerSG(object):
                                                                        sg_status_list=obj['status'],
                                                                        down_path=obj['down_path'],
                                                                        up_path=obj['up_path'],
-
                                                                        publish_file_type=obj['publish_file_type'],
                                                                        work_file=self._set_sgpath(obj['work_file']),
                                                                        ref_info=obj['ref_info']
@@ -649,6 +651,9 @@ class ServerSG(object):
                                     _description = obj['description']
                                     _entity_type = obj['task_type']
                                     __parent_asset = obj['parent_asset'] if 'parent_asset' in obj else ''
+                                    __pl_face = obj['pl_face'] if 'pl_face' in obj else ''
+                                    __add_tangent = obj['add_tangent'] if 'add_tangent' in obj else ''
+                                    __bs_setting = obj['bs_setting'] if 'bs_setting' in obj else ''
 
 
                                 except Exception as e:
@@ -728,6 +733,12 @@ class ServerSG(object):
                     else:
                         __asset_level = 0
                     data_dic['asset_level'] = __asset_level
+                if __pl_face:
+                    data_dic['pl_face'] = 1
+                if __add_tangent:
+                    data_dic['add_tangent'] = 1
+                if __bs_setting:
+                    data_dic['bs_setting'] = 1
                 _drama_mdl_user_data = self._get_drama_mdl_user(_entity_id, task_name='drama_mdl')
                 if _drama_mdl_user_data:
                     __drama_mdl_user_id = _drama_mdl_user_data['id']
@@ -1163,7 +1174,6 @@ def event_publish_send_jenkins(data_dic):
     reload(send_xmla_jenkins)
 
     return send_xmla_jenkins.ReadShotEvent(str(data_dic))
-
 
 # if __name__ == '__main__':
 #     data_dic = {'shotgun': {'version': [{'entity_name': 'PL008S', 'episode_name': None,
