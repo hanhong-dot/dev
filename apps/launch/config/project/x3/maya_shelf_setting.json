@@ -218,6 +218,15 @@
       "ann": "自动蒙皮绑定工具",
       "command": "from apps.tools.maya.auto_copy_skin_tool import load_auto_copy_skin_tool;reload(load_auto_copy_skin_tool);load_auto_copy_skin_tool.load_auto_copy_skin_tool()",
       "cmdrepeat": 1
+    },
+        "15_common_hair_normal": {
+      "name": "HairNrm",
+      "docTag": "model",
+      "label": "HairNrm",
+      "icon": "commandButton.png",
+      "ann": "头发模型顶点法线调整工具",
+      "command": "import sys;sys.path.append('Z:/dev/tools/x3_P4/wsy_scripts');import hair_normal_line_adjuster_tool.load_hair_normal_tool as load_hair_normal_tool;reload(fload_hair_normal_tool);load_hair_normal_tool.show_hair_normal_tool()",
+      "cmdrepeat": 1
     }
   },
 
