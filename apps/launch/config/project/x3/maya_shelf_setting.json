@@ -225,7 +225,7 @@
       "label": "HairNrm",
       "icon": "commandButton.png",
       "ann": "头发模型顶点法线调整工具",
-      "command": "import sys;sys.path.append('Z:/dev/tools/x3_P4/wsy_scripts');import hair_normal_line_adjuster_tool.load_hair_normal_tool as load_hair_normal_tool;reload(fload_hair_normal_tool);load_hair_normal_tool.show_hair_normal_tool()",
+      "command": "import sys;sys.path.append('Z:/dev/tools/x3_P4/wsy_scripts');import hair_normal_line_adjuster_tool.load_hair_normal_tool as load_hair_normal_tool;reload(load_hair_normal_tool);load_hair_normal_tool.show_hair_normal_tool()",
       "cmdrepeat": 1
     }
   },
