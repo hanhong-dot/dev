@@ -747,6 +747,10 @@ class ServerSG(object):
                     data_dic['upstream_created_by'] = __drama_mdl_user_email_data[
                         'email'] if __drama_mdl_user_email_data and 'email' in __drama_mdl_user_email_data else ''
                 _entity_id = self._get_entityid(_project_name, _entity_type, _entity_name)
+                _task_id = self._get_task_id(_project_name, _task_name, _entity_name)
+                _task_text = self.__get_task_sg_text(_task_id)
+                if _task_text and u'PL捏脸' in _task_text:
+                    data_dic['pl_face'] = 1
                 try:
                     data_dic['entity_R'] = u'{}'.format(self._get_entity_R(_entity_type, _entity_id))
                 except:
@@ -760,7 +764,6 @@ class ServerSG(object):
                     data_dic['parent_asset'] = __parent_asset
                 if __update_model:
                     data_dic['update_model'] = __update_model
-                print('data_dic={}'.format(data_dic))
                 send_jenkins_ok = False
                 count = 0
                 while count <= 100:
@@ -874,6 +877,12 @@ class ServerSG(object):
             return sg_asset.select_asset_entity(sg_login, asset_id, ['sg_asset_level'])['sg_asset_level']
         except:
             return
+
+    def __get_task_sg_text(self, task_id):
+        data = sg_base.select_entity(sg_login, 'Task', task_id, fields=["sg_text"])
+        if data and 'sg_text' in data and data['sg_text']:
+            return data['sg_text']
+        return ''
 
     def __get_send_jenkins_publish_files(self, publish_files):
         _publish_files = []
