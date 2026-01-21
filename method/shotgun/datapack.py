@@ -119,7 +119,12 @@ class Pack(object):
                  send_jenkins=None,
                  wbx=None,
                  parent_asset=None,
-                 updata_model=None
+                 updata_model=None,
+                 pl_face=None,
+                 add_tangent=None,
+                 bs_setting=None
+
+
                  ):
         '''
 
@@ -170,6 +175,9 @@ class Pack(object):
         _basedict["wbx"] = wbx
         _basedict["parent_asset"] = parent_asset
         _basedict["updata_model"] = updata_model
+        _basedict["pl_face"] = pl_face
+        _basedict["add_tangent"] = add_tangent
+        _basedict["bs_setting"] = bs_setting
         return _basedict
 
     @classmethod
