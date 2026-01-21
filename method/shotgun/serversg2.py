@@ -660,7 +660,6 @@ class ServerSG(object):
                                     self.errorInfo.append(e)
                                     result_list.append(False)
 
-        print('__update_model ={}'.format(__update_model))
         # publish 更新上下游上传文件
         if publish_updown_dict:
             self.publish_uddata(publish_updown_dict)
