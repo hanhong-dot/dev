@@ -9,6 +9,8 @@ import os
 import subprocess
 
 FBX_TANGENT_GEN_EXE = r'Z:\dev\method\common\fbx_tangent_gen'
+
+
 def run_fbx_tangent_gen(fbx_file, out_fbx_file):
     cmd = '{} "{}" "{}"'.format(FBX_TANGENT_GEN_EXE, fbx_file, out_fbx_file)
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
