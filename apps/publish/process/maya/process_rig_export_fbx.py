@@ -256,7 +256,7 @@ class Porcess_RigFbx_Export(Porcess_Export):
     def _get_parent_assets(self):
         import database.shotgun.core.sg_analysis as sg_analysis
         sg = sg_analysis.Config().login()
-        parent_assets = sg.find_one('Asset', [['id', 'is', self._entity_id]], ['parents'])
+        parent_assets = sg.find_one('Asset', [['id', 'is', self.entity_id]], ['parents'])
         if parent_assets and 'parents' in parent_assets:
             return parent_assets['parents']
 
