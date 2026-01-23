@@ -107,7 +107,12 @@ import database.shotgun.core.sg_episode as sg_episode
 import database.shotgun.core.sg_task as sg_task
 import database.shotgun.core.sg_publish as sg_publish
 import database.shotgun.core.sg_version as sg_version
+import method.common.judge_online_version_entity as judge_online_version_entity
 
+reload(judge_online_version_entity)
+import method.common.get_online_process_entity as get_online_process_entity
+
+reload(get_online_process_entity)
 try:
     reload(sg_version)
 except:
@@ -750,6 +755,16 @@ class ServerSG(object):
                 _task_text = self.__get_task_sg_text(_task_id)
                 if _task_text and u'PL捏脸' in _task_text:
                     data_dic['pl_face'] = 1
+                __is_online_version = self.__judge_online_version_entity(_task_id)
+                __add_tangent_entity_names = self.__get_add_tangent_asset()
+                __bs_setting_entity_names = self.__get_online_process_bs_setting()
+                if asset_type.lower() in ['role', 'hair'] and (not __is_online_version or (
+                        __add_tangent_entity_names and _entity_name in __add_tangent_entity_names)):
+                    data_dic['add_tangent'] = 1
+                if asset_type.lower() in ['role', 'hair'] and (not __is_online_version or (
+                        __bs_setting_entity_names and _entity_name in __bs_setting_entity_names)):
+                    data_dic['bs_setting'] = 1
+
                 try:
                     data_dic['entity_R'] = u'{}'.format(self._get_entity_R(_entity_type, _entity_id))
                 except:
@@ -867,6 +882,15 @@ class ServerSG(object):
             result_list.append(False)
 
         return False if False in result_list else True
+
+    def __judge_online_version_entity(self, task_id):
+        return judge_online_version_entity.judge_is_online_entity(sg_login, task_id)
+
+    def __get_online_process_bs_setting(self):
+        return get_online_process_entity.get_bs_setting_entity_name()
+
+    def __get_add_tangent_asset(self):
+        return get_online_process_entity.get_add_tangent_entity_name()
 
     def __write_json(self, data, json_file):
         import json
