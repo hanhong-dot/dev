@@ -11,7 +11,7 @@ class Check(object):
     def __init__(self, TaskData):
         self.task_data = TaskData
         self.asset_type = self.task_data.asset_type
-        self.tooltip = u'开始骨骼segmentScaleCompensate属性是否关闭检测'
+        self.tooltip = u'开始检测item骨骼分段补偿属性'
         self.tooltip_error = u'以下骨骼segmentScaleCompensate属性未关闭'
         self.end = u'已检测'
     def checkinfo(self):
