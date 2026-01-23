@@ -11,8 +11,8 @@ import lib.maya.analysis.analyze_structure as structure
 
 MAXCOUNT = 512
 UVSETNUM = 1
-EXEASSET=['PL811C','PL811C_Card','PL804C','PL019S','PL108C','PL102C']
-
+# EXEASSET=['PL811C','PL811C_Card','PL804C','PL019S','PL108C','PL102C']
+import method.common.judge_online_version_entity as judge_online_version_entity
 
 class Check(object):
     """
@@ -37,6 +37,7 @@ class Check(object):
         self.task_name = self._taskdata.task_name
         self.sg = sg_analysis.Config().login()
         self._asset_level = get_entity.BaseGetSgInfo(self.sg, self.entity_id, self.entity_type).get_asset_level()
+        self.task_id= self._taskdata.task_id
 
         self.asset_type = self._taskdata.asset_type
         self.analyze_handle = structure.AnalyStrue(self._taskdata)
@@ -127,8 +128,11 @@ class Check(object):
             return True, info.displayInfo(title=self.end)
 
     def run(self):
-        if self.entity_name in EXEASSET:
+
+        is_online = judge_online_version_entity.judge_is_online_entity(self.sg, self.task_id)
+        if is_online:
             return
+
         error_triangle_meshs = []
         error_uvset_meshs = []
         error = {}
