@@ -262,6 +262,14 @@
                    except_project=""
                    except_projectType=""
                    ignore="True"/>
+        <checkItem order_id="26" projectType="all"
+                   item_name="检测item骨骼分段补偿属性"
+                   toolTip="检测item骨骼分段补偿属性"
+                   check_command="import apps.publish.check.maya.asset.check_join_segmentScaleCompensate as check_join_segmentScaleCompensate;reload(check_join_segmentScaleCompensate);check_join_segmentScaleCompensate.Check(TaskData_Class).checkinfo()"
+                   fix_command=""
+                   except_project=""
+                   except_projectType=""
+                   ignore="True"/>
 
     </check_tab>
 </check>
