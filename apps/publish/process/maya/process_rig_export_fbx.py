@@ -46,10 +46,13 @@ import database.shotgun.fun.get_entity as get_entity
 
 reload(get_entity)
 import database.shotgun.core.sg_analysis as sg_analysis
+import method.common.judge_online_version_entity as judge_online_version_entity
+
+reload(judge_online_version_entity)
 
 EXASSETS = ['M3011_Puppet01', 'M3111_Obsidian01', 'M3013_Puppet05', 'M3017_Puppet09', 'M3011_Puppet01_test',
             'M3011_Puppet01_Card', 'M3451_STCardSkeleton01', 'M3451_STCardSkeleton01_Card', 'M3121_DirewolfCard01',
-            'M3121_DirewolfCard02','NPC_Ecat01','NPC_Ecat02','NPC_Ecat02']
+            'M3121_DirewolfCard02', 'NPC_Ecat01', 'NPC_Ecat02', 'NPC_Ecat02']
 
 
 # log_file=r'Z:\TD\0812\test.log'
@@ -76,7 +79,7 @@ class Porcess_RigFbx_Export(Porcess_Export):
         self._asset_level = get_entity.BaseGetSgInfo(self.sg, self.entity_id, self.entity_type).get_asset_level()
 
         self._task_name = TaskData.task_name
-        self._entity_id = TaskData.entity_id
+        self._task_id = TaskData.task_id
         self._down = down
         self._up = up
 
@@ -617,6 +620,12 @@ class Porcess_RigFbx_Export(Porcess_Export):
                 print(u'start process {}'.format(_exportfile))
                 self.__process_q_body_lod_fbx(_exportfile)
             time.sleep(3)
+        if self._asset_type.lower() in ['role', 'hair'] and "_GuaranteedAnim" not in _exportfile and \
+                os.path.splitext(os.path.basename(_exportfile))[0].split('_')[-1] not in ['asis']:
+            judge_is_online = judge_online_version_entity.judge_is_online_entity(self.sg, self._task_id)
+            if not judge_is_online:
+                time.sleep(5)
+                result = self._process_tangent_fbx(_exportfile)
         if result and result != False:
             return True
 
@@ -889,6 +898,19 @@ class Porcess_RigFbx_Export(Porcess_Export):
                     _fbx_common.export_fbx(v, k, hi=1, warning=0)
                 except:
                     pass
+
+    def _process_tangent_fbx(self, fbx_file):
+        u"""
+        处理tangent
+        :param fbx_file:
+        :return:
+        """
+        from method.common.process_fbx_tangent_gen import run_fbx_tangent_gen
+
+        ok, result = run_fbx_tangent_gen(fbx_file, fbx_file)
+        if not ok:
+            raise RuntimeError('Process fbx tangent failed: {}'.format(result))
+        return True
 
 
 if __name__ == '__main__':
