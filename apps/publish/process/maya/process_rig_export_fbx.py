@@ -50,6 +50,10 @@ import method.common.judge_online_version_entity as judge_online_version_entity
 
 reload(judge_online_version_entity)
 
+import method.common.get_online_process_entity as get_online_process_entity
+
+reload(get_online_process_entity)
+
 EXASSETS = ['M3011_Puppet01', 'M3111_Obsidian01', 'M3013_Puppet05', 'M3017_Puppet09', 'M3011_Puppet01_test',
             'M3011_Puppet01_Card', 'M3451_STCardSkeleton01', 'M3451_STCardSkeleton01_Card', 'M3121_DirewolfCard01',
             'M3121_DirewolfCard02', 'NPC_Ecat01', 'NPC_Ecat02', 'NPC_Ecat02']
@@ -82,6 +86,7 @@ class Porcess_RigFbx_Export(Porcess_Export):
         self._task_id = TaskData.task_id
         self._down = down
         self._up = up
+        self._process_entity_names = get_online_process_entity.get_add_tangent_entity_name()
 
     def export_rig_fbx(self):
         u"""
@@ -623,7 +628,9 @@ class Porcess_RigFbx_Export(Porcess_Export):
         if self._asset_type.lower() in ['role', 'hair'] and "_GuaranteedAnim" not in _exportfile and \
                 os.path.splitext(os.path.basename(_exportfile))[0].split('_')[-1] not in ['asis']:
             judge_is_online = judge_online_version_entity.judge_is_online_entity(self.sg, self._task_id)
-            if not judge_is_online:
+            process_entity_names = self._process_entity_names
+            if not judge_is_online or (
+                    judge_is_online and process_entity_names and self._entity_name in process_entity_names):
                 time.sleep(5)
                 result = self._process_tangent_fbx(_exportfile)
         if result and result != False:
@@ -925,7 +932,11 @@ if __name__ == '__main__':
     # _fbx_info = analyze_fbx.AnalyFbx(taskdata).get_fbx()
     # print _fbx_info
     _handle = Porcess_RigFbx_Export(taskdata)
-    _handle.export_rig_fbx()
+    # _handle.export_rig_fbx()
+    sg = sg_analysis.Config().login()
+
+    judge_is_online = judge_online_version_entity.judge_is_online_entity(sg, _handle._task_id)
+    process_entity_names = _handle._process_entity_names
 
     # _dict = _handle._get_fbx_info()
     # # _handle.export_rig_fbx()
