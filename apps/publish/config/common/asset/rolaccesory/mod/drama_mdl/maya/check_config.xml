@@ -68,7 +68,6 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-
         <checkItem order_id="6" projectType="all"
                    item_name="检测非模型节点"
                    toolTip="检查文件中是否存在非模型节点"
