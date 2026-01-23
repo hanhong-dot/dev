@@ -6,6 +6,8 @@
 import lib.common.loginfo as info
 import maya.cmds as cmds
 
+PROCESS_GRP = 'common_item_export_grp'
+
 
 class Check(object):
     def __init__(self, TaskData):
@@ -14,6 +16,7 @@ class Check(object):
         self.tooltip = u'开始检测item骨骼分段补偿属性'
         self.tooltip_error = u'以下骨骼segmentScaleCompensate属性未关闭'
         self.end = u'已检测'
+
     def checkinfo(self):
         _error = self.run()
         _error_list = []
@@ -46,17 +49,21 @@ class Check(object):
         return __is_errors
 
     def get_all_joints(self):
-        all_joints = cmds.ls(type='joint', l=1)
-        return all_joints
+        grp = PROCESS_GRP
+        if not cmds.objExists(grp):
+            return []
+        return cmds.listRelatives(grp, ad=True, type='joint', f=True)
 
     def __check_is_segmentScaleCompensate(self, _joint):
         is_segmentScaleCompensate = cmds.getAttr(_joint + '.segmentScaleCompensate')
         return is_segmentScaleCompensate
 
+
 if __name__ == '__main__':
     import method.shotgun.get_task as get_task
 
     import maya.cmds as cmds
+
     _filename = cmds.file(q=1, exn=1)
 
     test_task_data = get_task.TaskInfo(_filename, 'X3', 'maya', 'publish')
