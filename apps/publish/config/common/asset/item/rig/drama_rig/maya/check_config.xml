@@ -269,7 +269,7 @@
                    fix_command=""
                    except_project=""
                    except_projectType=""
-                   ignore="True"/>
+                   ignore="False"/>
 
     </check_tab>
 </check>
