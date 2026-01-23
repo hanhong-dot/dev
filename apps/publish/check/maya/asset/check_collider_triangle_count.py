@@ -225,3 +225,4 @@ class Check(object):
                 elif isinstance(_v, dict):
                     mod_grps.extend(self._get_grps_structure(_v))
         return mod_grps
+
