@@ -44,4 +44,4 @@ if exist "%MAX_PATH%\zh-CN" (
 
 echo max2020 部署完成
 
-exit /b 0
+pause
