@@ -8,9 +8,7 @@ if %errorlevel% neq 0 (
     powershell -Command "Start-Process '%~f0' -Verb RunAs"
     exit /b
 )
-
 :: ===== 切换到脚本目录 =====
-cd /d "%~dp0"
 chcp 65001 >nul
 setlocal EnableDelayedExpansion
 
@@ -20,14 +18,8 @@ echo 3ds Max 2020 Install Start
 echo ======================================
 cd /d Z:\dev\dcc\3dsmax2020\Img
 :: ================== 安装主程序 ==================
-Z:\dev\dcc\3dsmax2020\Img\Setup.exe  /W /q /I  Z:\dev\dcc\3dsmax2020\Img\3dsmax2020.ini   /language zh-cn
+Z:\dev\dcc\3dsmax2020\Img\Setup.exe  /I  Z:\dev\dcc\3dsmax2020\Img\3dsmax2020.ini   /language zh-cn
 
-echo Return Code = %ERRORLEVEL%
-if %ERRORLEVEL% NEQ 0 (
-    echo 3ds Max 2020 安装失败，错误码 %ERRORLEVEL%
-    pause
-    exit /b %ERRORLEVEL%
-)
 
 
 echo ======================================
