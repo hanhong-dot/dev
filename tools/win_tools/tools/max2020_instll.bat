@@ -1,13 +1,15 @@
 @echo off
-:: ===== 自动管理员提权 =====
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+setlocal EnableDelayedExpansion
 
-if '%errorlevel%' NEQ '0' (
+:: ===== 管理员检测 =====
+net session >nul 2>&1
+if %errorlevel% neq 0 (
     echo Requesting admin privileges...
     powershell -Command "Start-Process '%~f0' -Verb RunAs"
     exit /b
 )
-:: ===========================
+
+:: ===== 切换到脚本目录 =====
 cd /d "%~dp0"
 chcp 65001 >nul
 setlocal EnableDelayedExpansion
