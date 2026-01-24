@@ -120,11 +120,11 @@ FirstMenu_Max2020Install:
   - MainIcon:
   - MainMethod: [ 'Z:/dev/tools/win_tools/tools/max2020_instll_test.exe' ]
 #
-#FirstMenu_Max2020Setup:
-#  - MainTitle: 配置3dmax2020
-#  - MainCMD: True
-#  - MainIcon:
-#  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/max2020_setup.bat' ]
+FirstMenu_Max2020Setup:
+  - MainTitle: 配置3dmax2020
+  - MainCMD: True
+  - MainIcon:
+  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/max2020_setup.bat' ]
 
 
 
