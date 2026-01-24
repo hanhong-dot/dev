@@ -1,19 +1,11 @@
 @echo off
 chcp 65001 >nul
 setlocal
-
-
-
 :: ===== 切换工作目录（EXE 必须）=====
-
-
 echo ======================================
 echo 3ds Max 2020 Install Start
 echo ======================================
-
-
 cd /d Z:\dev\dcc\3dsmax2020\Img
-
 Setup.exe /I 3dsmax2020.ini /language zh-cn
 
 echo ======================================
