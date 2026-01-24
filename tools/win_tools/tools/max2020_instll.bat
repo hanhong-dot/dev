@@ -1,16 +1,18 @@
 @echo off
-chcp 65001 >nul
-setlocal EnableDelayedExpansion
+:: ===== 自动管理员提权 =====
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
-rem If this file is saved as UTF-8 with BOM, chcp 65001 will display Chinese correctly.
-
-:: ================== 管理员权限 ==================
-net session >nul 2>&1
-if %errorlevel% NEQ 0 (
-    echo Requesting admin privilege...
+if '%errorlevel%' NEQ '0' (
+    echo Requesting admin privileges...
     powershell -Command "Start-Process '%~f0' -Verb RunAs"
     exit /b
 )
+:: ===========================
+cd /d "%~dp0"
+chcp 65001 >nul
+setlocal EnableDelayedExpansion
+
+
 echo ======================================
 echo 3ds Max 2020 Install Start
 echo ======================================
