@@ -1,14 +1,6 @@
 @echo off
 chcp 65001 >nul
 
-:: ===== 管理员权限检测 =====
-net session >nul 2>&1
-if not "%errorlevel%"=="0" (
-    powershell -Command "Start-Process '%~f0' -Verb RunAs"
-    exit /b
-)
-
-cd /d "%~dp0"
 
 echo ======================================
 echo 3ds Max 2020 Install Start
