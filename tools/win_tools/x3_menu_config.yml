@@ -118,7 +118,7 @@ FirstMenu_Max2020Install:
   - MainTitle: 安装3dmax2020
   - MainCMD: True
   - MainIcon:
-  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/install_max2020.exe' ]
+  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/imax2020_instll.exe' ]
 #
 #FirstMenu_Max2020Setup:
 #  - MainTitle: 配置3dmax2020
