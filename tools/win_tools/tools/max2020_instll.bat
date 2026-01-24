@@ -2,21 +2,9 @@
 chcp 65001 >nul
 setlocal
 
-:: ===== UAC 自动提权 =====
-set "uac=~uac_permission_tmp_%random%"
-md "%SystemRoot%\system32\%uac%" 2>nul
-if not "%errorlevel%"=="0" (
-    echo Set UAC = CreateObject^("Shell.Application"^)>"%temp%\%uac%.vbs"
-    echo UAC.ShellExecute "%~s0","","","runas",1 >>"%temp%\%uac%.vbs"
-    echo WScript.Quit >>"%temp%\%uac%.vbs"
-    "%temp%\%uac%.vbs"
-    del "%temp%\%uac%.vbs"
-    exit /b
-) else (
-    rd "%SystemRoot%\system32\%uac%" >nul 2>nul
-)
 
 
+:: ===== 切换工作目录（EXE 必须）=====
 
 
 echo ======================================
