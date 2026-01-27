@@ -323,6 +323,7 @@ settings.tk-multi-loader2.motionbuilder:
     - [project, is, '{context.project}']
     - [sg_prent_task, is, null]
     hierarchy: [entity, content]
+  publish_filters: [["sg_status_list", "is_not", null],["path_cache", "is_not", "unload"]]
   location: "@apps.tk-multi-loader2.location"
 
 # blender
