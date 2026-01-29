@@ -393,9 +393,9 @@ class BlenderActions(HookBaseClass):
         #         "File extension not supported %s - '%s'" % (extension_name, path)
         #     )
 
-    def _batch_import(self, path):
-        py = r"E:\dev\apps\tools\blender\blender_import.py"
-        return self._process_batch_py(py, path)
+    # def _batch_import(self, path):
+    #     py = r"E:\dev\apps\tools\blender\blender_import.py"
+    #     return self._process_batch_py(py, path)
 
     # def _process_batch_py(self, py, path):
     #     blend_exe = r"blender.exe"
@@ -1208,6 +1208,8 @@ class BlenderActions(HookBaseClass):
         context_override = get_view3d_operator_context()
 
         for imported_object in imported_objects:
+            if not imported_object or imported_object.type != 'MESH':
+                continue
             object_name = imported_object.name
             shader_names = self.get_shader_name_by_mesh(object_name, xml_file)
 
@@ -1250,7 +1252,7 @@ class BlenderActions(HookBaseClass):
         objects = root.find("ObjectPart")
         shader_names = []
         for mesh in objects.findall("Mesh"):
-            if mesh.attrib['objname'] == mesh_name:
+            if mesh and mesh.attrib['objname'] == mesh_name:
                 material_datas = mesh.findall("Material")
                 for i in range(len(material_datas)):
                     mat_shader_name = material_datas[i].attrib["shaderName"]
