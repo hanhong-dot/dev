@@ -831,11 +831,11 @@ class BlenderActions(HookBaseClass):
         if not hasTexTex:  # 1
             group.inputs['isColorMode1'].default_value = 1.0
             group.inputs['isColorMode2'].default_value = 0.0
-            group.inputs['TexTexAlpha'].default_value = 0.0
+            group.inputs['TexTexAlpha'].default_value = 1.0
         elif not hasBkgTex:  # 2
             group.inputs['isColorMode1'].default_value = 0.0
             group.inputs['isColorMode2'].default_value = 1.0
-            group.inputs['BkgTexAlpha'].default_value = 0.0
+            group.inputs['BkgTexAlpha'].default_value = 1.0
 
         if not hasTexNormal:
             group.inputs['isNormalMode1'].default_value = 1.0
