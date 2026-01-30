@@ -872,6 +872,7 @@ class BlenderActions(HookBaseClass):
         return texsPath
 
     def setSceneNode(self, i, matnodes, mat, matShaderName, material_datas, suffix, blends, uv_judge):
+
         group = matnodes.new(type='ShaderNodeGroup')
 
         group.node_tree = bpy.data.node_groups[blends[0]]
@@ -905,6 +906,9 @@ class BlenderActions(HookBaseClass):
 
         BkgRGBA = attr["RGBA"].split(",")
         TexRGBA = attr["TexRGBA"].split(",")
+        TexRGBA1 = attr["TexRGBA1"].split(",")
+        TexRGBA2 = attr["TexRGBA2"].split(",")
+        GradientStep = attr["GradientStep"].split(",")
         EmiRGBA = attr["EmiRGBA"].split(",")
         MainTex_ST = attr["MainTex_ST"].split(",")
         TexAlbedoMap_ST = attr["TexAlbedoMap_ST"].split(",")
@@ -919,11 +923,23 @@ class BlenderActions(HookBaseClass):
             float(TexRGBA[0]), float(TexRGBA[1]), float(TexRGBA[2]), float(TexRGBA[3]))
         group.inputs["TexColorAlpha"].default_value = float(TexRGBA[3])  # alpha
 
+        group.inputs["TexColor1"].default_value = (
+            float(TexRGBA1[0]), float(TexRGBA1[1]), float(TexRGBA1[2]), float(TexRGBA1[3]))
+
+        group.inputs["TexColor2"].default_value = (
+            float(TexRGBA2[0]), float(TexRGBA2[1]), float(TexRGBA2[2]), float(TexRGBA2[3]))
+
+        group.inputs["GradientStepXYZ"].default_value = (
+            float(GradientStep[0]), float(GradientStep[1]), float(GradientStep[2]))
+        group.inputs["GradientStepW"].default_value = float(GradientStep[3])  # alpha
+
         group.inputs["EmissionColor"].default_value = (
             float(EmiRGBA[0]), float(EmiRGBA[1]), float(EmiRGBA[2]), float(EmiRGBA[3]))
 
         group.inputs['Metallic'].default_value = float(attr["Matallic"])
         group.inputs['Roughness'].default_value = float(attr["Roughness"])
+        group.inputs['BkgNormalScale'].default_value = float(attr["BkgNmlScale"])
+        group.inputs['TexNormalScale'].default_value = float(attr["TexNmlScale"])
 
         if float(attr["TexBlendMode"]) < 0.5:  # 0
             group.inputs['isColorMode1'].default_value = 0.0
@@ -995,11 +1011,11 @@ class BlenderActions(HookBaseClass):
         if not hasTexTex:  # 1
             group.inputs['isColorMode1'].default_value = 1.0
             group.inputs['isColorMode2'].default_value = 0.0
-            group.inputs['TexTexAlpha'].default_value = 0.0
+            group.inputs['TexTexAlpha'].default_value = 1.0
         elif not hasBkgTex:  # 2
             group.inputs['isColorMode1'].default_value = 0.0
             group.inputs['isColorMode2'].default_value = 1.0
-            group.inputs['BkgTexAlpha'].default_value = 0.0
+            group.inputs['BkgTexAlpha'].default_value = 1.0
 
         if not hasTexNormal:
             group.inputs['isNormalMode1'].default_value = 1.0
@@ -1202,7 +1218,6 @@ class BlenderActions(HookBaseClass):
     def _import_mat_blend(self, xml_file, imported_objects):
 
         X3BASEMAT = r'Z:\dev\apps\tools\blender\X3BaseMat.blend'
-        X3BaseMatVeg = r'Z:\dev\apps\tools\blender\X3BaseMatVeg.blend'
         inner_path = "NodeTree"
         mesh_grp_dict = {}
         context_override = get_view3d_operator_context()
@@ -1211,15 +1226,17 @@ class BlenderActions(HookBaseClass):
             if not imported_object or imported_object.type != 'MESH':
                 continue
             object_name = imported_object.name
-            shader_names = self.get_shader_name_by_mesh(object_name, xml_file)
-
-            if shader_names and shader_names[0] in VEGSHADERLIST:
-                node_path = X3BaseMatVeg
-                append_names = ["X3Vegetation", "X3VegetationRampTexUV", "UVScaleOffset"]
-
-            else:
-                node_path = X3BASEMAT
-                append_names = ["X3NodeGroup", "X3SceneBlend", "UVScaleOffset"]
+            # shader_names = self.get_shader_name_by_mesh(object_name, xml_file)
+            #
+            # if shader_names and shader_names[0] in VEGSHADERLIST:
+            #     node_path = X3BaseMatVeg
+            #     append_names = ["X3Vegetation", "X3VegetationRampTexUV", "UVScaleOffset"]
+            #
+            # else:
+            #     node_path = X3BASEMAT
+            #     append_names = ["X3NodeGroup", "X3SceneBlend", "UVScaleOffset"]
+            node_path = X3BASEMAT
+            append_names = ["X3NodeGroup", "X3SceneBlend", "X3Vegetation", "X3VegetationRampTexUV", "UVScaleOffset"]
             grps = []
 
             original_group_names = [group.name for group in bpy.data.node_groups]
