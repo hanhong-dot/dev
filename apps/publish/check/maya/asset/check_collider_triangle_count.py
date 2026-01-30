@@ -11,7 +11,7 @@ import lib.maya.analysis.analyze_structure as structure
 
 MAXCOUNT = 512
 UVSETNUM = 1
-# EXEASSET=['PL811C','PL811C_Card','PL804C','PL019S','PL108C','PL102C']
+EXEASSET=['ST804C_Card']
 import method.common.judge_online_version_entity as judge_online_version_entity
 
 class Check(object):
@@ -131,6 +131,8 @@ class Check(object):
 
         is_online = judge_online_version_entity.judge_is_online_entity(self.sg, self.task_id)
         if is_online:
+            return
+        if self.entity_name in EXEASSET:
             return
 
         error_triangle_meshs = []
