@@ -632,24 +632,28 @@ class BlenderActions(HookBaseClass):
     def setVegetationNode(self, i, matnodes, mat, matShaderName, material_datas, suffix, blends, uv_judge):
         group = matnodes.new(type='ShaderNodeGroup')
 
-        group.node_tree = bpy.data.node_groups[blends[0]]
+        group.node_tree = bpy.data.node_groups[blends[2]]
         group.location = (-500, 0)
         out = matnodes.new(type='ShaderNodeOutputMaterial')
 
         group_random = matnodes.new(type='ShaderNodeGroup')
-        group_random.node_tree = bpy.data.node_groups[blends[1]]
+        group_random.node_tree = bpy.data.node_groups[blends[3]]
         group_random.location = (-800, -200)
 
         mat.node_tree.links.new(group.outputs['BSDF'], out.inputs['Surface'])
         for node in matnodes:
             node.select = False
+
         group.select = True
+
         attr = material_datas[i].find("Attribute").attrib
+
         if float(attr["AlphaClip"]) > 0.5:
             mat.blend_method = 'CLIP'
             mat.alpha_threshold = float(attr["Cutoff"])
         else:
             mat.blend_method = 'OPAQUE'
+
         Roughness = float(attr["Roughness"])
         RoughnessMin = float(attr.get("RoughnessMin", "0.0"))
         EmissionUvChoose = int(attr.get("EmissionUvChoose", "0"))
@@ -676,6 +680,9 @@ class BlenderActions(HookBaseClass):
         rampBaseColor3RGBA = attr.get("rampBaseColor3RGBA", "1,1,1,1").split(",")
         rampBaseColor4RGBA = attr.get("rampBaseColor4RGBA", "1,1,1,1").split(",")
         RampTex_TexelSize = attr.get("RampTex_TexelSize", "0,0,0,0").split(",")
+        detailUseUV2 = int(attr.get("detailUseUV2", "0"))
+        emissionUseUV2 = int(attr.get("emissionUseUV2", "0"))
+        _EmissionMap_ST = attr.get("_EmissionMap_ST", "0,0,0,0").split(",")
 
         # MainTex_ST = attr["MainTex_ST"].split(",")
         TexAlbedoMap_ST = attr["TexAlbedoMap_ST"].split(",")
@@ -757,7 +764,6 @@ class BlenderActions(HookBaseClass):
 
         for tex in material_datas[i].findall("Texture"):
             texName = tex.attrib["Name"]
-
             texShaderName = tex.attrib["ShaderName"]
 
             if (texShaderName == "_MainTex"):
@@ -787,27 +793,40 @@ class BlenderActions(HookBaseClass):
 
             if (texShaderName == "_TexAlbedoMap"):
                 if (texName != "null"):
-                    textex_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], True, TexAlbedoMap_ST,
-                                                        uv_judge)
+                    if not detailUseUV2:
+                        textex_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,
+                                                            TexAlbedoMap_ST,
+                                                            uv_judge)
+                    else:
+                        textex_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], True,
+                                                            TexAlbedoMap_ST,
+                                                            uv_judge)
                     if textex_node is not None:
                         mat.node_tree.links.new(textex_node.outputs['Color'], group.inputs['TexTex'])
                         mat.node_tree.links.new(textex_node.outputs['Alpha'], group.inputs['TexTexAlpha'])
                         hasTexTex = True
             if (texShaderName == "_EmissionMap"):
                 if (texName != "null"):
-                    if EmissionUvChoose == 0:
+                    if emissionUseUV2 == 0:
                         emimap_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,
-                                                            TexAlbedoMap_ST, uv_judge)
+                                                            _EmissionMap_ST, uv_judge)
                     else:
 
                         emimap_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], True,
-                                                            TexAlbedoMap_ST, uv_judge)
+                                                            _EmissionMap_ST, uv_judge)
                     if emimap_node is not None:
                         mat.node_tree.links.new(emimap_node.outputs['Color'], group.inputs['EmissionMap'])
+                        hasTexNormal = True
             if (texShaderName == "_TexNmlMatMap"):
                 if (texName != "null"):
-                    texnormal_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], True, TexNormalMap_ST,
-                                                           uv_judge)
+                    if not detailUseUV2:
+                        texnormal_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,
+                                                               TexNormalMap_ST,
+                                                               uv_judge)
+                    else:
+                        texnormal_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], True,
+                                                               TexNormalMap_ST,
+                                                               uv_judge)
                     if texnormal_node is not None:
                         texnormal_node.image.colorspace_settings.name = "Linear Rec.709"
                         mat.node_tree.links.new(texnormal_node.outputs['Color'], group.inputs['TexNormal'])
