@@ -37,7 +37,7 @@ def load_add_online_entity_r_tool():
 
 
     win_handle = add_online_entity_r_ui.AddOnlineEntityRUI()
-    add_online_entity_r_tool = basewindow.BaseWindow(_mayaview.get_maya_window(), u"自动蒙皮工具", "自动蒙皮工具")
+    add_online_entity_r_tool = basewindow.BaseWindow(_mayaview.get_maya_window(), u"更新在线版本工具", "更新在线版本")
 
     add_online_entity_r_tool.set_central_widget(win_handle)
 
