@@ -51,7 +51,7 @@ class AddOnlineEntityRUI(QWidget):
     def __on_add_button_clicked(self):
         new_r = self.input_field.text().strip()
         if not new_r:
-            msgview(u'请输入在线版本号', 1)
+            msgview(u'请输入在线版本号', 0)
             return
         current_entity_r = self.__get_online_entity_r()
         if current_entity_r and new_r == current_entity_r[0]:
@@ -59,10 +59,10 @@ class AddOnlineEntityRUI(QWidget):
             return
         ok, result = entity_r_fun.judge_entity_r_in_online(new_r)
         if not ok:
-            msgview(result, 1)
+            msgview(result, 0)
             return
         self.__replace_online_entity_r(new_r)
-        msgview(u'在线版本更新成功:{}'.format(new_r), 0)
+        msgview(u'在线版本更新成功:{}'.format(new_r), 2)
         self.label.setText(u"当前在线版本R: {}".format(new_r))
 
     def __replace_online_entity_r(self, new_r):
