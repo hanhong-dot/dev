@@ -39,7 +39,7 @@ def judge_entity_r_in_online(entity_r, project_name='X3'):
     online_entity_r_list = get_all_asset_entity_r(project_name)
     if entity_r in online_entity_r_list:
         return True, u'输入的版本在在线版本中已存在'
-    return False, u'资产版中，不存在{}版本号,请检查后重新输入'.format(entity_r)
+    return False, u'资产不存在{}版本号,请检查后重新输入'.format(entity_r)
 
 
 def judge_entity_r_exist_number(entity_r):
