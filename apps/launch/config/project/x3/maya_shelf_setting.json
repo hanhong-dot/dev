@@ -84,6 +84,15 @@
       "ann": "MGTools",
       "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/plug-ins/maya/MGTools/MGTools/MGTools_LocalData/userSetup.mel\\\"')",
       "cmdrepeat": 1
+    },
+        "2_common_Entity_r_replace": {
+      "name": "Entity_r_replace",
+      "docTag": "uni",
+      "label": "版本",
+      "icon": "pythonFamily.png",
+      "ann": "更新在线版本",
+      "command": "import apps.tools.maya.add_online_entity_r_tool.load_add_online_entity_r_tool as load_add_online_entity_r_tool;reload(load_add_online_entity_r_tool);load_add_online_entity_r_tool.load_add_online_entity_r_tool()",
+      "cmdrepeat": 1
     }
   },
   "4_common_model": {
