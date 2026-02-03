@@ -93,6 +93,8 @@ def write_online_mod_change_assets_to_spreadsheet(assets, title_name=u'线上版
                     break
             if not __is_exist:
                 __data.append([__asset_name, __asset_entity_r])
+    if __data == ___exist_assets_data:
+        return True
     if ___exist_assets_data:
         end_index = int(len(___exist_assets_data)) + 1
         start_index = 2
