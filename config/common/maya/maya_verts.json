@@ -196,7 +196,7 @@
       "level_1": 15000,
       "level_2": 15000,
       "level_3": 400000,
-      "level_5": 410000
+      "level_5": 500000
     }
   },
   "Asset.npc.fight": {
