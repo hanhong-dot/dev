@@ -926,8 +926,8 @@ class BlenderActions(HookBaseClass):
 
         BkgRGBA = attr["RGBA"].split(",")
         TexRGBA = attr["TexRGBA"].split(",")
-        TexRGBA1 = attr["TexRGBA1"].split(",") if "TexRGBA1" in attr else ["1", "1", "1", "1"]
-        TexRGBA2 = attr["TexRGBA2"].split(",") if "TexRGBA2" in attr else ["1", "1", "1", "1"]
+        TexRGBA1 = attr["TexRGBA1"].split(",") if "TexRGBA1" in attr else ["1", "1", "1", "0"]
+        TexRGBA2 = attr["TexRGBA2"].split(",") if "TexRGBA2" in attr else ["1", "1", "1", "0"]
         GradientStep = attr["GradientStep"].split(",") if "GradientStep" in attr else ["0", "0", "0", "0"]
         EmiRGBA = attr["EmiRGBA"].split(",") if "EmiRGBA" in attr else ["0", "0", "0", "0"]
         MainTex_ST = attr["MainTex_ST"].split(",") if "MainTex_ST" in attr else ["1", "1", "0", "0"]
