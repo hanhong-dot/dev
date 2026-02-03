@@ -958,8 +958,8 @@ class BlenderActions(HookBaseClass):
 
         group.inputs['Metallic'].default_value = float(attr["Matallic"])
         group.inputs['Roughness'].default_value = float(attr["Roughness"])
-        group.inputs['BkgNormalScale'].default_value = float(attr["BkgNmlScale"])
-        group.inputs['TexNormalScale'].default_value = float(attr["TexNmlScale"])
+        group.inputs['BkgNormalScale'].default_value = float(attr["BkgNmlScale"]) if "BkgNmlScale" in attr else 1.0
+        group.inputs['TexNormalScale'].default_value = float(attr["TexNmlScale"]) if "TexNmlScale" in attr else 1.0
 
         if float(attr["TexBlendMode"]) < 0.5:  # 0
             group.inputs['isColorMode1'].default_value = 0.0
