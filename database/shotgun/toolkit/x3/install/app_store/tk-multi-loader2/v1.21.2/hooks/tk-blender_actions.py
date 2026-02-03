@@ -28,6 +28,8 @@ __contact__ = "https://www.linkedin.com/in/diegogh/"
 HookBaseClass = sgtk.get_hook_baseclass()
 
 VEGSHADERLIST = ["Papegame/NewVegetation", "Papegame/GIVegetation"]
+
+
 def get_view3d_operator_context():
     """
     Adapted from several sources, it seems like  io ops needs a
@@ -351,7 +353,6 @@ class BlenderActions(HookBaseClass):
         if not os.path.exists(path):
             raise TankError("File not found on disk - '%s'" % path)
 
-
         self.blender_import_with_mat(path)
         # result=self._batch_import(path)
 
@@ -534,7 +535,7 @@ class BlenderActions(HookBaseClass):
         if not imported_objects:
             raise TankError("File not found import objects")
 
-        blender_dict = self._import_mat_blend( xml_file,imported_objects)
+        blender_dict = self._import_mat_blend(xml_file, imported_objects)
 
         self._builder_pre_mesh(xml_file, blender_dict)
         self._remove_cube()
@@ -1244,16 +1245,7 @@ class BlenderActions(HookBaseClass):
         for imported_object in imported_objects:
             if not imported_object or imported_object.type != 'MESH':
                 continue
-            object_name = imported_object.name
-            # shader_names = self.get_shader_name_by_mesh(object_name, xml_file)
-            #
-            # if shader_names and shader_names[0] in VEGSHADERLIST:
-            #     node_path = X3BaseMatVeg
-            #     append_names = ["X3Vegetation", "X3VegetationRampTexUV", "UVScaleOffset"]
-            #
-            # else:
-            #     node_path = X3BASEMAT
-            #     append_names = ["X3NodeGroup", "X3SceneBlend", "UVScaleOffset"]
+
             node_path = X3BASEMAT
             append_names = ["X3NodeGroup", "X3SceneBlend", "X3Vegetation", "X3VegetationRampTexUV", "UVScaleOffset"]
             grps = []
@@ -1274,27 +1266,18 @@ class BlenderActions(HookBaseClass):
                 new_group_names = list(set(after_names) - set(before_names))
                 before_names = list(after_names)
 
+                gp = ''
                 for grp in new_group_names:
                     if grp.split('.')[0] == append_name:
-                        grps.append(grp)
+                        gp = grp
                         break
-
+                if gp:
+                    grps.append(gp)
             mesh_grp_dict[imported_object] = grps
 
         return mesh_grp_dict
 
-    def get_shader_name_by_mesh(self, mesh_name, xml_file):
-        root = self._get_xml_root(xml_file)
-        objects = root.find("ObjectPart")
-        shader_names = []
-        for mesh in objects.findall("Mesh"):
-            if mesh and mesh.attrib['objname'] == mesh_name:
-                material_datas = mesh.findall("Material")
-                for i in range(len(material_datas)):
-                    mat_shader_name = material_datas[i].attrib["shaderName"]
-                    shader_names.append(mat_shader_name)
-                break
-        return shader_names
+
 
     def get_group_names(self):
         return [grp.name for grp in bpy.data.node_groups]
