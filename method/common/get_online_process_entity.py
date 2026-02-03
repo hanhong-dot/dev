@@ -101,27 +101,30 @@ def write_online_mod_change_assets_to_spreadsheet(assets, title_name=u'线上版
         return
     row_num = len(__data) + 1
     add_sheet_row(SPREAD_ID, sheet_id, row_num)
-    __data= __get_data_by_entity_r(__data)
-
-    write_sheet_from_oline_chang_mod_data( SPREAD_ID, sheet_id, __data)
+    __data = __get_data_by_entity_r(__data)
+    try:
+        write_sheet_from_oline_chang_mod_data(SPREAD_ID, sheet_id, __data)
+        return True
+    except Exception as e:
+        print(e)
+        return False
 
 
 def __get_data_by_entity_r(__data):
-    __new_data=[]
+    __new_data = []
     if not __data:
         return __new_data
     for data in __data:
-        __entity_r= data[1] if data and len(data)>=2 else ''
+        __entity_r = data[1] if data and len(data) >= 2 else ''
         if __entity_r:
-            __num= judge_online_version_entity.get_entity_num_by_entity_r(__entity_r)
+            __num = judge_online_version_entity.get_entity_num_by_entity_r(__entity_r)
             if __num is not None:
                 __new_data.append((__num, data))
-    __new_data= sorted(__new_data, key=lambda x:x[0], reverse=True)
-    __final_data=[]
+    __new_data = sorted(__new_data, key=lambda x: x[0], reverse=True)
+    __final_data = []
     for item in __new_data:
         __final_data.append(item[1])
     return __final_data
-
 
 
 def write_sheet_from_oline_chang_mod_data(spread_id, sheet_id, data, add_num=2):
