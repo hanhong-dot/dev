@@ -928,12 +928,12 @@ class BlenderActions(HookBaseClass):
         TexRGBA = attr["TexRGBA"].split(",")
         TexRGBA1 = attr["TexRGBA1"].split(",") if "TexRGBA1" in attr else ["1", "1", "1", "1"]
         TexRGBA2 = attr["TexRGBA2"].split(",") if "TexRGBA2" in attr else ["1", "1", "1", "1"]
-        GradientStep = attr["GradientStep"].split(",")
-        EmiRGBA = attr["EmiRGBA"].split(",")
-        MainTex_ST = attr["MainTex_ST"].split(",")
-        TexAlbedoMap_ST = attr["TexAlbedoMap_ST"].split(",")
-        TexNormalMap_ST = attr["TexNormalMap_ST"].split(",")
-        MainTexEmi_ST = attr["MainTexEmi_ST"].split(",")
+        GradientStep = attr["GradientStep"].split(",") if "GradientStep" in attr else ["0", "0", "0", "0"]
+        EmiRGBA = attr["EmiRGBA"].split(",") if "EmiRGBA" in attr else ["0", "0", "0", "0"]
+        MainTex_ST = attr["MainTex_ST"].split(",") if "MainTex_ST" in attr else ["1", "1", "0", "0"]
+        TexAlbedoMap_ST = attr["TexAlbedoMap_ST"].split(",") if "TexAlbedoMap_ST" in attr else ["1", "1", "0", "0"]
+        TexNormalMap_ST = attr["TexNormalMap_ST"].split(",") if "TexNormalMap_ST" in attr else ["1", "1", "0", "0"]
+        MainTexEmi_ST = attr["MainTexEmi_ST"].split(",") if "MainTexEmi_ST" in attr else ["1", "1", "0", "0"]
 
         group.inputs["BkgColor"].default_value = (
             float(BkgRGBA[0]), float(BkgRGBA[1]), float(BkgRGBA[2]), float(BkgRGBA[3]))
