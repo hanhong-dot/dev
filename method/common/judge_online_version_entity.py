@@ -66,7 +66,7 @@ def judge_asset_is_mod_modify(sg, asset_id):
             continue
         __jekins_data = eval(__jekins_data)
         __update_model = __jekins_data.get('update_model', 0)
-        if int(__update_model) == 1:
+        if __update_model  and int(__update_model) == 1:
             return True
     # print('资产ID:{} 模型未修改'.format(asset_id))
     return False
