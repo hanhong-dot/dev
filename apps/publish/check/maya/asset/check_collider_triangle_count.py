@@ -11,7 +11,7 @@ import lib.maya.analysis.analyze_structure as structure
 
 MAXCOUNT = 512
 UVSETNUM = 1
-EXEASSET=['ST804C_Card']
+EXEASSET=['ST804C_Card',' FY804C_Card ']
 import method.common.judge_online_version_entity as judge_online_version_entity
 
 class Check(object):
