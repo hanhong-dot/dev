@@ -926,14 +926,14 @@ class BlenderActions(HookBaseClass):
 
         BkgRGBA = attr["RGBA"].split(",")
         TexRGBA = attr["TexRGBA"].split(",")
-        TexRGBA1 = attr["TexRGBA1"].split(",") if "TexRGBA1" in attr else ["1", "1", "1", "0"]
-        TexRGBA2 = attr["TexRGBA2"].split(",") if "TexRGBA2" in attr else ["1", "1", "1", "0"]
-        GradientStep = attr["GradientStep"].split(",") if "GradientStep" in attr else ["0", "0", "0", "0"]
-        EmiRGBA = attr["EmiRGBA"].split(",") if "EmiRGBA" in attr else ["0", "0", "0", "0"]
-        MainTex_ST = attr["MainTex_ST"].split(",") if "MainTex_ST" in attr else ["1", "1", "0", "0"]
-        TexAlbedoMap_ST = attr["TexAlbedoMap_ST"].split(",") if "TexAlbedoMap_ST" in attr else ["1", "1", "0", "0"]
-        TexNormalMap_ST = attr["TexNormalMap_ST"].split(",") if "TexNormalMap_ST" in attr else ["1", "1", "0", "0"]
-        MainTexEmi_ST = attr["MainTexEmi_ST"].split(",") if "MainTexEmi_ST" in attr else ["1", "1", "0", "0"]
+        TexRGBA1 = attr["TexRGBA1"].split(",") if "TexRGBA1" in attr else None
+        TexRGBA2 = attr["TexRGBA2"].split(",") if "TexRGBA2" in attr else None
+        GradientStep = attr["GradientStep"].split(",") if "GradientStep" in attr else None
+        EmiRGBA = attr["EmiRGBA"].split(",") if "EmiRGBA" in attr else None
+        MainTex_ST = attr["MainTex_ST"].split(",")
+        TexAlbedoMap_ST = attr["TexAlbedoMap_ST"].split(",")
+        TexNormalMap_ST = attr["TexNormalMap_ST"].split(",")
+        MainTexEmi_ST = attr["MainTexEmi_ST"].split(",")
 
         group.inputs["BkgColor"].default_value = (
             float(BkgRGBA[0]), float(BkgRGBA[1]), float(BkgRGBA[2]), float(BkgRGBA[3]))
@@ -942,19 +942,23 @@ class BlenderActions(HookBaseClass):
         group.inputs["TexColor"].default_value = (
             float(TexRGBA[0]), float(TexRGBA[1]), float(TexRGBA[2]), float(TexRGBA[3]))
         group.inputs["TexColorAlpha"].default_value = float(TexRGBA[3])  # alpha
+        if TexRGBA1 is not None:
+            group.inputs["TexColor1"].default_value = (
+                float(TexRGBA1[0]), float(TexRGBA1[1]), float(TexRGBA1[2]), float(TexRGBA1[3]))
 
-        group.inputs["TexColor1"].default_value = (
-            float(TexRGBA1[0]), float(TexRGBA1[1]), float(TexRGBA1[2]), float(TexRGBA1[3]))
+        if TexRGBA2 is not None:
+            group.inputs["TexColor2"].default_value = (
+                float(TexRGBA2[0]), float(TexRGBA2[1]), float(TexRGBA2[2]), float(TexRGBA2[3]))
 
-        group.inputs["TexColor2"].default_value = (
-            float(TexRGBA2[0]), float(TexRGBA2[1]), float(TexRGBA2[2]), float(TexRGBA2[3]))
+        if GradientStep is not None:
+            group.inputs["GradientStepXYZ"].default_value = (
+                float(GradientStep[0]), float(GradientStep[1]), float(GradientStep[2]))
+            group.inputs["GradientStepW"].default_value = float(GradientStep[3])  # alpha
 
-        group.inputs["GradientStepXYZ"].default_value = (
-            float(GradientStep[0]), float(GradientStep[1]), float(GradientStep[2]))
-        group.inputs["GradientStepW"].default_value = float(GradientStep[3])  # alpha
+        if EmiRGBA is not None:
+            group.inputs["EmissionColor"].default_value = (
+                float(EmiRGBA[0]), float(EmiRGBA[1]), float(EmiRGBA[2]), float(EmiRGBA[3]))
 
-        group.inputs["EmissionColor"].default_value = (
-            float(EmiRGBA[0]), float(EmiRGBA[1]), float(EmiRGBA[2]), float(EmiRGBA[3]))
 
         group.inputs['Metallic'].default_value = float(attr["Matallic"])
         group.inputs['Roughness'].default_value = float(attr["Roughness"])
