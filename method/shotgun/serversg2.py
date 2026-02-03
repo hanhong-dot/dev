@@ -83,6 +83,7 @@
                           'task_thumbnail': ''}]}}
 
 '''
+
 # -------------------------------------------------------------------------------
 
 __AUTHORZH__ = u"韩虹"
@@ -800,7 +801,11 @@ class ServerSG(object):
                 if _send_data:
                     _up_data = {"sg_send_jenkins": u'{}'.format(_send_data)}
                     self.task_updata(_project_name, _task_name, _entity_name, _up_data)
-
+        if __update_model and int(__update_model) == 1:
+            asset_name = _entity_name
+            entity_r = self._get_entity_R(_entity_type, _entity_id)
+            task_id = self._get_task_id(_project_name, _task_name, _entity_name)
+            self.__write_change_mod_asset_to_spreadsheet(asset_name, entity_r, task_id)
         # 模型文件上传,将rig状态改为fix
         # if _task_name in ["drama_mdl", "fight_mdl"] and _status == 'pub':
         # 根据 2023 0131 木易意见更新
@@ -882,6 +887,14 @@ class ServerSG(object):
             result_list.append(False)
 
         return False if False in result_list else True
+
+    def __write_change_mod_asset_to_spreadsheet(self, asset_name, entity_r, task_id):
+        __is_online_version = self.__judge_online_version_entity(task_id)
+        if not __is_online_version:
+            return
+        assets = [{'name': asset_name, 'entity_r': entity_r}]
+
+        return get_online_process_entity.write_online_mod_change_assets_to_spreadsheet(assets)
 
     def __judge_online_version_entity(self, task_id):
         return judge_online_version_entity.judge_is_online_entity(sg_login, task_id)
