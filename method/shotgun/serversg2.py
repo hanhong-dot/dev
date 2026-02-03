@@ -801,7 +801,7 @@ class ServerSG(object):
                 if _send_data:
                     _up_data = {"sg_send_jenkins": u'{}'.format(_send_data)}
                     self.task_updata(_project_name, _task_name, _entity_name, _up_data)
-        if __update_model and int(__update_model) == 1:
+        if __update_model and int(__update_model) == 1 and asset_type in ['role', 'hair']:
             asset_name = _entity_name
             entity_r = self._get_entity_R(_entity_type, _entity_id)
             task_id = self._get_task_id(_project_name, _task_name, _entity_name)
