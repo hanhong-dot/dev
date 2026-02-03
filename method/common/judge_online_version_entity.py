@@ -3,8 +3,13 @@
 # file: judge_online_version_entity.py
 # time: 2026/1/23 15:23
 # description:
+import json
+
 import lib.common.config as config
 import lib.common.jsonio as jsonio
+
+
+#
 
 
 def get_online_entity_version():
@@ -23,6 +28,50 @@ def judge_is_online_entity(sg, task_id):
     return judge
 
 
+def get_all_online_mod_modify_assets(project_name='X3'):
+    import database.shotgun.core.sg_analysis as sg_analysis
+    sg = sg_analysis.Config().login()
+    online_entity_version = get_online_entity_version()
+    filter = [['project.Project.name', 'is', project_name], ['sg_text_4', 'is_not', None],
+              ['sg_asset_type', 'in', ['role', 'hair']]]
+    fields = ['sg_text_4', 'code', 'id']
+    assets = sg.find('Asset', filter, fields)
+    __mod_modify_assets = []
+    if not assets:
+        return []
+    for asset in assets:
+        entity_r = asset.get('sg_text_4')
+        result = judge_is_online_entity_by_entity_r(entity_r, entity_version=online_entity_version[0])
+        if not result or result == False:
+            continue
+        __judge_mod = judge_asset_is_mod_modify(sg, asset.get('id'))
+        if __judge_mod and __judge_mod == True:
+            __mod_modify_assets.append({'id': asset.get('id'), 'name': asset.get('code'), 'entity_r': entity_r})
+    return __mod_modify_assets
+
+
+def judge_asset_is_mod_modify(sg, asset_id):
+    rig_task_names = ['rbf', 'drama_rig']
+    for task_name in rig_task_names:
+        filters = [
+            ['entity', 'is', {'type': 'Asset', 'id': asset_id}],
+            ['content', 'is', task_name]
+        ]
+        fields = ['id', 'sg_send_jenkins']
+        task = sg.find_one('Task', filters, fields)
+        if not task:
+            continue
+        __jekins_data = task.get('sg_send_jenkins', None)
+        if not __jekins_data:
+            continue
+        __jekins_data = eval(__jekins_data)
+        __update_model = __jekins_data.get('update_model', 0)
+        if int(__update_model) == 1:
+            return True
+    # print('资产ID:{} 模型未修改'.format(asset_id))
+    return False
+
+
 def judge_is_online_entity_version(sg, task_id, entity_version='obt-251231'):
     entity_info = get_entity_by_task_id(sg, task_id)
 
@@ -34,7 +83,22 @@ def judge_is_online_entity_version(sg, task_id, entity_version='obt-251231'):
     if not entity_r:
         return False
 
+    online_entity_num = get_entity_num_by_entity_r(entity_version)
+    if not online_entity_num:
+        if entity_r == entity_version:
+            return True
+        else:
+            return False
+    entity_num = get_entity_num_by_entity_r(entity_r)
+    if entity_num is None:
+        return False
 
+    if int(entity_num) <= int(online_entity_num):
+        return True
+    return False
+
+
+def judge_is_online_entity_by_entity_r(entity_r, entity_version='obt-251231'):
     online_entity_num = get_entity_num_by_entity_r(entity_version)
     if not online_entity_num:
         if entity_r == entity_version:
@@ -96,13 +160,25 @@ def get_entity_by_task_id(sg, task_id):
 
 
 if __name__ == '__main__':
-
     import database.shotgun.core.sg_analysis as sg_analysis
-    #
-    sg = sg_analysis.Config().login()
-    task_id=155830
 
-    print(judge_is_online_entity(sg, task_id))
+    print(get_all_online_mod_modify_assets())
+
+    # sg = sg_analysis.Config().login()
+    # asset_id=35026
+    # judge_asset_is_mod_modify(sg, asset_id)
+
+    # online_entity_version = get_online_entity_version()
+    # print(online_entity_version)
+    # import database.shotgun.core.sg_analysis as sg_analysis
+    #
+    # #
+    # sg = sg_analysis.Config().login()
+    # task_id = 155830
+    #
+    # print(judge_is_online_entity(sg, task_id))
+    #
+    # get_all_online_mod_modify_assets()
     #
     # entity_r = get_entity_entity_r(sg, 'Asset', 24022)
     # print(get_entity_num_by_entity_r(entity_r))
