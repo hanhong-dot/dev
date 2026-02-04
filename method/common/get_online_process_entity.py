@@ -66,33 +66,37 @@ def write_online_mod_change_assets_to_spreadsheet(assets, title_name=u'线上版
     sheets = get_sheets(SPREAD_ID)
     sheet_data = get_sheet_data_by_title(sheets, title_name)
     sheet_id = sheet_data.get('sheet_id', None) if sheet_data else None
-    spread_data = get_spread_data_by_sheet_id(sheet_id, range='A2:B100')
+    spread_data = get_spread_data_by_sheet_id(sheet_id, range='A2:C100')
+    print(spread_data)
     ___exist_assets_data = []
     if spread_data:
         for data in spread_data:
-            if data and len(data) >= 2 and data[0]:
-                ___exist_assets_data.append([data[0], data[1]])
+            if data and len(data) >= 3 and data[0]  and data[1] and data[2]:
+                ___exist_assets_data.append([data[0], data[1],data[2]])
+    print(___exist_assets_data)
     if not ___exist_assets_data:
         __data = assets_data
     else:
         __data = ___exist_assets_data
         for __asset in assets_data:
-            if not __asset or len(__asset) < 2:
+            if not __asset or len(__asset) < 3:
                 continue
             __asset_name = __asset[0]
             __asset_entity_r = __asset[1]
+            __updata_time = __asset[2]
             __is_exist = False
             for i in range(len(__data)):
                 __exist_asset = __data[i]
-                if not __exist_asset or len(__exist_asset) < 2:
+                if not __exist_asset or len(__exist_asset) < 3:
                     continue
                 __exist_asset_name = __exist_asset[0]
                 if __asset_name == __exist_asset_name:
                     __data[i][1] = __asset_entity_r
+                    __data[i][2] = __updata_time
                     __is_exist = True
                     break
             if not __is_exist:
-                __data.append([__asset_name, __asset_entity_r])
+                __data.append([__asset_name, __asset_entity_r, __updata_time])
     if __data == ___exist_assets_data:
         return True
     if ___exist_assets_data:
@@ -138,7 +142,7 @@ def write_sheet_from_oline_chang_mod_data(spread_id, sheet_id, data, add_num=2):
             continue
         __data = {
             "valueRange": {
-                "range": "{}!A{}:B{}".format(sheet_id, i + add_num, i + add_num),
+                "range": "{}!A{}:C{}".format(sheet_id, i + add_num, i + add_num),
                 "values": [
                     data[i]
                 ]
@@ -210,7 +214,8 @@ def cover_assets_data(assets):
     for asset in assets:
         __asset_name = asset.get('name', '')
         __entity_r = asset.get('entity_r', '')
-        __data.append([__asset_name, __entity_r])
+        __updata_time = asset.get('updata_time', '')
+        __data.append([__asset_name, __entity_r,__updata_time])
     return __data
 
 
@@ -291,7 +296,6 @@ def get_sheet_data_by_title(sheets, title_name):
         return None
     for sheet in sheets:
         __title = sheet['title'] if sheet and 'title' in sheet else None
-        print(__title)
         if __title and __title == title_name:
             return sheet
     return None
@@ -315,42 +319,41 @@ def get_range_data(spread_id, sheet_id, range):
 if __name__ == '__main__':
     # print(get_add_tangent_entity_name(title_name=u'线上版本需处理资产'))
 
-    assets = [{'id': 12652, 'entity_r': 'obt-251202', 'name': 'PL018C'},
-              {'id': 12734, 'entity_r': 'obt-240311', 'name': 'PL004C'},
-              {'id': 13964, 'entity_r': 'obt-241031', 'name': 'PL014S'},
-              {'id': 23609, 'entity_r': 'obt-250608', 'name': 'PL017S'},
-              {'id': 27986, 'entity_r': 'obt-251231', 'name': 'PL028C'},
-              {'id': 28935, 'entity_r': 'obt-240805', 'name': 'YG020C'},
-              {'id': 29471, 'entity_r': 'obt-240923', 'name': 'PL040C'},
-              {'id': 29472, 'entity_r': 'obt-250812', 'name': 'PL041C'},
-              {'id': 31498, 'entity_r': 'obt-250703', 'name': 'PL066C'},
-              {'id': 31501, 'entity_r': 'obt-250703', 'name': 'PL069C'},
-              {'id': 31502, 'entity_r': 'obt-250703', 'name': 'PL070C'},
-              {'id': 31503, 'entity_r': 'obt-250703', 'name': 'PL071C'},
-              {'id': 31557, 'entity_r': 'obt-240805', 'name': 'PL073C'},
-              {'id': 31670, 'entity_r': 'obt-251030', 'name': 'PL075C'},
-              {'id': 33093, 'entity_r': 'obt-240711', 'name': 'YS024C_studio'},
-              {'id': 33632, 'entity_r': 'obt-250122', 'name': 'PL080C'},
-              {'id': 34223, 'entity_r': 'obt-260210', 'name': 'RY012C_Avg'},
-              {'id': 34997, 'entity_r': 'obt-240805', 'name': 'PL073C_Studio'},
-              {'id': 35061, 'entity_r': 'obt-250430', 'name': 'PL091C'},
-              {'id': 37086, 'entity_r': 'obt-250703', 'name': 'PL019S'},
-              {'id': 37683, 'entity_r': 'obt-250703', 'name': 'PL071C_Card'},
-              {'id': 38241, 'entity_r': 'obt-250210', 'name': 'PL083C_Card'},
-              {'id': 38256, 'entity_r': 'obt-251202', 'name': 'PL020S'},
-              {'id': 39689, 'entity_r': 'obt-250430', 'name': 'PL101C'},
-              {'id': 39690, 'entity_r': 'obt-250430', 'name': 'PL102C'},
-              {'id': 39691, 'entity_r': 'obt-250430', 'name': 'PL103C'},
-              {'id': 39692, 'entity_r': 'obt-250430', 'name': 'PL104C'},
-              {'id': 39836, 'entity_r': 'obt-250430', 'name': 'PL112C'},
-              {'id': 40212, 'entity_r': 'obt-250812', 'name': 'PL604C'},
-              {'id': 44007, 'entity_r': 'obt-260210', 'name': 'YG803C'},
-              {'id': 44019, 'entity_r': 'obt-260210', 'name': 'PL814C'},
-              {'id': 44020, 'entity_r': 'obt-260210', 'name': 'PL814C_Card'},
-              {'id': 46990, 'entity_r': 'obt-260210', 'name': 'PL609C'},
-              {'id': 46991, 'entity_r': 'obt-260210', 'name': 'ST609C'},
-              {'id': 46993, 'entity_r': 'obt-260210', 'name': 'RY609C'},
-              {'id': 46995, 'entity_r': 'obt-260210', 'name': 'YG609C'},
-              {'id': 47666, 'entity_r': 'obt-260210', 'name': 'ST803C_H'},
-              {'id': 57879, 'entity_r': 'obt-260210', 'name': 'PL007C_Studio'}]
+    assets = [{'updata_time': '20260120-191709', 'id': 12652, 'entity_r': 'obt-251202', 'name': 'PL018C'},
+              {'updata_time': '20260109-152909', 'id': 12734, 'entity_r': 'obt-240311', 'name': 'PL004C'},
+              {'updata_time': '20260109-193915', 'id': 13964, 'entity_r': 'obt-241031', 'name': 'PL014S'},
+              {'updata_time': '20260108-220839', 'id': 23609, 'entity_r': 'obt-250608', 'name': 'PL017S'},
+              {'updata_time': '20260109-154503', 'id': 27986, 'entity_r': 'obt-251231', 'name': 'PL028C'},
+              {'updata_time': '20260114-202843', 'id': 28935, 'entity_r': 'obt-240805', 'name': 'YG020C'},
+              {'updata_time': '20260109-165652', 'id': 29471, 'entity_r': 'obt-240923', 'name': 'PL040C'},
+              {'updata_time': '20260109-211135', 'id': 29472, 'entity_r': 'obt-250812', 'name': 'PL041C'},
+              {'updata_time': '20260112-112221', 'id': 31498, 'entity_r': 'obt-250703', 'name': 'PL066C'},
+              {'updata_time': '20260112-160537', 'id': 31501, 'entity_r': 'obt-250703', 'name': 'PL069C'},
+              {'updata_time': '20260119-194819', 'id': 31502, 'entity_r': 'obt-250703', 'name': 'PL070C'},
+              {'updata_time': '20260109-173022', 'id': 31503, 'entity_r': 'obt-250703', 'name': 'PL071C'},
+              {'updata_time': '20260109-150041', 'id': 31557, 'entity_r': 'obt-240805', 'name': 'PL073C'},
+              {'updata_time': '20260109-152157', 'id': 31670, 'entity_r': 'obt-251030', 'name': 'PL075C'},
+              {'updata_time': '20260113-142106', 'id': 33093, 'entity_r': 'obt-240711', 'name': 'YS024C_studio'},
+              {'updata_time': '20260109-153756', 'id': 33632, 'entity_r': 'obt-250122', 'name': 'PL080C'},
+              {'updata_time': '20260130-171330', 'id': 34223, 'entity_r': 'obt-260210', 'name': 'RY012C_Avg'},
+              {'updata_time': '20260119-182246', 'id': 34997, 'entity_r': 'obt-240805', 'name': 'PL073C_Studio'},
+              {'updata_time': '20260109-155214', 'id': 35061, 'entity_r': 'obt-250430', 'name': 'PL091C'},
+              {'updata_time': '20260120-153753', 'id': 37086, 'entity_r': 'obt-250703', 'name': 'PL019S'},
+              {'updata_time': '20260109-160241', 'id': 37683, 'entity_r': 'obt-250703', 'name': 'PL071C_Card'},
+              {'updata_time': '20260119-213137', 'id': 38241, 'entity_r': 'obt-250210', 'name': 'PL083C_Card'},
+              {'updata_time': '20260109-142733', 'id': 38256, 'entity_r': 'obt-251202', 'name': 'PL020S'},
+              {'updata_time': '20260120-200501', 'id': 39689, 'entity_r': 'obt-250430', 'name': 'PL101C'},
+              {'updata_time': '20260119-113059', 'id': 39690, 'entity_r': 'obt-250430', 'name': 'PL102C'},
+              {'updata_time': '20260109-161613', 'id': 39691, 'entity_r': 'obt-250430', 'name': 'PL103C'},
+              {'updata_time': '20260109-145803', 'id': 39692, 'entity_r': 'obt-250430', 'name': 'PL104C'},
+              {'updata_time': '20260129-192723', 'id': 39836, 'entity_r': 'obt-250430', 'name': 'PL112C'},
+              {'updata_time': '20260119-215223', 'id': 40212, 'entity_r': 'obt-250812', 'name': 'PL604C'},
+              {'updata_time': '20260126-171929', 'id': 44007, 'entity_r': 'obt-260210', 'name': 'YG803C'},
+              {'updata_time': '20260128-175801', 'id': 44019, 'entity_r': 'obt-260210', 'name': 'PL814C'},
+              {'updata_time': '20260127-161844', 'id': 44020, 'entity_r': 'obt-260210', 'name': 'PL814C_Card'},
+              {'updata_time': '20260123-175254', 'id': 46991, 'entity_r': 'obt-260210', 'name': 'ST609C'},
+              {'updata_time': '20260123-151526', 'id': 46993, 'entity_r': 'obt-260210', 'name': 'RY609C'},
+              {'updata_time': '20260127-121748', 'id': 46995, 'entity_r': 'obt-260210', 'name': 'YG609C'},
+              {'updata_time': '20260123-154827', 'id': 47666, 'entity_r': 'obt-260210', 'name': 'ST803C_H'},
+              {'updata_time': '20260122-172140', 'id': 57879, 'entity_r': 'obt-260210', 'name': 'PL007C_Studio'}]
     print(write_online_mod_change_assets_to_spreadsheet(assets))
