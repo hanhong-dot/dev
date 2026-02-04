@@ -883,6 +883,94 @@ class BlenderActions(HookBaseClass):
         else:
             return None
 
+    def setSceneBlendNode(self, i, matnodes, mat, matShaderName, material_datas, suffix, blends,uv_judge):
+        group = matnodes.new(type='ShaderNodeGroup')
+        group.node_tree = bpy.data.node_groups[blends[1]]
+        group.location = (-500, 0)
+        out = matnodes.new(type='ShaderNodeOutputMaterial')
+        mat.node_tree.links.new(group.outputs['BSDF'], out.inputs['Surface'])
+        for node in matnodes:
+            node.select = False
+
+        group.select = True
+        # matnodes.active = group
+        # bpy.ops.node.group_ungroup()
+
+        matnodes = mat.node_tree.nodes
+
+        attr = material_datas[i].find("Attribute").attrib
+        RGBA = attr["RGBA"].split(",")
+        RGBA2 = attr["RGBA2"].split(",")
+        RGBA3 = attr["RGBA3"].split(",")
+
+        group.inputs["Color1"].default_value = (
+            float(RGBA[0]), float(RGBA[1]), float(RGBA[2]), float(RGBA[3]))
+
+        group.inputs["Color2"].default_value = (
+            float(RGBA2[0]), float(RGBA2[1]), float(RGBA2[2]), float(RGBA2[3]))
+
+        group.inputs["Color3"].default_value = (
+            float(RGBA3[0]), float(RGBA3[1]), float(RGBA3[2]), float(RGBA3[3]))
+
+        group.inputs['Metallic1'].default_value = float(attr["Metallic"])
+        group.inputs['Roughness1'].default_value = float(attr["Roughness"])
+
+        group.inputs['Metallic2'].default_value = float(attr["Metallic2"])
+        group.inputs['Roughness2'].default_value = float(attr["Roughness2"])
+
+        group.inputs['Metallic3'].default_value = float(attr["Metallic3"])
+        group.inputs['Roughness3'].default_value = float(attr["Roughness3"])
+
+        group.inputs['BlendPower1'].default_value = float(attr["BlendPower1"])
+        group.inputs['BlendPower2'].default_value = float(attr["BlendPower2"])
+        group.inputs['BlendPower3'].default_value = float(attr["BlendPower3"])
+
+        for tex in material_datas[i].findall("Texture"):
+            texName = tex.attrib["Name"]
+            texShaderName = tex.attrib["ShaderName"]
+            if (texShaderName == "_MainTex"):
+                if (texName != "null"):
+                    tex_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,uv_judge=uv_judge)
+                    if tex_node is not None:
+                        mat.node_tree.links.new(tex_node.outputs['Color'], group.inputs['MainTex1'])
+            if (texShaderName == "_BumpMap"):
+                if (texName != "null"):
+                    normal_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,uv_judge=uv_judge)
+                    if normal_node is not None:
+                        normal_node.image.colorspace_settings.name = "Linear Rec.709"
+                        mat.node_tree.links.new(normal_node.outputs['Color'], group.inputs['BumpMap1'])
+                        mat.node_tree.links.new(normal_node.outputs['Alpha'], group.inputs['RoughnessMap1'])
+            if (texShaderName == "_MainTex2"):
+                if (texName != "null"):
+                    tex_node2 = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,uv_judge=uv_judge)
+                    if tex_node2 is not None:
+                        mat.node_tree.links.new(tex_node2.outputs['Color'], group.inputs['MainTex2'])
+            if (texShaderName == "_BumpMap2"):
+                if (texName != "null"):
+                    normal_node2 = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,uv_judge=uv_judge)
+                    if normal_node2 is not None:
+                        normal_node2.image.colorspace_settings.name = "Linear Rec.709"
+                        mat.node_tree.links.new(normal_node2.outputs['Color'], group.inputs['BumpMap2'])
+                        mat.node_tree.links.new(normal_node2.outputs['Alpha'], group.inputs['RoughnessMap2'])
+            if (texShaderName == "_MainTex3"):
+                if (texName != "null"):
+                    tex_node3 = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,uv_judge=uv_judge)
+                    if tex_node3 is not None:
+                        mat.node_tree.links.new(tex_node3.outputs['Color'], group.inputs['MainTex3'])
+            if (texShaderName == "_BumpMap3"):
+                if (texName != "null"):
+                    normal_node3 = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,uv_judge=uv_judge)
+                    if normal_node3 is not None:
+                        normal_node3.image.colorspace_settings.name = "Linear Rec.709"
+                        mat.node_tree.links.new(normal_node3.outputs['Color'], group.inputs['BumpMap3'])
+                        mat.node_tree.links.new(normal_node3.outputs['Alpha'], group.inputs['RoughnessMap3'])
+            if (texShaderName == "_BlendMask"):
+                if (texName != "null"):
+                    mask_node = self.buildTextureNode(mat.node_tree, self.texsPath[texName], False,uv_judge=uv_judge)
+                    if mask_node is not None:
+                        mask_node.image.colorspace_settings.name = "Linear Rec.709"
+                        mat.node_tree.links.new(mask_node.outputs['Color'], group.inputs['BlendMask'])
+
     def get_texs_path(self):
         texsPath = {}
         for tex in self._root.find("TexturePart").findall('ImportTexture'):
