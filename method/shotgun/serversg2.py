@@ -892,7 +892,8 @@ class ServerSG(object):
         __is_online_version = self.__judge_online_version_entity(task_id)
         if not __is_online_version:
             return
-        assets = [{'name': asset_name, 'entity_r': entity_r}]
+        current_time = timedate.get_currentdate().strftime('%Y%m%d-%H%M%S')
+        assets = [{'name': asset_name, 'entity_r': entity_r, 'updata_time': current_time}]
 
         return get_online_process_entity.write_online_mod_change_assets_to_spreadsheet(assets)
 
