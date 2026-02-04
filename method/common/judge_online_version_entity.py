@@ -44,10 +44,49 @@ def get_all_online_mod_modify_assets(project_name='X3'):
         result = judge_is_online_entity_by_entity_r(entity_r, entity_version=online_entity_version[0])
         if not result or result == False:
             continue
-        __judge_mod = judge_asset_is_mod_modify(sg, asset.get('id'))
-        if __judge_mod and __judge_mod == True:
-            __mod_modify_assets.append({'id': asset.get('id'), 'name': asset.get('code'), 'entity_r': entity_r})
+        ok,result= judge_asset_is_mod_modify(sg, asset.get('id'))
+        if ok and ok== True:
+            __updata_time=result
+            __mod_modify_assets.append({'id': asset.get('id'), 'name': asset.get('code'), 'entity_r': entity_r,'updata_time':__updata_time})
     return __mod_modify_assets
+
+def get_updata_model_time(sg,task_id):
+    updata_time=''
+    new_time=0
+    filters = [
+        ["task","is",{'type':'Task','id':task_id}]
+    ]
+    fileds=["created_at","published_file_type"]
+    publishs=sg.find("PublishedFile",filters,fileds)
+
+    if not publishs:
+        return updata_time
+    for publish in publishs:
+        published_file_type=publish.get("published_file_type")
+        if not published_file_type:
+            continue
+        created_at=publish.get("created_at")
+        if not created_at:
+            continue
+        created_at_str=covert_time_to_str(created_at)
+        timestamp=cover_time_to_timestamp(created_at)
+        if timestamp>new_time and published_file_type.get("name")=='Maya Scene':
+            new_time=timestamp
+            updata_time=created_at_str
+    return updata_time
+
+
+
+def cover_time_to_timestamp(time):
+    if not time:
+        return 0
+    return int(time.strftime('%Y%m%d%H%M%S'))
+
+
+def covert_time_to_str(time):
+    if not time:
+        return ''
+    return time.strftime('%Y%m%d-%H%M%S')
 
 
 def judge_asset_is_mod_modify(sg, asset_id):
@@ -66,10 +105,11 @@ def judge_asset_is_mod_modify(sg, asset_id):
             continue
         __jekins_data = eval(__jekins_data)
         __update_model = __jekins_data.get('update_model', 0)
+
         if __update_model  and int(__update_model) == 1:
-            return True
-    # print('资产ID:{} 模型未修改'.format(asset_id))
-    return False
+            __updata_time=get_updata_model_time(sg,  task.get('id'))
+            return True,__updata_time
+    return False,'not modify'
 
 
 def judge_is_online_entity_version(sg, task_id, entity_version='obt-251231'):
@@ -165,6 +205,8 @@ if __name__ == '__main__':
     print(get_all_online_mod_modify_assets())
 
     # sg = sg_analysis.Config().login()
+    # task_id=81745
+    # print(get_updata_model_time(sg, task_id))
     # asset_id=35026
     # judge_asset_is_mod_modify(sg, asset_id)
 
