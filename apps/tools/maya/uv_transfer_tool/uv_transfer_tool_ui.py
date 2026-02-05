@@ -34,7 +34,7 @@ class UVTransferToolUI(QWidget):
                                    u"2. 第二个模型,目标模型（接收UV）")
         instruction_label.setWordWrap(True)
         # instruction_label背景色深色
-        instruction_label.setStyleSheet("QLabel { background-color : #2c2c2c; color : white; padding: 5px; }")
+        instruction_label.setStyleSheet("QLabel { background-color : #2c2c2c; color : white; padding: 8px; }")
         lable_layout.addWidget(instruction_label)
         layout.addLayout(lable_layout)
         lable_layout.addSpacing(10)
