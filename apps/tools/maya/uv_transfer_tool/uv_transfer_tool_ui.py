@@ -27,12 +27,17 @@ class UVTransferToolUI(QWidget):
 
     def setup_ui(self):
         layout = QVBoxLayout()
+        lable_layout = QHBoxLayout()
 
         instruction_label = QLabel("Select two meshes in the scene:\n"
                                    "1. Source Mesh (with desired UVs)\n"
                                    "2. Target Mesh (to receive UVs)")
         instruction_label.setWordWrap(True)
-        layout.addWidget(instruction_label)
+        #instruction_label背景色深色
+        instruction_label.setStyleSheet("QLabel { background-color : #2c2c2c; color : white; padding: 5px; }")
+        lable_layout.addWidget(instruction_label)
+        layout.addLayout(lable_layout)
+        lable_layout.addSpacing(10)
 
         uv_set_layout = QHBoxLayout()
         uv_set_label = QLabel("Target UVSet Name:")
