@@ -38,12 +38,23 @@ class UVTransferToolUI(QWidget):
         lable_layout.addWidget(instruction_label)
         layout.addLayout(lable_layout)
         lable_layout.addSpacing(10)
+        #加下拉线
+        line = QFrame()
+        line.setFrameShape(QFrame.HLine)
+        line.setFrameShadow(QFrame.Sunken)
+        layout.addWidget(line)
 
         uv_set_layout = QHBoxLayout()
         uv_set_label = QLabel("Target UVSet Name:")
         self.uv_set_input = QLineEdit("map3")
         uv_set_layout.addWidget(uv_set_label)
         uv_set_layout.addWidget(self.uv_set_input)
+        uv_set_layout.addStretch()
+        line2 = QFrame()
+        line2.setFrameShape(QFrame.HLine)
+        line2.setFrameShadow(QFrame.Sunken)
+        layout.addWidget(line2)
+
         layout.addLayout(uv_set_layout)
 
         self.transfer_button = QPushButton("Transfer UVs")
