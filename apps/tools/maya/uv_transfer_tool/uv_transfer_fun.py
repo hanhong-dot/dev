@@ -54,7 +54,7 @@ def transfer_uvs_between_meshes(src_uv_set_name='map1', dst_uv_set_name='map3'):
 def delete_transfer_uv_history(mesh):
     cmds.select(cl=True)
     cmds.select(mesh)
-    mel.evl('DeleteHistory')
+    mel.eval('DeleteHistory')
     mel.eval('delete -ch')
 
 def set_current_uv_set(mesh, uv_set_name):
