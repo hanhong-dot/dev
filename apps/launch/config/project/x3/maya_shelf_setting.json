@@ -243,7 +243,7 @@
       "label": "UVTransfer",
       "icon": "Z:\\dev\\ico\\sq32\\tools\\uv_tran.jpg",
       "ann": "UV传递工具",
-      "command": "import apps.tools.maya.uv_transfer_too.load_uv_transfer_tool as load_uv_transfer_tool;reload(load_uv_transfer_tool);load_uv_transfer_tool.load_uv_transfer_tool()",
+      "command": "import apps.tools.maya.uv_transfer_tool.load_uv_transfer_tool as load_uv_transfer_tool;reload(load_uv_transfer_tool);load_uv_transfer_tool.load_uv_transfer_tool()",
       "cmdrepeat": 1
     }
   },
