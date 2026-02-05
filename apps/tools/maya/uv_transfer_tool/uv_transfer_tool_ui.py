@@ -29,7 +29,7 @@ class UVTransferToolUI(QWidget):
         layout = QVBoxLayout()
         lable_layout = QHBoxLayout()
 
-        instruction_label = QLabel("Select two meshes in the scene:\n"
+        instruction_label = QLabel(u"请选择两个模型:\n"
                                    "1. Source Mesh (with desired UVs)\n"
                                    "2. Target Mesh (to receive UVs)")
         instruction_label.setWordWrap(True)
