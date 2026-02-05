@@ -30,8 +30,8 @@ class UVTransferToolUI(QWidget):
         lable_layout = QHBoxLayout()
 
         instruction_label = QLabel(u"请选择两个模型：\n"
-                                   "1. 源模型（带UV）\n"
-                                   "2. 目标模型（接收UV）")
+                                   u"1. 第一个模型,源模型（传递当前UV）\n"
+                                   u"2. 第二个模型,目标模型（接收UV）")
         instruction_label.setWordWrap(True)
         # instruction_label背景色深色
         instruction_label.setStyleSheet("QLabel { background-color : #2c2c2c; color : white; padding: 5px; }")
