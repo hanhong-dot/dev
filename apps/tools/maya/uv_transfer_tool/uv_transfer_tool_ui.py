@@ -45,7 +45,7 @@ class UVTransferToolUI(QWidget):
         layout.addWidget(line)
 
         uv_set_layout = QHBoxLayout()
-        uv_set_label = QLabel("Target UVSet Name:")
+        uv_set_label = QLabel(u"选择目标UVSet名称:")
         self.uv_set_input= QComboBox()
         self.uv_set_input.addItems(["map3", "map4"])
         self.uv_set_input.setCurrentText("map3")
