@@ -46,7 +46,10 @@ class UVTransferToolUI(QWidget):
 
         uv_set_layout = QHBoxLayout()
         uv_set_label = QLabel("Target UVSet Name:")
-        self.uv_set_input = QLineEdit("map3")
+        self.uv_set_input= QComboBox()
+        self.uv_set_input.addItems(["map3", "map4"])
+        self.uv_set_input.setCurrentText("map3")
+
         uv_set_layout.addWidget(uv_set_label)
         uv_set_layout.addWidget(self.uv_set_input)
         uv_set_layout.addStretch()
@@ -67,10 +70,7 @@ class UVTransferToolUI(QWidget):
         self.setLayout(layout)
 
     def on_transfer_uvs(self):
-        target_uv_set_name = self.uv_set_input.text().strip()
-        if not target_uv_set_name:
-            self.result_label.setText("map4")
-            return
+        target_uv_set_name = self.uv_set_input.currentText()
         success, message = uv_transfer_fun.uv_transfer_mesh(target_uv_set_name)
         self.result_label.setText(message)
         if not success:
