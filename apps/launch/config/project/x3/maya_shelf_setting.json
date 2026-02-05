@@ -85,7 +85,7 @@
       "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/plug-ins/maya/MGTools/MGTools/MGTools_LocalData/userSetup.mel\\\"')",
       "cmdrepeat": 1
     },
-        "2_common_Entity_r_replace": {
+    "2_common_Entity_r_replace": {
       "name": "Entity_r_replace",
       "docTag": "uni",
       "label": "版本",
@@ -228,7 +228,7 @@
       "command": "from apps.tools.maya.auto_copy_skin_tool import load_auto_copy_skin_tool;reload(load_auto_copy_skin_tool);load_auto_copy_skin_tool.load_auto_copy_skin_tool()",
       "cmdrepeat": 1
     },
-        "15_common_hair_normal": {
+    "15_common_hair_normal": {
       "name": "HairNrm",
       "docTag": "model",
       "label": "HairNrm",
@@ -247,7 +247,6 @@
       "cmdrepeat": 1
     }
   },
-
   "5_common_rig": {
     "name": "rig",
     "label": "绑定",
@@ -525,13 +524,31 @@
       "command": "import x3_add_scale_joint;reload(x3_add_scale_joint);x3_add_scale_joint.doit()",
       "cmdrepeat": 1
     },
-  "31_common_rig_copy_bs": {
+    "31_common_rig_copy_bs": {
       "name": "copy_bs",
       "docTag": "rig",
       "label": "CopyBS",
       "icon": "commandButton.png",
       "ann": "copy_bs",
       "command": "import x3_copy_bs;reload(x3_copy_bs);x3_copy_bs.tool_copy_bs()",
+      "cmdrepeat": 1
+    },
+    "32_common_rig_import_joint": {
+      "name": "import_joint",
+      "docTag": "rig",
+      "label": "ImportJoint",
+      "icon": "commandButton.png",
+      "ann": "导入引导骨骼",
+      "command": "import unity_joint.import_unity_joint as import_unity_joint;reload(import_unity_joint);import_unity_joint.load_mig_pro_v4()",
+      "cmdrepeat": 1
+    },
+    "33_common_rig_rename_joint": {
+      "name": "rename_joint",
+      "docTag": "rig",
+      "label": "ReJoint",
+      "icon": "commandButton.png",
+      "ann": "X3骨骼规范重命名工具",
+      "command": "import unity_joint.x3_joint_rename_tool as x3_joint_rename_tool;reload(x3_joint_rename_tool);x3_joint_rename_tool.main()",
       "cmdrepeat": 1
     }
   },
