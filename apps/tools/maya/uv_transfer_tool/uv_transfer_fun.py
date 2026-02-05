@@ -27,10 +27,7 @@ def uv_transfer_mesh(target_uv_set_name='map3'):
     if not result:
         return False, u'目标模型设置{}UVSet到当前失败,请检查目标模型'.format(target_uv_set_name)
 
-    try:
-        cmds.delete(dst, ch=True)
-    except:
-        pass
+    delete_transfer_uv_history(dst )
     time.sleep(1)
     result = transfer_uvs_between_meshes(scr_uv_set, target_uv_set_name)
 
@@ -47,6 +44,17 @@ def transfer_uvs_between_meshes(src_uv_set_name='map1', dst_uv_set_name='map3'):
         return True
     except:
         return False
+
+
+def delete_transfer_uv_history(mesh):
+    history = cmds.listHistory(mesh) or []
+    ta_nodes = cmds.ls(history, type='transferAttributes')
+
+    if ta_nodes:
+        cmds.delete(ta_nodes)
+        print("Deleted transferAttributes nodes:", ta_nodes)
+    else:
+        print("No transferAttributes history found.")
 
 
 def set_current_uv_set(mesh, uv_set_name):
