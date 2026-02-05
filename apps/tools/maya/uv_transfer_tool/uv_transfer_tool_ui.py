@@ -63,6 +63,7 @@ class UVTransferToolUI(QWidget):
         layout.addLayout(uv_set_layout)
 
         self.transfer_button = QPushButton("Transfer UVs")
+        self.transfer_button.setMinimumHeight(25)
         self.transfer_button.clicked.connect(self.on_transfer_uvs)
         layout.addWidget(self.transfer_button)
 
