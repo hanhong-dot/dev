@@ -19,7 +19,6 @@ def uv_transfer_mesh(target_uv_set_name='map3'):
     scr_uv_set = get_current_uv_set(src)
     if not scr_uv_set:
         return False, u'源模型当前没有UVSet,请检查源模型'
-    targe_uv_sets = get_all_uv_sets(dst)
     result = create_uv_set(dst, target_uv_set_name)
     if not result:
         return False, u'目标模型创建{}UVSet失败,请检查目标模型'.format(target_uv_set_name)
@@ -27,9 +26,10 @@ def uv_transfer_mesh(target_uv_set_name='map3'):
     if not result:
         return False, u'目标模型设置{}UVSet到当前失败,请检查目标模型'.format(target_uv_set_name)
 
-    delete_transfer_uv_history(dst )
     time.sleep(1)
     result = transfer_uvs_between_meshes(scr_uv_set, target_uv_set_name)
+    delete_transfer_uv_history(dst )
+
 
     if not result:
         return False, u'UV传递失败,请检查模型'
