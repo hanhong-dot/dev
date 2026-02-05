@@ -37,7 +37,7 @@ def load_uv_transfer_tool():
     uv_transfer_window = basewindow.BaseWindow(_mayaview.get_maya_window(), u"UV对烘工具", u"UV对烘工具")
 
     uv_transfer_window.set_central_widget(win_handle)
-    # uv_transfer_window.set_help(url=r"https://papergames.feishu.cn/wiki/SeQdwazFHiX6VmkcVLGcFq53naf?from=from_copylink")
+    uv_transfer_window.set_help(url=r"https://papergames.feishu.cn/wiki/Bg8TwhTEri509gkKRJUcsoIDnBw?from=from_copylink")
 
     uv_transfer_window.setMinimumSize(450, 200)
     uv_transfer_window.show()
