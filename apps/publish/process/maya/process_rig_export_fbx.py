@@ -595,13 +595,6 @@ class Porcess_RigFbx_Export(Porcess_Export):
                 if __obj:
                     _exportobjs.append(__obj[0])
 
-        if self._asset_type.lower() in ['body'] and self._entity_name.endswith('_RM') and '_RM' not in os.path.basename(_exportfile):
-            __dir, __base_name = os.path.split(_exportfile)
-            __new_base_name = __base_name.replace('.fbx', '_RM.fbx')
-            _exportfile = os.path.join(__dir, __new_base_name)
-            _exportfile=_exportfile.replace('\\', '/')
-
-
         if "_GuaranteedAnim" in _exportfile:
             # 保存下文件
             _file = _exportfile.replace(".fbx", ".ma")
@@ -863,6 +856,7 @@ class Porcess_RigFbx_Export(Porcess_Export):
                         try:
                             if os.path.splitext(os.path.basename(_fbx_file))[0].split('_')[-1] in ['asis']:
                                 self._open_file(self._file)
+                            _fbx_file=self._cover_end_mb_body_fbx_file(_fbx_file)
                             _result = self._export_rig_fbx(_objs, _fbx_file, _dismesh=k, _triangulate=_triangulate)
 
                             if _result and _result == True:
@@ -890,6 +884,15 @@ class Porcess_RigFbx_Export(Porcess_Export):
         #         except:
         #             pass
         # return _list
+
+    def _cover_end_mb_body_fbx_file(self, _exportfile):
+        if self._asset_type.lower() in ['body'] and self._entity_name.endswith('_RM') and '_RM' not in os.path.basename(
+                _exportfile):
+            __dir, __base_name = os.path.split(_exportfile)
+            __new_base_name = __base_name.replace('.fbx', '_RM.fbx')
+            _exportfile = os.path.join(__dir, __new_base_name)
+            _exportfile = _exportfile.replace('\\', '/')
+        return _exportfile
 
     def _open_file(self, _file):
         u"""
@@ -939,7 +942,7 @@ if __name__ == '__main__':
     # _fbx_info = analyze_fbx.AnalyFbx(taskdata).get_fbx()
     # print _fbx_info
     _handle = Porcess_RigFbx_Export(taskdata)
-    _handle.export_rig_fbx()
+    data = _handle.export_rig_fbx()
     # sg = sg_analysis.Config().login()
     #
     # judge_is_online = judge_online_version_entity.judge_is_online_entity(sg, _handle._task_id)
