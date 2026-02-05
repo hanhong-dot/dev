@@ -29,16 +29,16 @@ class UVTransferToolUI(QWidget):
         layout = QVBoxLayout()
         lable_layout = QHBoxLayout()
 
-        instruction_label = QLabel(u"请选择两个模型:\n"
-                                   "1. Source Mesh (with desired UVs)\n"
-                                   "2. Target Mesh (to receive UVs)")
+        instruction_label = QLabel(u"请选择两个模型：\n"
+                                   "1. 源模型（带UV）\n"
+                                   "2. 目标模型（接收UV）")
         instruction_label.setWordWrap(True)
-        #instruction_label背景色深色
+        # instruction_label背景色深色
         instruction_label.setStyleSheet("QLabel { background-color : #2c2c2c; color : white; padding: 5px; }")
         lable_layout.addWidget(instruction_label)
         layout.addLayout(lable_layout)
         lable_layout.addSpacing(10)
-        #加下拉线
+        # 加下拉线
         line = QFrame()
         line.setFrameShape(QFrame.HLine)
         line.setFrameShadow(QFrame.Sunken)
