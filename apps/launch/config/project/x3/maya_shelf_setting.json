@@ -236,6 +236,15 @@
       "ann": "头发模型顶点法线调整工具",
       "command": "import sys;sys.path.append('Z:/dev/tools/x3_P4/wsy_scripts');import hair_normal_line_adjuster_tool.load_hair_normal_tool as load_hair_normal_tool;reload(load_hair_normal_tool);load_hair_normal_tool.show_hair_normal_tool()",
       "cmdrepeat": 1
+    },
+    "15_common_uv_transfer": {
+      "name": "UVTransfer",
+      "docTag": "model",
+      "label": "UVTransfer",
+      "icon": "Z:\\dev\\ico\\sq32\\tools\\uv_tran.jpg",
+      "ann": "UV传递工具",
+      "command": "import apps.tools.maya.uv_transfer_too.load_uv_transfer_tool as load_uv_transfer_tool;reload(load_uv_transfer_tool);load_uv_transfer_tool.load_uv_transfer_tool()",
+      "cmdrepeat": 1
     }
   },
 
