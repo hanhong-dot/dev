@@ -4,6 +4,7 @@
 # time: 2026/2/5 14:06
 # description:
 import sys
+
 try:
     from PySide2.QtWidgets import *
     from PySide2.QtGui import *
@@ -31,14 +32,14 @@ def load_uv_transfer_tool():
     if not app:
         app = QApplication(sys.argv)
 
-    win_handle =uv_transfer_tool_ui.UVTransferToolUI()
+    win_handle = uv_transfer_tool_ui.UVTransferToolUI()
 
     uv_transfer_window = basewindow.BaseWindow(_mayaview.get_maya_window(), u"UV传递工具", u"UV传递工具")
 
     uv_transfer_window.set_central_widget(win_handle)
     # uv_transfer_window.set_help(url=r"https://papergames.feishu.cn/wiki/SeQdwazFHiX6VmkcVLGcFq53naf?from=from_copylink")
 
-    uv_transfer_window.setMinimumSize(300, 150)
+    uv_transfer_window.setMinimumSize(450, 200)
     uv_transfer_window.show()
     # win_handle.CloseSignal.connect(load_add_group_name_ui)
     app.exec_()
