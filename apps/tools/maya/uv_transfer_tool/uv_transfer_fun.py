@@ -5,6 +5,7 @@
 # description:
 import maya.cmds as cmds
 import maya.mel as mel
+import time
 
 
 def uv_transfer_mesh(target_uv_set_name='map3'):
@@ -30,8 +31,9 @@ def uv_transfer_mesh(target_uv_set_name='map3'):
         cmds.delete(dst, ch=True)
     except:
         pass
-
+    time.sleep(1)
     result = transfer_uvs_between_meshes(scr_uv_set, target_uv_set_name)
+
     if not result:
         return False, u'UV传递失败,请检查模型'
     return True, u'UV传递成功'
