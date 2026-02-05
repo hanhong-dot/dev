@@ -26,6 +26,11 @@ def uv_transfer_mesh(target_uv_set_name='map3'):
     if not result:
         return False, u'目标模型设置{}UVSet到当前失败,请检查目标模型'.format(target_uv_set_name)
 
+    try:
+        cmds.delete(dst, ch=True)
+    except:
+        pass
+
     result = transfer_uvs_between_meshes(scr_uv_set, target_uv_set_name)
     if not result:
         return False, u'UV传递失败,请检查模型'
