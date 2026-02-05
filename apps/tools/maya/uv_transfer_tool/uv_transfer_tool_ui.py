@@ -49,6 +49,8 @@ class UVTransferToolUI(QWidget):
         self.uv_set_input= QComboBox()
         self.uv_set_input.addItems(["map3", "map4"])
         self.uv_set_input.setCurrentText("map3")
+        self.uv_set_input.setFixedHeight(25)
+        self.uv_set_input.setView(QListView())
 
         uv_set_layout.addWidget(uv_set_label)
         uv_set_layout.addWidget(self.uv_set_input)
