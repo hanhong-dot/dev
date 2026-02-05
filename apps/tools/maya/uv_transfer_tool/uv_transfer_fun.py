@@ -28,7 +28,12 @@ def uv_transfer_mesh(target_uv_set_name='map3'):
 
     time.sleep(1)
     result = transfer_uvs_between_meshes(scr_uv_set, target_uv_set_name)
-    delete_transfer_uv_history(dst )
+
+    time.sleep(1)
+    delete_transfer_uv_history(dst)
+
+    cmds.select(meshs)
+
 
 
     if not result:
@@ -47,15 +52,10 @@ def transfer_uvs_between_meshes(src_uv_set_name='map1', dst_uv_set_name='map3'):
 
 
 def delete_transfer_uv_history(mesh):
-    history = cmds.listHistory(mesh) or []
-    ta_nodes = cmds.ls(history, type='transferAttributes')
-
-    if ta_nodes:
-        cmds.delete(ta_nodes)
-        print("Deleted transferAttributes nodes:", ta_nodes)
-    else:
-        print("No transferAttributes history found.")
-
+    cmds.select(cl=True)
+    cmds.select(mesh)
+    mel.evl('DeleteHistory')
+    mel.eval('delete -ch')
 
 def set_current_uv_set(mesh, uv_set_name):
     all_uv_sets = get_all_uv_sets(mesh)
