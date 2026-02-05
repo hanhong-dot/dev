@@ -595,11 +595,11 @@ class Porcess_RigFbx_Export(Porcess_Export):
                 if __obj:
                     _exportobjs.append(__obj[0])
 
-        if self._asset_type.lower() in ['body'] and self._entity_name.endswith('_RM') and '_RM' not in os.path.basename(_exportfile):
-            __dir, __base_name = os.path.split(_exportfile)
-            __new_base_name = __base_name.replace('.fbx', '_RM.fbx')
-            _exportfile = os.path.join(__dir, __new_base_name)
-            _exportfile=_exportfile.replace('\\', '/')
+        # if self._asset_type.lower() in ['body'] and self._entity_name.endswith('_RM') and '_RM' not in os.path.basename(_exportfile):
+        #     __dir, __base_name = os.path.split(_exportfile)
+        #     __new_base_name = __base_name.replace('.fbx', '_RM.fbx')
+        #     _exportfile = os.path.join(__dir, __new_base_name)
+        #     _exportfile=_exportfile.replace('\\', '/')
 
 
         if "_GuaranteedAnim" in _exportfile:
@@ -939,11 +939,11 @@ if __name__ == '__main__':
     # _fbx_info = analyze_fbx.AnalyFbx(taskdata).get_fbx()
     # print _fbx_info
     _handle = Porcess_RigFbx_Export(taskdata)
-    # _handle.export_rig_fbx()
-    sg = sg_analysis.Config().login()
-
-    judge_is_online = judge_online_version_entity.judge_is_online_entity(sg, _handle._task_id)
-    process_entity_names = _handle._process_entity_names
+    _handle.export_rig_fbx()
+    # sg = sg_analysis.Config().login()
+    #
+    # judge_is_online = judge_online_version_entity.judge_is_online_entity(sg, _handle._task_id)
+    # process_entity_names = _handle._process_entity_names
 
     # _dict = _handle._get_fbx_info()
     # # _handle.export_rig_fbx()
