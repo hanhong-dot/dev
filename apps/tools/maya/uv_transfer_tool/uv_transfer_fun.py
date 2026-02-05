@@ -29,7 +29,7 @@ def uv_transfer_mesh(target_uv_set_name='map3'):
     time.sleep(1)
     result = transfer_uvs_between_meshes(scr_uv_set, target_uv_set_name)
 
-    time.sleep(1)
+    time.sleep(0.1)
     delete_transfer_uv_history(dst)
 
     cmds.select(meshs)
