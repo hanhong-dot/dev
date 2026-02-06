@@ -8,6 +8,9 @@ import requests
 import json
 
 SPREAD_ID = 'OS3KwWeuviHYoXkUafjc0efAnQw'
+API_TOKEN = "RM1Ms9Cr0hIT2HtkjHHcfa6gnGe"
+MODASSET_APP_TOKEN = "RZISb5XxpaM5HossC8lcHpVpnDf"
+MODASSET_TABLE_ID = 'tblycWOW6iSlDZo5'
 from method.common import judge_online_version_entity
 
 
@@ -71,8 +74,8 @@ def write_online_mod_change_assets_to_spreadsheet(assets, title_name=u'线上版
     ___exist_assets_data = []
     if spread_data:
         for data in spread_data:
-            if data and len(data) >= 3 and data[0]  and data[1] and data[2]:
-                ___exist_assets_data.append([data[0], data[1],data[2]])
+            if data and len(data) >= 3 and data[0] and data[1] and data[2]:
+                ___exist_assets_data.append([data[0], data[1], data[2]])
     print(___exist_assets_data)
     if not ___exist_assets_data:
         __data = assets_data
@@ -112,6 +115,51 @@ def write_online_mod_change_assets_to_spreadsheet(assets, title_name=u'线上版
     except Exception as e:
         print(e)
         return False
+
+
+def record_online_mod_change_assets_to_spreadsheet(assets):
+    if not assets:
+        return
+    __add_data = []
+    for asset in assets:
+        __item_data = {}
+        __asset_name = asset.get('name', '')
+        __entity_r = asset.get('entity_r', '')
+        __updata_time = asset.get('updata_time', '')
+        if not __asset_name or not __entity_r or not __updata_time:
+            continue
+        __item_data[u'资产名'] = __asset_name
+        __item_data[u'版本'] = __entity_r
+        __item_data[u'更新时间'] = __updata_time
+        __item_data[u'已处理'] = False
+        __add_data.append({"fields": __item_data})
+
+    if not __add_data:
+        return
+
+
+
+
+
+
+    result = add_record_to_multi_table(MODASSET_APP_TOKEN, MODASSET_TABLE_ID, __add_data)
+    return result
+
+
+def add_record_to_multi_table(api_token, table_id, data):
+    if not data:
+        return
+    url = "https://open.feishu.cn/open-apis/bitable/v1/apps/{}/tables/{}/records/batch_create".format(api_token, table_id)
+    headers = {
+        "Authorization": "Bearer {}".format(get_token()),
+        "Content-Type": "application/json"
+    }
+    payload = json.dumps({"records": data})
+    response = requests.request("POST", url, headers=headers, data=payload)
+    try:
+        return response.json()
+    except:
+        return None
 
 
 def __get_data_by_entity_r(__data):
@@ -213,7 +261,7 @@ def cover_assets_data(assets):
         __asset_name = asset.get('name', '')
         __entity_r = asset.get('entity_r', '')
         __updata_time = asset.get('updata_time', '')
-        __data.append([__asset_name, __entity_r,__updata_time])
+        __data.append([__asset_name, __entity_r, __updata_time])
     return __data
 
 
@@ -229,6 +277,20 @@ def get_spread_data_by_sheet_id(sheet_id, range):
     for value in values:
         spread_data.append(value)
     return spread_data
+
+
+def get_multi_table_data_by_sheet_id(api_token, sheet_id):
+    url = "https://open.feishu.cn/open-apis/bitable/v1/apps/{}/tables/{}/records/search".format(api_token, sheet_id)
+    accet_token = get_token()
+    headers = {
+        "Authorization": "Bearer {}".format(accet_token),
+        "Content-Type": "application/json"
+    }
+    response = requests.request("POST", url, headers=headers, data=json.dumps({"page_size": 100, "page_num": 1}))
+    try:
+        return response.json()
+    except:
+        return None
 
 
 def get_exit_assets_in_spreadsheet(sheet_id):
@@ -262,6 +324,25 @@ def get_spreadshees_data(spread_id, url="https://open.feishu.cn/open-apis/sheets
         "Content-Type": "application/json"
     }
     response = requests.request("GET", _url, headers=headers, data=payload)
+    try:
+        return response.json()
+    except:
+        return None
+
+
+def get_api_token():
+    url = "https://open.feishu.cn/open-apis/wiki/v2/spaces/get_node"
+    accet_token = get_token()
+    headers = {
+        "Authorization": "Bearer {}".format(accet_token),
+        "Content-Type": "application/json"
+    }
+    payload = json.dumps(
+        {
+            "token": SPREAD_ID
+        }
+    )
+    response = requests.request("POST", url, headers=headers, data=payload)
     try:
         return response.json()
     except:
@@ -314,44 +395,31 @@ def get_range_data(spread_id, sheet_id, range):
     return __data
 
 
-if __name__ == '__main__':
-    # print(get_add_tangent_entity_name(title_name=u'线上版本需处理资产'))
+def get_multi_table_api_token():
+    url = "https://open.feishu.cn/open-apis/sheets/v2/spreadsheets/RM1Ms9Cr0hIT2HtkjHHcfa6gnGe/metainfo"
+    accet_token = get_token()
+    headers = {
+        "Authorization": "Bearer {}".format(accet_token),
+        "Content-Type": "application/json"}
+    response = requests.request("GET", url, headers=headers)
+    try:
+        return response.json()
+    except:
+        return None
 
-    assets = [{'updata_time': '20260120-191709', 'id': 12652, 'entity_r': 'obt-251202', 'name': 'PL018C'},
-              {'updata_time': '20260109-152909', 'id': 12734, 'entity_r': 'obt-240311', 'name': 'PL004C'},
-              {'updata_time': '20260109-193915', 'id': 13964, 'entity_r': 'obt-241031', 'name': 'PL014S'},
-              {'updata_time': '20260108-220839', 'id': 23609, 'entity_r': 'obt-250608', 'name': 'PL017S'},
-              {'updata_time': '20260109-154503', 'id': 27986, 'entity_r': 'obt-251231', 'name': 'PL028C'},
-              {'updata_time': '20260114-202843', 'id': 28935, 'entity_r': 'obt-240805', 'name': 'YG020C'},
-              {'updata_time': '20260109-165652', 'id': 29471, 'entity_r': 'obt-240923', 'name': 'PL040C'},
-              {'updata_time': '20260109-211135', 'id': 29472, 'entity_r': 'obt-250812', 'name': 'PL041C'},
-              {'updata_time': '20260112-112221', 'id': 31498, 'entity_r': 'obt-250703', 'name': 'PL066C'},
-              {'updata_time': '20260112-160537', 'id': 31501, 'entity_r': 'obt-250703', 'name': 'PL069C'},
-              {'updata_time': '20260119-194819', 'id': 31502, 'entity_r': 'obt-250703', 'name': 'PL070C'},
-              {'updata_time': '20260109-173022', 'id': 31503, 'entity_r': 'obt-250703', 'name': 'PL071C'},
-              {'updata_time': '20260109-150041', 'id': 31557, 'entity_r': 'obt-240805', 'name': 'PL073C'},
-              {'updata_time': '20260109-152157', 'id': 31670, 'entity_r': 'obt-251030', 'name': 'PL075C'},
-              {'updata_time': '20260113-142106', 'id': 33093, 'entity_r': 'obt-240711', 'name': 'YS024C_studio'},
-              {'updata_time': '20260109-153756', 'id': 33632, 'entity_r': 'obt-250122', 'name': 'PL080C'},
-              {'updata_time': '20260130-171330', 'id': 34223, 'entity_r': 'obt-260210', 'name': 'RY012C_Avg'},
-              {'updata_time': '20260119-182246', 'id': 34997, 'entity_r': 'obt-240805', 'name': 'PL073C_Studio'},
-              {'updata_time': '20260109-155214', 'id': 35061, 'entity_r': 'obt-250430', 'name': 'PL091C'},
-              {'updata_time': '20260120-153753', 'id': 37086, 'entity_r': 'obt-250703', 'name': 'PL019S'},
-              {'updata_time': '20260109-160241', 'id': 37683, 'entity_r': 'obt-250703', 'name': 'PL071C_Card'},
-              {'updata_time': '20260119-213137', 'id': 38241, 'entity_r': 'obt-250210', 'name': 'PL083C_Card'},
-              {'updata_time': '20260109-142733', 'id': 38256, 'entity_r': 'obt-251202', 'name': 'PL020S'},
-              {'updata_time': '20260120-200501', 'id': 39689, 'entity_r': 'obt-250430', 'name': 'PL101C'},
-              {'updata_time': '20260119-113059', 'id': 39690, 'entity_r': 'obt-250430', 'name': 'PL102C'},
-              {'updata_time': '20260109-161613', 'id': 39691, 'entity_r': 'obt-250430', 'name': 'PL103C'},
-              {'updata_time': '20260109-145803', 'id': 39692, 'entity_r': 'obt-250430', 'name': 'PL104C'},
-              {'updata_time': '20260129-192723', 'id': 39836, 'entity_r': 'obt-250430', 'name': 'PL112C'},
-              {'updata_time': '20260119-215223', 'id': 40212, 'entity_r': 'obt-250812', 'name': 'PL604C'},
-              {'updata_time': '20260126-171929', 'id': 44007, 'entity_r': 'obt-260210', 'name': 'YG803C'},
-              {'updata_time': '20260128-175801', 'id': 44019, 'entity_r': 'obt-260210', 'name': 'PL814C'},
-              {'updata_time': '20260127-161844', 'id': 44020, 'entity_r': 'obt-260210', 'name': 'PL814C_Card'},
-              {'updata_time': '20260123-175254', 'id': 46991, 'entity_r': 'obt-260210', 'name': 'ST609C'},
-              {'updata_time': '20260123-151526', 'id': 46993, 'entity_r': 'obt-260210', 'name': 'RY609C'},
-              {'updata_time': '20260127-121748', 'id': 46995, 'entity_r': 'obt-260210', 'name': 'YG609C'},
-              {'updata_time': '20260123-154827', 'id': 47666, 'entity_r': 'obt-260210', 'name': 'ST803C_H'},
-              {'updata_time': '20260122-172140', 'id': 57879, 'entity_r': 'obt-260210', 'name': 'PL007C_Studio'}]
-    print(write_online_mod_change_assets_to_spreadsheet(assets))
+
+# if __name__ == '__main__':
+#     import pprint
+#
+#     # pprint.pprint(get_multi_table_api_token())
+#     # api_token = "RZISb5XxpaM5HossC8lcHpVpnDf"
+#     # sheet_id = 'tblycWOW6iSlDZo5'
+#     # MODASSET_APP_TOKEN = "RZISb5XxpaM5HossC8lcHpVpnDf"
+#     # MODASSET_TABLE_ID = 'tblycWOW6iSlDZo5'
+#     # print(get_multi_table_data_by_sheet_id(MODASSET_APP_TOKEN, MODASSET_TABLE_ID))
+#     # spread_data = get_spread_data_by_sheet_id(sheet_id, range='A2:D100')
+#     # print(spread_data)
+#     # print(get_add_tangent_entity_name(title_name=u'线上版本需处理资产'))
+#
+#     assets = [{'updata_time': '20260120-191709', 'id': 12652, 'entity_r': 'obt-251202', 'name': 'PL018C'}, {'updata_time': '20260109-152909', 'id': 12734, 'entity_r': 'obt-240311', 'name': 'PL004C'}, {'updata_time': '20260109-193915', 'id': 13964, 'entity_r': 'obt-241031', 'name': 'PL014S'}, {'updata_time': '20260108-220839', 'id': 23609, 'entity_r': 'obt-250608', 'name': 'PL017S'}, {'updata_time': '20260109-154503', 'id': 27986, 'entity_r': 'obt-251231', 'name': 'PL028C'}, {'updata_time': '20260114-202843', 'id': 28935, 'entity_r': 'obt-240805', 'name': 'YG020C'}, {'updata_time': '20260109-165652', 'id': 29471, 'entity_r': 'obt-240923', 'name': 'PL040C'}, {'updata_time': '20260109-211135', 'id': 29472, 'entity_r': 'obt-250812', 'name': 'PL041C'}, {'updata_time': '20260112-112221', 'id': 31498, 'entity_r': 'obt-250703', 'name': 'PL066C'}, {'updata_time': '20260112-160537', 'id': 31501, 'entity_r': 'obt-250703', 'name': 'PL069C'}, {'updata_time': '20260119-194819', 'id': 31502, 'entity_r': 'obt-250703', 'name': 'PL070C'}, {'updata_time': '20260109-173022', 'id': 31503, 'entity_r': 'obt-250703', 'name': 'PL071C'}, {'updata_time': '20260109-150041', 'id': 31557, 'entity_r': 'obt-240805', 'name': 'PL073C'}, {'updata_time': '20260109-152157', 'id': 31670, 'entity_r': 'obt-251030', 'name': 'PL075C'}, {'updata_time': '20260113-142106', 'id': 33093, 'entity_r': 'obt-240711', 'name': 'YS024C_studio'}, {'updata_time': '20260109-153756', 'id': 33632, 'entity_r': 'obt-250122', 'name': 'PL080C'}, {'updata_time': '20260130-171330', 'id': 34223, 'entity_r': 'obt-260210', 'name': 'RY012C_Avg'}, {'updata_time': '20260119-182246', 'id': 34997, 'entity_r': 'obt-240805', 'name': 'PL073C_Studio'}, {'updata_time': '20260109-155214', 'id': 35061, 'entity_r': 'obt-250430', 'name': 'PL091C'}, {'updata_time': '20260120-153753', 'id': 37086, 'entity_r': 'obt-250703', 'name': 'PL019S'}, {'updata_time': '20260109-160241', 'id': 37683, 'entity_r': 'obt-250703', 'name': 'PL071C_Card'}, {'updata_time': '20260119-213137', 'id': 38241, 'entity_r': 'obt-250210', 'name': 'PL083C_Card'}, {'updata_time': '20260109-142733', 'id': 38256, 'entity_r': 'obt-251202', 'name': 'PL020S'}, {'updata_time': '20260120-200501', 'id': 39689, 'entity_r': 'obt-250430', 'name': 'PL101C'}, {'updata_time': '20260119-113059', 'id': 39690, 'entity_r': 'obt-250430', 'name': 'PL102C'}, {'updata_time': '20260109-161613', 'id': 39691, 'entity_r': 'obt-250430', 'name': 'PL103C'}, {'updata_time': '20260109-145803', 'id': 39692, 'entity_r': 'obt-250430', 'name': 'PL104C'}, {'updata_time': '20260129-192723', 'id': 39836, 'entity_r': 'obt-250430', 'name': 'PL112C'}, {'updata_time': '20260119-215223', 'id': 40212, 'entity_r': 'obt-250812', 'name': 'PL604C'}, {'updata_time': '20260126-171929', 'id': 44007, 'entity_r': 'obt-260210', 'name': 'YG803C'}, {'updata_time': '20260128-175801', 'id': 44019, 'entity_r': 'obt-260210', 'name': 'PL814C'}, {'updata_time': '20260127-161844', 'id': 44020, 'entity_r': 'obt-260210', 'name': 'PL814C_Card'}, {'updata_time': '20260205-192007', 'id': 46991, 'entity_r': 'obt-260210', 'name': 'ST609C'}, {'updata_time': '20260205-204327', 'id': 46993, 'entity_r': 'obt-260210', 'name': 'RY609C'}, {'updata_time': '20260123-154827', 'id': 47666, 'entity_r': 'obt-260210', 'name': 'ST803C_H'}, {'updata_time': '20260122-172140', 'id': 57879, 'entity_r': 'obt-260210', 'name': 'PL007C_Studio'}]
+#     print(record_online_mod_change_assets_to_spreadsheet(assets))
