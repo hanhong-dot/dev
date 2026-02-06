@@ -801,11 +801,11 @@ class ServerSG(object):
                 if _send_data:
                     _up_data = {"sg_send_jenkins": u'{}'.format(_send_data)}
                     self.task_updata(_project_name, _task_name, _entity_name, _up_data)
-        # if __update_model and int(__update_model) == 1 and asset_type in ['role', 'hair']:
-        #     asset_name = _entity_name
-        #     entity_r = self._get_entity_R(_entity_type, _entity_id)
-        #     task_id = self._get_task_id(_project_name, _task_name, _entity_name)
-        #     self.__write_change_mod_asset_to_spreadsheet(asset_name, entity_r, task_id)
+        if __update_model and int(__update_model) == 1 and asset_type in ['role', 'hair']:
+            asset_name = _entity_name
+            entity_r = self._get_entity_R(_entity_type, _entity_id)
+            task_id = self._get_task_id(_project_name, _task_name, _entity_name)
+            self.__write_change_mod_asset_to_spreadsheet(asset_name, entity_r, task_id)
         # 模型文件上传,将rig状态改为fix
         # if _task_name in ["drama_mdl", "fight_mdl"] and _status == 'pub':
         # 根据 2023 0131 木易意见更新
@@ -895,7 +895,7 @@ class ServerSG(object):
         current_time = timedate.get_currentdate().strftime('%Y%m%d-%H%M%S')
         assets = [{'name': asset_name, 'entity_r': entity_r, 'updata_time': current_time}]
 
-        return get_online_process_entity.write_online_mod_change_assets_to_spreadsheet(assets)
+        return get_online_process_entity.record_online_mod_change_assets_to_spreadsheet(assets)
 
     def __judge_online_version_entity(self, task_id):
         return judge_online_version_entity.judge_is_online_entity(sg_login, task_id)
