@@ -144,6 +144,6 @@ def load_default_shelf():
                 except Exception as e:
                     logger.error("load maya shelf {} error: {}".format(_shelf, e))
 
-
-if __name__ == '__main__':
-    launch()
+#
+# if __name__ == '__main__':
+#     launch()
