@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-#
-# Python     : Python 2.7
 # -------------------------------------------------------
 # NAME       : scriptjob
 # Describe   : 说明描述
@@ -17,7 +16,7 @@ def lod_script_job():
     加载maya运行脚本
     """
     #
-    mayadefender()
+    # mayadefender()
     # 开启maya时执行的命令
     sceneopened()
     # 打开maya文件时执行的命令
