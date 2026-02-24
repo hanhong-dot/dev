@@ -41,16 +41,16 @@
       "cmdrepeat": 1
     }
   },
-  "4_common_anim1": {
+  "4_common_anim": {
     "name": "anim",
     "label": "Anim",
     "icon": "Z:\\dev\\ico\\sq32\\step\\animation.png",
     "ann": "动画工具",
-    "command": "import apps.launch.maya.interface.shelf_common as shelf_common;shelf_common.change_shelf(\"anim1\")",
+    "command": "import apps.launch.maya.interface.shelf_common as shelf_common;shelf_common.change_shelf(\"anim\")",
     "cmdrepeat": 1,
     "1_common_MGPickerStudio_AnimatorMode": {
       "name": "MGPickerStudio_AnimatorMode",
-      "docTag": "anim1",
+      "docTag": "anim",
       "label": "MP_Ani",
       "icon": "Z:/dev/tools/plug-ins/maya/MG-PickerStudio/MG-PickerStudio/MGPicker_Program/Icons/Colored/Picker_animModeIcon.png",
       "ann": "MGPickerStudio AnimatorMode",
@@ -59,7 +59,7 @@
     },
     "2_common_MGPickerStudio_DesignerMode": {
       "name": "MGPickerStudio_DesignerMode",
-      "docTag": "anim1",
+      "docTag": "anim",
       "label": "MP_Des",
       "icon": "Z:/dev/tools/plug-ins/maya/MG-PickerStudio/MG-PickerStudio/MGPicker_Program/Icons/Colored/Picker_designerModeIcon.png",
       "ann": "MGPickerStudio DesignerMode",
@@ -68,7 +68,7 @@
     },
     "3_common_fbx_exporter": {
       "name": "fbx_exporter",
-      "docTag": "anim1",
+      "docTag": "anim",
       "label": "",
       "icon": "Z:\\dev\\tools\\x3_P4\\icons\\EXP.png",
       "ann": "Mfbx_exporter_single_person",
@@ -84,43 +84,7 @@
       "command": "import MaxToMaya_kami.main;MaxToMaya_kami.main.load_ui()",
       "cmdrepeat": 1
     },
-    "5_common_spring": {
-      "name": "spring",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:\\dev\\tools\\maya\\maya2023\\springmagic_py3\\springmagic\\icons\\spring.png",
-      "ann": "spring",
-      "command": "import sys;sys.path.append('Z:/dev/tools/maya2023/springmagic_py3');import springmagic;springmagic.main()",
-      "cmdrepeat": 1
-    },
-    "6_common_springII": {
-      "name": "springII",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\springII.png",
-      "ann": "springII",
-      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/x3_P4/python_2023/spring/springmagic/spring.mel\\\";OverlapperRelease()')",
-      "cmdrepeat": 1
-    },
-    "7_common_clean_anim": {
-      "name": "clean_anim",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\clean_anim.png",
-      "ann": "clean_anim",
-      "command": "local_file = 'Z:/dev/tools/x3_P4/python_2023/clean_anim.py';execfile(local_file)",
-      "cmdrepeat": 1
-    },
-    "9_common_dgpl": {
-      "name": "dgpl",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\djpl.png",
-      "ann": "dgpl",
-      "command": "local_file = 'Z:/dev/tools/x3_P4/python_2023/dgpl.py';execfile(local_file)",
-      "cmdrepeat": 1
-    },
-    "10_common_ikfk": {
+    "5_common_ikfk": {
       "name": "ikfk",
       "docTag": "anim",
       "label": "",
@@ -129,354 +93,130 @@
       "command": "import ikfk as x3_ikfk;x3_ikfk.show()",
       "cmdrepeat": 1
     },
-    "11_common_animmirror": {
-      "name": "animmirror",
-      "docTag": "anim1",
+    "6_common_animBot": {
+      "name": "animBot",
+      "docTag": "anim",
       "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\aniMirror.png",
-      "ann": "controller_anim_mirror",
-      "command": "local_file = 'Z:/dev/tools/x3_P4/python_2023/controller_anim_mirror.py';execfile(local_file)",
+      "icon": "Z:/dev/ico/sq32/tools/create_toggle_button_on_shelf_shelf.png",
+      "ann": "animBot Tools",
+      "command": "import animbot_setup as animbot_setup;animbot_setup.load_animbot()",
       "cmdrepeat": 1
     },
-    "12_common_camexp": {
-      "name": "camexp",
-      "docTag": "anim1",
+    "7_common_spring": {
+      "name": "spring",
+      "docTag": "anim",
       "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\CAM_EXP.png",
-      "ann": "camexp",
-      "command": "import exp as exp;reload(exp);exp.show()",
+      "icon": "Z:\\dev\\tools\\maya\\maya2023\\springmagic_py3\\springmagic\\icons\\spring.png",
+      "ann": "spring",
+      "command": "import sys;sys.path.append('Z:/dev/tools/maya2023/springmagic_py3');import springmagic;springmagic.main()",
       "cmdrepeat": 1
     },
-    "13_common_plane": {
-      "name": "plane",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\MtoP.png",
-      "ann": "plane",
-      "command": "import videoFrame.ui as lush_video;reload(lush_video);lush_video.show()",
-      "cmdrepeat": 1
-    },
-    "14_common_seq": {
-      "name": "seq",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\cam_seq.png",
-      "ann": "seq",
-      "command": "import seq as seq;reload(seq);seq.show()",
-      "cmdrepeat": 1
-    },
-    "21_common_sticon": {
+    "8_common_sticon": {
       "name": "sticon",
-      "docTag": "anim1",
+      "docTag": "anim",
       "label": "",
       "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\sticon.png",
       "ann": "sticon",
-      "command": "import sys;sys.path.append('Z:/dev/tools/maya/studiolibrary-main');import studiolibrary;studiolibrary.main()",
+      "command": "import sys;sys.path.append('Z:/dev/tools/maya2023/studiolibrary-main/src');import studiolibrary;studiolibrary.main()",
       "cmdrepeat": 1
     },
-    "22_common_sasBiped": {
-      "name": "asBiped",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:\\dev\\tools\\x3_P4\\scripts\\AdvancedSkeleton5795\\AdvancedSkeleton5Files\\icons\\asBiped.png",
-      "ann": "asBiped",
-      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/x3_P4/scripts/AdvancedSkeleton5795/AdvancedSkeleton5Files/Selector/biped.mel\\\"')",
-      "cmdrepeat": 1
-    },
-    "23_common_asFace": {
-      "name": "asFace",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:\\dev\\tools\\x3_P4\\scripts\\AdvancedSkeleton5795\\AdvancedSkeleton5Files\\icons\\asFace.png",
-      "ann": "asFace",
-      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/x3_P4/scripts/AdvancedSkeleton5795/AdvancedSkeleton5Files/picker/picker.mel\\\"')",
-      "cmdrepeat": 1
-    },
-    "29_common_animschool": {
-      "name": "animschool",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\AnimSchoolLogoIcon.png",
-      "ann": "animschool",
-      "command": "import animschool_picker as animschool;reload(animschool);animschool.load_animschool_picker()",
-      "cmdrepeat": 1
-    },
-    "30_common_atools": {
-      "name": "atools",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\aTools_big.png",
-      "ann": "atools",
-      "command": "import aTools.main  as atools_ui;reload(atools_ui);atools_ui.load_atools_ui()",
-      "cmdrepeat": 1
-    },
-    "36_common_MayaUnrealLiveLink": {
-      "name": "MayaUnrealLiveLink",
-      "docTag": "anim1",
-      "label": "livelink",
-      "icon": "commandButton.png",
-      "ann": "pvPublish",
-      "command": "import maya.mel as mel;mel.eval('MayaUnrealLiveLinkUI')",
-      "cmdrepeat": 1
-    },
-    "37_common_animBot": {
-      "name": "animBot",
-      "docTag": "anim1",
-      "label": "",
-      "icon": "Z:/dev/ico/sq32/tools/create_toggle_button_on_shelf_shelf.png",
-      "ann": "animBot 工具",
-      "command": "import animbot_setup as animbot_setup;reload(animbot_setup);animbot_setup.load_animbot()",
-      "cmdrepeat": 1
-    },
-    "39_common_MeshSynMaya": {
-      "name": "MeshSynMaya",
-      "docTag": "anim1",
-      "label": "MeshSynMaya",
-      "icon": "pythonFamily.png",
-      "ann": "MeshSynMaya",
-      "command": "import meshsynmaya_load;reload(meshsynmaya_load);meshsynmaya_load.load_meshsynmaya()",
-      "cmdrepeat": 1
-    },
-    "41_common_X3SendMB": {
+    "9_common_X3SendMB": {
       "name": "X3SendMB",
-      "docTag": "anim1",
+      "docTag": "anim",
       "label": "SendMB",
       "icon": "Z:/dev/ico/sq32/send_to_mb.png",
       "ann": "x3_cahr_to_mb",
-      "command": "import send_x3_cahr_to_mb;reload(send_x3_cahr_to_mb);send_x3_cahr_to_mb.show()",
+      "command": "import send_x3_cahr_to_mb;send_x3_cahr_to_mb.show()",
       "cmdrepeat": 1
     },
-    "42_common_arShake": {
-      "name": "arShake",
-      "docTag": "anim1",
-      "label": "arShake",
-      "icon": "Z:/dev/tools/maya/arShake/arShake.png",
-      "ann": "arShake",
-      "command": "import sys;sys.path.append('Z:/dev/tools/maya/arShake');import arShake;reload(arShake);arShake.GUI()",
-      "cmdrepeat": 1
-    },
-    "43_common_animator": {
-      "name": "animator",
-      "docTag": "anim1",
-      "label": "animator",
-      "icon": "Z:/dev/tools/maya/AnimatorTools/Log/log.png",
-      "ann": "arShake",
-      "command": "import sys;sys.path.append('Z:/dev/tools/maya/AnimatorTools');from AnimatorTools.Controllerplug import *;import AnimatorTools.GUI as AnimatorTools_Gui;reload(AnimatorTools_Gui);AnimatorTools_Gui.MyWindow()",
-      "cmdrepeat": 1
-    },
-    "44_common_rig_parent_switch": {
+    "10_common_rig_parent_switch": {
       "name": "ParentSwitch",
-      "docTag": "anim1",
+      "docTag": "anim",
       "label": "ParentSwitch",
       "icon": "pythonFamily.png",
       "ann": "ParentSwitch",
-      "command": "from apps.tools.maya import parent_switch;reload(parent_switch);parent_switch.parent_switch()",
+      "command": "from apps.tools.maya import parent_switch;parent_switch.parent_switch()",
       "cmdrepeat": 1
     },
-    "45_common_anim_aiMetaTool": {
+    "11_common_rig_x3_follow_switch": {
+      "name": "X3FollowSwitch",
+      "docTag": "anim",
+      "label": "X3FollowSwitch",
+      "icon": "pythonFamily.png",
+      "ann": "X3FollowSwitch",
+      "command": "import x3_follow_switch;x3_follow_switch.create_follow()",
+      "cmdrepeat": 1
+    },
+    "12_common_sasBiped": {
+      "name": "asBiped",
+      "docTag": "anim",
+      "label": "asBiped",
+      "icon": "Z:\\dev\\tools\\maya2023\\AdvancedSkeleton\\AdvancedSkeletonFiles\\icons\\asBiped.png",
+      "ann": "asBiped",
+      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/maya2023/AdvancedSkeleton/AdvancedSkeletonFiles/Selector/biped.mel\\\"')",
+      "cmdrepeat": 1
+    },
+    "13_common_asFace": {
+      "name": "asFace",
+      "docTag": "anim",
+      "label": "asFace",
+      "icon": "Z:\\dev\\tools\\maya2023\\AdvancedSkeleton\\AdvancedSkeletonFiles\\icons\\asFace.png",
+      "ann": "asFace",
+      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/maya2023/AdvancedSkeleton/AdvancedSkeletonFiles/Selector/face.mel\\\"')",
+      "cmdrepeat": 1
+    },
+    "14_common_animschool_picker": {
+      "name": "animschool_picker",
+      "docTag": "anim",
+      "label": "",
+      "icon": "Z:\\dev\\tools\\AnimSchool_2024\\maya2023\\AnimSchoolIcon.png",
+      "ann": "animschool_picker",
+      "command": "from load_animschool_picker_2023 import load_animschool_picker_2023;load_animschool_picker_2023()",
+      "cmdrepeat": 1
+    },
+    "15_common_anim_aiMetaTool": {
       "name": "ParentSwitch",
-      "docTag": "anim1",
+      "docTag": "anim",
       "label": "AiMetaTool",
       "icon": "pythonFamily.png",
       "ann": "ParentSwitch",
-      "command": "import aiMetaTool;reload(aiMetaTool);aiMetaTool.ui.show()",
+      "command": "import aiMetaTool;aiMetaTool.ui.show()",
       "cmdrepeat": 1
     },
-    "46_common_anim_metahuman": {
+    "16_common_anim_metahuman": {
       "name": "Metahuman",
-      "docTag": "anim1",
+      "docTag": "anim",
       "label": "Metahuman",
       "icon": "pythonFamily.png",
       "ann": "ParentSwitch",
       "command": "import sys;sys.path.append('Z:/dev/tools/maya/metahuman_facial_transfer-main');import metahuman_facial_transfer;metahuman_facial_transfer.UI()",
       "cmdrepeat": 1
     },
-    "47_common_anim_replaceRef": {
-      "name": "replaceRef",
-      "docTag": "anim1",
-      "label": "替换参考",
-      "icon": "Z:\\dev\\ico\\sq32\\tools\\replace_ref.png",
-      "ann": "ParentSwitch",
-      "command": "import apps.tools.maya.replace_rig_tool.load_replace_rig_tool as load_replace_rig_tool;reload(load_replace_rig_tool);load_replace_rig_tool.load_replace_rig_tool()",
-      "cmdrepeat": 1
-    }
-  },
-  "8_common_anim2": {
-    "name": "anim2",
-    "label": "动画2",
-    "icon": "Z:\\dev\\ico\\sq32\\step\\animation.png",
-    "ann": "动画工具",
-    "command": "import apps.launch.maya.interface.shelf_common as shelf_common;shelf_common.change_shelf(\"anim2\")",
-    "cmdrepeat": 1,
-    "1_common_region": {
-      "name": "region",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\region.png",
-      "ann": "region",
-      "command": "import regionSlice.main as  regionSlice_main;reload(regionSlice_main);regionSlice_main.load_region_ui()",
+    "17_common_MeshSynMaya": {
+      "name": "MeshSynMaya",
+      "docTag": "anim",
+      "label": "MeshSynMaya",
+      "icon": "pythonFamily.png",
+      "ann": "MeshSynMaya",
+      "command": "import meshsynmaya_load;meshsynmaya_load.load_meshsynmaya()",
       "cmdrepeat": 1
     },
-    "2_common_abcexr": {
+    "18_common_abcexr": {
       "name": "abcexr",
-      "docTag": "anim2",
-      "label": "",
+      "docTag": "anim",
+      "label": "abcexr",
       "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\abcexp.png",
       "ann": "abc_exr",
-      "command": "import pv_pipe.maya_ui as lush_pv;reload(lush_pv);lush_pv.show()",
+      "command": "import pv_pipe.maya_ui as lush_pv;lush_pv.show()",
       "cmdrepeat": 1
     },
-    "3_common_rootm": {
-      "name": "rootm",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\rootm.png",
-      "ann": "rootm",
-      "command": "from rootmotion import batchExtractRootmotion as _rootmotion_batchExtractRootmotion;reload(_rootmotion_batchExtractRootmotion);_rootmotion_batchExtractRootmotion.FbxBatchConversion().show()",
-      "cmdrepeat": 1
-    },
-    "4_common_batchREF": {
-      "name": "batchREF",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\batchREF.png",
-      "ann": "batchREF",
-      "command": "import replace_reference_path;replace_reference_path.show()",
-      "cmdrepeat": 1
-    },
-    "5_common_at1": {
-      "name": "at1",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\anim_trail_1.png",
-      "ann": "at1",
-      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/x3_P4/scripts/arctracker110/arctracker110.mel\\\";arctracker110')",
-      "cmdrepeat": 1
-    },
-    "6_common_at2": {
-      "name": "at2",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\anim_trail_2.png",
-      "ann": "at2",
-      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/x3_P4/scripts/anim_trail_2.mel\\\";anim_trail2_process')",
-      "cmdrepeat": 1
-    },
-    "7_common_face": {
-      "name": "face",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\x3_face.png",
-      "ann": "face",
-      "command": "import facialPanel.main as facialPanel_ui;reload(facialPanel_ui);facialPanel_ui.load_ui()",
-      "cmdrepeat": 1
-    },
-    "8_common_reParent": {
-      "name": "reParent",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\reParentIcon.jpg",
-      "ann": "reParent",
-      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/x3_P4/scripts/reparent.mel\\\"')",
-      "cmdrepeat": 1
-    },
-    "9_common_p4v": {
-      "name": "p4v",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\p4v.png",
-      "ann": "p4v",
-      "command": "import maya_p4.ui.main_window as maya_p4_ui_main_window;maya_p4_ui_main_window.show()",
-      "cmdrepeat": 1
-    },
-    "10_common_nikki_face": {
-      "name": "nikki_face",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\nikki_face.png",
-      "ann": "nikki_face",
-      "command": "import facialPanel_nikki as fn;fn.launch()",
-      "cmdrepeat": 1
-    },
-    "11_common_shift_animation": {
-      "name": "shift_animation",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\Shift_animation.bmp",
-      "ann": "shift_animation",
-      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/x3_P4/scripts/shift_animation.mel\\\"')",
-      "cmdrepeat": 1
-    },
-    "12_common_connect_anim": {
-      "name": "connect_anim",
-      "docTag": "anim2",
-      "label": "",
-      "icon": "Z:\\dev\\ico\\sq32\\p4\\icons\\connect_anim.png",
-      "ann": "connect_anim",
-      "command": "import maya.mel as mel;mel.eval('source \\\"Z:/dev/tools/x3_P4/scripts/shift_animation.mel\\\"')",
-      "cmdrepeat": 1
-    },
-    "13_common_speak_tool": {
-      "name": "speak_tool",
-      "docTag": "anim2",
-      "label": "speak",
-      "icon": "pythonFamily.png",
-      "ann": "speak_tool",
-      "command": "import MySpeakTool.ui as ui;reload(ui);ui.show()",
-      "cmdrepeat": 1
-    },
-    "14_common_SpeakEditor": {
-      "name": "SpeakEditor",
-      "docTag": "anim2",
-      "label": "SpeakEditor",
-      "icon": "pythonFamily.png",
-      "ann": "SpeakEditor",
-      "command": "import MySpeakEditor;reload(MySpeakEditor);from MySpeakEditor import SpeakEditor;reload(SpeakEditor);window = SpeakEditor.Dialog();window.show()",
-      "cmdrepeat": 1
-    },
-    "15_common_FACS_SpeakEditor": {
-      "name": "FACS_SpeakEditor",
-      "docTag": "anim2",
-      "label": "FaceSpeak",
-      "icon": "pythonFamily.png",
-      "ann": "FACS_SpeakEditor",
-      "command": "import MySpeakEditor_FACS;reload(MySpeakEditor_FACS);from MySpeakEditor_FACS import SpeakEditor;reload(SpeakEditor);window = SpeakEditor.Dialog();window.show()",
-      "cmdrepeat": 1
-    },
-    "16_common_cfxOffset": {
-      "name": "cfxOffset",
-      "docTag": "anim2",
-      "label": "cfxOffset",
-      "icon": "pythonFamily.png",
-      "ann": "cfxOffset",
-      "command": "from lushTools2 import cfx_offset_ani;reload(cfx_offset_ani);cfx_offset_ani.offset_all_anim()",
-      "cmdrepeat": 1
-    },
-    "17_common_pvPublish": {
-      "name": "pvPublish",
-      "docTag": "anim2",
-      "label": "pvPublish",
-      "icon": "pythonFamily.png",
-      "ann": "pvPublish",
-      "command": "from lushTools2 import x3_pv_publish;reload(x3_pv_publish);x3_pv_publish.show()",
-      "cmdrepeat": 1
-    },
-    "18_common_FacePose": {
-      "name": "FacePose",
-      "docTag": "anim2",
-      "label": "FacePose",
-      "icon": "pythonFamily.png",
-      "ann": "FacePose",
-      "command": "import FacsPose;reload(FacsPose);FacsPose.ui.show()",
-      "cmdrepeat": 1
-    },
-    "19_common_X3LipMask": {
-      "name": "X3LipMask",
-      "docTag": "anim2",
-      "label": "LipMask",
-      "icon": "pythonFamily.png",
-      "ann": "LipMask",
-      "command": "from x3_lip_mask import ui;reload(ui);ui.show()",
+    "19_common_MayaUnrealLiveLink": {
+      "name": "MayaUnrealLiveLink",
+      "docTag": "anim",
+      "label": "livelink",
+      "icon": "commandButton.png",
+      "ann": "MayaUnrealLiveLink",
+      "command": "import load_maya_unreal_live_link;load_maya_unreal_live_link.load_maya_unreal_live_link()",
       "cmdrepeat": 1
     }
   }
