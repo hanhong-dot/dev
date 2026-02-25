@@ -784,7 +784,7 @@
       "command": "from apps.tools.maya import parent_switch;reload(parent_switch);parent_switch.parent_switch()",
       "cmdrepeat": 1
     },
-    "27common_anim_aiMetaTool": {
+    "27_common_anim1_aiMetaTool": {
       "name": "ParentSwitch",
       "docTag": "anim1",
       "label": "AiMetaTool",
@@ -793,7 +793,7 @@
       "command": "import aiMetaTool;reload(aiMetaTool);aiMetaTool.ui.show()",
       "cmdrepeat": 1
     },
-    "28_common_anim_metahuman": {
+    "28_common_anim1_metahuman": {
       "name": "Metahuman",
       "docTag": "anim1",
       "label": "Metahuman",
@@ -802,7 +802,7 @@
       "command": "import sys;sys.path.append('Z:/dev/tools/maya/metahuman_facial_transfer-main');import metahuman_facial_transfer;metahuman_facial_transfer.UI()",
       "cmdrepeat": 1
     },
-    "29_common_anim_replaceRef": {
+    "29_common_anim1_replaceRef": {
       "name": "replaceRef",
       "docTag": "anim1",
       "label": "替换参考",
