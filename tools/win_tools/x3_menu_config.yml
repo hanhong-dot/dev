@@ -119,7 +119,7 @@ FirstMenu_Max2020Install:
   - MainCMD: True
   - MainIcon:
   - MainMethod: [ 'Z:/dev/tools/win_tools/tools/max2023_install.exe' ]
-#
+
 #FirstMenu_Max2020Setup:
 #  - MainTitle: 配置3dmax2020
 #  - MainCMD: True
