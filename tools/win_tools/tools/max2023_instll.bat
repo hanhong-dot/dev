@@ -21,8 +21,7 @@ robocopy "Z:\dev\dcc\3dsmax2023" "C:\Program Files\Autodesk\3ds Max 2023\zh-CN" 
 echo Plugin config done
 
 setx ADSK_3DSMAX_PLUGINS_ADDON_DIR Z:\dev\tools\max2023\PlugIns
-cd /d Z:\software\dcc
-RayFire_1.86_3dsMax_2023_Demo.exe /S /D=C:\Program Files\Autodesk\3ds Max 2023\plugins\RayFire
+
 
 
 echo ======================================
