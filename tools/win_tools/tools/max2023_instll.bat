@@ -3,6 +3,7 @@ chcp 65001 >nul
 setlocal
 echo ======================================
 echo 3ds Max 2023 Install Start
+echo please wait...
 echo ======================================
 cd /d Z:\software\dcc\3dsmax2023
 Setup.exe -i install -q -language=CHS
