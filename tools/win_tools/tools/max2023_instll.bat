@@ -25,7 +25,7 @@ setx ADSK_3DSMAX_PLUGINS_ADDON_DIR Z:\dev\tools\max2023\PlugIns
 
 
 Z:\software\dcc\RayFire_1.86_3dsMax_2023_Demo.exe /S
-robocopy  "Z:\software\dcc" "C:\Program Files\Autodesk\3ds Max 2023\plugins" RayFireTool.mse /R:0 /W:0 /NFL /NDL
+robocopy  "Z:\software\dcc" "C:\Program Files\Autodesk\3ds Max 2023\Plugins\RayFireTool" RayFireTool.mse /R:0 /W:0 /NFL /NDL
 
 echo ======================================
 echo 3ds Max 2023 安装及插件配置完成！
