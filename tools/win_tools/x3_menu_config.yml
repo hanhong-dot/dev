@@ -115,10 +115,10 @@ FirstMenu_AiVideoMatch:
   - MainMethod: [ 'Z:/dev/tools/win_tools/tools/AiVideoMatch.bat' ]
 
 FirstMenu_Max2020Install:
-  - MainTitle: 安装3dmax2023
+  - MainTitle: 安装配置3dmax2023
   - MainCMD: True
   - MainIcon:
-  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/max2023_install.exe' ]
+  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/max2023_install.bat' ]
 #
 #FirstMenu_Max2020Setup:
 #  - MainTitle: 配置3dmax2020
