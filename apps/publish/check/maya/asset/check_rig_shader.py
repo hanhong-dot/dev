@@ -108,7 +108,7 @@ class Check(object):
                 if not cmds.ls(sg_ ):
                     continue
                 shaders = cmds.listConnections('{}.surfaceShader'.format(sg_), s=1, d=0)
-                mesh_tr= cmds.listRelatives(mesh, p=1, tr=1)[0]
+                mesh_tr= cmds.listRelatives(mesh, p=1,type='transform')[0]
                 if shaders:
                     shader = shaders[0]
                     if not shader.endswith('_mat') or 'Shape' in shader:
