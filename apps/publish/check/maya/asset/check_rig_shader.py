@@ -128,7 +128,7 @@ class Check(object):
                         if shander_n.endswith('_mat') and sg:
                             cmds.rename(sg[0], shander_n + 'SG')
                         else:
-                            tr = cmds.listRelatives(mesh, p=1, tr=1)
+                            tr = cmds.listRelatives(mesh, p=1, type='transform')
                             if tr:
                                 shader_t = '{}_mat'.format(tr[0].split('|')[-1])
                                 cmds.rename(shander_n, shader_t)
