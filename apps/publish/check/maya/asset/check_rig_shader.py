@@ -111,7 +111,7 @@ class Check(object):
                 mesh_tr= cmds.listRelatives(mesh, p=1, tr=1)[0]
                 if shaders:
                     shader = shaders[0]
-                    if not shader.endswith('_mat'):
+                    if not shader.endswith('_mat') or 'Shape' in shader:
                         shader_ = '{}_mat'.format(mesh.split('|')[-1])
                         shader_new = shader_
                         if not cmds.objExists(shader_):
