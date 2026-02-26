@@ -57,8 +57,9 @@ class Check(object):
                     for sg in sgs:
                         shaders = cmds.listConnections('{}.surfaceShader'.format(sg), s=1, d=0)
                         if shaders:
-
                             if not shaders[0].endswith('_mat'):
+                                error.append(shaders[0])
+                            elif 'Shape' in shaders[0]:
                                 error.append(shaders[0])
 
         return error
@@ -107,6 +108,7 @@ class Check(object):
                 if not cmds.ls(sg_ ):
                     continue
                 shaders = cmds.listConnections('{}.surfaceShader'.format(sg_), s=1, d=0)
+                mesh_tr= cmds.listRelatives(mesh, p=1, tr=1)[0]
                 if shaders:
                     shader = shaders[0]
                     if not shader.endswith('_mat'):
@@ -117,7 +119,7 @@ class Check(object):
                         else:
                             count = 0
                             while count < 1000:
-                                shader_new = '{}_{}_mat'.format(mesh.split('|')[-1], count)
+                                shader_new = '{}_{}_mat'.format(mesh_tr.split('|')[-1], count)
                                 count += 1
                                 if not cmds.objExists(shader_new):
                                     break
