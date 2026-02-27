@@ -39,16 +39,16 @@ class Check(object):
                 for k, v in _error.items():
                     if k == 'no_mdl_data':
                         _error_list.append(
-                            u'以下模型没有找到drama_mdl的材质记录信息,请检查drama_mdl文件是否一致\n'.format(
+                            u'以下模型没有找到drama_mdl的材质记录信息,请检查drama_mdl文件是否一致'.format(
                                 self.__asset_name))
                         for v_item in v:
                             _error_list.append(u'{}'.format(v_item))
                     elif k == 'error_shader':
-                        _error_list.append(u'以下模型没有连接材质球或者连接的材质球是lambert1\n')
+                        _error_list.append(u'以下模型没有连接材质球或者连接的材质球是lambert1')
                         for v_item in v:
                             _error_list.append(u'{}'.format(v_item))
                     elif k == 'not_same':
-                        _error_list.append(u'以下模型和drama_mdl的材质记录信息不一致\n')
+                        _error_list.append(u'以下模型和drama_mdl的材质记录信息不一致')
                         for v_item in v:
                             _error_list.append(u'{}'.format(v_item))
             return False, info.displayErrorInfo(title=self.__tooltip, objList=_error_list)
