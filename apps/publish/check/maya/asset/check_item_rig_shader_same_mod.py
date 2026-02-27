@@ -95,7 +95,7 @@ class Check(object):
                 sg = sgs[0]
                 __mdl_shader = __mdl_data[0]['shader']
                 __mdl_sg = __mdl_data[0]['sg']
-                if shader[0] != __mdl_shader or sg != __mdl_sg:
+                if shader[0] != __mdl_shader:
                     error_not_same.append(mesh)
             else:
                 for sg in sgs:
@@ -117,7 +117,7 @@ class Check(object):
                             if not shader or shader[0] == 'lambert1':
                                 error_shader.append(mesh)
                                 continue
-                            if shader[0] != __mdl_shader or sg != __mdl_sg:
+                            if shader[0] != __mdl_shader:
                                 error_not_same.append(mesh)
         if error_mdl_data:
             __error['no_mdl_data'] = list(set(error_mdl_data))
