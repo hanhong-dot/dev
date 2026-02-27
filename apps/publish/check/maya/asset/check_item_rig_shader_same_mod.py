@@ -173,8 +173,6 @@ class Check(object):
                 __mdl_sg = __mdl_data[0]['sg']
                 if shader[0] != __mdl_shader:
                     cmds.rename(shader[0], __mdl_shader)
-                if sg != __mdl_sg:
-                    cmds.rename(sg, __mdl_sg)
             else:
                 for sg in sgs:
                     __meshs = cmds.sets(sg, q=1)
@@ -194,9 +192,6 @@ class Check(object):
                             shader = cmds.listConnections('{}.surfaceShader'.format(sg), s=1, d=0)
                             if shader[0] != __mdl_shader:
                                 cmds.rename(shader[0], __mdl_shader)
-                            if sg != __mdl_sg:
-                                cmds.rename(sg, __mdl_sg)
-
     def _get_meshs_from_grps(self, grps):
         meshs = []
         if grps:
