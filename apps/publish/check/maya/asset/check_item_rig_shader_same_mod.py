@@ -51,9 +51,9 @@ class Check(object):
                         _error_list.append(u'以下模型和drama_mdl的材质记录信息不一致\n')
                         for v_item in v:
                             _error_list.append(u'    模型:{}'.format(v_item))
-            return False, info.displayErrorInfo(title=self.tooltip, objList=_error_list)
+            return False, info.displayErrorInfo(title=self.__tooltip, objList=_error_list)
         else:
-            return True, info.displayInfo(title=self.tooltip, objList=[self.end])
+            return True, info.displayInfo(title=self.__tooltip, objList=[self.__end])
 
     def run(self):
         if self.__asset_type in ['item']:
@@ -131,14 +131,14 @@ class Check(object):
     def fix(self):
         __error = self.run()
         if not __error:
-            return True, info.displayInfo(title=self.tooltip, objList=[u'没有检测到错误,无需修复'])
+            return True, info.displayInfo(title=self.__tooltip, objList=[u'没有检测到错误,无需修复'])
         if not isinstance(__error, dict):
-            return False, info.displayErrorInfo(title=self.tooltip, objList=[__error])
+            return False, info.displayErrorInfo(title=self.__tooltip, objList=[__error])
         if 'no_mdl_data' in __error:
-            return False, info.displayErrorInfo(title=self.tooltip, objList=[
+            return False, info.displayErrorInfo(title=self.__tooltip, objList=[
                 u'没有找到drama_mdl的材质记录信息,请先上传{}drama_mdl任务'.format(self.__asset_name)])
         if 'error_shader' in __error:
-            return False, info.displayErrorInfo(title=self.tooltip, objList=[
+            return False, info.displayErrorInfo(title=self.__tooltip, objList=[
                 u'以下模型没有连接材质球或者连接的材质球是lambert1,请检查文件手动修复\n{}'.format(
                     '\n'.join(__error['error_shader']))])
         if 'not_same' in __error:
@@ -215,7 +215,7 @@ class Check(object):
         return list(set(meshs))
 
     def __get_drama_mdl_data(self):
-        filter = [['entity', 'is', {'type': 'Asset', 'id': self.asset_id}], ['content', 'is', 'drama_mdl']]
+        filter = [['entity', 'is', {'type': 'Asset', 'id': self.__asset_id}], ['content', 'is', 'drama_mdl']]
         fields = ['sg_data']
         data = self.sg.find_one('Task', filter, fields)
         if not data or 'sg_data' not in data or not data['sg_data']:
