@@ -42,15 +42,15 @@ class Check(object):
                             u'以下模型没有找到drama_mdl的材质记录信息,请检查drama_mdl文件是否一致\n'.format(
                                 self.__asset_name))
                         for v_item in v:
-                            _error_list.append(u'    模型:{}'.format(v_item))
+                            _error_list.append(u'{}'.format(v_item))
                     elif k == 'error_shader':
                         _error_list.append(u'以下模型没有连接材质球或者连接的材质球是lambert1\n')
                         for v_item in v:
-                            _error_list.append(u'    模型:{}'.format(v_item))
+                            _error_list.append(u'{}'.format(v_item))
                     elif k == 'not_same':
                         _error_list.append(u'以下模型和drama_mdl的材质记录信息不一致\n')
                         for v_item in v:
-                            _error_list.append(u'    模型:{}'.format(v_item))
+                            _error_list.append(u'{}'.format(v_item))
             return False, info.displayErrorInfo(title=self.__tooltip, objList=_error_list)
         else:
             return True, info.displayInfo(title=self.__tooltip, objList=[self.__end])
