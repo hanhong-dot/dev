@@ -157,6 +157,14 @@
                      except_projectType=""
         />
 
+        <processItem order_id="15" projectType="all"
+                     item_name="更新上传材质信息"
+                     toolTip="更新上传材质信息"
+                     process_command="import apps.publish.process.maya.process_record_data as process_record_data;reload(process_record_data);process_record_data.process_record_data(TaskData_Class)"
+                     except_project=""
+                     except_projectType=""
+        />
+
 
     </process_tab>
 </process>
