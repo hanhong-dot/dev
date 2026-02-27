@@ -59,7 +59,7 @@ class Check(object):
         if self.__asset_type in ['item']:
             __drama_mdl_data = self._get_drama_mdl_data()
             if not __drama_mdl_data:
-                return u'没有找到drama_mdl的材质记录信息,请先上传{}drama_mdl任务'.format(self.__asset_name)
+                return u'没有找到drama_mdl的材质记录信息,请先上传drama_mdl任务'
             grp_list = [k for k in self.structure.keys() if k]
             meshs = self._get_meshs_from_grps(grp_list)
             return self.__check_shader(meshs, __drama_mdl_data)
