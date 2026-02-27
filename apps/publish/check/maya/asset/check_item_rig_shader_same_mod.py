@@ -57,7 +57,7 @@ class Check(object):
 
     def run(self):
         if self.__asset_type in ['item']:
-            __drama_mdl_data = self.__get_drama_mdl_data()
+            __drama_mdl_data = self._get_drama_mdl_data()
             if not __drama_mdl_data:
                 return u'没有找到drama_mdl的材质记录信息,请先上传{}drama_mdl任务'.format(self.__asset_name)
             grp_list = [k for k in self.structure.keys() if k]
@@ -73,11 +73,10 @@ class Check(object):
             return
         for mesh in meshs:
             __mdl_data = []
-            for __item in drama_mdl_data:
-                for k, v in __item.items():
-                    if k == mesh:
-                        __mdl_data = v
-                        break
+            for k, v in drama_mdl_data.items():
+                if k == mesh:
+                    __mdl_data = v
+                    break
             if not __mdl_data:
                 error_mdl_data.append(mesh)
                 continue
@@ -143,7 +142,7 @@ class Check(object):
                     '\n'.join(__error['error_shader']))])
         if 'not_same' in __error:
             __error_meshs = __error['not_same']
-            __drama_mdl_data = self.__get_drama_mdl_data()
+            __drama_mdl_data = self._get_drama_mdl_data()
             self.fix_shader(__error_meshs, __drama_mdl_data)
 
     def fix_shader(self, error_meshs, drama_mdl_data):
@@ -214,7 +213,7 @@ class Check(object):
             return []
         return list(set(meshs))
 
-    def __get_drama_mdl_data(self):
+    def _get_drama_mdl_data(self):
         filter = [['entity', 'is', {'type': 'Asset', 'id': self.__asset_id}], ['content', 'is', 'drama_mdl']]
         fields = ['sg_data']
         data = self.__sg.find_one('Task', filter, fields)
