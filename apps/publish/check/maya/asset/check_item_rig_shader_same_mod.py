@@ -150,11 +150,10 @@ class Check(object):
             return
         for mesh in error_meshs:
             __mdl_data = []
-            for __item in drama_mdl_data:
-                for k, v in __item.items():
-                    if k == mesh:
-                        __mdl_data = v
-                        break
+            for k, v in drama_mdl_data.items():
+                if k == mesh:
+                    __mdl_data = v
+                    break
             if not __mdl_data:
                 continue
             shapes = cmds.listRelatives(mesh, shapes=1, fullPath=1, type='mesh')
