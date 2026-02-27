@@ -43,7 +43,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-         <checkItem order_id="4" projectType="all"
+        <checkItem order_id="4" projectType="all"
                    item_name="检测重名节点"
                    toolTip="检查文件中是否存在重名节点"
                    check_command="import apps.publish.check.maya.asset.check_exist_duplicate_name_node as check_exist_duplicate_name_node;reload(check_exist_duplicate_name_node);check_exist_duplicate_name_node.Check(TaskData_Class).checkinfo()"
@@ -129,11 +129,20 @@
         <!--                   except_projectType=""-->
         <!--                   ignore="False"/>-->
 
+        <!--        <checkItem order_id="13" projectType="all"-->
+        <!--                   item_name="检测材质命名"-->
+        <!--                   toolTip="检测材质命名"-->
+        <!--                   check_command="import apps.publish.check.maya.asset.check_rig_shader as check_rig_shader;reload(check_rig_shader);check_rig_shader.Check(TaskData_Class).checkinfo()"-->
+        <!--                   fix_command="import apps.publish.check.maya.asset.check_rig_shader as check_rig_shader;reload(check_rig_shader);check_rig_shader.Check(TaskData_Class).fix()"-->
+        <!--                   except_project=""-->
+        <!--                   except_projectType=""-->
+        <!--                   ignore="False"/>-->
+
         <checkItem order_id="13" projectType="all"
-                   item_name="检测材质命名"
-                   toolTip="检测材质命名"
-                   check_command="import apps.publish.check.maya.asset.check_rig_shader as check_rig_shader;reload(check_rig_shader);check_rig_shader.Check(TaskData_Class).checkinfo()"
-                   fix_command="import apps.publish.check.maya.asset.check_rig_shader as check_rig_shader;reload(check_rig_shader);check_rig_shader.Check(TaskData_Class).fix()"
+                   item_name="检测材质命名是否与drama_mdl文件中一致(部分可修复)"
+                   toolTip="检测材质命名是否与drama_mdl文件中一致(部分可修复)"
+                   check_command="import apps.publish.check.maya.asset.check_item_rig_shader_same_mod as check_item_rig_shader_same_mod;reload(check_item_rig_shader_same_mod);check_item_rig_shader_same_mod.Check(TaskData_Class).checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_item_rig_shader_same_mod as check_item_rig_shader_same_mod;reload(check_item_rig_shader_same_mod);check_item_rig_shader_same_mod.Check(TaskData_Class).fix()"
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
