@@ -217,7 +217,7 @@ class Check(object):
     def __get_drama_mdl_data(self):
         filter = [['entity', 'is', {'type': 'Asset', 'id': self.__asset_id}], ['content', 'is', 'drama_mdl']]
         fields = ['sg_data']
-        data = self.sg.find_one('Task', filter, fields)
+        data = self.__sg.find_one('Task', filter, fields)
         if not data or 'sg_data' not in data or not data['sg_data']:
             return {}
         return eval(data['sg_data'])
