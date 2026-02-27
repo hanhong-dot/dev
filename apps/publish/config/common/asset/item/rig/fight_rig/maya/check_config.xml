@@ -119,14 +119,14 @@
         <!--                   except_projectType=""-->
         <!--                   ignore="False"/>-->
 
-        <checkItem order_id="12" projectType="all"
-                   item_name="检测材质命名"
-                   toolTip="检测材质命名"
-                   check_command="import apps.publish.check.maya.asset.check_rig_shader as check_rig_shader;reload(check_rig_shader);check_rig_shader.Check(TaskData_Class).checkinfo()"
-                   fix_command="import apps.publish.check.maya.asset.check_rig_shader as check_rig_shader;reload(check_rig_shader);check_rig_shader.Check(TaskData_Class).fix()"
-                   except_project=""
-                   except_projectType=""
-                   ignore="False"/>
+<!--        <checkItem order_id="12" projectType="all"-->
+<!--                   item_name="检测材质命名"-->
+<!--                   toolTip="检测材质命名"-->
+<!--                   check_command="import apps.publish.check.maya.asset.check_rig_shader as check_rig_shader;reload(check_rig_shader);check_rig_shader.Check(TaskData_Class).checkinfo()"-->
+<!--                   fix_command="import apps.publish.check.maya.asset.check_rig_shader as check_rig_shader;reload(check_rig_shader);check_rig_shader.Check(TaskData_Class).fix()"-->
+<!--                   except_project=""-->
+<!--                   except_projectType=""-->
+<!--                   ignore="False"/>-->
 
 
         <checkItem order_id="13" projectType="all"
