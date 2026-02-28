@@ -447,7 +447,7 @@ class ServerSG(object):
 
     def _dbfile_create(self, db_type, db_file, project_name, task_type, entity_name, task_name, link_type,
                        sequence_name='', episode_name='', description='', sg_status_list='', down_path='', up_path='',
-                       returnfields=None, publish_file_type='', work_file='', ref_info='', **kwargs):
+                       returnfields=None, publish_file_type='', work_file='', ref_info='', file_data='',**kwargs):
 
         """w'd'd
         :param db_type: publish,version
@@ -509,7 +509,7 @@ class ServerSG(object):
                                              task_data=_task_data, link_entity_data=_entity_data, user_data=_user_data,
                                              return_fields=returnfields, publish_file_type=_publish_file_data,
                                              down_path=_down_path, up_path=_up_path, description=description,
-                                             work_file=work_file, ref_info=ref_info)
+                                             work_file=work_file, ref_info=ref_info,file_data=file_data)
 
         if db_type == 'version':
             return sg_version.create_version(sg_login, version_file=db_file, description=description,
@@ -623,7 +623,8 @@ class ServerSG(object):
                                                                        up_path=obj['up_path'],
                                                                        publish_file_type=obj['publish_file_type'],
                                                                        work_file=self._set_sgpath(obj['work_file']),
-                                                                       ref_info=obj['ref_info']
+                                                                       ref_info=obj['ref_info'],
+                                                                       file_data=obj['file_data']
 
                                                                        )
                                     if obj['work_file']:
