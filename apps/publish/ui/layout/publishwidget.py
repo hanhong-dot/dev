@@ -713,6 +713,7 @@ class PublishWidget(QFrame):
                                             info1 and 'thumbnail' in info1 and 'des_path' in info1) else '',
                                     work_file=obj_dic['work_file'] if 'work_file' in obj_dic.keys() else '',
                                     ref_info=obj_dic['ref_info'] if 'ref_info' in obj_dic.keys() else '',
+                                    file_data=obj_dic['file_data'] if 'file_data' in obj_dic.keys() else '',
                                     send_jenkins=self._send_jenkins,
                                     wbx=self._wbx,
                                     updata_model=self._role_rbf_udpate_model
