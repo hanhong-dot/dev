@@ -116,6 +116,7 @@ class Pack(object):
                  thumbnail=None,
                  work_file=None,
                  ref_info=None,
+                 file_data=None,
                  send_jenkins=None,
                  wbx=None,
                  parent_asset=None,
@@ -171,6 +172,7 @@ class Pack(object):
         _basedict["thumbnail"] = thumbnail
         _basedict["work_file"] = work_file
         _basedict["ref_info"] = ref_info
+        _basedict["file_data"] = file_data
         _basedict["send_jenkins"] = send_jenkins
         _basedict["wbx"] = wbx
         _basedict["parent_asset"] = parent_asset
