@@ -14,9 +14,10 @@ import traceback
 
 
 def create_publish(sg, publish_file, project_data, link_type='local', url_path=None, task_data=None,
-                   link_entity_data=None,sg_status_list=None,
+                   link_entity_data=None, sg_status_list=None,
                    user_data=None,
-                   return_fields=None, publish_file_type=None,down_path=None,up_path=None,thumbnail=None,description='',work_file='',ref_info='',
+                   return_fields=None, publish_file_type=None, down_path=None, up_path=None, thumbnail=None,
+                   description='', work_file='', ref_info='', file_data='',
                    **kwargs):
     '''
     创建publish file信息
@@ -66,9 +67,9 @@ def create_publish(sg, publish_file, project_data, link_type='local', url_path=N
     if thumbnail:
         data['image'] = thumbnail
     if description:
-        data['description']=description
+        data['description'] = description
     if work_file:
-        _work_data={
+        _work_data = {
             'content_type': "string",
             'link_type': 'local',
             'local_path': work_file,
@@ -77,9 +78,12 @@ def create_publish(sg, publish_file, project_data, link_type='local', url_path=N
             'local_path_windows': work_file,
             'name': os.path.basename(work_file),
         }
-        data['sg_workfile']=_work_data
+        data['sg_workfile'] = _work_data
     if ref_info:
-        data['sg_rferenceinfo']=ref_info
+        data['sg_rferenceinfo'] = ref_info
+
+    if file_data:
+        data['sg_data'] = file_data
 
     data.update(kwargs)
     return sg.create("PublishedFile", data, return_fields)
@@ -96,13 +100,13 @@ def select_publish_publish(sg, publish_id, publish_fields=[]):
     return sg_base.select_entity(sg, "PublishedFile", publish_id, publish_fields)
 
 
-
-
-def update_publish_attachments(sg,publish_id, upload_path=''):
+def update_publish_attachments(sg, publish_id, upload_path=''):
     u"""
     上传附件
     """
     sg.upload("PublishedFile", publish_id, upload_path, field_name="sg_attachments")
+
+
 def update_publish_publish(sg, publish_id, upload_thumbnail='', upload_path='', **kwargs):
     '''
     更新publish信息
@@ -206,8 +210,6 @@ def update_publish_entity(sg, publish_id, entity_name='', **kwargs):
     return False if False in result else True
 
 
-
-
 def select_publish_task(sg, publish_id, task_name='', task_fields=[]):
     """
     查询publish链接的task信息
@@ -248,14 +250,15 @@ def update_publish_task(sg, publish_id, task_name='', **kwargs):
             result.append(False)
     return False if False in result else True
 
+
 def get_publish_type(sg):
     '''
     获取publish类型
     :param sg: sg实体
     :return: publish类型列表
     '''
-    _entity_type='PublishedFileType'
-    _fields=['code']
-    _filters=[]
-    _datas=sg.find(_entity_type, filters=_filters, fields=_fields)
+    _entity_type = 'PublishedFileType'
+    _fields = ['code']
+    _filters = []
+    _datas = sg.find(_entity_type, filters=_filters, fields=_fields)
     return _datas
