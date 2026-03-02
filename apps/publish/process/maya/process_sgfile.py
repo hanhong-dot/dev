@@ -39,20 +39,25 @@ def processPublish(TaskData, down=False, up=True):
     '''
     _publish_dict = {}
     task_name = TaskData.task_name
+    asset_type = TaskData.asset_type
 
     src_publish = mayafile.Maya_File(TaskData).save_localfile(
         os.path.basename(filehandle.remove_version(TaskData.des_path)))
     des_publish = filehandle.remove_version(filehandle.get_publishfilepath(TaskData))
     work_file = _get_work_file(TaskData)
     ref_info = str(_get_refinfo(TaskData))
-    print('start')
-    print(processPackage.datapack([(src_publish, des_publish)], 'publish', down, up, work_file, ref_info))
+    file_data=_get_file_data(TaskData)
+    if file_data:
+        file_data=str(file_data)
     if task_name in ['faceld_rig']:
         return processPackage.datapack([(src_publish, des_publish)], 'mocap', down, up, work_file, ref_info)
     elif task_name.startswith('ue_') == True:
         return processPackage.datapack([(src_publish, des_publish)], 'ue', down, up, work_file, ref_info)
+    elif task_name in ['drama_rig','rbf']  and asset_type and asset_type in ['role', 'item'] and file_data:
+        return processPackage.datapack([(src_publish, des_publish)], 'publish', down, up, work_file, ref_info,file_data)
     else:
         return processPackage.datapack([(src_publish, des_publish)], 'publish', down, up, work_file, ref_info)
+
 
 
 def back_publish(TaskData):
@@ -100,6 +105,7 @@ def _get_work_file(TaskData):
     except:
         return
 
+
 def _get_refinfo(TaskData):
     u"""
     获取work 参考信息
@@ -111,6 +117,13 @@ def _get_refinfo(TaskData):
         _info = jsonio.read(_json_file)
         if _info and 'ref_info' in _info:
             return _info['ref_info']
+
+def _get_file_data(TaskData):
+    _json_file = _get_work_jsonfile(TaskData)
+    if _json_file and os.path.exists(_json_file):
+        _info = jsonio.read(_json_file)
+        if _info and 'file_data' in _info:
+            return _info['file_data']
 
 
 def save_work(TaskData):
@@ -124,6 +137,9 @@ def save_work(TaskData):
     json_file = _get_work_jsonfile(TaskData)
     if json_file and os.path.exists(json_file):
         os.remove(json_file)
+
+    task_name = TaskData.task_name
+    asset_type = TaskData.asset_type
     # 升版本保存
     _file = cmds.file(q=1, exn=1)
     filecommon.BaseFile().open_file(_file)
@@ -154,7 +170,87 @@ def save_work(TaskData):
     _info = {'work_file': _file}
     if _refinfo:
         _info['ref_info'] = _refinfo
+    if asset_type and asset_type in ['role', 'item']:
+        __file_data = get_file_data(TaskData)
+        if __file_data:
+            _info['file_data'] = __file_data
+
     jsonio.write(_info, json_file)
+
+
+def get_file_data(TaskData):
+    u"""
+    获取文件数据
+    :param TaskData: Task 类
+    :return: 返回文件数据字典
+    """
+    import lib.maya.analysis.analyze_structure as structure
+    import database.shotgun.fun.get_entity as get_entity
+    import database.shotgun.core.sg_analysis as sg_analysis
+    asset_type = TaskData.asset_type
+    task_name = TaskData.task_name
+    entity_id = TaskData.entity_id
+    entity_type = TaskData.entity_type
+    sg = sg_analysis.Config().login()
+
+    structure_data = structure.AnalyStrue(TaskData).get_structure()
+    asset_level = get_entity.BaseGetSgInfo(sg, entity_id, entity_type).get_asset_level()
+    if not asset_level:
+        asset_level = 'level_0'
+    else:
+        asset_level = 'level_{}'.format(asset_level)
+    if asset_level in structure_data:
+        __structure_data = structure_data[asset_level]
+    else:
+        __structure_data = structure_data
+    mod_grps = get_mod_grps(__structure_data)
+    if not mod_grps:
+        return {}
+    __data = _get_mod_grps_children(mod_grps)
+    return __data
+
+
+def _get_mod_grps_children(mod_grps):
+    __dict = {}
+    if not mod_grps:
+        return __dict
+    for mod_grp in mod_grps:
+        __child_dict = get_mod_grp_meshs(mod_grp)
+        if __child_dict:
+            __dict.update(__child_dict)
+    return __dict
+
+
+def get_mod_grp_meshs(mod_grp):
+    import maya.cmds as cmds
+    __dict = {}
+    if not mod_grp or not cmds.objExists(mod_grp):
+        return __dict
+    children = cmds.listRelatives(mod_grp, ad=1, type='transform', f=1)
+    if not children:
+        return __dict
+    __dict[mod_grp] = children
+    return __dict
+
+
+def get_mod_grps(structure_data):
+    mod_grps = []
+    if not structure_data:
+        return mod_grps
+    if isinstance(structure_data, str):
+        mod_grps.append(structure_data)
+    elif isinstance(structure_data, list):
+        mod_grps = structure_data
+    elif isinstance(structure_data, dict):
+        for k, v in structure_data.items():
+            if isinstance(v, str):
+                mod_grps.append(v)
+            elif isinstance(v, list):
+                mod_grps.extend(v)
+            elif isinstance(v, dict):
+                mod_grps.extend(get_mod_grps(v))
+    return mod_grps
+
 
 def export_file(TaskData):
     u"""
@@ -165,7 +261,7 @@ def export_file(TaskData):
     import maya.cmds as cmds
     from lib.maya.node.grop import BaseGroup
     from method.maya.common.file import BaseFile
-    if TaskData.task_name in ['drama_mdl','fight_mdl','lan_mdl','ue_mdl','ue_low']:
+    if TaskData.task_name in ['drama_mdl', 'fight_mdl', 'lan_mdl', 'ue_mdl', 'ue_low']:
         file_name = cmds.file(q=1, exn=1)
         groups = BaseGroup().get_root_groups()
         if groups:
