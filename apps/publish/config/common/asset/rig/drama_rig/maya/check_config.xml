@@ -50,7 +50,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-         <checkItem order_id="5" projectType="all"
+        <checkItem order_id="5" projectType="all"
                    item_name="检测重名节点"
                    toolTip="检查文件中是否存在重名节点"
                    check_command="import apps.publish.check.maya.asset.check_exist_duplicate_name_node as check_exist_duplicate_name_node;reload(check_exist_duplicate_name_node);check_exist_duplicate_name_node.Check(TaskData_Class).checkinfo()"
@@ -59,7 +59,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-         <checkItem order_id="6" projectType="all"
+        <checkItem order_id="6" projectType="all"
                    item_name="检测碰撞体模型(后缀为_Collider)模型"
                    toolTip="检测碰撞体模型(后缀为_Collider)模型"
                    check_command="import apps.publish.check.maya.asset.check_collider_triangle_count as check_collider_triangle_count;reload(check_collider_triangle_count);check_collider_triangle_count.Check(TaskData_Class).checkinfo()"
@@ -183,7 +183,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-         <checkItem order_id="19" projectType="all"
+        <checkItem order_id="19" projectType="all"
                    item_name="检测配饰bs target列表中包含捏脸关键字(PL捏脸)"
                    toolTip="检测配饰bs target列表中包含捏脸关键字(PL捏脸)"
                    check_command="from apps.publish.check.maya.asset import check_pl_rolaccesory_bs;reload(check_pl_rolaccesory_bs);check_pl_rolaccesory_bs.Check(TaskData_Class).checkinfo()"
@@ -191,7 +191,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-             <checkItem order_id="20" projectType="all"
+        <checkItem order_id="20" projectType="all"
                    item_name="检测配饰是否有db骨骼(DB参数)"
                    toolTip="检测配饰是否有db骨骼(DB参数)"
                    check_command="from apps.publish.check.maya.asset import check_rolacceory_db_joint;reload(check_rolacceory_db_joint);check_rolacceory_db_joint.Check(TaskData_Class).checkinfo()"
@@ -199,7 +199,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-             <checkItem order_id="21" projectType="all"
+        <checkItem order_id="21" projectType="all"
                    item_name="检测配饰AP拆分骨骼(AP拆分)"
                    toolTip="检测配饰AP拆分骨骼(AP拆分)"
                    check_command="from apps.publish.check.maya.asset import check_rolaccesory_ap_joint;reload(check_rolaccesory_ap_joint);check_rolaccesory_ap_joint.Check(TaskData_Class).checkinfo()"
@@ -208,7 +208,7 @@
                    except_projectType=""
                    ignore="False"/>
 
-              <checkItem order_id="22" projectType="all"
+        <checkItem order_id="22" projectType="all"
                    item_name="检测配饰眼镜有效蒙皮(眼镜标记)"
                    toolTip="检测配饰眼镜有效蒙皮(眼镜标记)"
                    check_command="from apps.publish.check.maya.asset import check_glass_skin_weight;reload(check_glass_skin_weight);check_glass_skin_weight.Check(TaskData_Class).checkinfo()"
@@ -279,7 +279,7 @@
                    except_project=""
                    except_projectType=""
                    ignore="False"/>
-         <checkItem order_id="29" projectType="all"
+        <checkItem order_id="29" projectType="all"
                    item_name="检测输出asis fbx对应模型组材质命名是否正确"
                    toolTip="检测输出asis fbx对应模型组材质命名是否正确"
                    check_command="import apps.publish.check.maya.asset.check_asis_shader as check_asis_shader;reload(check_asis_shader);check_asis_shader.Check(TaskData_Class).checkinfo()"
@@ -296,6 +296,14 @@
                    except_project=""
                    except_projectType=""
                    ignore="True"/>
+        <checkItem order_id="31" projectType="all"
+                   item_name="检测点权重骨骼数量超过上限(role,rolaccesory生效,可修复)"
+                   toolTip="检测点权重骨骼数量超过上限(role,rolaccesory生效,可修复)"
+                   check_command="import apps.publish.check.maya.asset.check_rig_skin_weight_count as check_rig_skin_weight_count;reload(check_rig_skin_weight_count);check_rig_skin_weight_count.Check(TaskData_Class).checkinfo()"
+                   fix_command="import apps.publish.check.maya.asset.check_rig_skin_weight_count as check_rig_skin_weight_count;reload(check_rig_skin_weight_count);check_rig_skin_weight_count.Check(TaskData_Class).fix()"
+                   except_project=""
+                   except_projectType=""
+                   ignore="False"/>
 
     </check_tab>
 </check>
