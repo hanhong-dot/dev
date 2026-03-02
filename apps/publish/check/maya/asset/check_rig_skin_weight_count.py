@@ -132,7 +132,7 @@ class Check(object):
                 elif isinstance(v, str) or isinstance(v, unicode):
                     _groups.append(v)
                 elif isinstance(v, dict):
-                    _groups.extend(self.__get_check_groups(v))
+                    _groups.extend(self._get_check_groups(v))
         return _groups
 
     def fix(self):
