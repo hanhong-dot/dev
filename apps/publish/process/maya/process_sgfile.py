@@ -211,14 +211,14 @@ def get_file_data(TaskData):
 
 
 def _get_mod_grps_children(mod_grps):
-    __dict = {}
+    __data=[]
     if not mod_grps:
-        return __dict
+        return __data
     for mod_grp in mod_grps:
         __child_dict = get_mod_grp_meshs(mod_grp)
         if __child_dict:
-            __dict.update(__child_dict)
-    return __dict
+            __data.append(__child_dict)
+    return __data
 
 
 def get_mod_grp_meshs(mod_grp):
@@ -226,11 +226,29 @@ def get_mod_grp_meshs(mod_grp):
     __dict = {}
     if not mod_grp or not cmds.objExists(mod_grp):
         return __dict
-    children = cmds.listRelatives(mod_grp, ad=1, type='transform', f=1)
+    children = cmds.listRelatives(mod_grp, ad=1, type='mesh', f=1)
     if not children:
         return __dict
-    __dict[mod_grp] = children
+    meshs=__get_mesh_by_shape(children)
+    if not meshs:
+         return __dict
+    meshs=list(set(meshs))
+    __dict['mod_grp'] = mod_grp
+    __dict['meshs'] = meshs
     return __dict
+
+def __get_mesh_by_shape(shapes):
+    import maya.cmds as cmds
+    meshs = []
+    if not shapes:
+        return meshs
+    for shape in shapes:
+        if not cmds.objExists(shape):
+            continue
+        tr= cmds.listRelatives(shape, parent=1, fullPath=1)
+        if tr:
+            meshs.append(tr[0])
+    return meshs
 
 
 def get_mod_grps(structure_data):
