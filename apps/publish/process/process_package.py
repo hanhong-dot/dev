@@ -13,7 +13,7 @@
 # 	                     u'src_path': 'Y:/Project/x3/Assets/Chr/CB001002xiongda/Mod/Mod_hig/version/maya/aaa.bmp'}]}
 # -------------------------------------------------------------------------------
 
-def datapack(filepaths, tag, down=False, up=False,work_file='', ref_info='',*args, **kwargs):
+def datapack(filepaths, tag, down=False, up=False, work_file='', ref_info='', file_data='', *args, **kwargs):
     '''
     给process处理函数封装字典
     :param filepaths:列表
@@ -25,10 +25,10 @@ def datapack(filepaths, tag, down=False, up=False,work_file='', ref_info='',*arg
     _baselist = []
     _basedict = {}
     for obj in filepaths:
-        _baselist.append({u'src_path': obj[0], u'des_path': obj[1], 'down_path': down, 'up_path': up,'work_file':work_file,'ref_info':ref_info})
+        _baselist.append(
+            {u'src_path': obj[0], u'des_path': obj[1], 'down_path': down, 'up_path': up, 'work_file': work_file,
+             'ref_info': ref_info, 'file_data': file_data})
     return {tag: _baselist}
-
-
 
 
 def datapack_dict(filedict, down=False, up=False):
@@ -70,7 +70,6 @@ def mergedict(a_dict, b_dict):
         return a_dict
     else:
         return b_dict
-
 
 # if __name__ == '__main__':
 #     a_dict = {'fbx': [{'a': 'b'}, {'e': 'f'}], 'yeti': [{'y1': 'g1'}], 'abc': [{'a1': 'b1'}, {'e1': 'f1'}]}
