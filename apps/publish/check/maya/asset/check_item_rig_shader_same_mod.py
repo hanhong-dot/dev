@@ -56,13 +56,18 @@ class Check(object):
             return True, info.displayInfo(title=self.__tooltip, objList=[self.__end])
 
     def run(self):
-        if self.__asset_type in ['item']:
-            __drama_mdl_data = self._get_drama_mdl_data()
-            if not __drama_mdl_data:
-                return u'没有找到drama_mdl的材质记录信息,请先上传drama_mdl任务'
-            grp_list = [k for k in self.structure.keys() if k]
-            meshs = self._get_meshs_from_grps(grp_list)
-            return self.__check_shader(meshs, __drama_mdl_data)
+        if self.__asset_type not in ['item']:
+            return
+
+        __get_drama_mdl_publish_data = self.__get_drama_mdl_publish_data()
+        if __get_drama_mdl_publish_data is None:
+            return
+        __drama_mdl_data = self._get_drama_mdl_data()
+        if not __drama_mdl_data:
+            return u'没有找到drama_mdl的材质记录信息,请先上传drama_mdl任务'
+        grp_list = [k for k in self.structure.keys() if k]
+        meshs = self._get_meshs_from_grps(grp_list)
+        return self.__check_shader(meshs, __drama_mdl_data)
 
     def __check_shader(self, meshs, drama_mdl_data):
         error_mdl_data = []
@@ -201,6 +206,7 @@ class Check(object):
                                     cmds.rename(sg, __mdl_sg)
                                 except:
                                     pass
+
     def _get_meshs_from_grps(self, grps):
         meshs = []
         if grps:
@@ -221,6 +227,28 @@ class Check(object):
         filter = [['entity', 'is', {'type': 'Asset', 'id': self.__asset_id}], ['content', 'is', 'drama_mdl']]
         fields = ['sg_data']
         data = self.__sg.find_one('Task', filter, fields)
+
         if not data or 'sg_data' not in data or not data['sg_data']:
             return {}
         return eval(data['sg_data'])
+
+    def _get_drama_mdl_task(self):
+        filter = [['entity', 'is', {'type': 'Asset', 'id': self.__asset_id}], ['content', 'is', 'drama_mdl']]
+        fields = ['id', 'content']
+        return self.__sg.find_one('Task', filter, fields)
+
+    def __get_drama_mdl_publish_data(self):
+        __drama_mdl_task = self._get_drama_mdl_task()
+        if not __drama_mdl_task:
+            return None
+
+        __task_id = __drama_mdl_task.get('id', None)
+        maya_scene_publish_type = {'id': 1, 'name': 'Maya Scene', 'type': 'PublishedFileType'}
+        if __task_id is None:
+            return None
+        filter = [['task.Task.id', 'is', __task_id], ['published_file_type', 'is', maya_scene_publish_type]]
+        fields = ['id']
+        publish_data = self.__sg.find_one('PublishedFile', filter, fields)
+        if not publish_data:
+            return None
+        return publish_data
