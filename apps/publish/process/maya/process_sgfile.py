@@ -46,18 +46,18 @@ def processPublish(TaskData, down=False, up=True):
     des_publish = filehandle.remove_version(filehandle.get_publishfilepath(TaskData))
     work_file = _get_work_file(TaskData)
     ref_info = str(_get_refinfo(TaskData))
-    file_data=_get_file_data(TaskData)
+    file_data = _get_file_data(TaskData)
     if file_data:
-        file_data=str(file_data)
+        file_data = str(file_data)
     if task_name in ['faceld_rig']:
         return processPackage.datapack([(src_publish, des_publish)], 'mocap', down, up, work_file, ref_info)
     elif task_name.startswith('ue_') == True:
         return processPackage.datapack([(src_publish, des_publish)], 'ue', down, up, work_file, ref_info)
-    elif task_name in ['drama_rig','rbf']  and asset_type and asset_type in ['role', 'item'] and file_data:
-        return processPackage.datapack([(src_publish, des_publish)], 'publish', down, up, work_file, ref_info,file_data)
+    elif task_name in ['drama_rig', 'rbf'] and asset_type and asset_type in ['role', 'item'] and file_data:
+        return processPackage.datapack([(src_publish, des_publish)], 'publish', down, up, work_file, ref_info,
+                                       file_data)
     else:
         return processPackage.datapack([(src_publish, des_publish)], 'publish', down, up, work_file, ref_info)
-
 
 
 def back_publish(TaskData):
@@ -118,7 +118,8 @@ def _get_refinfo(TaskData):
         if _info and 'ref_info' in _info:
             return _info['ref_info']
 
-def _get_file_data(TaskData):
+
+def _f(TaskData):
     _json_file = _get_work_jsonfile(TaskData)
     if _json_file and os.path.exists(_json_file):
         _info = jsonio.read(_json_file)
@@ -184,34 +185,47 @@ def get_file_data(TaskData):
     :param TaskData: Task 类
     :return: 返回文件数据字典
     """
-    import lib.maya.analysis.analyze_structure as structure
+    # import lib.maya.analysis.analyze_structure as structure
     import database.shotgun.fun.get_entity as get_entity
     import database.shotgun.core.sg_analysis as sg_analysis
+    import lib.maya.analysis.analyze_fbx as analyze_fbx
     asset_type = TaskData.asset_type
     task_name = TaskData.task_name
     entity_id = TaskData.entity_id
     entity_type = TaskData.entity_type
     sg = sg_analysis.Config().login()
-
-    structure_data = structure.AnalyStrue(TaskData).get_structure()
-    asset_level = get_entity.BaseGetSgInfo(sg, entity_id, entity_type).get_asset_level()
-    if not asset_level:
-        asset_level = 'level_0'
-    else:
-        asset_level = 'level_{}'.format(asset_level)
-    if asset_level in structure_data:
-        __structure_data = structure_data[asset_level]
-    else:
-        __structure_data = structure_data
-    mod_grps = get_mod_grps(__structure_data)
-    if not mod_grps:
+    _fbx_info = analyze_fbx.AnalyFbx(TaskData).get_fbx()
+    __mod_grp_list = []
+    if not _fbx_info:
         return {}
-    __data = _get_mod_grps_children(mod_grps)
+    for i in range(len(_fbx_info)):
+        __grps = _fbx_info[i].get('fbx_objs')
+        if __grps:
+            __mod_grp_list.extend(__grps)
+    if not __mod_grp_list:
+        return {}
+    __mod_grp_list = list(set(__mod_grp_list))
+    __data = _get_mod_grps_children(__mod_grp_list)
     return __data
+    # structure_data = structure.AnalyStrue(TaskData).get_structure()
+    # asset_level = get_entity.BaseGetSgInfo(sg, entity_id, entity_type).get_asset_level()
+    # if not asset_level:
+    #     asset_level = 'level_0'
+    # else:
+    #     asset_level = 'level_{}'.format(asset_level)
+    # if asset_level in structure_data:
+    #     __structure_data = structure_data[asset_level]
+    # else:
+    #     __structure_data = structure_data
+    # mod_grps = get_mod_grps(__structure_data)
+    # if not mod_grps:
+    #     return {}
+    # __data = _get_mod_grps_children(mod_grps)
+    # return __data
 
 
 def _get_mod_grps_children(mod_grps):
-    __data=[]
+    __data = []
     if not mod_grps:
         return __data
     for mod_grp in mod_grps:
@@ -229,13 +243,14 @@ def get_mod_grp_meshs(mod_grp):
     children = cmds.listRelatives(mod_grp, ad=1, type='mesh', f=1)
     if not children:
         return __dict
-    meshs=__get_mesh_by_shape(children)
+    meshs = __get_mesh_by_shape(children)
     if not meshs:
-         return __dict
-    meshs=list(set(meshs))
+        return __dict
+    meshs = list(set(meshs))
     __dict['mod_grp'] = mod_grp
     __dict['meshs'] = meshs
     return __dict
+
 
 def __get_mesh_by_shape(shapes):
     import maya.cmds as cmds
@@ -245,7 +260,7 @@ def __get_mesh_by_shape(shapes):
     for shape in shapes:
         if not cmds.objExists(shape):
             continue
-        tr= cmds.listRelatives(shape, parent=1, fullPath=1)
+        tr = cmds.listRelatives(shape, parent=1, fullPath=1)
         if tr:
             meshs.append(tr[0])
     return meshs
