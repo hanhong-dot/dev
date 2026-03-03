@@ -70,7 +70,7 @@ def add_env():
         _paths = ['Ide\\Python\\2.7.11\\Lib\\site-packages', 'tools\\x3_P4\\motionbuilder']
         sys.path.append(_root)
         _f_path = sys.path
-        plugin_paths = [r"Z:\dev\tools\plug-ins\mobu\UnityMeshSync_MotionBuilder\MotionBuilder2019"]
+        plugin_paths = [r"Z:\dev\tools\plug-ins\mobu\UnityMeshSync_MotionBuilder\MotionBuilder2019",r"C:\Program Files\Autodesk\MotionBuilder 2019\bin\x64\python\site-packages\PySide2"]
         for i in range(len(_paths)):
             _path = '{}\\{}'.format(_root, _paths[i])
             if _path not in _f_path:
