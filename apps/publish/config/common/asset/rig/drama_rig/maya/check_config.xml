@@ -303,7 +303,7 @@
                    fix_command="import apps.publish.check.maya.asset.check_rig_skin_weight_count as check_rig_skin_weight_count;reload(check_rig_skin_weight_count);check_rig_skin_weight_count.Check(TaskData_Class).fix()"
                    except_project=""
                    except_projectType=""
-                   ignore="False"/>
+                   ignore="True"/>
 
     </check_tab>
 </check>
