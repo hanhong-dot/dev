@@ -60,6 +60,14 @@ def processPublish(TaskData, down=False, up=True):
         return processPackage.datapack([(src_publish, des_publish)], 'publish', down, up, work_file, ref_info)
 
 
+def _get_file_data(TaskData):
+    _json_file = _get_work_jsonfile(TaskData)
+    if _json_file and os.path.exists(_json_file):
+        _info = jsonio.read(_json_file)
+        if _info and 'file_data' in _info:
+            return _info['file_data']
+
+
 def back_publish(TaskData):
     u"""
     处理备份publish 文件
