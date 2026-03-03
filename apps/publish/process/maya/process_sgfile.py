@@ -186,7 +186,7 @@ def get_file_data(TaskData):
     :return: 返回文件数据字典
     """
     # import lib.maya.analysis.analyze_structure as structure
-    import database.shotgun.fun.get_entity as get_entity
+    # import database.shotgun.fun.get_entity as get_entity
     import database.shotgun.core.sg_analysis as sg_analysis
     import lib.maya.analysis.analyze_fbx as analyze_fbx
     asset_type = TaskData.asset_type
