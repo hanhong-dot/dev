@@ -90,6 +90,16 @@ def back_publish(TaskData):
 
     return processPackage.datapack([(src_publish, des_publish)], 'back')
 
+def back_backup_publish(TaskData):
+    des_publish = filehandle.remove_version(filehandle.get_publishfilepath(TaskData))
+    if not des_publish  or not os.path.exists(des_publish):
+        return
+    __dir, __file = os.path.split(des_publish)
+    _current_dir = _get_current_data_time_dir()
+    bakup_publish = '{}/{}/{}'.format(filehandle.get_backpublishdir(TaskData),_current_dir, __file)
+    return processPackage.datapack([(des_publish, bakup_publish)], 'backup')
+
+
 
 def _get_current_data_time_dir():
     u"""
