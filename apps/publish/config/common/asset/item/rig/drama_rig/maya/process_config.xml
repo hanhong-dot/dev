@@ -17,7 +17,7 @@
         <processItem order_id="1" projectType="all"
                      item_name="生成备份publish文件"
                      toolTip="备份publish文件"
-                     process_command="import apps.publish.process.maya.process_sgfile as process_sgfile;reload(process_sgfile);process_sgfile.back_publish(TaskData_Class)"
+                     process_command="import apps.publish.process.maya.process_sgfile as process_sgfile;reload(process_sgfile);process_sgfile.back_backup_publish(TaskData_Class)"
                      except_project=""
                      except_projectType=""
         />
