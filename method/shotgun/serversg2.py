@@ -447,7 +447,7 @@ class ServerSG(object):
 
     def _dbfile_create(self, db_type, db_file, project_name, task_type, entity_name, task_name, link_type,
                        sequence_name='', episode_name='', description='', sg_status_list='', down_path='', up_path='',
-                       returnfields=None, publish_file_type='', work_file='', ref_info='', file_data='',**kwargs):
+                       returnfields=None, publish_file_type='', work_file='', ref_info='', file_data='', **kwargs):
 
         """w'd'd
         :param db_type: publish,version
@@ -509,7 +509,7 @@ class ServerSG(object):
                                              task_data=_task_data, link_entity_data=_entity_data, user_data=_user_data,
                                              return_fields=returnfields, publish_file_type=_publish_file_data,
                                              down_path=_down_path, up_path=_up_path, description=description,
-                                             work_file=work_file, ref_info=ref_info,file_data=file_data)
+                                             work_file=work_file, ref_info=ref_info, file_data=file_data)
 
         if db_type == 'version':
             return sg_version.create_version(sg_login, version_file=db_file, description=description,
@@ -776,10 +776,16 @@ class ServerSG(object):
                     data_dic['upstream_step'] = 'wbx'
                 else:
                     data_dic['upstream_step'] = 'mod'
-                if __parent_asset:
-                    data_dic['parent_asset'] = __parent_asset
+                # if __parent_asset:
+                #     data_dic['parent_asset'] = __parent_asset
                 if __update_model:
                     data_dic['update_model'] = __update_model
+                parent_assets = self.__get_parent_assets('Asset', _entity_id)
+                if parent_assets:
+                    data_dic['parent_assets'] = parent_assets
+                else:
+                    data_dic['parent_assets'] = ''
+
                 send_jenkins_ok = False
                 count = 0
                 while count <= 100:
@@ -931,6 +937,22 @@ class ServerSG(object):
                 '_asis.fbx')) or publish_file.endswith('.json'):
                 _publish_files.append(publish_file)
         return _publish_files
+
+    def __get_parent_assets(self, entity_type, enity_id):
+        __parent_assets = []
+        __parent_str = ''
+        parent_assets = sg_base.select_entity(sg_login, entity_type, enity_id, fields=['parents'])
+        if not parent_assets or 'parents' not in parent_assets or not parent_assets['parents']:
+            return __parent_str
+        for parent_asset in parent_assets['parents']:
+            __parent_assets.append(parent_asset['name'])
+        if __parent_assets:
+            __parent_assets = list(set(__parent_assets))
+        if __parent_assets:
+            __parent_str = ','.join(__parent_assets)
+            if __parent_str.endswith(','):
+                __parent_str = __parent_str[:-1]
+        return __parent_str
 
     def __updata_entity_thumbnail(self, entity_id, entity_type, thumbnail):
         return sg_login.upload_thumbnail(entity_type, entity_id, thumbnail)
