@@ -265,7 +265,7 @@
                    except_projectType=""
                    ignore="True"/>
 
-        <checkItem order_id="26" projectType="all"
+        <checkItem order_id="27" projectType="all"
                    item_name="检测套装LD模型组是否隐藏(role)"
                    toolTip="检测套装LD模型组是否隐藏(role)"
                    check_command="import apps.publish.check.maya.asset.check_rig_LD_display as check_rig_LD_display;reload(check_rig_LD_display);check_rig_LD_display.Check(TaskData_Class).checkinfo()"
