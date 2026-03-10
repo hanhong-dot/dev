@@ -120,6 +120,12 @@ FirstMenu_Max2020Install:
   - MainIcon:
   - MainMethod: [ 'Z:/dev/tools/win_tools/tools/max2023_install.exe' ]
 
+FirstMenu_OpenClawInstall:
+  - MainTitle: 下载安装OpenClaw
+  - MainCMD: True
+  - MainIcon:
+  - MainMethod: [ 'Z:/dev/tools/win_tools/tools/openclaw_install.bat' ]
+
 #FirstMenu_Max2020Setup:
 #  - MainTitle: 配置3dmax2020
 #  - MainCMD: True
